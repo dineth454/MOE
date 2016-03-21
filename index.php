@@ -16,7 +16,7 @@
 <body>
 
 <?php
-    require("db_functions.php");
+    require("classes/Login.php");
 
     if (isset($_POST['signin'])) {
 
@@ -24,9 +24,13 @@
 
         $email = $_POST['inputEmail'];
         $password = $_POST['inputPassword'];
+		
+		// create login class instance
+		$loginData = new Login();
 
-        $result = login_data($email,$password);
-        //echo "kalinga";
+		//call login_data function in Login class
+        $result = $loginData->login_data($email,$password);
+       
 
         if($result == 1){
             header('location:home.php');
@@ -60,7 +64,7 @@
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" id="signin" name="signin" >Sign in</button>
-				<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" name="signUp" id="signUp" >Sign Up</button>
+				
             </form><!-- /form -->
 
             <a href="ForgatPasswordInterfase.php" class="forgot-password">

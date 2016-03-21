@@ -16,7 +16,7 @@
 <body>
 
 <?php
-    require("db_functions.php");
+    require("classes/Login.php");
 
     if (isset($_POST['updatePassword'])) {
 
@@ -29,11 +29,14 @@
         $reTypePassword = $_POST['inputReTypePassword'];
 
         if($email != '' && ($newpassword == $reTypePassword)){
-
-        	$result = updatePassword($email,$newpassword);
+			
+			//create login instance
+			$updatePassword  = new Login();
+			//call updatePassword methode
+        	$result = $updatePassword->updatePassword($email,$newpassword);
 
         	if($result == 1){
-            header('location:index.php');
+				header('location:index.php');
         	}
         }else{
 
