@@ -6,15 +6,15 @@ $mysqli = $db->getConnection();
 	
 	class Login{
 		
-		function login_data($email,$password){
+		function login_data($nic,$password){
 			global $mysqli;
 			$userOK =0;
-			$sqlquery = "SELECT * FROM user WHERE email = '$email' AND password ='$password'";
+			$sqlquery = "SELECT * FROM user WHERE nic = '$nic' AND password ='$password'";
 
 
-			$donorIDResult = $mysqli->query($sqlquery);	
-			$resultArray = mysqli_fetch_assoc($donorIDResult);
-			echo $resultArray['email'];
+			$loginQueryResult = $mysqli->query($sqlquery);	
+			$resultArray = mysqli_fetch_assoc($loginQueryResult);
+			echo $resultArray['nic'];
 			  if(sizeof($resultArray)!= 0){
 				$userOK =1;
 

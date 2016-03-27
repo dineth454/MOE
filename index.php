@@ -20,16 +20,16 @@
 
     if (isset($_POST['signin'])) {
 
-        $email = $password = "";
+        $nic = $password = "";
 
-        $email = $_POST['inputEmail'];
+        $nic = $_POST['nic'];
         $password = $_POST['inputPassword'];
 		
 		// create login class instance
 		$loginData = new Login();
 
 		//call login_data function in Login class
-        $result = $loginData->login_data($email,$password);
+        $result = $loginData->login_data($nic,$password);
        
 
         if($result == 1){
@@ -56,12 +56,10 @@
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address"  autofocus>
+                <input type="nic" id="nic" name="nic" class="form-control" placeholder="nic"  autofocus>
                 <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" >
                 <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
+                    
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" id="signin" name="signin" >Sign in</button>
 				

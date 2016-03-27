@@ -30,45 +30,7 @@
                             <tr class="hidden-md hidden-lg">
                             </tr>
                             <tr>
-                                <td>
-                                    <!-- only for lg and md-->
-                                    <div class="hidden-xs col-md-12 col-lg-12" style="width:240px; height:510px;"> 
-                                        <div class="hidden-xs col-md-12 col-lg-12 panel panel-default" style="width:240px; height:510px;">
-                                            <div class="hidden-xs col-md-12 col-lg-12 panel-body">
-                                                <div class="hidden-xs col-md-12 col-lg-12" style="width:190px; height:480px;background-color:#71C671;">
-                                                    <center> <label style="color: #000000; padding-top:35px; font-size:20px;"> ADMINISTRATOR </label>  <br/><br/> 
-
-                                                        <div class="glyphicon glyphicon-user" style="font-size:100px; color:#000000;"></div> <br/><br/> 
-                                                        <center> <a class="btn btn-default" style="width:135px;" href=""> <strong>  Edit Profile </strong>
-                                                            </a> </center>
-
-                                                        <br/>
-
-                                                        <span class="glyphicon glyphicon-cog" style="font-size:100px; color:#000000;"></span> <br/><br/> 
-                                                        <div class="btn-group" align="center" >
-                                                            <button class="btn btn-default" style="width: 165px">
-                                                                <a class="btn dropdown-toggle" data-toggle="dropdown" style="color:#000000">
-                                                                    <b> Admin Handling</b>
-                                                                    <span class="caret"></span>
-                                                                </a>
-
-                                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                                                    <li> <a  href=""> Create Admin</a> </li>
-                                                                    <li> <a  href=""> Remove Admin </a> </li>
-                                                                </ul>
-                                                            </button>    
-                                                        </div>
-
-
-                                                    </center>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!---end of lg and md div-->
-
-
-                                </td>
+                               
                                 <td class="hidden-xs col-md-12 col-lg-12">
                                     <div  class="hidden-xs col-md-12 col-lg-12" style="width:30px; height:510px; "> </div>
                                 </td>
