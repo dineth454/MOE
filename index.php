@@ -22,7 +22,7 @@
 
         $nic = $password = "";
 
-        $nic = $_POST['nic'];
+        $nic = $_POST['nicNumber'];
         $password = $_POST['inputPassword'];
 		
 		// create login class instance
@@ -54,9 +54,10 @@
            
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="return(validateForm())" >
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="nic" id="nic" name="nic" class="form-control" placeholder="nic"  autofocus>
+                <input type="nicNumber" id="nicNumber" name="nicNumber" class="form-control" placeholder="nicNumber"  autofocus>
+				<label id="errorNicNumber" style="font-size:10px"> </label>
                 <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" >
                 <div id="remember" class="checkbox">
                     
@@ -71,7 +72,52 @@
         </div><!-- /card-container -->
     </div><!-- /container -->
 	
+	<script type="text/javascript">
 	
+		function validateForm() {
+                var errors = [];
+				
+				var nicNumber = document.getElementById("nicNumber").value;
+                if (!validateNicNumber(nicNumber)) {
+                    errors.push("errorNicNumber");
+                }
+				
+				
+                if (errors.length > 0) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+				
+		}
+	
+	
+	
+		function validateNicNumber(text) {
+                var pattern = /^[0-9]{9}(V|v){1}/;
+                if (text == "" || text == null) {
+                    document.getElementById("nicNumber").focus();
+                    document.getElementById("nicNumber").style.borderColor = "red";
+                    document.getElementById("errorNicNumber").innerHTML = "required";
+                    document.getElementById("errorNicNumber").style.color = "red";
+                    return false;
+                }
+                else if ((pattern.test(text)) == false || text.length < 10) {
+                    document.getElementById("nicNumber").focus();
+                    document.getElementById("nicNumber").style.borderColor = "red";
+                    document.getElementById("errorNicNumber").innerHTML = "invalid type";
+                    document.getElementById("errorNicNumber").style.color = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById("nicNumber").style.borderColor = "green";
+                    document.getElementById("errorNicNumber").innerHTML = "";
+                    return true;
+                }
+            }
+	
+	</script>
 
 </body>
 
