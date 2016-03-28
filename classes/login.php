@@ -1,8 +1,8 @@
 <?php
 require("database/db.php");
 $db = Database::getInstance();
-
 $mysqli = $db->getConnection();
+
 	
 	class Login{
 		
@@ -24,6 +24,7 @@ $mysqli = $db->getConnection();
 }
 
 		function updatePassword($email,$password){
+			
 			global $mysqli;
 			$userUpdateOk = 0;
 			$sqlquery = "update user set password = '$password' where email = '$email' ";
