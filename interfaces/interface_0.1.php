@@ -9,13 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Home</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
+    <link href="../assets/css/smallbox.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,11 +68,47 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    <div class="col-lg-3">
+                        <!-- small box -->
+                        <div class="small-box aqua ">
+                            <div class="inner newstyle">
+                                <div><i>69</i>
+                                    <div class="icon pull-right">
+                                        <img src="../images/school.png">
+                                    </div>
+                                </div>
+                                <p>Schools</p>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <!-- small box -->
+                        <div class="small-box aqua ">
+                            <div class="inner newstyle">
+                                <div><i>69</i>
+                                    <div class="icon pull-right">
+                                        <img src="../images/school.png">
+                                    </div>
+                                </div>
+                                <p>Schools</p>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <!-- small box -->
+                        <div class="small-box aqua ">
+                            <div class="inner newstyle">
+                                <div><i>69</i>
+                                    <div class="icon pull-right">
+                                        <img src="../images/school.png">
+                                    </div>
+                                </div>
+                                <p>Schools</p>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
