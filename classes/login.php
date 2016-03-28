@@ -1,8 +1,8 @@
 <?php
 require("database/db.php");
 $db = Database::getInstance();
-$mysqli = $db->getConnection();
 
+$mysqli = $db->getConnection();
 	
 	class Login{
 		
