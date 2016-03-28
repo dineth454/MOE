@@ -10,11 +10,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping database structure for moe
-CREATE DATABASE IF NOT EXISTS `moe` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `moe`;
-
-
 -- Dumping structure for table moe.degree
 CREATE TABLE IF NOT EXISTS `degree` (
   `degreeID` int(11) NOT NULL AUTO_INCREMENT,
@@ -33,10 +28,16 @@ CREATE TABLE IF NOT EXISTS `designation` (
   `designationTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `designation` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`designationTypeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.designation: ~0 rows (approximately)
+-- Dumping data for table moe.designation: ~5 rows (approximately)
 /*!40000 ALTER TABLE `designation` DISABLE KEYS */;
+INSERT INTO `designation` (`designationTypeID`, `designation`) VALUES
+	(1, 'ministryOfficer'),
+	(2, 'provincial Officer'),
+	(3, 'zonal Officer'),
+	(4, 'principal'),
+	(5, 'teacher');
 /*!40000 ALTER TABLE `designation` ENABLE KEYS */;
 
 
@@ -51,9 +52,9 @@ CREATE TABLE IF NOT EXISTS `designation_history` (
   KEY `designationHistory_employeenic_idx` (`affectedUserID`),
   KEY `DesignationHistory_designationTypeID_idx` (`designationTypeID`),
   KEY `designationHistory_editedby_idx` (`editedBynic`),
+  CONSTRAINT `DesignationHistory_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `designationHistory_editedby` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `designationHistory_employeenic` FOREIGN KEY (`affectedUserID`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `DesignationHistory_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `designationHistory_employeenic` FOREIGN KEY (`affectedUserID`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table moe.designation_history: ~0 rows (approximately)
@@ -86,8 +87,17 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `instituteID` int(11) NOT NULL,
   `roleType` int(11) NOT NULL,
   `designationTypeID` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
+  `nameWithInitials` varchar(100) DEFAULT NULL,
+  `fullName` varchar(200) DEFAULT NULL,
   `employeementID` varchar(45) NOT NULL,
+  `email` varchar(60) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `currentAddress` varchar(200) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `marrigeState` varchar(10) DEFAULT NULL,
+  `mobileNum` int(10) DEFAULT NULL,
+  `landNo` int(10) DEFAULT NULL,
+  `image` blob,
   PRIMARY KEY (`nic`),
   KEY `employee_instituteID_idx` (`instituteID`),
   KEY `employee_roleTypeID_idx` (`roleType`),
@@ -97,8 +107,10 @@ CREATE TABLE IF NOT EXISTS `employee` (
   CONSTRAINT `employee_roleTypeID` FOREIGN KEY (`roleType`) REFERENCES `role_type` (`roleTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.employee: ~0 rows (approximately)
+-- Dumping data for table moe.employee: ~1 rows (approximately)
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` (`nic`, `instituteID`, `roleType`, `designationTypeID`, `nameWithInitials`, `fullName`, `employeementID`, `email`, `dob`, `currentAddress`, `gender`, `marrigeState`, `mobileNum`, `landNo`, `image`) VALUES
+	('921003072v', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', '1992-04-09', 'kandy', 'male', NULL, 719335699, NULL, NULL);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 
 
@@ -108,8 +120,8 @@ CREATE TABLE IF NOT EXISTS `employee_degree` (
   `degreeID` int(11) NOT NULL,
   PRIMARY KEY (`nic`,`degreeID`),
   KEY `emolyeeDegree_degreeID_idx` (`degreeID`),
-  CONSTRAINT `emolyeeDegree_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `emolyeeDegree_degreeID` FOREIGN KEY (`degreeID`) REFERENCES `degree` (`degreeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `emolyeeDegree_degreeID` FOREIGN KEY (`degreeID`) REFERENCES `degree` (`degreeID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `emolyeeDegree_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table moe.employee_degree: ~0 rows (approximately)
@@ -124,10 +136,12 @@ CREATE TABLE IF NOT EXISTS `institute` (
   PRIMARY KEY (`instituteID`),
   KEY `institute_instituteTypeID_idx` (`instituteTypeID`),
   CONSTRAINT `institute_instituteTypeID` FOREIGN KEY (`instituteTypeID`) REFERENCES `intitute_type` (`instituteTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.institute: ~0 rows (approximately)
+-- Dumping data for table moe.institute: ~1 rows (approximately)
 /*!40000 ALTER TABLE `institute` DISABLE KEYS */;
+INSERT INTO `institute` (`instituteID`, `instituteTypeID`) VALUES
+	(1, 1);
 /*!40000 ALTER TABLE `institute` ENABLE KEYS */;
 
 
@@ -136,10 +150,15 @@ CREATE TABLE IF NOT EXISTS `intitute_type` (
   `instituteTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `instituteType` varchar(100) NOT NULL,
   PRIMARY KEY (`instituteTypeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.intitute_type: ~0 rows (approximately)
+-- Dumping data for table moe.intitute_type: ~4 rows (approximately)
 /*!40000 ALTER TABLE `intitute_type` DISABLE KEYS */;
+INSERT INTO `intitute_type` (`instituteTypeID`, `instituteType`) VALUES
+	(1, 'ministry'),
+	(2, 'provinceOffice'),
+	(3, 'zonalOffice'),
+	(4, 'school');
 /*!40000 ALTER TABLE `intitute_type` ENABLE KEYS */;
 
 
@@ -167,9 +186,9 @@ CREATE TABLE IF NOT EXISTS `principal` (
   KEY `principal_employeenic_idx` (`nic`),
   KEY `pricipal_zonalOfficeID_idx` (`zonalOfficeID`),
   KEY `principal_ProvinceOfficeID_idx` (`provinceOfficerID`),
-  CONSTRAINT `principal_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `principal_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `principal_ProvinceOfficeID` FOREIGN KEY (`provinceOfficerID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `principal_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `principal_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table moe.principal: ~0 rows (approximately)
@@ -212,16 +231,23 @@ CREATE TABLE IF NOT EXISTS `role_type` (
   `roleTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `roleType` varchar(45) NOT NULL,
   PRIMARY KEY (`roleTypeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.role_type: ~0 rows (approximately)
+-- Dumping data for table moe.role_type: ~5 rows (approximately)
 /*!40000 ALTER TABLE `role_type` DISABLE KEYS */;
+INSERT INTO `role_type` (`roleTypeID`, `roleType`) VALUES
+	(1, 'sysAdmin'),
+	(2, 'role2'),
+	(3, 'role3'),
+	(4, 'role4'),
+	(5, 'role5');
 /*!40000 ALTER TABLE `role_type` ENABLE KEYS */;
 
 
 -- Dumping structure for table moe.school
 CREATE TABLE IF NOT EXISTS `school` (
   `schoolID` int(11) NOT NULL AUTO_INCREMENT,
+  `schoolName` varchar(150) NOT NULL DEFAULT '0',
   `instituteID` int(11) NOT NULL,
   `provinceOfficeID` int(11) NOT NULL,
   `zonalOfficeID` int(11) NOT NULL,
@@ -232,10 +258,10 @@ CREATE TABLE IF NOT EXISTS `school` (
   KEY `school_schooltypeID_idx` (`schoolTypeID`),
   KEY `school_zonalID_idx` (`zonalOfficeID`),
   KEY `school_provinceID_idx` (`provinceOfficeID`),
-  CONSTRAINT `school_zonalID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `school_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `schoolInstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `school_schooltypeID` FOREIGN KEY (`schoolTypeID`) REFERENCES `school_type` (`schoolTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `school_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `school_schooltypeID` FOREIGN KEY (`schoolTypeID`) REFERENCES `school_type` (`schoolTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `school_zonalID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table moe.school: ~0 rows (approximately)
@@ -315,8 +341,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   CONSTRAINT `user_roleType` FOREIGN KEY (`roleTypeID`) REFERENCES `role_type` (`roleTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.user: ~0 rows (approximately)
+-- Dumping data for table moe.user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
+	('921003072v', 'Myvilage', 1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 
@@ -347,8 +375,8 @@ CREATE TABLE IF NOT EXISTS `zonal_office` (
   PRIMARY KEY (`zonalID`),
   KEY `zonal_instituteID_idx` (`instituteID`),
   KEY `zonal_provinceID_idx` (`provinceOfficeID`),
-  CONSTRAINT `zonal_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `zonal_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `zonal_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `zonal_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table moe.zonal_office: ~0 rows (approximately)
@@ -364,8 +392,8 @@ CREATE TABLE IF NOT EXISTS `zonal_officer` (
   PRIMARY KEY (`zonalOfficerID`),
   KEY `zonalOfficer_employeeID_idx` (`nic`),
   KEY `zonalOfficer_provinceOfficeID_idx` (`provinceOfficeID`),
-  CONSTRAINT `zonalOfficer_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `zonalOfficer_employeeID` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `zonalOfficer_employeeID` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `zonalOfficer_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table moe.zonal_officer: ~0 rows (approximately)
