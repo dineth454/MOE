@@ -36,8 +36,8 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Admin
+                    <a href="#" style="height: 80px;">
+                        GTMS
                     </a>
                 </li>
                 <li>
@@ -64,10 +64,18 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
+        <nav class="navbar navbar-default" style="height: 60px;">
+            <div class="col-md-3 pull-right">Nipuna Jayaweera <div class="pull-right"><i>Sign out</i></div></div>
 
+        </nav>
         <!-- Page Content -->
         <div id="page-content-wrapper">
+            
             <div class="container-fluid">
+                
+
+
+
                 <div class="row">
                     <div class="col-lg-3">
                         <!-- small box -->
