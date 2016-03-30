@@ -20,11 +20,11 @@ require("dbcon.php");
 				}
         		
         		if($roleType==1){
-        			header("Location: admin.php"); /* Redirect browser */
+        			header("Location: classes/admin.php"); /* Redirect browser */
 					exit();
         		}
         		else if($roleType==2){
-        			header("Location: teacher.php"); /* Redirect browser */
+        			header("Location: classes/teacher.php"); /* Redirect browser */
 					exit();
         		}
 
