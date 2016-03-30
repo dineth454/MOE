@@ -2,22 +2,32 @@
 require("database/db.php");
 $db = Database::getInstance();
 $mysqli = $db->getConnection();
+$q = "";
+
+
 	
 	class Employee{
 		
-		
+		// loadRoles for addEmployee.php file
 		function loadRoles(){
 			global $mysqli;
-			//echo 'load roles athule';
+			echo 'load roles athule';
 			
 			$sqlQuery = "select * from role_type";
 			$roleTypeResult = $mysqli->query($sqlQuery);
 			
-			///$resultRoleArray = mysqli_fetch_assoc($roleTypeResult);
+			$resultRoleArray = mysqli_fetch_all($roleTypeResult);
+			
+			//print_r($resultRoleArray);
+			/*foreach($resultRoleArray as $array){
+				echo $array['roleTypeID'];
+				echo '</br>';
+				echo 'kalinga';
+			}*/
 			
 			return $roleTypeResult;
 		}
-		
+		// loadinstitute for addEmployee.php file
 		function loadInstitutes(){
 			global $mysqli;
 			$sqlQuery = "select * from intitute_type";
@@ -29,6 +39,8 @@ $mysqli = $db->getConnection();
 			
 		}
 		
+		//Load Designation for add employee.php file
+		
 		function loadDesignation(){
 			global $mysqli;
 			$sqlQuery = "select * from designation";
@@ -39,6 +51,23 @@ $mysqli = $db->getConnection();
 			return $designationTypeResult;
 			
 		}
+		
+		
+		//load zonal offices for according to provinceID
+		/*function loadZonalOffices(){
+			$q = intval($_GET['q']);
+			global $mysqli;
+			$sqlQuery = "select instituteID,zonalName from zonal_office where provinceOfficeID = '".$q."'";
+			
+			$zonalOfficeResult = $mysqli->query($sqlQuery);
+			
+			echo "load function eka athule";
+			$result = mysqli_fetch_all($zonalOfficeResult);
+			return $result;
+			
+		}*/
+		
+		
 	}
 
 ?>

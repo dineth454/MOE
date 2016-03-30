@@ -136,12 +136,20 @@ CREATE TABLE IF NOT EXISTS `institute` (
   PRIMARY KEY (`instituteID`),
   KEY `institute_instituteTypeID_idx` (`instituteTypeID`),
   CONSTRAINT `institute_instituteTypeID` FOREIGN KEY (`instituteTypeID`) REFERENCES `intitute_type` (`instituteTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.institute: ~1 rows (approximately)
+-- Dumping data for table moe.institute: ~9 rows (approximately)
 /*!40000 ALTER TABLE `institute` DISABLE KEYS */;
 INSERT INTO `institute` (`instituteID`, `instituteTypeID`) VALUES
-	(1, 1);
+	(1, 1),
+	(2, 2),
+	(3, 2),
+	(4, 2),
+	(5, 2),
+	(6, 2),
+	(7, 3),
+	(8, 3),
+	(9, 4);
 /*!40000 ALTER TABLE `institute` ENABLE KEYS */;
 
 
@@ -202,13 +210,20 @@ CREATE TABLE IF NOT EXISTS `province_office` (
   `instituteID` int(11) NOT NULL,
   `province` varchar(45) NOT NULL,
   `numOfEmployees` int(11) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`provinceID`),
   KEY `province_InstituteID_idx` (`instituteID`),
   CONSTRAINT `province_InstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.province_office: ~0 rows (approximately)
+-- Dumping data for table moe.province_office: ~5 rows (approximately)
 /*!40000 ALTER TABLE `province_office` DISABLE KEYS */;
+INSERT INTO `province_office` (`provinceID`, `instituteID`, `province`, `numOfEmployees`, `name`) VALUES
+	(1, 2, 'centralProvince', 100, 'centralProvinceEdu'),
+	(2, 3, 'westernProvince', 150, 'westernProvinceEdu'),
+	(3, 4, 'sothernProvince', 100, 'sothernProvinceEdu'),
+	(4, 5, 'NothernProvince', 150, 'NothernProvinceEdu'),
+	(5, 6, 'esternProvince', 100, 'esternProvinceEdu');
 /*!40000 ALTER TABLE `province_office` ENABLE KEYS */;
 
 
@@ -258,14 +273,16 @@ CREATE TABLE IF NOT EXISTS `school` (
   KEY `school_schooltypeID_idx` (`schoolTypeID`),
   KEY `school_zonalID_idx` (`zonalOfficeID`),
   KEY `school_provinceID_idx` (`provinceOfficeID`),
-  CONSTRAINT `schoolInstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `school_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `school_schooltypeID` FOREIGN KEY (`schoolTypeID`) REFERENCES `school_type` (`schoolTypeID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `school_zonalID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `schoolInstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `school_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `school_schooltypeID` FOREIGN KEY (`schoolTypeID`) REFERENCES `school_type` (`schoolTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `school_zonalID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.school: ~0 rows (approximately)
+-- Dumping data for table moe.school: ~1 rows (approximately)
 /*!40000 ALTER TABLE `school` DISABLE KEYS */;
+INSERT INTO `school` (`schoolID`, `schoolName`, `instituteID`, `provinceOfficeID`, `zonalOfficeID`, `schoolTypeID`, `numOfStudents`) VALUES
+	(1, 'cwwKannangaramahavidyalaya', 8, 1, 1, 1, 250);
 /*!40000 ALTER TABLE `school` ENABLE KEYS */;
 
 
@@ -274,10 +291,12 @@ CREATE TABLE IF NOT EXISTS `school_type` (
   `schoolTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `schoolType` varchar(100) NOT NULL,
   PRIMARY KEY (`schoolTypeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.school_type: ~0 rows (approximately)
+-- Dumping data for table moe.school_type: ~1 rows (approximately)
 /*!40000 ALTER TABLE `school_type` DISABLE KEYS */;
+INSERT INTO `school_type` (`schoolTypeID`, `schoolType`) VALUES
+	(1, 'Mix');
 /*!40000 ALTER TABLE `school_type` ENABLE KEYS */;
 
 
@@ -316,10 +335,13 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `zonalOfficeID` int(11) NOT NULL,
   `provinceOfficeID` int(11) NOT NULL,
   `currentState` varchar(45) NOT NULL DEFAULT 'working',
+  `appoinmentSubject` int(2) NOT NULL,
   PRIMARY KEY (`teachetID`),
   KEY `teacher_employeenic_idx` (`nic`),
   KEY `teacher_zonalOfficeID_idx` (`zonalOfficeID`),
   KEY `teacher_provinceOfficeID_idx` (`provinceOfficeID`),
+  KEY `teacher_appoinmentSubjectID` (`appoinmentSubject`),
+  CONSTRAINT `teacher_appoinmentSubjectID` FOREIGN KEY (`appoinmentSubject`) REFERENCES `subject` (`subjectID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `teacher_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `teacher_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `teacher_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -369,18 +391,21 @@ CREATE TABLE IF NOT EXISTS `working_history` (
 -- Dumping structure for table moe.zonal_office
 CREATE TABLE IF NOT EXISTS `zonal_office` (
   `zonalID` int(11) NOT NULL AUTO_INCREMENT,
+  `zonalName` varchar(100) NOT NULL,
   `instituteID` int(11) NOT NULL,
   `provinceOfficeID` int(11) NOT NULL,
-  `numOfEmployees` int(11) DEFAULT NULL,
   PRIMARY KEY (`zonalID`),
   KEY `zonal_instituteID_idx` (`instituteID`),
   KEY `zonal_provinceID_idx` (`provinceOfficeID`),
   CONSTRAINT `zonal_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `zonal_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.zonal_office: ~0 rows (approximately)
+-- Dumping data for table moe.zonal_office: ~2 rows (approximately)
 /*!40000 ALTER TABLE `zonal_office` DISABLE KEYS */;
+INSERT INTO `zonal_office` (`zonalID`, `zonalName`, `instituteID`, `provinceOfficeID`) VALUES
+	(1, 'waththegama', 7, 1),
+	(2, 'pathadumbara', 8, 1);
 /*!40000 ALTER TABLE `zonal_office` ENABLE KEYS */;
 
 

@@ -29,10 +29,18 @@
 	
 		nicNumber : <input type="text" name ="nic" required id="nic" /><br><br>
 	role: <select>
+	
+	<!-- load roles --> 
 	<option value="">Select Role</option>
 	<?php 
 	
 		$roleTypeResult = $employee->loadRoles();
+		
+	/*	foreach($roleTypeResult as $row){
+			
+			echo '<option value="'.$row['roleTypeID'].'" >'.$row['roleType'].'</option>';
+			
+		}*/
 		if(mysqli_num_rows($roleTypeResult) > 0 ){
 				while($row = mysqli_fetch_assoc($roleTypeResult)){
 					
@@ -45,25 +53,12 @@
 		
 	?>
 		</select>	<br><br>
-	institute: <select>
-	<option value="">Select Institute</option>
-			<?php 
-			$instituteTypeResult = $employee->loadInstitutes();
-				
-					if(mysqli_num_rows($instituteTypeResult) > 0 ){
-						while($row = mysqli_fetch_assoc($instituteTypeResult)){
-							
-							echo '<br>';
-							echo '<option value="'.$row['instituteTypeID'].'" >'.$row['instituteType'].'</option>';
-						}
-						
-					}
-	
-	?>
-			
 		
-	</select>	<br><br>
-	
+		<!-- end load roles -->
+		
+		
+		<!-- load designations -->
+		
 	Designation: <select id="designation" name = "designation" onchange="selectionForm(this.value)">
 	<option value="none">Select Designation</option>
 			<?php 
@@ -85,21 +80,30 @@
 			
 			</select>
 			<br><br>
+		<!-- end load designations --> 
 			<!-- hidden forms -->
 			
 		<div id="provinceHiddenForm">
-			province Office : 	<select>
-				<option value="none">Select ProvinceOffice</option>
+			province Office : 	<select onchange="showUser(this.value)">
+				<option value="">Select ProvinceOffice</option>
+				<option value="1">centralProvince</option>
+				<option value="2">westernProvince</option>
+				<option value="3">sothernProvince</option>
+				<option value="4">NothernProvince</option>
+				<option value="6">esternProvince</option>
 			</select>
 		</div>
 		<div id = "zonalOfficeHidden">
-			Zonal Office : <select>
-				<option value="none">Select Zonal Office</option>
-			</select>
+			Zonal Office : <select  id="abc"> </select>
 		</div>
 		<div id = "schoolHidden">
 			School : <select>
 				<option value="none">Select School</option>
+			</select>
+		</div>
+		<div id = "subjectHidden">
+			Appoinment Subject : <select>
+				<option value="none">Select subject</option>
 			</select>
 		</div>
 		<!--end hidden forms -->
@@ -132,51 +136,6 @@
 	</form>
 	
 	<script src = "assets/js/jquery-2.1.4.min.js"></script>
-	
-	
-	<script type="text/javascript">
-		$(document).ready(function(){
-			document.getElementById("provinceHiddenForm").style.visibility = 'hidden';
-			document.getElementById("zonalOfficeHidden").style.visibility = 'hidden';
-			document.getElementById("schoolHidden").style.visibility = 'hidden';
-});
-	</script>
-	
-	<script type="text/javascript">
-		
-		function selectionForm(val){
-			if(val == "5" || val == "4"){
-				document.getElementById('schoolHidden').style.visibility = 'visible';
-				document.getElementById('zonalOfficeHidden').style.visibility = 'visible';
-				document.getElementById('provinceHiddenForm').style.visibility = 'visible';
-			}
-			else if(val == "3"){
-				document.getElementById('zonalOfficeHidden').style.visibility = 'visible';
-				document.getElementById('schoolHidden').style.visibility = 'hidden';
-				document.getElementById('provinceHiddenForm').style.visibility = 'visible';
-			}else if(val == "2"){
-				document.getElementById('provinceHiddenForm').style.visibility = 'visible';
-				document.getElementById('schoolHidden').style.visibility = 'hidden';
-				document.getElementById('zonalOfficeHidden').style.visibility = 'hidden';
-			}else if(val == "1"){
-				document.getElementById('schoolHidden').style.visibility = 'hidden';
-				document.getElementById('zonalOfficeHidden').style.visibility = 'hidden';
-				document.getElementById('provinceHiddenForm').style.visibility = 'hidden';
-			}else{
-				
-				alert('select a value');
-			}
-		}
-		
-		
-		function validationForm(){
-			
-			//alert('kalinga');
-		}
-		
-	
-	</script>
-	
-	
-	
+	<script src = "assets/js/addEmployee.js"></script>
+
 </body>
