@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 -- Dumping structure for table moe.user
 CREATE TABLE IF NOT EXISTS `user` (
   `nic` varchar(12) NOT NULL,
-  `password` varchar(12) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `roleTypeID` int(11) NOT NULL,
   PRIMARY KEY (`nic`),
   KEY `user_roleType_idx` (`roleTypeID`),
@@ -344,7 +344,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table moe.user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
-	('921003072v', 'Myvilage', 1);
+	('777', 'fc7a734dba518f032608dfeb04f4eeb79f025aa7', 1);
+INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
+  ('555', 'cfa1150f1787186742a9a884b73a43d8cf219f9b', 2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 
