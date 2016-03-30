@@ -26,7 +26,7 @@
 {
     border-radius: 2px;
 }
-.small-box>.icon>img:hover
+.small-box>.inner>.e>.icon>img:hover
 {
     width:98px;
     padding-left:2px;
