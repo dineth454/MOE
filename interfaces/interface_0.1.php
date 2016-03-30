@@ -17,6 +17,7 @@
     <!-- Custom CSS -->
     <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
     <link href="../assets/css/smallbox.css" rel="stylesheet">
+    <link href="../assets/css/footer.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,7 +73,7 @@
                         <!-- small box -->
                         <div class="small-box aqua ">
                             <div class="inner newstyle">
-                                <div><i>69</i>
+                                <div class="e"><i>69</i>
                                     <div class="icon pull-right">
                                         <img src="../images/school.png">
                                     </div>
@@ -86,12 +87,12 @@
                         <!-- small box -->
                         <div class="small-box aqua ">
                             <div class="inner newstyle">
-                                <div><i>69</i>
+                                <div class="e"><i>298</i>
                                     <div class="icon pull-right">
-                                        <img src="../images/school.png">
+                                        <img src="../images/mmm.png">
                                     </div>
                                 </div>
-                                <p>Schools</p>
+                                <p>Teachers</p>
                             </div>
                             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
@@ -100,12 +101,12 @@
                         <!-- small box -->
                         <div class="small-box aqua ">
                             <div class="inner newstyle">
-                                <div><i>69</i>
+                                <div class="e"><i>173</i>
                                     <div class="icon pull-right">
                                         <img src="../images/school.png">
                                     </div>
                                 </div>
-                                <p>Schools</p>
+                                <p>Users</p>
                             </div>
                             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
@@ -118,6 +119,23 @@
     </div>
     <!-- /#wrapper -->
 
+<!--footer-->
+    <footer>
+        <div class="footer">
+            <div class="col-md-4 col-md-offset-4">
+                <li class="about" >
+                    <ul>
+                        <li><a href="#" class="footer-icon" target="_blank">Contact us</a></li>
+                        <li><a href="#" class="footer-icon" target="_blank">About us</a></li>
+                        <li><a href="#" class="footer-icon" target="_blank">Home</a></li>
+                    </ul>
+                </li>
+            </div>
+            <div class="col-md-2 col-md-offset-2">
+                
+            </div>
+        </div>
+    </footer>
     <!-- jQuery -->
     <script src="../assets/js/jquery.js"></script>
 
