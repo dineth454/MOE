@@ -1,8 +1,8 @@
 <?php 
-require("database/db.php");
-$db = Database::getInstance();
-$mysqli = $db->getConnection();
-$q = "";
+require("dbcon.php");
+$db = new DBCon();
+$mysqli = $db->connection();
+
 
 
 	
@@ -16,7 +16,7 @@ $q = "";
 			$sqlQuery = "select * from role_type";
 			$roleTypeResult = $mysqli->query($sqlQuery);
 			
-			$resultRoleArray = mysqli_fetch_all($roleTypeResult);
+			//$resultRoleArray = mysqli_fetch_all($roleTypeResult);
 			
 			//print_r($resultRoleArray);
 			/*foreach($resultRoleArray as $array){

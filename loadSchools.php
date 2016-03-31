@@ -10,13 +10,13 @@ if (!$con) {
 
 // select data from database
 
-$sql="select instituteID,zonalName from zonal_office where provinceOfficeID = '".$q."'";
+$sql="select instituteID,schoolName from school where zonalOfficeID = '".$q."'";
 $result = mysqli_query($con,$sql);
 
-echo "<select >";
+echo "<select>";
 while($row = mysqli_fetch_array($result)) {
     //print_r($row);
-    echo '<option value="'.$row['instituteID'].'" >'.$row['zonalName'].'</option>';
+    echo '<option value="'.$row['instituteID'].'" >'.$row['schoolName'].'</option>';
 	
 	//echo "\r\n";
 }
