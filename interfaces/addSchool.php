@@ -84,7 +84,13 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
+        <nav class="navbar navbar-default" style="height: 60px;">
+            <div class="col-md-3 pull-right" style="margin-top: 18px;">
+                Nipuna Jayaweera 
+            <div class="pull-right"><i>Sign out</i></div>
+            </div>
 
+        </nav>
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
