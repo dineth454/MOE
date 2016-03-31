@@ -2,8 +2,8 @@
 
 class DBCon{
 	var $host = "localhost";
-	var $user = "root";
-	var $pass = "";
+	var $user = "gtmsadmin";
+	var $pass = "1234";
 	var $db = "moe";
 	var $myconn;
 
