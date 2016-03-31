@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
+    <link href="../assets/css/home.css" rel="stylesheet">
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
 
@@ -41,33 +42,22 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a class="active" href="#">Home</a>
                 </li>
                 <li>
                     <a href="#">Shortcuts</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a href="mapview.php">Map view</a>
                 </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+                
             </ul>
-        </div>k
+        </div>
         <!-- /#sidebar-wrapper -->
-        <nav class="navbar navbar-default" style="height: 60px;">
+        <nav class="navbar navbar-default" style="height: 65px; border-radius:0px;">
             <div class="col-md-3 pull-right" style="margin-top: 18px;">
                 Nipuna Jayaweera 
-            <div class="pull-right"><i>Sign out</i></div>
+            <div class="pull-right"><a >Sign out</a></div>
             </div>
 
         </nav>
@@ -153,13 +143,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../assets/js/bootstrap.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+    
 
 </body>
 
