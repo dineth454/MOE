@@ -94,12 +94,10 @@
 			</select>
 		</div>
 		<div id = "zonalOfficeHidden">
-			Zonal Office : <select  id="abc"> </select>
+			Zonal Office : <select  id="abc" > </select>
 		</div>
 		<div id = "schoolHidden">
-			School : <select>
-				<option value="none">Select School</option>
-			</select>
+			School : <select id="abcd" ></select>
 		</div>
 		<div id = "subjectHidden">
 			Appoinment Subject : <select>
