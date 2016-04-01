@@ -11,21 +11,20 @@ $mysqli = $db->connection();
 		// loadRoles for addEmployee.php file
 		function loadRoles(){
 			global $mysqli;
+			
 			echo 'load roles athule';
 			
 			$sqlQuery = "select * from role_type";
 			$roleTypeResult = $mysqli->query($sqlQuery);
-			
-			//$resultRoleArray = mysqli_fetch_all($roleTypeResult);
-			
-			//print_r($resultRoleArray);
-			/*foreach($resultRoleArray as $array){
-				echo $array['roleTypeID'];
-				echo '</br>';
-				echo 'kalinga';
-			}*/
-			
-			return $roleTypeResult;
+			$resultRoleArray = mysqli_fetch_all($roleTypeResult);
+					print_r($resultRoleArray);
+					foreach($resultRoleArray as $array){
+					print_r( $array['roleType']);
+					echo '</br>';
+				//echo 'kalinga';
+			}
+			//return $roleTypeResult;
+			return $resultRoleArray;
 		}
 		// loadinstitute for addEmployee.php file
 		function loadInstitutes(){

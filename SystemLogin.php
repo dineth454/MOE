@@ -27,7 +27,7 @@ if(isset($_POST["submit"])){
 		<div class="textbox">
 			<h3 style="margin-left: 170px;font-size: 30;">LOGIN</h3>
 			<div class="login-text">
-				<form action="home.html">
+				<form action="home.html" method = "POST">
 					<div class="text-field">Username: <input style="margin-left: 30px;height: 23px;" type="text" name="username"><br></div>
 					<div class="text-field">Password: <input style="margin-left: 34px;height: 23px;" type="password" name="password"><br></div>
 					<div style="margin-top:16;">

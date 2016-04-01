@@ -32,16 +32,25 @@
 	
 	<!-- load roles --> 
 	<option value="">Select Role</option>
-	<?php 
 	
-		$roleTypeResult = $employee->loadRoles();
 		
-	/*	foreach($roleTypeResult as $row){
+				<option value="1">sysAdmin</option>
+				<option value="2">role2</option>
+				<option value="3">role3</option>
+				<option value="4">role5</option>
+				<option value="5">role6</option>
+	
+	<?php 
+		
+		/*$roleTypeResult = $employee->loadRoles();
+		
+		foreach($roleTypeResult as $row){
 			
 			echo '<option value="'.$row['roleTypeID'].'" >'.$row['roleType'].'</option>';
 			
 		}*/
-		if(mysqli_num_rows($roleTypeResult) > 0 ){
+		
+		/*if(mysqli_num_rows($roleTypeResult) > 0 ){
 				while($row = mysqli_fetch_assoc($roleTypeResult)){
 					
 					echo $row['roleType'];
@@ -49,7 +58,7 @@
 					echo '<option value="'.$row['roleTypeID'].'" >'.$row['roleType'].'</option>';
 				}
 				
-			}
+			}*/
 		
 	?>
 		</select>	<br><br>
@@ -61,7 +70,16 @@
 		
 	Designation: <select id="designation" name = "designation" onchange="selectionForm(this.value)">
 	<option value="none">Select Designation</option>
+	
+				<option value="1">ministryOfficer</option>
+				<option value="2">provincial Officer</option>
+				<option value="3">zonal Officer</option>
+				<option value="4">principal</option>
+				<option value="5">teacher</option>
+				
 			<?php 
+			
+			/*
 				//$sqlQuery = "select * from designation";
 				
 				//$designationResult = $mysqli->query($sqlQuery);
@@ -75,7 +93,7 @@
 						}
 						
 					}
-	
+			*/
 			?>
 			
 			</select>
@@ -90,7 +108,7 @@
 				<option value="2">westernProvince</option>
 				<option value="3">sothernProvince</option>
 				<option value="4">NothernProvince</option>
-				<option value="6">esternProvince</option>
+				<option value="5">esternProvince</option>
 			</select>
 		</div>
 		<div id = "zonalOfficeHidden">
@@ -109,8 +127,9 @@
 	
 	nameWithInitials : <input type="text" name ="name" id="name" /><br><br>
 	Full Name :  <input type="text" name ="fName" id="fName" /><br><br>
-	Employement Id :  <input type="text" name ="eId" id="eId" /><br><br>
-	email : <input type="email" name ="email" id="email" required /><br><br>
+	<!--Employement Id :  <input type="text" name ="eId" id="eId" /><br><br> -->
+	
+	email : <input type="email" name ="email" id="email"  /><br><br>
 	dob : <input type="date" name ="email" id="email" /><br><br>
 	Current Address : <input type="text" name ="email" id="email" /><br><br>
 	Gender: <select>
@@ -125,8 +144,8 @@
 			<option value="3">No</option>
 			</select>	<br><br>
 			
-	mobileNum : <input type="text" name ="mobileNm" id="mobileNm" /><br><br>		
-	landNo : <input type="text" name ="landNo" id="landNo" /><br><br>
+	mobileNumber : <input type="text" name ="mobileNm" id="mobileNm" /><br><br>		
+	<!--landNo : <input type="text" name ="landNo" id="landNo" /><br><br> -->
 	
 	<button type="submit" name="submit" id="submit">Submit</button>
 	

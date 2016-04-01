@@ -16,7 +16,7 @@
 <body>
 
 <?php
-    require("classes/login.php");
+    require("classes/loginClass.php");
 
     if (isset($_POST['signin'])) {
 
@@ -29,7 +29,7 @@
 		$loginData = new Login();
 
 		//call login_data function in Login class
-        $result = $loginData->login_data($nic,$password);
+        $result = $loginData->sysLog($nic,$password);
        
 
         if($result == 1){
