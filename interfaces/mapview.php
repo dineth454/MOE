@@ -62,10 +62,10 @@
 
         </nav>
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="min-height: 550px;">
             
             <div class="container-fluid">
-                
+                <div id="googleMap" style="width:500px;height:500px;"></div>
 
 
 
@@ -80,16 +80,14 @@
     <footer>
         <div class="footer">
             <div class="col-md-6 col-md-offset-2">
-                <li class="about" >
-                    <ul>
-                        <li><a href="#" class="footer-icon" target="_blank">Contact us</a></li>
-                        <li><a href="#" class="footer-icon" target="_blank">About us</a></li>
-                        <li><a href="#" class="footer-icon" target="_blank">Home</a></li>
-                    </ul>
-                </li>
+                <ul class="footer-nav">
+                    <li><a href="AboutUs.aspx">About</a></li>
+                    <li><a href="Help.aspx">Help</a></li>
+                    <li><a href="AdminSitemap.aspx">Site map</a></li>
+                </ul>
             </div>
             <div class="col-md-2 col-md-offset-2"> 
-                <div style="margin-top: 25px;">
+                <div>
                 <a href="#" style="margin-left: 50px;">Developer site</a>
                 <img class="pull-right" src="../images/visa.png" style="width: 30px;">
                 </div>
@@ -102,7 +100,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../assets/js/bootstrap.min.js"></script>
 
-    
+    <script src="../assets/js/googlemap.js"></script>
+
 </body>
 
 </html>

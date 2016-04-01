@@ -1,9 +1,9 @@
 .footer {
-  position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  height: 60px;
+  padding: 2rem;
   background-color: #333333;
   text-align: center;
 }
@@ -13,4 +13,23 @@
     padding-top: 5px;
     padding-bottom: 5px;
 
+}
+
+.footer-nav{
+	text-align: end;
+	list-style: none;
+}
+.footer-nav li{
+	 display: inline;
+}
+.footer-nav li:not(:first-child):before{
+	content: '|';
+	padding: 0px 10px;
+}
+.footer-nav a{
+	color:#b2b2b2;
+}
+.footer-nav a:hover{
+	color: #fff;
+	text-decoration: none;
 }

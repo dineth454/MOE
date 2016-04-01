@@ -62,7 +62,7 @@
 
         </nav>
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="min-height: 540px;">
             
             <div class="container-fluid">
                 
@@ -123,17 +123,18 @@
 <!--footer-->
     <footer>
         <div class="footer">
-            <div class="col-md-4 col-md-offset-4">
-                <li class="about" >
-                    <ul>
-                        <li><a href="#" class="footer-icon" target="_blank">Contact us</a></li>
-                        <li><a href="#" class="footer-icon" target="_blank">About us</a></li>
-                        <li><a href="#" class="footer-icon" target="_blank">Home</a></li>
-                    </ul>
-                </li>
+            <div class="col-md-6 col-md-offset-2">
+                <ul class="footer-nav">
+                    <li><a href="AboutUs.aspx">About</a></li>
+                    <li><a href="Help.aspx">Help</a></li>
+                    <li><a href="AdminSitemap.aspx">Site map</a></li>
+                </ul>
             </div>
-            <div class="col-md-2 col-md-offset-2">
-                
+            <div class="col-md-2 col-md-offset-2"> 
+                <div>
+                <a href="#" style="margin-left: 50px;">Developer site</a>
+                <img class="pull-right" src="../images/visa.png" style="width: 30px;">
+                </div>
             </div>
         </div>
     </footer>
