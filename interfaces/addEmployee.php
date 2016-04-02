@@ -76,7 +76,7 @@
 
             if (isset($_POST['submit'])) {
                 $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $dob = $currentAddress = $gender = $marrigeState = $mobileNum =  "";
-				$provinceID = $zoneID = $schoolId = $subject = "";
+				$provinceID = $zoneID = $schoolId = $subjectID = "";
 				$nic = $_POST['nic'];
 				$roleType = $_POST['select_role'];
 				$designation = $_POST['designation'];
@@ -108,12 +108,12 @@
 					$provinceID = $_POST['provinceID'];
 					$zoneID = $_POST['zonalID'];
 					$schoolId = $_POST['schoolId'];
-					$schoolID = $_POST['subject'];
+					$subjectID = $_POST['subject'];
 				}else{
 					$designation = $_POST['designation'];
 				}
 				
-				$result = $employee->addEmployee($nic,$roleType,$designation,$nameInitials,$fName,$empID,$email,$dob,$currentAddress,$gender,$marrigeState,$mobileNum,$provinceID,$zoneID,$schoolId,$subject);
+				$result = $employee->addEmployee($nic,$roleType,$designation,$nameInitials,$fName,$empID,$email,$dob,$currentAddress,$gender,$marrigeState,$mobileNum,$provinceID,$zoneID,$schoolId,$subjectID);
 				
 				
 				
@@ -245,7 +245,7 @@
                                        </div>
 									
 										<div id="subjectHidden">
-											Appoinment Subject : <select name = "subject" id = "subject" class="form-control required">
+											Appoinment Subject : <select class="form-control required" name="subject" id="subject" >
 											<option value="none">Select subject</option>
 											<option value="1">Mathematics</option>
 											</select>
