@@ -70,7 +70,7 @@
 		
 		function loadSchool(str){
 			//alert('dfdgw');
-			//alert(str);
+			alert(str);
 			if (str=="") {
 				document.getElementById("abcd").innerHTML="";
 				return;

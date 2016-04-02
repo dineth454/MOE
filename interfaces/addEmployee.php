@@ -75,9 +75,52 @@
             $employee = new Employee();
 
             if (isset($_POST['submit'])) {
-                $nic = "";
-                $nic = $_POST['nic'];
-                echo $nic;
+                $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $dob = $currentAddress = $gender = $marrigeState = $mobileNum =  "";
+				$provinceID = $zoneID = $schoolId = $subject = "";
+				$nic = $_POST['nic'];
+				$roleType = $_POST['select_role'];
+				$designation = $_POST['designation'];
+				$nameInitials = $_POST['name'];
+				$fname = $_POST['fname'];
+				$empID = $_POST['eId'];
+				$email = $_POST['email'];
+				$dob = $_POST['dob'];
+				$currentAddress = $_POST['address'];
+				$gender = $_POST['gender'];
+				$marrigeState = $_POST['marrrige'];
+				$mobileNum = $_POST['mobileNm'];
+				
+				
+				//echo $designation;
+				
+				if($designation == '2'){
+					$provinceID = $_POST['provinceID'];
+				}
+				else if($designation == '3'){
+					$provinceID = $_POST['provinceID'];
+					$zoneID = $_POST['zonalID'];
+					
+				}else if($designation == '4'){
+					$provinceID = $_POST['provinceID'];
+					$zoneID = $_POST['zonalID'];
+					$schoolId = $_POST['schoolId'];
+				}else if($designation == '5'){
+					$provinceID = $_POST['provinceID'];
+					$zoneID = $_POST['zonalID'];
+					$schoolId = $_POST['schoolId'];
+					$schoolID = $_POST['subject'];
+				}else{
+					$designation = $_POST['designation'];
+				}
+				
+				$result = $employee->addEmployee($nic,$roleType,$designation,$nameInitials,$fName,$empID,$email,$dob,$currentAddress,$gender,$marrigeState,$mobileNum,$provinceID,$zoneID,$schoolId,$subject);
+				
+				
+				
+				
+				
+				
+               // echo $nic;
         
             }
     
@@ -109,7 +152,7 @@
                                 <!-- Select role-->
                                 <label for="selec_trole" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Select Role </label>
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                        <select class="form-control" id="select_role" name="select_role">
+                                        <select class="form-control required" id="select_role" name="select_role" >
                                             <option value="">Select Role</option>
 											<option value="1">sysAdmin</option>
 											<option value="2">role2</option>
@@ -143,7 +186,7 @@
                                 <!-- Designation-->
                                 <label for="designation" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Designation </label>
                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                    <select class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
+                                    <select class="form-control required" id="designation" name = "designation" onchange="selectionForm(this.value)">
                                         <option value="none">Select Designation</option>
 										<option value="1">ministryOfficer</option>
 										<option value="2">provincial Officer</option>
@@ -180,7 +223,7 @@
             
                                         <div id="provinceHiddenForm" class="form-group">
                                             <label>province Office : </label>
-                                            <select class="form-control" onchange="showUser(this.value)">
+                                            <select class="form-control required" name="provinceID" id="provinceID" onchange="showUser(this.value)">
                                                 <option value="none" >Select ProvinceOffice</option>
 												
 												<option value="1">centralProvince</option>
@@ -190,24 +233,19 @@
 												<option value="5">esternProvince</option>
                                             </select>
                                         </div>
+										
                                         <div id="zonalOfficeHidden" class="form-group">
                                             <label>Zonal Office :</label> 
-												<select class="form-control"  id="abc" onchange="loadSchool(this.value)"> 
-                                            
+												<select class="form-control required" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
+												
                                         </div>
-										
-										<div id="zonalOfficeHidden" class="form-group">
-                                            <label>Zonal Office :</label> 
-												<select class="form-control"  id="abc" onchange="loadSchool(this.value)"> 
-                                            
-                                        </div>
-                                        <div id="schoolHidden" class="form-group">
+									<div id="schoolHidden" class="form-group">
                                             <label>School :</label>
-                                            <select class="form-control" id="abcd"  ></select>
+                                            <select class="form-control required" name="schoolId" id="abcd"  ></select>
                                        </div>
 									
 										<div id="subjectHidden">
-											Appoinment Subject : <select class="form-control">
+											Appoinment Subject : <select name = "subject" id = "subject" class="form-control required">
 											<option value="none">Select subject</option>
 											<option value="1">Mathematics</option>
 											</select>
@@ -272,7 +310,7 @@
                                 <!--Email-->
                                 <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Current Address </label>
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                        <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" required/>
+                                        <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" />
                                         <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                     </div>
                             </div>
@@ -284,7 +322,7 @@
                                 <!-- Gender-->
                                 <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                       <select class="form-control">
+                                       <select class="form-control" name= "gender" id = "gender">
                                             <option value="">Select Gender</option>
                                             <option value="2">Male</option>
                                             <option value="3">Female</option>
@@ -294,7 +332,7 @@
                                 <!--Marrige-->
                                 <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                        <select class="form-control">
+                                        <select class="form-control" name = "marrrige" id = "marrrige">
                                             <option value="">Select State</option>
                                             <option value="2">Yes</option>
                                             <option value="3">No</option>

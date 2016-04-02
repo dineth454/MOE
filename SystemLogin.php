@@ -4,11 +4,11 @@ require("classes/loginClass.php");
 
 
 if(isset($_POST["submit"])){
-	$user = $_POST["username"];
+	$nic = $_POST["nic"];
 	$pass = sha1($_POST["password"]);
 	
 	$login = new Login();
-	$login->syslog($user, $pass);
+	$login->syslog($nic, $pass);
 
 } 
 ?>
@@ -28,7 +28,7 @@ if(isset($_POST["submit"])){
 			<h3 style="margin-left: 170px;font-size: 30;">LOGIN</h3>
 			<div class="login-text">
 				<form action="home.html" method = "POST">
-					<div class="text-field">Username: <input style="margin-left: 30px;height: 23px;" type="text" name="username"><br></div>
+					<div class="text-field">Username: <input style="margin-left: 30px;height: 23px;" type="text" name="nic" placeholder = "nic"><br></div>
 					<div class="text-field">Password: <input style="margin-left: 34px;height: 23px;" type="password" name="password"><br></div>
 					<div style="margin-top:16;">
 					<input type="checkbox" style="font-family: initial;" value="#">Remember me<input type="submit" class="btn btn-primary"style="margin-left: 101px;" value="login"></div>
