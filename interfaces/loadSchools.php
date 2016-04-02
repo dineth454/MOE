@@ -1,19 +1,18 @@
 <?php
-// load zonal offices according to Provice Office ID
+require("../classes/dbcon.php");
+$db = new DBCon();
+$mysqli = $db->connection();
+// load zonal offices according to Provice Office ID into addEmployee page
  
 $q = intval($_GET['q']);
 
-echo $q;
 
-$con = mysqli_connect('localhost','root','1234','moe');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
+
 
 // select data from database
 
 $sql="select instituteID,schoolName from school where zonalOfficeID = '".$q."'";
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($mysqli,$sql);
 
 echo "<select>";
 echo '<option value="">Select School</option>';
@@ -24,5 +23,5 @@ while($row = mysqli_fetch_array($result)) {
 	//echo "\r\n";
 }
 echo "</select>";
-mysqli_close($con);
+mysqli_close($mysqli);
 ?>

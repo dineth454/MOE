@@ -1,17 +1,15 @@
 <?php
-// load zonal offices according to Provice Office ID
+// load zonal offices according to Provice Office ID in to addEmployee.php
+require("../classes/dbcon.php");
+$db = new DBCon();
+$mysqli = $db->connection();
  
 $q = intval($_GET['q']);
-
-$con = mysqli_connect('localhost','root','1234','moe');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
 
 // select data from database
 
 $sql="select zonalID,zonalName from zonal_office where provinceOfficeID = '".$q."'";
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($mysqli,$sql);
 
 echo '<option value="">Select ZonalOffice</option>';
 while($row = mysqli_fetch_array($result)) {
@@ -21,5 +19,5 @@ while($row = mysqli_fetch_array($result)) {
 	//echo "\r\n";
 }
 
-mysqli_close($con);
+mysqli_close($mysqli);
 ?>

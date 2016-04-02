@@ -114,8 +114,8 @@
 											<option value="1">sysAdmin</option>
 											<option value="2">role2</option>
 											<option value="3">role3</option>
-											<option value="4">role5</option>
-											<option value="5">role6</option>
+											<option value="4">role4</option>
+											<option value="5">role5</option>
                                                 
 												<?php 
     
@@ -180,28 +180,39 @@
             
                                         <div id="provinceHiddenForm" class="form-group">
                                             <label>province Office : </label>
-                                            <select class="form-control">
-                                                <option value="none">Select ProvinceOffice</option>
+                                            <select class="form-control" onchange="showUser(this.value)">
+                                                <option value="none" >Select ProvinceOffice</option>
+												
+												<option value="1">centralProvince</option>
+												<option value="2">westernProvince</option>
+												<option value="3">sothernProvince</option>
+												<option value="4">NothernProvince</option>
+												<option value="5">esternProvince</option>
                                             </select>
                                         </div>
-                                        <div id = "zonalOfficeHidden" class="form-group">
+                                        <div id="zonalOfficeHidden" class="form-group">
                                             <label>Zonal Office :</label> 
-                                            <select class="form-control">
-                                                <option value="none">Select Zonal Office</option>
-                                            </select>
-                                        </div>
-                                        <div id = "schoolHidden" class="form-group">
-                                            <label>School :</label>
-                                            <select class="form-control">
-                                                <option value="none">Select School</option>
-                                            </select>
+												<select class="form-control"  id="abc" onchange="loadSchool(this.value)"> 
+                                            
                                         </div>
 										
-										<div id = "subjectHidden">
+										<div id="zonalOfficeHidden" class="form-group">
+                                            <label>Zonal Office :</label> 
+												<select class="form-control"  id="abc" onchange="loadSchool(this.value)"> 
+                                            
+                                        </div>
+                                        <div id="schoolHidden" class="form-group">
+                                            <label>School :</label>
+                                            <select class="form-control" id="abcd"  ></select>
+                                       </div>
+									
+										<div id="subjectHidden">
 											Appoinment Subject : <select class="form-control">
 											<option value="none">Select subject</option>
+											<option value="1">Mathematics</option>
 											</select>
 										</div>
+										
                                         <!--end hidden forms -->
                                         <label id="errorPkg" style="font-size: 10px"> </label>
                                     </div>
