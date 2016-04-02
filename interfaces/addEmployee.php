@@ -141,7 +141,7 @@
                                 <!-- NIC number-->
                                 <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                        <input type="text" class="form-control" id="nic" name="nic" placeholder="Enter NIC number"/>
+                                        <input type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number"/>
                                         <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                     </div>
 
@@ -152,7 +152,7 @@
                                 <!-- Select role-->
                                 <label for="selec_trole" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Select Role </label>
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                        <select class="form-control required" id="select_role" name="select_role" >
+                                        <select required class="form-control" id="select_role" name="select_role" >
                                             <option value="">Select Role</option>
 											<option value="1">sysAdmin</option>
 											<option value="2">role2</option>
@@ -186,8 +186,8 @@
                                 <!-- Designation-->
                                 <label for="designation" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Designation </label>
                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                    <select class="form-control required" id="designation" name = "designation" onchange="selectionForm(this.value)">
-                                        <option value="none">Select Designation</option>
+                                    <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
+                                        <option value="">Select Designation</option>
 										<option value="1">ministryOfficer</option>
 										<option value="2">provincial Officer</option>
 										<option value="3">zonal Officer</option>
@@ -223,8 +223,8 @@
             
                                         <div id="provinceHiddenForm" class="form-group">
                                             <label>province Office : </label>
-                                            <select class="form-control required" name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                <option value="none" >Select ProvinceOffice</option>
+                                            <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                <option value="" >Select ProvinceOffice</option>
 												
 												<option value="1">centralProvince</option>
 												<option value="2">westernProvince</option>
@@ -236,16 +236,16 @@
 										
                                         <div id="zonalOfficeHidden" class="form-group">
                                             <label>Zonal Office :</label> 
-												<select class="form-control required" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
+												<select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
 												
                                         </div>
 									<div id="schoolHidden" class="form-group">
                                             <label>School :</label>
-                                            <select class="form-control required" name="schoolId" id="abcd"  ></select>
+                                            <select required class="form-control required" name="schoolId" id="abcd"  ></select>
                                        </div>
 									
 										<div id="subjectHidden">
-											Appoinment Subject : <select class="form-control required" name="subject" id="subject" >
+											Appoinment Subject : <select required class="form-control" name="subject" id="subject" >
 											<option value="none">Select subject</option>
 											<option value="1">Mathematics</option>
 											</select>
