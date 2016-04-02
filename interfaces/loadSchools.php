@@ -11,14 +11,14 @@ $q = intval($_GET['q']);
 
 // select data from database
 
-$sql="select instituteID,schoolName from school where zonalOfficeID = '".$q."'";
+$sql="select schoolID,schoolName from school where zonalOfficeID = '".$q."'";
 $result = mysqli_query($mysqli,$sql);
 
 echo "<select>";
 echo '<option value="">Select School</option>';
 while($row = mysqli_fetch_array($result)) {
     //print_r($row);
-    echo '<option value="'.$row['instituteID'].'" >'.$row['schoolName'].'</option>';
+    echo '<option value="'.$row['schoolID'].'" >'.$row['schoolName'].'</option>';
 	
 	//echo "\r\n";
 }

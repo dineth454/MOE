@@ -71,6 +71,7 @@ $mysqli = $db->connection();
 			// add ministry officer into the system
 			if($designation == '1'){
 				$instituteType = 1;
+				
 				$query_for_get_institute_id = "select instituteID from institute where instituteTypeID = '".$instituteType."'";
 				$resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
 				$instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
@@ -110,7 +111,7 @@ $mysqli = $db->connection();
 				// add province officer into the system
 			}else if($designation == '2'){
 				
-				$instituteType = 2;
+				
 				
 				$query_for_get_institute_id = "select instituteID from province_office where provinceID = '".$provinceID."'";
 				$resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
@@ -139,6 +140,73 @@ $mysqli = $db->connection();
 				}
 				// add Zonal officer into the system
 			}else if($designation == '3'){
+				
+				
+				$query_for_get_institute_id = "select instituteID from zonal_office where zonalID = '".$zoneID."'";
+				$resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
+				$instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
+				$instituteID = $instituteIDArray["instituteID"];
+				
+				//echo $instituteID;
+				
+				if($instituteID != 0){
+					$query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+					$result1  = $mysqli->query($query_for_insert_data_into_employee);
+					if($result1 == 1) {
+						
+						$query_for_insert_zonalOfficer_tabel = "insert into zonal_officer (nic,provinceOfficeID) values('$nic',$provinceID)";
+					
+						$result2 = $mysqli->query($query_for_insert_zonalOfficer_tabel);
+						
+						if($result2 == 1){
+							$query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$nic',$roleType)";
+							$result = $mysqli->query($query_for_insert_user_table);
+							
+							echo '<script language="javascript">';
+							echo 'alert("Employee successfully registered as a ZonalOfficer!!!  Thank You.")';
+							echo '</script>';
+						}
+						
+					}
+				}
+				//add principal into the system
+			}else if($designation == '4'){
+				
+				//echo $schoolId;
+				
+				$query_for_get_institute_id = "select instituteID from school where schoolID = '".$schoolId."'";
+				$resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
+				$instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
+				$instituteID = $instituteIDArray["instituteID"];
+				
+				//echo $instituteID;
+				
+				if($instituteID != 0){
+					$query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+					$result1  = $mysqli->query($query_for_insert_data_into_employee);
+					if($result1 == 1) {
+						$query_for_insert_principal_tabel = "insert into principal (nic,zonalOfficeID,provinceOfficerID) values('$nic',$zoneID,$provinceID)";
+					
+						$result2 = $mysqli->query($query_for_insert_principal_tabel);
+						
+						if($result2 == 1){
+							$query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$nic',$roleType)";
+							$result = $mysqli->query($query_for_insert_user_table);
+							
+							echo '<script language="javascript">';
+							echo 'alert("Employee successfully registered as a principal!!!  Thank You.")';
+							echo '</script>';
+						}
+					}
+				}
+				// add teacher into the system
+			}else {
+				
+				$query_for_get_institute_id = "select instituteID from school where schoolID = '".$schoolId."'";
+				$resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
+				$instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
+				$instituteID = $instituteIDArray["instituteID"];
+				
 				
 				
 				
