@@ -112,10 +112,12 @@
 			</select>
 		</div>
 		<div id = "zonalOfficeHidden">
-			Zonal Office : <select  id="abc" > </select>
+			Zonal Office : <select  id="abc" onchange="loadSchool(this.value)"> 
+				
+			</select>
 		</div>
 		<div id = "schoolHidden">
-			School : <select id="abcd" ></select>
+			School : <select id="abcd"  ></select>
 		</div>
 		<div id = "subjectHidden">
 			Appoinment Subject : <select>

@@ -3,6 +3,8 @@
  
 $q = intval($_GET['q']);
 
+echo $q;
+
 $con = mysqli_connect('localhost','root','1234','moe');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
@@ -14,6 +16,7 @@ $sql="select instituteID,schoolName from school where zonalOfficeID = '".$q."'";
 $result = mysqli_query($con,$sql);
 
 echo "<select>";
+echo '<option value="">Select School</option>';
 while($row = mysqli_fetch_array($result)) {
     //print_r($row);
     echo '<option value="'.$row['instituteID'].'" >'.$row['schoolName'].'</option>';

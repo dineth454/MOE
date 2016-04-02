@@ -69,6 +69,8 @@
 		}
 		
 		function loadSchool(str){
+			//alert('dfdgw');
+			alert(str);
 			if (str=="") {
 				document.getElementById("abcd").innerHTML="";
 				return;
@@ -81,7 +83,7 @@
 			  }
 			  xmlhttp.onreadystatechange=function() {
 				if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-				  document.getElementById("abcd").innerHTML=xmlhttp.responseText;
+				  document.getElementById("abcd").innerHTML = xmlhttp.responseText;
 				}
 			  }
 			  xmlhttp.open("GET","loadSchools.php?q="+str,true);
