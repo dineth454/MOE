@@ -63,6 +63,7 @@
             </ul>
         </div>
     </div>
+	
 
 
 
@@ -154,7 +155,6 @@
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                         <select required class="form-control" id="select_role" name="select_role" >
                                             <option value="">Select Role</option>
-											<option value="1">sysAdmin</option>
 											<option value="2">role2</option>
 											<option value="3">role3</option>
 											<option value="4">role4</option>
