@@ -1,6 +1,6 @@
 
 <?php
-require("loginClass.php");
+require("classes/loginClass.php");
 
 
 if(isset($_POST["submit"])){
