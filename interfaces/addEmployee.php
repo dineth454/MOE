@@ -263,7 +263,7 @@
                                                 <!--<label id="errorMain" style="font-size:10px;"></label>-->
                                             </div>
 
-                                            <!-- Packaging level-->
+                                            
 
                                             <div class="form-group col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <!-- hidden forms -->
