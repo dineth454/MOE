@@ -1,6 +1,6 @@
 
 <?php
-require("classes/loginClass.php");
+require("../classes/loginClass.php");
 
 
 if(isset($_POST["submit"])){
@@ -15,7 +15,7 @@ if(isset($_POST["submit"])){
 <!DOCTYPE html>
 <html>
 <title>Login</title>
-<link href="assets/css/systemlogin.css" rel="stylesheet">
+<link href="../assets/css/systemlogin.css" rel="stylesheet">
 
 <body>
 	<div class="background-image"></div>
