@@ -45,7 +45,7 @@
                             <a class="active" href="addEmployee.php">Add User</a>
                         </li>
                         <li>
-                            <a class="active" href="">View User</a>
+                            <a class="active" href="viewEmployee.php">View User</a>
                         </li>
                         <li>
                             <a class="active" href="#">Update User</a>

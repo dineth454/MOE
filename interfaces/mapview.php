@@ -49,10 +49,10 @@
                     </li>
                     <div id="collapse1" class="panel-collapse collapse">
                         <li>
-                            <a class="active" href="#">Add User</a>
+                            <a class="active" href="addEmployee.php">Add User</a>
                         </li>
                         <li>
-                            <a class="active" href="addEmployee.php">View User</a>
+                            <a class="active" href="viewEmployee.php">View User</a>
                         </li>
                         <li>
                             <a class="active" href="#">Update User</a>
