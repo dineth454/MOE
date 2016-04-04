@@ -42,17 +42,17 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active" href="#">Home</a>
+                    <a class="active" href="interface_0.1.php">Home</a>
                 </li>
                 <li>
                     <a  data-toggle="collapse" href="#collapse1">Users</a>
                 </li>
 				<div id="collapse1" class="panel-collapse collapse">
 					<li>
-                    <a class="active" href="#">Add User</a>
+                                                <a class="active" href="addEmployee.php">Add User</a>
 					</li>
 					<li>
-						<a class="active" href="#">View User</a>
+						<a class="active" href="">View User</a>
 					</li>
 					<li>
 						<a class="active" href="#">Update User</a>
