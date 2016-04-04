@@ -15,7 +15,7 @@ if(isset($_POST["submit"])){
 <!DOCTYPE html>
 <html>
 <title>Login</title>
-<!--    <link href="assets/css/systemlogin.css" rel="stylesheet">
+<link href="assets/css/systemlogin.css" rel="stylesheet">
 
 <body>
 	<div class="background-image"></div>
@@ -26,23 +26,21 @@ if(isset($_POST["submit"])){
 		<div class="textbox">
 			<h3 style="margin-left: 170px;font-size: 30;">LOGIN</h3>
 			<div class="login-text">
-				<form method = "POST">
+				<form action="" method = "POST">
 					<div class="text-field">Username: <input style="margin-left: 30px;height: 23px;" type="text" name="nic" placeholder = "nic"><br></div>
 					<div class="text-field">Password: <input style="margin-left: 34px;height: 23px;" type="password" name="password"><br></div>
 					<div style="margin-top:16;">
-					<input type="checkbox" style="font-family: initial;" value="#">Remember me<input type="submit" class="btn btn-primary"style="margin-left: 101px;" value="login"></div>
+					<input type="checkbox" style="font-family: initial;" value="#">Remember me<input type="submit" name="submit" class="btn btn-primary"style="margin-left: 101px;" value="login"></div>
 				</form>
 			</div>
 		</div>
 	</div>
 
--->
-
-<h1>Login</h1><br><br>
+<!--<h1>Login</h1><br><br>
 <form action="" method="POST">
 <div>Username: <input type="text" name="nic"></div><br>
 <div>Password: <input type="password" name="password"></div><br>
-<input type="submit" name="submit" value="login">  
-</form>
+<input type="submit" name="submit" value="login">   
+</form> --> 
 </body>
 </html> 
