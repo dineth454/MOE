@@ -2,9 +2,9 @@
 
 class DBCon{
 	var $host = "localhost";
-	var $pass = "1234";
+	var $pass = "gtms";
 	var $db = "moe";
-	var $user = "root";
+	var $user = "gtms";
 	var $myconn;
 
 	function connection(){

@@ -373,7 +373,7 @@ INSERT INTO `teacher` (`teachetID`, `nic`, `zonalOfficeID`, `provinceOfficeID`, 
 -- Dumping structure for table moe.user
 CREATE TABLE IF NOT EXISTS `user` (
   `nic` varchar(12) NOT NULL,
-  `password` varchar(12) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `roleTypeID` int(11) NOT NULL,
   PRIMARY KEY (`nic`),
   KEY `user_roleType_idx` (`roleTypeID`),
@@ -384,14 +384,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table moe.user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
-	('921003072v', 'Myvilage', 1),
-	('921474558v', '921474558v', 2),
-	('924565658v', '924565658v', 2),
-	('924585565v', '924585565v', 2),
-	('924585652v', '924585652v', 2),
-	('954565654v', '954565654v', 4),
-	('956545857v', '956545857v', 5),
-	('981232526v', '981232526v', 3);
+	('921003072V', '1b7b3bb43ee47fb92f715b866a888ba3e8fd40de', 1),
+	('921474558V', '9350d1db852e518c0e27107fe1349bfa83e18281', 2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 
