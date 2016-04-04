@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home</title>
+    <title>Map View</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -42,17 +42,17 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active" href="interface_0.1.php">Home</a>
+                    <a class="active" href="#">Home</a>
                 </li>
                 <li>
                     <a  data-toggle="collapse" href="#collapse1">Users</a>
                 </li>
 				<div id="collapse1" class="panel-collapse collapse">
 					<li>
-                                                <a class="active" href="addEmployee.php">Add User</a>
+                    <a class="active" href="#">Add User</a>
 					</li>
 					<li>
-						<a class="active" href="">View User</a>
+						<a class="active" href="#">View User</a>
 					</li>
 					<li>
 						<a class="active" href="#">Update User</a>
@@ -119,62 +119,18 @@
         <nav class="navbar navbar-default" style="height: 65px; border-radius:0px;">
             <div class="col-md-3 pull-right" style="margin-top: 18px;">
                 Nipuna Jayaweera 
-            <div class="pull-right"><a href="../classes/signout.php">Sign out</a></div>
+            <div class="pull-right"><a >Sign out</a></div>
             </div>
 
         </nav>
         <!-- Page Content -->
-        <div id="page-content-wrapper" style="min-height: 540px;">
+        <div id="page-content-wrapper" style="min-height: 550px;">
             
             <div class="container-fluid">
-                
+                <div id="googleMap" style="width:500px;height:500px;"></div>
 
 
 
-                <div class="row">
-                    <div class="col-lg-3">
-                        <!-- small box -->
-                        <div class="small-box aqua ">
-                            <div class="inner newstyle">
-                                <div class="e"><i>69</i>
-                                    <div class="icon pull-right">
-                                        <img src="../images/school.png">
-                                    </div>
-                                </div>
-                                <p>Schools</p>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <!-- small box -->
-                        <div class="small-box aqua ">
-                            <div class="inner newstyle">
-                                <div class="e"><i>298</i>
-                                    <div class="icon pull-right">
-                                        <img src="../images/mmm.png">
-                                    </div>
-                                </div>
-                                <p>Teachers</p>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <!-- small box -->
-                        <div class="small-box aqua ">
-                            <div class="inner newstyle">
-                                <div class="e"><i>173</i>
-                                    <div class="icon pull-right">
-                                        <img src="../images/school.png">
-                                    </div>
-                                </div>
-                                <p>Users</p>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -206,7 +162,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../assets/js/bootstrap.min.js"></script>
 
-    
+    <script src="../assets/js/googlemap.js"></script>
 
 </body>
 

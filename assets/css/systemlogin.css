@@ -1,0 +1,68 @@
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  display: block;
+  background-image:url("../../images/bbb.jpg");
+  background-repeat: no-repeat;
+  width: 1700px;
+  height: 720px;
+
+  
+}
+
+.content {
+  position: fixed;
+  z-index: 2;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: rgba(76, 68, 68, 0.65);
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.box{
+  position: fixed;
+  display: block;
+  width: 420px;
+  height: 220px;
+  border: solid;
+  left: 430px;
+  top:130px;
+}
+
+.textbox{
+  z-index: 100;
+  position: fixed;
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 420px;
+  height: 300px;
+  /*border: solid;*/
+  left: 450px;
+  top:135px;
+}
+
+.login-text{
+   margin-left: 45px;
+   margin-right: 45px;
+   font-family: cursive;
+   font-size: 20;
+}
+
+.text-field{
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+input:focus {
+    background-color: #F3FB99;
+}
