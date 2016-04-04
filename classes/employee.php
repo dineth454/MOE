@@ -12,7 +12,7 @@ $mysqli = $db->connection();
 		function loadRoles(){
 			global $mysqli;
 			
-			echo 'load roles athule';
+			//echo 'load roles athule';
 			
 			$sqlQuery = "select * from role_type";
 			$roleTypeResult = $mysqli->query($sqlQuery);
