@@ -125,7 +125,7 @@
                         $roleType = $_POST['select_role'];
                         $designation = $_POST['designation'];
                         $nameInitials = $_POST['name'];
-                        $fname = $_POST['fname'];
+                        $fName = $_POST['fname'];
                         $empID = $_POST['eId'];
                         $email = $_POST['email'];
                         $dob = $_POST['dob'];
