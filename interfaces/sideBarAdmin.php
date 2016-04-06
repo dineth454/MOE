@@ -1,4 +1,4 @@
-<div id="sidebar-wrapper">
+<div id="sidebar-wrapper" style="">
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
             <a href="#" style="height: 80px;">
@@ -14,9 +14,6 @@
         <div id="collapse1" class="panel-collapse collapse">
             <li>
                 <a class="active" href="addEmployee.php">Add User</a>
-            </li>
-            <li>
-                <a class="active" href="viewEmployee.php">View User</a>
             </li>
             <li>
                 <a class="active" href="#">Update User</a>

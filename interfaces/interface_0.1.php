@@ -27,15 +27,14 @@
         <div id="wrapper">
 
             <!-- Sidebar -->
+            <!-- Sidebar -->
             <?php include 'sideBarAdmin.php' ?>
             <!-- /#sidebar-wrapper -->
-            <nav class="navbar navbar-default" style="height: 65px; border-radius:0px;">
-                <div class="col-md-3 pull-right" style="margin-top: 18px;">
-                    Nipuna Jayaweera 
-                    <div class="pull-right"><a href="../classes/signout.php">Sign out</a></div>
-                </div>
-
-            </nav>
+            
+            <!-- include Navigation BAr -->
+            <?php include 'navigationBar.php' ?>
+            
+            <!-- Finished NAvigation bar -->
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 540px;">
 
@@ -96,23 +95,7 @@
         <!-- /#wrapper -->
 
         <!--footer-->
-        <footer>
-            <div class="footer">
-                <div class="col-md-6 col-md-offset-2">
-                    <ul class="footer-nav">
-                        <li><a href="AboutUs.aspx">About</a></li>
-                        <li><a href="Help.aspx">Help</a></li>
-                        <li><a href="AdminSitemap.aspx">Site map</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 col-md-offset-2"> 
-                    <div>
-                        <a href="#" style="margin-left: 50px;">Developer site</a>
-                        <img class="pull-right" src="../images/visa.png" style="width: 30px;">
-                    </div>
-                </div>
-            </div>
-        </footer>
+       <?php include 'footer.php' ?>
         <!-- jQuery -->
         <script src="../assets/js/jquery.js"></script>
 
