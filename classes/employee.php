@@ -71,6 +71,7 @@ $mysqli = $db->connection();
 			// add ministry officer into the system --------------------------------------------------------------------------------
 			if($designation == '1'){
 				$instituteType = 1;
+                                
 				
 				$query_for_get_institute_id = "select instituteID from institute where instituteTypeID = '".$instituteType."'";
 				$resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
