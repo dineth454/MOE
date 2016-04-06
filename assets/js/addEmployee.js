@@ -1,6 +1,7 @@
 
 
 		$(document).ready(function(){
+			
 			document.getElementById("provinceHiddenForm").style.visibility = 'hidden';
 			document.getElementById("zonalOfficeHidden").style.visibility = 'hidden';
 			document.getElementById("schoolHidden").style.visibility = 'hidden';
@@ -91,4 +92,6 @@
 			
 		}
 		
-		
+		$('.no-collapsable').on('click', function (e) {
+		e.stopPropagation();
+		});

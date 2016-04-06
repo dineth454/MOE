@@ -185,44 +185,73 @@
 
                                             
 
-                                            <div class="form-group col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <!-- hidden forms -->
+                                                 <!-- hidden forms -->
 
-                                                <div id="provinceHiddenForm" class="form-group">
-                                                    <label>province Office : </label>
-                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                        <option value="" >Select ProvinceOffice</option>
-
-                                                        <option value="1">centralProvince</option>
-                                                        <option value="2">westernProvince</option>
-                                                        <option value="3">sothernProvince</option>
-                                                        <option value="4">NothernProvince</option>
-                                                        <option value="5">esternProvince</option>
-                                                    </select>
-                                                </div>
-
-                                                <div id="zonalOfficeHidden" class="form-group">
-                                                    <label>Zonal Office :</label> 
-                                                    <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
-
-                                                </div>
-                                                <div id="schoolHidden" class="form-group">
-                                                    <label>School :</label>
-                                                    <select required class="form-control required" name="schoolId" id="abcd"  ></select>
-                                                </div>
-
-                                                <div id="subjectHidden">
-                                                    Appoinment Subject : <select required class="form-control" name="subject" id="subject" >
-                                                        <option value="none">Select subject</option>
-                                                        <option value="1">Mathematics</option>
-                                                    </select>
-                                                </div>
+                                                
 
                                                 <!--end hidden forms -->
                                                 <label id="errorPkg" style="font-size: 10px"> </label>
-                                            </div>
+                                            
                                         </div>
                                     </div>
+                                        
+                                            <div class="row">
+                                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                    <div id="provinceHiddenForm" class="form-group">
+                                                    <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> province Office :  </label>
+
+                                                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                            <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                                <option value="" >Select ProvinceOffice</option>
+
+                                                                <option value="1">centralProvince</option>
+                                                                <option value="2">westernProvince</option>
+                                                                <option value="3">sothernProvince</option>
+                                                                <option value="4">NothernProvince</option>
+                                                                <option value="5">esternProvince</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                    <div id="zonalOfficeHidden" class="form-group">
+                                                        <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Zonal Office :  </label>
+                                                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                            <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                    <div id="schoolHidden" class="form-group">
+                                                        <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
+                                                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                            <select required class="form-control required" name="schoolId" id="abcd"  ></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                    <div id="subjectHidden" class="form-group">
+                                                        <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Appoinment Subject :</label>
+                                                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                            <select required class="form-control" name="subject" id="subject" >
+                                                                <option value="none">Select subject</option>
+                                                                <option value="1">Mathematics</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
 
                                     <!--___________________________________________________________-->
 
