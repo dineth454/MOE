@@ -42,17 +42,23 @@
 
 
                         <?php
+                        $roletypeID = $designationId = $LoggedUsernic = '' ;
+                        $roletypeID = 1;
+                        $designationId = 1;
+                        $LoggedUsernic = '921003072v';
                         require("../classes/Employee.php");
                         $employee = new Employee();
 
                         if (isset($_POST['submit'])) {
-                            $nic  = "";
+                            global $LoggedUsernic;
+                            $searchUsernic  = "";
                             
-                            $nic = $_POST['nic'];
+                            $searchUsernic = $_POST['nic'];
                             
+                            echo $searchUsernic;
+                            echo $LoggedUsernic;
 
-
-                         //   $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                            $result = $employee->findEmployee($searchUsernic, $roletypeID, $designationId, $LoggedUsernic);
 
 
                         }
@@ -82,7 +88,7 @@
                                    <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
                                             </div>
 
                                         </div>
