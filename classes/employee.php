@@ -240,6 +240,20 @@ $mysqli = $db->connection();
 			
 			
 		}
+                
+                function findEmployee($searchUsernic, $roletypeID, $designationId, $LoggedUsernic){
+                    global $mysqli;
+                  
+                    $query_for_find_employee = "select * from employee where nic = '".$searchUsernic."'";
+                    $result_employee = $mysqli->query($query_for_find_employee);
+                    $result_employeeArray = mysqli_fetch_array($result_employee);
+                   // print_r($result_employeeArray);
+                    
+                    return $result_employeeArray;
+                   
+                    
+                    
+                }
 		
 		
 	}
