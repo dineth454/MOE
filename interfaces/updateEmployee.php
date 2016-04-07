@@ -11,10 +11,10 @@
 
         <title>Home</title>
 
-        <!-- Bootstrap Core CSS -->
+
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom CSS -->
+
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
     <body>
 
-        <div id="wrapper" style="">
+        <div id="wrapper" > 
 
             <!-- Sidebar -->
             <?php include 'sideBarAdmin.php' ?>
@@ -61,7 +61,9 @@
                             $result = $employee->findEmployee($searchUsernic, $roletypeID, $designationId, $LoggedUsernic);
                             $Address = $result['currentAddress'];
                             $roletype = $result['roleType'];
-                           echo $result['marrigeState']; 
+                            //echo $result['marrigeState']; 
+
+                           // echo $roletype;
                         }
                         ?>
 
@@ -105,7 +107,7 @@
 
 
 
-                        <div style="background-color: greenyellow;">
+                        <div style="">
                             <form >
                                 <div class="row">
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -128,12 +130,36 @@
                                                 <label for="selec_trole" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Select Role </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" id="select_role" name="select_role" >
-                                                        <option value="">Select Role</option>
-                                                        <option value="2">role2</option>
-                                                        <option value="3">role3</option>
-                                                        <option value="4">role4</option>
-                                                        <option value="5">role5</option>
 
+                                                        <?php if ($result['roleType'] == 2) { ?>
+
+                                                            <option value="">Select Role</option>
+                                                            <option selected="true" value="2" >role2</option>
+                                                            <option value="3">role3</option>
+                                                            <option value="4">role4</option>
+                                                            <option value="5">role5</option>
+
+                                                        <?php } else if ($result['roleType'] == 3) { ?>
+
+                                                            <option  value="2">role2</option>
+                                                            <option selected="true" value="3">role3</option>
+                                                            <option value="4">role4</option>
+                                                            <option value="5">role5</option>
+
+                                                        <?php } else if ($result['roleType'] == 4) { ?>
+
+                                                            <option  value="2">role2</option>
+                                                            <option  value="3">role3</option>
+                                                            <option selected="true" value="4">role4</option>
+                                                            <option value="5">role5</option>
+                                                        <?php } else if ($result['roleType'] == 5) { ?>
+                                                            <option  value="2">role2</option>
+                                                            <option  value="3">role3</option>
+                                                            <option  value="4">role4</option>
+                                                            <option selected="true" value="5" >role5</option>
+                                                        <?php } else {
+                                                            
+                                                        } ?>
 
                                                     </select>
                                                     <!--<label id="errorMain" style="font-size:10px;"></label>-->
@@ -281,31 +307,31 @@
                                                 <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select class="form-control" name= "gender" value="" id = "gender">
-                                                        <?php  if(($result['gender']) == 2) {?>
-                                                        
-                                                        <option value="">Select Gender</option>
-                                                        <option selected="true" value="2">Male</option>
-                                                        <option  value="3">Female</option>
-                                                        <?php } else {?>
-                                                        <option value="2">Male</option>
-                                                        <option selected="true" value="3">Female</option>
-                                                        <?php } ?>
+<?php if (($result['gender']) == 2) { ?>
+
+                                                            <option value="">Select Gender</option>
+                                                            <option selected="true" value="2">Male</option>
+                                                            <option  value="3">Female</option>
+                                                        <?php } else { ?>
+                                                            <option value="2">Male</option>
+                                                            <option selected="true" value="3">Female</option>
+<?php } ?>
                                                     </select> 
-                                                    
+
                                                 </div>
 
                                                 <!--Marrige-->
                                                 <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select class="form-control" name = "marrrige" value="<?php echo $result['marrigeState']; ?>" id = "marrrige">
-                                                        <?php if($result['marrigeState'] == 2) { ?>
-                                                        <option value="">Select State</option>
-                                                        <option selected="true" value="2">Yes</option>
-                                                        <option value="3">No</option>
-                                                        <?php } else {?>
-                                                        <option  value="2">Yes</option>
-                                                        <option selected="true" value="3">No</option>
-                                                         <?php } ?>
+<?php if ($result['marrigeState'] == 2) { ?>
+                                                            <option value="">Select State</option>
+                                                            <option selected="true" value="2">Yes</option>
+                                                            <option value="3">No</option>
+                                                        <?php } else { ?>
+                                                            <option  value="2">Yes</option>
+                                                            <option selected="true" value="3">No</option>
+<?php } ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -347,21 +373,20 @@
             </div>
             <!-- /#page-content-wrapper -->
 
+
+            <script src = "../assets/js/addEmployee.js"></script>
+
+            <?php include 'footer.php' ?>
+
+            <script src="../assets/js/jquery.js"></script>
+
+
+            <script src="../assets/js/bootstrap.min.js"></script>
+            <script src = "../assets/js/jquery-2.1.4.min.js"></script>
+            <script src = "../assets/js/addEmployee.js"></script>
+
+
         </div>
-        <!-- /#wrapper -->
-
-        <!--footer-->
-<?php include 'footer.php' ?>
-        <!-- jQuery -->
-        <script src="../assets/js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-        <script src = "../assets/js/addEmployee.js"></script>
-
-
-
     </body>
 
 </html>

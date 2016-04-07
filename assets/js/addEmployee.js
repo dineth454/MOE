@@ -1,5 +1,6 @@
 
-
+                
+              
 		$(document).ready(function(){
 			
 			document.getElementById("provinceHiddenForm").style.visibility = 'hidden';
@@ -11,9 +12,19 @@
 		function selectionForm(val){
 			if(val == "5"){
 				document.getElementById('schoolHidden').style.visibility = 'visible';
+                               
 				document.getElementById('zonalOfficeHidden').style.visibility = 'visible';
 				document.getElementById('provinceHiddenForm').style.visibility = 'visible';
 				document.getElementById('subjectHidden').style.visibility = 'visible';
+                                
+                              /*  $('#designation').click(function(){
+                                    alert('kalinaaaaaaaa');
+                                    $('#provinceIDDiv').slideDown( "slow" );
+                                    $('#zonalOfficeDiv').slideDown( "slow" );
+                                    $('#schoolIdDiv').slideDown("slow");
+                                    $('#subjectHiddenDiv').slideDown("slow");
+                                });*/
+                                
 			}
 			else if(val == "4"){
 				document.getElementById('schoolHidden').style.visibility = 'visible';
@@ -92,6 +103,3 @@
 			
 		}
 		
-		$('.no-collapsable').on('click', function (e) {
-		e.stopPropagation();
-		});

@@ -230,6 +230,7 @@ $mysqli = $db->connection();
 							echo '<script language="javascript">';
 							echo 'alert("Employee successfully registered as a teacher!!!  Thank You.")';
 							echo '</script>';
+                                                        header("Location: framePage.php");
 						}
 					}
 					
