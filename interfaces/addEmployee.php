@@ -214,7 +214,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row" >
                                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                                     <div id="zonalOfficeHidden" class="form-group">
                                                         <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Zonal Office :  </label>
