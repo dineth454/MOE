@@ -16,7 +16,7 @@
                 <a class="" href="addEmployee.php">Add User</a>
             </li>
             <li>
-                <a class=" " href="updateEmployee.php">Update User</a>   
+                <a class=" " href="updateEmployeeFront.php">Update User</a>   
             </li>
             <li>
                 <a class="" href="#">Delete User</a>
