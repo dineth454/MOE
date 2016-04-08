@@ -242,15 +242,33 @@ $mysqli = $db->connection();
 			
 		}
                 
-                function findEmployee($searchUsernic, $roletypeID, $designationId, $LoggedUsernic){
+                function findEmployee($searchUsernic, $roletypeID, $designationIdLoggedUser, $LoggedUsernic){
                     global $mysqli;
-                  
                     $query_for_find_employee = "select * from employee where nic = '".$searchUsernic."'";
                     $result_employee = $mysqli->query($query_for_find_employee);
                     $result_employeeArray = mysqli_fetch_array($result_employee);
+                    $designationOfsearchUser = $result_employeeArray['designationTypeID'];
+                    
+                    echo 'roletypeID';
+                    echo $roletypeID.'</br>';
+                    echo 'designationIdLoggedUser' ;
+                    echo $designationIdLoggedUser.'</br>';
+                     echo 'designationOfsearchUser' ;
+                    echo $designationOfsearchUser.'</br>';
+                    
+                   //check loged User is System admin or not
+                    if($roletypeID == 1 and $designationIdLoggedUser == 1){
+                        return $result_employeeArray;
+                   }
+                    else if($designationIdLoggedUser < $designationOfsearchUser){
+                      return $result_employeeArray;
+                    }else {
+                        echo '123456789';
+                    }
+                  
                    // print_r($result_employeeArray);
                     
-                    return $result_employeeArray;
+                   
                    
                     
                     

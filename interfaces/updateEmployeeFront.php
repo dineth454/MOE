@@ -45,9 +45,9 @@ session_start();
 
 
                         <?php
-                        $roletypeID = $designationId = $LoggedUsernic = '';
+                        $roletypeID = $designationIdLoggedUser = $LoggedUsernic = '';
                         $roletypeID = 1;
-                        $designationId = 1;
+                        $designationIdLoggedUser = 1;
                         $LoggedUsernic = '921003072v';
                         require("../classes/Employee.php");
                         $employee = new Employee();
@@ -58,7 +58,7 @@ session_start();
 
                             $searchUsernic = $_POST['nic'];
 
-                            $result = $employee->findEmployee($searchUsernic, $roletypeID, $designationId, $LoggedUsernic);
+                            $result = $employee->findEmployee($searchUsernic, $roletypeID, $designationIdLoggedUser, $LoggedUsernic);
 
                             if (sizeof($result) == 0) {
                                 echo '<script language="javascript">';

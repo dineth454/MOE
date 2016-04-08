@@ -171,11 +171,11 @@
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <span id="provinceHiddenForm">
-                                                <div  class="form-group">
+                                                <div  class="form-group" style="display: none;" id="provinceIDDiv">
 
                                                     <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> province Office :  </label>
 
-                                                    <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3" style="" id="provinceIDDiv">
+                                                    <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
                                                         <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
                                                             <option value="" >Select ProvinceOffice</option>
                                                             <option value="1">centralProvince</option>
@@ -192,18 +192,20 @@
                                     </div>
 
                                     <div  class="row">
-                                        <div  style="" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
+                                        <div  style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
                                             <div id="zonalOfficeHidden" class="form-group">
+                                                
                                                 <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
-                                                <div id="zonalIDDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div id="schoolIdDiv" style=" "class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <div id="schoolIdDiv" style="display: none; "class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <div id="schoolHidden" class="form-group">
                                                 <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> School : </label>
                                                 <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
@@ -215,7 +217,7 @@
 
 
                                     <div class="row">
-                                        <div id="subjectHiddenDiv" style="" class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <div id="subjectHidden" class="form-group">
                                                 <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
                                                 <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">

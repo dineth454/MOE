@@ -178,7 +178,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div style="display: none;" id="provinceIDDiv" class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="provinceHiddenForm" class="form-group">
                                                     <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> province Office :  </label>
 
@@ -198,7 +198,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="zonalOfficeDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="zonalOfficeHidden" class="form-group">
                                                     <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Zonal Office :  </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
@@ -209,7 +209,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div  id="schoolIdDiv" style="display: none; class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="schoolHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
@@ -221,7 +221,7 @@
 
 
                                         <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="subjectHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Appoinment Subject :</label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
