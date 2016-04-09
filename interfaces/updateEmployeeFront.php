@@ -22,6 +22,8 @@ session_start();
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
 
     </head>
 
@@ -49,7 +51,7 @@ session_start();
                         $roletypeID = 1;
                         $designationIdLoggedUser = 1;
                         $LoggedUsernic = '921003072v';
-                        require("../classes/Employee.php");
+                        require("../classes/employee.php");
                         $employee = new Employee();
                         // submit button action
                         if (isset($_POST['submit'])) {
@@ -64,9 +66,8 @@ session_start();
                                 echo '<script language="javascript">';
                                 echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
                                 echo '</script>';
-                                
                             } else {
-                                
+
                                 $_SESSION['designationType'] = $result['designationTypeID'];
 
                                 $_SESSION['nicNumber'] = $result['nic'];
