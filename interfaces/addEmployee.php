@@ -17,6 +17,7 @@
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
 
     </head>
 
@@ -42,7 +43,7 @@
 
 
                         <?php
-                        require("../classes/Employee.php");
+                        require("../classes/employee.php");
                         $employee = new Employee();
 
                         if (isset($_POST['submit'])) {
@@ -94,7 +95,7 @@
                         ?>
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1>Add Employee</h1>
+                            <h1 class="topic_font">Add Employee</h1>
                         </div>
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="validationForm();">

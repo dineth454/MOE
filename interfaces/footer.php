@@ -1,5 +1,10 @@
+<style type="text/css">
+    .footer_col{
+        background: #000;
+    }
+</style>>
 <footer>
-    <div class="footer">
+    <div class="footer footer_col">
         <div class="col-md-6 col-md-offset-2">
             <ul class="footer-nav">
                 <li><a href="AboutUs.aspx">About</a></li>
