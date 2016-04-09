@@ -15,32 +15,38 @@ if(isset($_POST["submit"])){
 <!DOCTYPE html>
 <html>
 <title>Login</title>
+
+
+
+<script src="../assets/js/formValidation.js"></script>
+<script src="../assets/js/login_new.js"></script>
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery.validate.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="../assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="../assets/css/login.css" rel="stylesheet">
 <link href="../assets/css/systemlogin.css" rel="stylesheet">
 
 <body>
-	<div class="background-image"></div>
-	<div>
-		<div class="content box">
-			
-		</div>
-		<div class="textbox">
-			<h3 style="margin-left: 170px;font-size: 30;">LOGIN</h3>
-			<div class="login-text">
-				<form action="" method = "POST">
-					<div class="text-field">Username: <input style="margin-left: 30px;height: 23px;" type="text" name="nic" placeholder = "nic"><br></div>
-					<div class="text-field">Password: <input style="margin-left: 34px;height: 23px;" type="password" name="password"><br></div>
-					<div style="margin-top:16;">
-					<input type="checkbox" style="font-family: initial;" value="#">Remember me<input type="submit" name="submit" class="btn btn-primary"style="margin-left: 101px;" value="login"></div>
-				</form>
-			</div>
+	<div></div>
+	<div class="container">
+		<div class="card card-container">
+			<h3>LOGIN</h3>
+
+			<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+
+			<form class="form-signin" name="loginForm" action="" method = "POST" onSubmit="return nicValidation();">
+				<input class="form-control" type="text" name="nic" placeholder = "Username" autofocus>
+				<input class="form-control" type="password" name="password" placeholder="Password">
+				<div id="remember" class="checkbox"></div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" id="signin" name="submit" >Sign in</button>
+			</form>
+			<a href="ForgatPasswordInterfase.php" class="forgot-password">
+                Forgot the password?
+            </a>
 		</div>
 	</div>
-
-<!--<h1>Login</h1><br><br>
-<form action="" method="POST">
-<div>Username: <input type="text" name="nic"></div><br>
-<div>Password: <input type="password" name="password"></div><br>
-<input type="submit" name="submit" value="login">   
-</form> --> 
 </body>
 </html> 
