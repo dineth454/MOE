@@ -14,8 +14,8 @@
         </div>
         <div class="col-md-2 col-md-offset-2"> 
             <div>
-                <a href="#" style="margin-left: 50px;">Developer site</a>
-                <img class="pull-right" src="../images/visa.png" style="width: 30px;">
+                <!--<a href="#" style="margin-left: 50px;">Developer site</a>-->
+                <!--<img class="pull-right" src="../images/visa.png" style="width: 30px;">-->
             </div>
         </div>
     </div>
