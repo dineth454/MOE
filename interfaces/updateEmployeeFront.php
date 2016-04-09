@@ -64,9 +64,8 @@ session_start();
                                 echo '<script language="javascript">';
                                 echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
                                 echo '</script>';
-                                
                             } else {
-                                
+
                                 $_SESSION['designationType'] = $result['designationTypeID'];
 
                                 $_SESSION['nicNumber'] = $result['nic'];

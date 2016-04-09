@@ -2,7 +2,7 @@
     .footer_col{
         background: #000;
     }
-</style>>
+</style>
 <footer>
     <div class="footer footer_col">
         <div class="col-md-6 col-md-offset-2">
