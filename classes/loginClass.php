@@ -12,6 +12,9 @@ require("dbcon.php");
 			$query = "SELECT * FROM user WHERE nic = '".$nic."' AND password ='".$password."' LIMIT 1 ";
 			$result = mysqli_query($conn, $query);
 
+			$query2 = "SELECT nic FROM user WHERE nic = '".$nic."' LIMIT 1";
+			$result2 = mysqli_query($conn, $query2);
+
 
 			if(mysqli_num_rows($result)==1) {
 				while($row = mysqli_fetch_assoc($result)){
@@ -29,7 +32,13 @@ require("dbcon.php");
         		}
 
 			}else{
-				echo "Invalid Username or password!!";
+				if(mysqli_num_rows($result2)==1){
+					echo "Check ur password again!";
+				}
+				else{
+					echo "Invalid Username or password!!";
+				}
+				
 			}
 
     	}
