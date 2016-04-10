@@ -116,6 +116,7 @@
                                                             <option  value="3">role3</option>
                                                             <option  value="4">role4</option>
                                                             <option selected="true" value="5" >role5</option>
+                                                            
                                                         <?php } else {
                                                             
                                                         }
@@ -128,7 +129,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div class="form-group col-lg-12  col-md-12 col-sm-12">
                                                 <!-- Designation-->
                                                 <label for="designation" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Designation </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
