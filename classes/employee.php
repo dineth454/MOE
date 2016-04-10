@@ -229,6 +229,7 @@ class Employee {
 
     function findEmployee($searchUsernic, $roletypeID, $designationIdLoggedUser, $LoggedUsernic) {
         global $mysqli;
+
         $query_for_find_employee = "select * from employee where nic = '" . $searchUsernic . "'";
         $result_employee = $mysqli->query($query_for_find_employee);
         $result_employeeArray = mysqli_fetch_array($result_employee);
@@ -242,9 +243,15 @@ class Employee {
         $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
         $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
 
+        // select Institute Id Of Search user
+        $query_for_get_searchUserIId = "select instituteID from employee where nic = '" . $searchUsernic . "'";
+        $result_InstituteSearchUserID = $mysqli->query($query_for_get_searchUserIId);
+        $result_InstituteIdArray1 = mysqli_fetch_array($result_InstituteSearchUserID);
+        $InstituteIDsearchUser = $result_InstituteIdArray1['instituteID'];
         // province Id of logged User
+
         $query_for_find_provinceID = "select provinceID from province_office where instituteID = '" . $InstituteIDLoggedUser . "'";
-        $result_loggedUserProvinceID = $mysqli->query( $query_for_find_provinceID);
+        $result_loggedUserProvinceID = $mysqli->query($query_for_find_provinceID);
         $result_loggedUserProvinceIdArray = mysqli_fetch_array($result_loggedUserProvinceID);
         $provinceID_LoggedUser = $result_loggedUserProvinceIdArray['provinceID'];
 
@@ -254,48 +261,107 @@ class Employee {
         $result_provinceID = $mysqli->query($query_for_get_provineOfficeID);
         $result_ProvinceIdArray = mysqli_fetch_array($result_provinceID);
         $provinceID_searchUser = $result_ProvinceIdArray['provinceOfficeID'];
-        
-        // get provinceOfficeID of principal According to SearchUserNIC
-          $query_for_get_provinceID_of_Principal = "select provinceOfficerID from principal where nic = '" . $searchUsernic . "' ";
-          $result_provinceID_of_principal = $mysqli->query($query_for_get_provinceID_of_Principal);
-          $result_Arrray = mysqli_fetch_array($result_provinceID_of_principal);
-          $provinceID_Principal = $result_Arrray['provinceOfficerID'];
-          
-        
-       // echo 'roletypeID';
-      //  echo $roletypeID . '</br>';
-       // echo 'designationIdLoggedUser';
-       // echo $designationIdLoggedUser . '</br>';
-       // echo 'designationOfsearchUser';
-       // echo $designationOfsearchUser . '</br>';
 
+        // get provinceOfficeID of principal According to SearchUserNIC
+        $query_for_get_provinceID_of_Principal = "select provinceOfficerID from principal where nic = '" . $searchUsernic . "' ";
+        $result_provinceID_of_principal = $mysqli->query($query_for_get_provinceID_of_Principal);
+        $result_Arrray = mysqli_fetch_array($result_provinceID_of_principal);
+        $provinceID_Principal = $result_Arrray['provinceOfficerID'];
+
+        // get provinceOfficeIdOf teacher According to SearchUserNIC
+        $query_for_get_prov_off_Id_Of_teacher = "select provinceOfficeID from teacher where nic = '" . $searchUsernic . "' ";
+        $result_pro_Id_Of_Teacher = $mysqli->query($query_for_get_prov_off_Id_Of_teacher);
+        $resuly_of_pro_id = mysqli_fetch_array($result_pro_Id_Of_Teacher);
+        $proviceId_teacher = $resuly_of_pro_id ['provinceOfficeID'];
+
+        //get zonal Office Id Of Logged User
+        $query_for_get_zonal_id_of_logged_user = "select zonalID from zonal_office where instituteID =' " . $InstituteIDLoggedUser . " ' ";
+        $result_zonalOffice = $mysqli->query($query_for_get_zonal_id_of_logged_user);
+        $result_zonal_arry = mysqli_fetch_array($result_zonalOffice);
+        $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
+
+        //get zonalOfficeId Of SearchUser as a Principal
+        $qry_4_get_zonl_id_of_principal = "select zonalOfficeID from principal where nic = '" . $searchUsernic . "'";
+        $result_zone_offce_principal = $mysqli->query($qry_4_get_zonl_id_of_principal);
+        $result_zoneIdArry = mysqli_fetch_array($result_zone_offce_principal);
+        $zonalIDSearchUserPrincipal = $result_zoneIdArry ['zonalOfficeID'];
+
+        //get zonalOfficeId OfSearch user as a teacher
+        $qry_4_get_zonl_id_of_teacher = "select zonalOfficeID from teacher where nic = '" . $searchUsernic . " '";
+        $result_zone_offce_teacher = $mysqli->query($qry_4_get_zonl_id_of_teacher);
+        $result_zoneIdArryTeacher = mysqli_fetch_array($result_zone_offce_teacher);
+        $zonalIDSearchUserteacher = $result_zoneIdArryTeacher['zonalOfficeID'];
+
+        // echo 'roletypeID';
+        //  echo $roletypeID . '</br>';
+        // echo 'designationIdLoggedUser';
+        // echo $designationIdLoggedUser . '</br>';
+        // echo 'designationOfsearchUser';
+        // echo $designationOfsearchUser . '</br>';
         //check loged User is System admin or not
         if ($roletypeID == 1 and $designationIdLoggedUser == 1) {
             return $result_employeeArray;
+            //echo '123456';
         } else if ($designationIdLoggedUser < $designationOfsearchUser) {
             // ministry Officer
             if ($designationIdLoggedUser == 1) {
                 return $result_employeeArray;
-                echo 'awdrgyjo';
-                // Provincial Officer
+                //echo 'awdrgyjo';
+                // Logged in as a Provincial Officer
             } else if ($designationIdLoggedUser == 2) {
                 //zonalOfficeer
-                if($provinceID_LoggedUser == $provinceID_searchUser ){
-                     return $result_employeeArray;
-                     //principal
-                }else if ($provinceID_LoggedUser == $provinceID_Principal ){
+                if ($provinceID_LoggedUser == $provinceID_searchUser) {
                     return $result_employeeArray;
-                    
+                    //principal
+                } else if ($provinceID_LoggedUser == $provinceID_Principal) {
+                    return $result_employeeArray;
+                    //teacher
+                } else if ($provinceID_LoggedUse == $proviceId_teacher) {
+
+                    return $result_employeeArray;
+                } else {
+                    echo '<script language="javascript">';
+                    echo 'alert("You Dont Have Permission to Update this employee!!!  Thank You.")';
+                    echo '</script>';
                 }
-                
-                
+                // Logged In as a Zonal Officer
+            } else if ($designationIdLoggedUser == 3) {
+                //principal
+                if ($zonalId_LoggedUser == $zonalIDSearchUserPrincipal) {
+                    return $result_employeeArray;
+                }
                 //teacher
+                else if ($zonalId_LoggedUser == $zonalIDSearchUserteacher) {
+                    return $result_employeeArray;
+                } else {
+
+                    echo '<script language="javascript">';
+                    echo 'alert("You Dont Have Permission to Update this employee!!!  Thank You.")';
+                    echo '</script>';
+                }
+                //logged in as a principal
+            } else if ($designationIdLoggedUser == 4) {
+                //teacherla witharai
+                if ($InstituteIDLoggedUser == $InstituteIDsearchUser) {
+                    return $result_employeeArray;
+                } else {
+                    echo '<script language="javascript">';
+                    echo 'alert("You Dont Have Permission to Update this employee!!!  Thank You.")';
+                    echo '</script>';
+                }
+            } else {
+
+                echo '<script language="javascript">';
+                echo 'alert("You Dont Have Permission to Update this employee!!!  Thank You.")';
+                echo '</script>';
             }
 
 
-            return $result_employeeArray;
+            //return $result_employeeArray;
         } else {
-            echo '123456789';
+            echo '<script language="javascript">';
+            echo 'alert("You are not allowed to Update this employee!!!  Thank You.")';
+            echo '</script>';
         }
 
         // print_r($result_employeeArray);
