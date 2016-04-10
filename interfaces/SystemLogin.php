@@ -14,6 +14,7 @@ if(isset($_POST["submit"])){
 
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8"/>
 <title>Login</title>
 
 
@@ -26,10 +27,8 @@ if(isset($_POST["submit"])){
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
 <link href="../assets/css/login.css" rel="stylesheet">
-<link href="../assets/css/systemlogin.css" rel="stylesheet">
 
 <body>
-	<div></div>
 	<div class="container">
 		<div class="card card-container">
 			<h3>LOGIN</h3>
@@ -37,9 +36,9 @@ if(isset($_POST["submit"])){
 			<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
 
-			<form class="form-signin" name="loginForm" action="" method = "POST" onSubmit="return nicValidation();">
-				<input class="form-control" type="text" name="nic" placeholder = "Username" autofocus>
-				<input class="form-control" type="password" name="password" placeholder="Password">
+			<form class="form-signin" name="loginForm" action="" method = "POST" onsubmit="return nicValidation();">
+				<input class="form-control" type="text" name="nic" id="nic" placeholder = "Username" autofocus>
+				<input class="form-control" type="password" name="password" id="password" placeholder="Password">
 				<div id="remember" class="checkbox"></div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" id="signin" name="submit" >Sign in</button>
 			</form>
