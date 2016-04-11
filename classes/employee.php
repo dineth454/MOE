@@ -228,6 +228,7 @@ class Employee {
     }
 
     function findEmployee($searchUsernic, $roletypeID, $designationIdLoggedUser, $LoggedUsernic) {
+
         global $mysqli;
 
         $query_for_find_employee = "select * from employee where nic = '" . $searchUsernic . "'";
@@ -367,6 +368,81 @@ class Employee {
         // print_r($result_employeeArray);
     }
 
-}
+//find all details according to logged User Nic
+    function findFullDetailsOfLoggedUser($loggedUserNic) {
+        global $mysqli;
+        $query = "select * from employee where nic = '" . $loggedUserNic . "'";
+        $result_Of_Logged_User = $mysqli->query($query);
+        $result_LoggedUser_Array = mysqli_fetch_array($result_Of_Logged_User);
+        return $result_LoggedUser_Array;
+    }
+// find all details according to search User Nic
+    function findFullDetailsOfSearchUser($searchUserNic) {
+        global $mysqli;
+        $query = "select * from employee where nic = '" . $searchUserNic . "'";
+        $result_of_searchUser = $mysqli->query($query);
+        $resultSearchUserArray = mysqli_fetch_array($result_of_searchUser);
+        return $resultSearchUserArray;
+    }
+    
+    
+    //search karana eka province officer kenek nam eyage provinceID eka ganna methode eka
+    function findProvinceOfficerDetails($searchUserNic) {
+        global $mysqli;
+        
+        $query_for_get_searchUserIId = "select instituteID from employee where nic = '" . $searchUserNic . "'";
+        $result_InstituteSearchUserID = $mysqli->query($query_for_get_searchUserIId);
+        $result_InstituteIdArray1 = mysqli_fetch_array($result_InstituteSearchUserID);
+        $InstituteIDsearchUser = $result_InstituteIdArray1['instituteID'];
 
-?>
+
+
+        $query_for_find_provinceID = "select provinceID from province_office where instituteID = '" . $InstituteIDsearchUser . "'";
+        $result_searchUserProvinceID = $mysqli->query($query_for_find_provinceID);
+        $result_searchUserProvinceIdArray = mysqli_fetch_array($result_searchUserProvinceID);
+        // $provinceID_searchUser =  $result_searchUserProvinceIdArray['provinceID'];
+
+        return $result_searchUserProvinceIdArray;
+    }
+    
+    //search karana kena zonal officer kenek nam eyage provinceId ekai zonal Id ekai ganna methode eka
+    function getZonalOfficerDetails($searchUserNic){
+       global $mysqli;
+        $query_for_get_searchUserIId = "select instituteID from employee where nic = '" . $searchUserNic . "'";
+        $result_InstituteSearchUserID = $mysqli->query($query_for_get_searchUserIId);
+        $result_InstituteIdArray1 = mysqli_fetch_array($result_InstituteSearchUserID);
+        $InstituteIDsearchUser = $result_InstituteIdArray1['instituteID'];
+        
+        $query = "select zonalID,provinceOfficeID from zonal_office where instituteID = '".$InstituteIDsearchUser."'";
+        $result_zonalOfficer = $mysqli->query($query);
+        $result_array = mysqli_fetch_array($result_zonalOfficer);
+        
+        return $result_array;
+        
+    }
+    
+    // search karana kena principal kenek nam eyage province ekai zonal ekai,school ekai ganna method eka
+    
+    function getPrincipalTeacherBasicDetails($searchUserNic){
+        global $mysqli;
+        $query_for_get_searchUserIId = "select instituteID from employee where nic = '" . $searchUserNic . "'";
+        $result_InstituteSearchUserID = $mysqli->query($query_for_get_searchUserIId);
+        $result_InstituteIdArray1 = mysqli_fetch_array($result_InstituteSearchUserID);
+        $InstituteIDsearchUser = $result_InstituteIdArray1['instituteID'];
+        
+        $query = "select schoolID,provinceOfficeID,zonalOfficeID from school where instituteID = '".$InstituteIDsearchUser."'";
+        $result_school = $mysqli->query($query);
+        $result_array = mysqli_fetch_array($result_school);
+        return $result_array;
+    }
+    
+    function getTeacherSubjectDetails($searchUserNic){
+        global $mysqli;
+        
+        $query = "select appoinmentSubject from teacher where nic = '".$searchUserNic."'";
+        $result = $mysqli->query($query);
+        $resultArray = mysqli_fetch_array($result);
+        return $resultArray;
+    }
+
+}

@@ -57,9 +57,25 @@
                         $gender = $_SESSION['gender'];
                         $marrigeState =  $_SESSION['marrigeState'];
                         $mobileNumber = $_SESSION['mobileNumber'];
+                        
+                        
+                        
+                        $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
+                        $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
+                        $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
+                        $searchUserSubjectId = $_SESSION['subjectIdSearchUser'] ;
+                        
+                        echo $searchUserProvinceId ;
+                        echo '</br>';
+                        echo $searchUserZonalId;
+                        echo '</br>';
+                        echo $searchUserSchoolId;   
+                        echo '</br>';
+                        echo $searchUserSubjectId ;
+                      
                        // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
-                     
+                                
                         }
                         ?>
 
@@ -77,7 +93,7 @@
                                                 <!-- NIC number-->
                                                 <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number"/>
+                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true"/>
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                 </div>
 
@@ -133,7 +149,7 @@
                                                 <!-- Designation-->
                                                 <label for="designation" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Designation </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
+                                                    <select required class="form-control" id="designation" name = "designation" >
                                                         <?php if($designationTypeID == 1) {?>
                                                         <option value="">Select Designation</option>
                                                         <option value="1" selected="true">ministryOfficer</option>
@@ -180,20 +196,26 @@
                                         </div>
 
                                         <div class="row">
-                                            <div style="display: none;" id="provinceIDDiv" class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div  id="provinceIDDiv" class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="provinceHiddenForm" class="form-group">
                                                     <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> province Office :  </label>
 
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                        
+                                                        <select required class="form-control " name="provinceID" id="provinceID" >
+                                                            
+                                                             <?php if($searchUserProvinceId == 1) {?>
                                                             <option value="" >Select ProvinceOffice</option>
 
-                                                            <option value="1">centralProvince</option>
+                                                            <option selected="true" value="1">centralProvince</option>
                                                             <option value="2">westernProvince</option>
                                                             <option value="3">sothernProvince</option>
                                                             <option value="4">NothernProvince</option>
                                                             <option value="5">esternProvince</option>
+                                                             <?php } ?> 
+                                                            
                                                         </select>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -223,13 +245,15 @@
 
 
                                         <div class="row">
-                                            <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="subjectHiddenDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="subjectHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Appoinment Subject :</label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                         <select required class="form-control" name="subject" id="subject" >
+                                                            <?php if($searchUserSubjectId==1) {?>
                                                             <option value="none">Select subject</option>
-                                                            <option value="1">Mathematics</option>
+                                                            <option selected="true" value="1">Mathematics</option>
+                                                            <?php } ?>
                                                         </select>
                                                     </div>
                                                 </div>

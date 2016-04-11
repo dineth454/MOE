@@ -85,13 +85,6 @@
                             }
 
                             $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
-
-
-
-
-
-
-                            // echo $nic;
                         }
                         ?>
 
@@ -99,7 +92,7 @@
                             <h1 class="topic_font">Add Employee</h1>
                         </div>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="validationForm();">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="validationForm();" novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -161,8 +154,8 @@
                                                     <option value="4">principal</option>
                                                     <option value="5">teacher</option>
 
-                                                 </select>
-                                                
+                                                </select>
+
                                             </div>
 
                                             <label id="errorPkg" style="font-size: 10px"> </label>
@@ -196,12 +189,12 @@
                                     <div  class="row">
                                         <div  style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
                                             <div id="zonalOfficeHidden" class="form-group">
-                                                
+
                                                 <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
                                                 <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -357,17 +350,17 @@
         </div>
 
         <?php include 'footer.php' ?>
-         
+
         <script src="../assets/js/jquery.js"></script>
-        
-        
+
+
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
         <script src = "../assets/js/addEmployee.js"></script>
-        
-        
-        
-        
-        </body>
-        
-        </html>
+
+
+
+
+    </body>
+
+</html>
