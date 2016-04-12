@@ -48,7 +48,7 @@
                 <a class="slide_font active" href="#">Add Subject</a>
             </li>
             <li>
-                <a class="slide_font active" href="addcurrentSubjectFormFront.php">Add Current subject Of Teacher</a>
+                <a class="slide_font active" href="addCurrentSubjectFormFront.php">Add Current subject Of Teacher</a>
             </li>
           
 
