@@ -444,5 +444,16 @@ class Employee {
         $resultArray = mysqli_fetch_array($result);
         return $resultArray;
     }
+    
+    
+    function loadZonalOffices(){
+        global $mysqli;
+        $query = "select * from zonal_office";
+        $result= $mysqli->query($query);
+       
+        
+        return $result;
+        
+    }
 
 }

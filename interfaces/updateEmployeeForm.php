@@ -46,6 +46,8 @@
                         <?php
                         //get session attribute Values
 
+                        require '../classes/employee.php';
+
                         $designationTypeID = $_SESSION['designationType'];
                         $address = $_SESSION['Address'];
                         $roleType = $_SESSION['roleType'];
@@ -58,20 +60,23 @@
                         $marrigeState = $_SESSION['marrigeState'];
                         $mobileNumber = $_SESSION['mobileNumber'];
 
-
+                        // province Officer kenek nam
                         if ($designationTypeID == 2) {
                             $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
                         }
+                        // zonal officer kenek nam
                         if ($designationTypeID == 3) {
                             $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
                             $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
                         }
+                        // principal kenek nam
                         if ($designationTypeID == 4) {
 
                             $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
                             $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
                             $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
                         }
+                        // teacher kenek nam
                         if ($designationTypeID == 5) {
                             $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
                             $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
@@ -158,7 +163,7 @@
                                                 <!-- Designation-->
                                                 <label for="designation" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Designation </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select required class="form-control" id="designation" name = "designation" >
+                                                    <select disabled="true" required class="form-control" id="designation" name = "designation" >
                                                         <?php if ($designationTypeID == 1) { ?>
                                                             <option value="">Select Designation</option>
                                                             <option value="1" selected="true">ministryOfficer</option>
@@ -267,7 +272,18 @@
                                                 <div id="zonalOfficeHidden" class="form-group">
                                                     <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Zonal Office :  </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select disabled="true" required class="form-control" name="zonalID"  id="abc" > </select> 
+                                                        <select disabled="true"  required class="form-control" name="zonalID"  id="abc" >  
+                                                            <?php
+                                                            $employee = new Employee();
+                                                            $result = $employee->loadZonalOffices();
+
+                                                            foreach ($result as $array) {
+                                                                if ($array['zonalID'] == $searchUserZonalId) {
+                                                                    echo '<option selected = "true" value="' . $array['zonalID'] . '" >' . $array['zonalName'] . '</option>';
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -296,12 +312,22 @@
                                                                 <option selected="true" value="1">Mathematics</option>
                                                                 <option  value="2">Science</option>
                                                                 <option  value="3">Buddhism</option>
-                                                            <?php } else { ?>
-                                                                <option selected="true" value="none">Select subject</option>
+                                                            <?php } else if ($searchUserSubjectId == 2) { ?>
+                                                                <option  value="none">Select subject</option>
+                                                                <option  value="1">Mathematics</option>
+                                                                <option selected="true" value="2">Science</option>
+                                                                <option  value="3">Buddhism</option>
+                                                            <?php } else if ($searchUserSubjectId == 3) { ?>
+                                                                <option  value="none">Select subject</option>
                                                                 <option  value="1">Mathematics</option>
                                                                 <option  value="2">Science</option>
-                                                                <option  value="3">Buddhism</option>
-                                                            <?php } ?>
+                                                                <option selected="true"  value="3">Buddhism</option>
+                                                            <?php } else { ?>
+                                                                <option selected="true"  value="none">Select subject</option>
+                                                                <option  value="1">Mathematics</option>
+                                                                <option  value="2">Science</option>
+                                                                <option   value="3">Buddhism</option>
+                                                            <?php } ?>    
                                                         </select>
                                                     </div>
                                                 </div>
