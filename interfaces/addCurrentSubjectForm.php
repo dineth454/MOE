@@ -41,12 +41,35 @@
 
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1">
+                        <?php
+                        // echo $_SESSION['designationType'];
+                        if (isset($_POST['submit'])) {
+                            require '../classes/employee.php';
 
+                            $nic = $_POST['nic'];
+                            $currentSubject = $_POST['currentsubject'];
+                            $grade = $_POST['grade'];
+
+                            $employee = new Employee();
+
+                            $insertSuccess = $employee->insertIntoSubjetcCombination($nic, $currentSubject, $grade);
+
+                            if ($insertSuccess == 1) {
+                                echo '<script language="javascript">';
+                                echo 'alert("Inserted SuccessFully.Thankyou")';
+                                echo '</script>';
+                            } else {
+                                echo '<script language="javascript">';
+                                echo 'alert("error Occured While Insertin data.check")';
+                                echo '</script>';
+                            }
+                        }
+                        ?>
 
                         <?php
                         //get session attribute Values
 
-                        require '../classes/employee.php';
+
 
                         $designationTypeID = $_SESSION['designationType'];
 
@@ -59,20 +82,14 @@
                             $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
                             $searchUserSubjectId = $_SESSION['subjectIdSearchUser'];
                         }
-
-
-
-                        // echo $_SESSION['designationType'];
-                        if (isset($_POST['submit'])) {
-                            
-                        }
                         ?>
+
 
                         <div  align="center" style="padding-bottom:10px;">
                             <h1>Add Current Working Subject</h1>
                         </div>
                         <div style="">
-                            <form >
+                            <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                                 <div class="row">
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
@@ -82,7 +99,7 @@
                                                 <!-- NIC number-->
                                                 <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true"/>
+                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" />
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                 </div>
 
