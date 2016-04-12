@@ -413,7 +413,7 @@ class Employee {
         $result_InstituteIdArray1 = mysqli_fetch_array($result_InstituteSearchUserID);
         $InstituteIDsearchUser = $result_InstituteIdArray1['instituteID'];
         
-        $query = "select zonalID,provinceOfficeID from zonal_office where instituteID = '".$InstituteIDsearchUser."'";
+        $query = "select zonalID,provinceOfficeID,zonalName from zonal_office where instituteID = '".$InstituteIDsearchUser."'";
         $result_zonalOfficer = $mysqli->query($query);
         $result_array = mysqli_fetch_array($result_zonalOfficer);
         
@@ -430,7 +430,7 @@ class Employee {
         $result_InstituteIdArray1 = mysqli_fetch_array($result_InstituteSearchUserID);
         $InstituteIDsearchUser = $result_InstituteIdArray1['instituteID'];
         
-        $query = "select schoolID,provinceOfficeID,zonalOfficeID from school where instituteID = '".$InstituteIDsearchUser."'";
+        $query = "select schoolID,schoolName,provinceOfficeID,zonalOfficeID from school where instituteID = '".$InstituteIDsearchUser."'";
         $result_school = $mysqli->query($query);
         $result_array = mysqli_fetch_array($result_school);
         return $result_array;

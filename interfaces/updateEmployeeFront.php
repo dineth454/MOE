@@ -137,6 +137,7 @@ session_start();
                                     // zonal officeID
                                     $_SESSION['zonalIdSearchUser'] = $result2['zonalID'];
                                     
+                                    
                                     //redirect to this page
                                     header("Location: updateEmployeeForm.php");
                                     
@@ -160,6 +161,7 @@ session_start();
                                     $_SESSION['proviceIDSearchUser'] = $result3['provinceOfficeID'];  
                                     // zonal officeID
                                     $_SESSION['zonalIdSearchUser'] = $result3['zonalOfficeID'];
+                                    
                                     //schoolId
                                     $_SESSION['schoolIdSearchUser'] =  $result3['schoolID'];
                                     //redirect to this page
@@ -186,6 +188,7 @@ session_start();
                                     $_SESSION['proviceIDSearchUser'] = $result3['provinceOfficeID'];  
                                     // zonal officeID
                                     $_SESSION['zonalIdSearchUser'] = $result3['zonalOfficeID'];
+                                    
                                     //schoolId
                                     $_SESSION['schoolIdSearchUser'] =  $result3['schoolID'];
                                     //subjectId
