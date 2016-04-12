@@ -202,7 +202,7 @@
 
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                         
-                                                        <select required class="form-control " name="provinceID" id="provinceID" >
+                                                        <select required disabled="true" class="form-control " name="provinceID" id="provinceID" >
                                                             
                                                              <?php if($searchUserProvinceId == 1) {?>
                                                             <option value="" >Select ProvinceOffice</option>
@@ -212,7 +212,39 @@
                                                             <option value="3">sothernProvince</option>
                                                             <option value="4">NothernProvince</option>
                                                             <option value="5">esternProvince</option>
-                                                             <?php } ?> 
+                                                             <?php }else if($searchUserProvinceId == 2){ ?>
+                                                            <option value="" >Select ProvinceOffice</option>
+
+                                                            <option  value="1">centralProvince</option>
+                                                            <option selected="true" value="2">westernProvince</option>
+                                                            <option value="3">sothernProvince</option>
+                                                            <option value="4">NothernProvince</option>
+                                                            <option value="5">esternProvince</option>
+                                                             <?php } else if($searchUserProvinceId == 3) { ?>
+                                                            <option value="" >Select ProvinceOffice</option>
+
+                                                            <option  value="1">centralProvince</option>
+                                                            <option  value="2">westernProvince</option>
+                                                            <option selected="true"  value="3">sothernProvince</option>
+                                                            <option value="4">NothernProvince</option>
+                                                            <option value="5">esternProvince</option>
+                                                            <?php } else if($searchUserProvinceId == 4) { ?>
+                                                            <option value="" >Select ProvinceOffice</option>
+
+                                                            <option  value="1">centralProvince</option>
+                                                            <option  value="2">westernProvince</option>
+                                                            <option   value="3">sothernProvince</option>
+                                                            <option selected="true" value="4">NothernProvince</option>
+                                                            <option value="5">esternProvince</option>
+                                                            <?php } else  { ?>
+                                                            <option value="" >Select ProvinceOffice</option>
+
+                                                            <option  value="1">centralProvince</option>
+                                                            <option  value="2">westernProvince</option>
+                                                            <option   value="3">sothernProvince</option>
+                                                            <option  value="4">NothernProvince</option>
+                                                            <option selected="true" value="5">esternProvince</option>
+                                                            <?php } ?>
                                                             
                                                         </select>
                                                        
@@ -222,22 +254,22 @@
                                         </div>
 
                                         <div class="row">
-                                            <div id="zonalOfficeDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="zonalOfficeDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="zonalOfficeHidden" class="form-group">
                                                     <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Zonal Office :  </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
+                                                        <select disabled="true" required class="form-control" name="zonalID"  id="abc" > </select> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row">
-                                            <div  id="schoolIdDiv" style="display: none; class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div  id="schoolIdDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="schoolHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select required class="form-control required" name="schoolId" id="abcd"  ></select>
+                                                        <select disabled="true" required class="form-control required" name="schoolId" id="abcd"  ></select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -249,10 +281,12 @@
                                                 <div id="subjectHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Appoinment Subject :</label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select required class="form-control" name="subject" id="subject" >
+                                                        <select disabled="true" required class="form-control" name="subject" id="subject" >
                                                             <?php if($searchUserSubjectId==1) {?>
                                                             <option value="none">Select subject</option>
                                                             <option selected="true" value="1">Mathematics</option>
+                                                            <option  value="2">Science</option>
+                                                            <option  value="3">Buddhism</option>
                                                             <?php } ?>
                                                         </select>
                                                     </div>

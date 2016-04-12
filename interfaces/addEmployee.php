@@ -219,6 +219,8 @@
                                                     <select required class="form-control" name="subject" id="subject" >
                                                         <option value="none">Select subject</option>
                                                         <option value="1">Mathematics</option>
+                                                        <option  value="2">Science</option>
+                                                        <option  value="3">Buddhism</option>
                                                     </select>
                                                 </div>
                                             </div>
