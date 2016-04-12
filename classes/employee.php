@@ -89,7 +89,9 @@ class Employee {
 
 
                     if ($result2 == 1) {
-                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$nic',$roleType)";
+                        
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
@@ -122,7 +124,8 @@ class Employee {
                     $result2 = $mysqli->query($query_for_insert_proviceOffeicer_tabel);
 
                     if ($result2 == 1) {
-                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$nic',$roleType)";
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
@@ -152,7 +155,8 @@ class Employee {
                     $result2 = $mysqli->query($query_for_insert_zonalOfficer_tabel);
 
                     if ($result2 == 1) {
-                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$nic',$roleType)";
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
@@ -182,7 +186,8 @@ class Employee {
                     $result2 = $mysqli->query($query_for_insert_principal_tabel);
 
                     if ($result2 == 1) {
-                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$nic',$roleType)";
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password,$roleType)";
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
@@ -212,8 +217,8 @@ class Employee {
 
 
                     if ($result2 == 1) {
-
-                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$nic',$roleType)";
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
 
                         $result = $mysqli->query($query_for_insert_user_table);
 
