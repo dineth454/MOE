@@ -68,7 +68,7 @@
                         }
                         ?>
 
-                        <div align="center" style="padding-bottom:10px;">
+                        <div  align="center" style="padding-bottom:10px;">
                             <h1>Add Current Working Subject</h1>
                         </div>
                         <div style="">
