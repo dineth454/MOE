@@ -456,4 +456,10 @@ class Employee {
         
     }
 
+    function loadSchools(){
+        global $mysqli;
+        $query = "select * from school";
+        $result = $mysqli->query($query);
+        return $result;
+    }
 }
