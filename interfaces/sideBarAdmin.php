@@ -22,6 +22,7 @@
                 <a class="slide_font active" href="#">Delete User</a>
             </li>
         </div>
+      
         <li>
             <a class="slide_font" data-toggle="collapse" href="#collapse2">Institutes</a>
         </li>
@@ -35,20 +36,21 @@
             </li>
 
         </div>
+      
+        
+      
         <li>
-            <a class="slide_font" data-toggle="collapse" href="#collapse3">View</a>
+            <a class="slide_font" data-toggle="collapse" href="#collapse6">Subject</a>
         </li>
 
-        <div id="collapse3" class="panel-collapse collapse">
+        <div id="collapse6" class="panel-collapse collapse">
             <li>
-                <a class="slide_font active" href="#">Province</a>
+                <a class="slide_font active" href="#">Add Subject</a>
             </li>
             <li>
-                <a class="slide_font active" href="#">Zonal</a>
+                <a class="slide_font active" href="addcurrentSubjectFormFront.php">Add Current subject Of Teacher</a>
             </li>
-            <li>
-                <a class="slide_font active " href="#">School</a>
-            </li>
+          
 
         </div>
         <li>

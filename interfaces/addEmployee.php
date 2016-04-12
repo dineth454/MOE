@@ -92,7 +92,7 @@
                             <h1 class="topic_font">Add Employee</h1>
                         </div>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="validationForm();" novalidate>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -165,7 +165,7 @@
 
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <span id="provinceHiddenForm">
+                                            
                                                 <div  class="form-group" style="display: none;" id="provinceIDDiv">
 
                                                     <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> province Office :  </label>
@@ -181,7 +181,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                            </span>
+                                            
 
                                         </div>
                                     </div>
@@ -262,7 +262,7 @@
                                             <!--Email-->
                                             <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required/>
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
                                                 <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                             </div>
                                         </div>

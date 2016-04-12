@@ -220,7 +220,7 @@ class Employee {
                         echo '<script language="javascript">';
                         echo 'alert("Employee successfully registered as a teacher!!!  Thank You.")';
                         echo '</script>';
-                        header("Location: framePage.php");
+                      //  header("Location: framePage.php");
                     }
                 }
             }
@@ -462,4 +462,21 @@ class Employee {
         $result = $mysqli->query($query);
         return $result;
     }
+    
+    function loadGrades(){
+        global $mysqli;
+        $query = "select * from grade";
+        $result = $mysqli->query($query);
+        return $result;
+        
+    }
+    
+    function loadSubjects(){
+          global $mysqli;
+        $query = "select * from subject";
+        $result = $mysqli->query($query);
+        return $result;
+    }
+    
+    
 }

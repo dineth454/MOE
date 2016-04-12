@@ -294,7 +294,7 @@
                                                 <div id="schoolHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select disabled="true" required class="form-control required" name="schoolId" id="abcd"  >
+                                                        <select disabled="true" class="form-control required" name="schoolId" id="abcd"  >
                                                             <?php
                                                             $employee = new Employee();
                                                             $result = $employee->loadSchools();
