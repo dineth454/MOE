@@ -217,10 +217,23 @@
                                                 <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
                                                 <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="subject" id="subject" >
-                                                        <option value="none">Select subject</option>
-                                                        <option value="1">Mathematics</option>
+                                                        <option value="none">--Select subject--</option>
+                                                         <?php
+                                                           
+                                                            $result = $employee->loadSubjects();
+
+                                                            foreach ($result as $array) {
+                                                                
+                                                                    echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                                
+                                                            }
+                                                            
+                                                            ?>
+                                                     <!--   <option value="1">Mathematics</option>
                                                         <option  value="2">Science</option>
                                                         <option  value="3">Buddhism</option>
+                                                        <option  value="4">History</option>
+                                                        <option  value="5">English</option> -->
                                                     </select>
                                                 </div>
                                             </div>
@@ -234,7 +247,7 @@
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- Name with initials-->
-                                            <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials </label>
+                                            <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text885555555v-align: left;"> Name with Initials </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter name with Initials"/>
                                                 <!--<label id="errorFirstName" style="font-size:10px"> </label>-->

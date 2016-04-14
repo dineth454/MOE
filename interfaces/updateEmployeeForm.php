@@ -21,6 +21,7 @@
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
 
     </head>
 
@@ -47,6 +48,7 @@
                         //get session attribute Values
 
                         require '../classes/employee.php';
+                        $employee = new Employee();
 
                         $designationTypeID = $_SESSION['designationType'];
                         $address = $_SESSION['Address'];
@@ -181,7 +183,7 @@
                                                         <?php } else if ($designationTypeID == 3) { ?>
                                                             <option value="">Select Designation</option>
                                                             <option value="1" >ministryOfficer</option>
-                                                            <option value="2" >provincial Officer</option>
+                                          885555555v                  <option value="2" >provincial Officer</option>
                                                             <option value="3" selected="true">zonal Officer</option>
                                                             <option value="4">principal</option>
                                                             <option value="5">teacher</option>
@@ -274,7 +276,7 @@
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                         <select disabled="true"  required class="form-control" name="zonalID"  id="abc" >  
                                                             <?php
-                                                            $employee = new Employee();
+                                                            
                                                             $result = $employee->loadZonalOffices();
 
                                                             foreach ($result as $array) {
@@ -296,7 +298,7 @@
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                         <select disabled="true" class="form-control required" name="schoolId" id="abcd"  >
                                                             <?php
-                                                            $employee = new Employee();
+                                                           
                                                             $result = $employee->loadSchools();
 
                                                             foreach ($result as $array) {
@@ -319,7 +321,8 @@
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Appoinment Subject :</label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                         <select disabled="true" required class="form-control" name="subject" id="subject" >
-                                                            <?php if ($searchUserSubjectId == 1) { ?>
+                                                        
+                                                          <!--  <?php if ($searchUserSubjectId == 1) { ?>
                                                                 <option value="none">Select subject</option>
                                                                 <option selected="true" value="1">Mathematics</option>
                                                                 <option  value="2">Science</option>
@@ -339,7 +342,20 @@
                                                                 <option  value="1">Mathematics</option>
                                                                 <option  value="2">Science</option>
                                                                 <option   value="3">Buddhism</option>
-                                                            <?php } ?>    
+                                                            <?php } ?> 
+                                                            -->
+                                                                <?php
+                                                           
+                                                            $result = $employee->loadSubjects();
+
+                                                            foreach ($result as $array) {
+                                                                if ($array['subjectID'] == $searchUserSubjectId) {
+                                                                    echo '<option selected = "true" value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                                }
+                                                            }
+                                                            
+                                                            ?>
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -472,18 +488,20 @@
                 </div>
             </div>
             <!-- /#page-content-wrapper -->
+            <?php session_unset(); ?>
+            <?php session_destroy(); ?>
 
-
-            <script src = "../assets/js/addEmployee.js"></script>
+            
 
             <?php include 'footer.php' ?>
+
 
             <script src="../assets/js/jquery.js"></script>
 
 
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-            <script src = "../assets/js/addEmployee.js"></script>
+            
 
 
         </div>

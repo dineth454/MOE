@@ -10,17 +10,17 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Home</title>
+        <title>AddCurrentSubjectForm</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-
-
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
+
 
     </head>
 
@@ -58,6 +58,7 @@
                                 echo '<script language="javascript">';
                                 echo 'alert("Inserted SuccessFully.Thankyou")';
                                 echo '</script>';
+                              
                             } else {
                                 echo '<script language="javascript">';
                                 echo 'alert("error Occured While Insertin data.check")';
@@ -72,15 +73,13 @@
 
 
                         $designationTypeID = $_SESSION['designationType'];
-
-                        $nicNumber = $_SESSION['nicNumber'];
-                        $nameWithInitials = $_SESSION['nameWithInitials'];
-
-
                         // teacher kenek nam
                         if ($designationTypeID == 5) {
+                            $nicNumber = $_SESSION['nicNumber'];
+                             $nameWithInitials = $_SESSION['nameWithInitials'];
                             $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
                             $searchUserSubjectId = $_SESSION['subjectIdSearchUser'];
+
                         }
                         ?>
 
@@ -120,31 +119,25 @@
 
                                             </div>
                                         </div>
+                                        
 
-
-
-
-                                        <div class="row">
+                                   <!--     <div class="row">
                                             <div  id="schoolIdDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div id="schoolHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                         
                                                         <select disabled="true" class="form-control required" name="schoolId" id="abcd"  >
-                                                            <?php
-                                                            $employee = new Employee();
-                                                            $result = $employee->loadSchools();
-
-                                                            foreach ($result as $array) {
-                                                                if ($array['schoolID'] == $searchUserSchoolId) {
-                                                                    echo '<option selected = "true" value="' . $array['schoolID'] . '" >' . $array['schoolName'] . '</option>';
-                                                                }
-                                                            }
-                                                            ?>
+                                                       
+                                                            
                                                         </select>
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+                                    -->
 
 
                                         <div class="row">
@@ -193,15 +186,13 @@
                                                         <select  required class="form-control" name="currentsubject" id="currentsubject" >
 
                                                             <option   value="none">--Select subject--</option>
-                                                            <?php
-                                                            $employee = new Employee();
-                                                            $result = $employee->loadSubjects();
 
-                                                            foreach ($result as $array) {
 
-                                                                echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-                                                            }
-                                                            ?>
+                                                                <option  value="1">Mathematics</option>
+                                                                <option  value="2">Science</option>
+                                                                <option  value="3">Buddhism</option>
+                                                            
+                                                           
 
                                                         </select>
                                                     </div>
@@ -216,19 +207,22 @@
                                                 <div id="GeradeHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">Select Grade :</label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    
                                                         <select  required class="form-control" name="grade" id="grade" >
                                                             <option value="none">--Select Grade--</option>
+                                                            <option value="1">Grade 1</option>
+                                                            <option value="2">Grade 2</option>
+                                                            <option value="3">Grade 3</option>
+                                                            <option value="4">Grade 4</option>
+                                                            <option value="5">Grade 5</option>
+                                                            <option value="6">Grade 6</option>
+                                                            <option value="7">Grade 7</option>
+                                                            <option value="8">Grade 8</option>
+                                                            <option value="9">Grade 9</option>
+                                                            <option value="10">Grade 10</option>
+                                                            <option value="11">Grade 11</option>
 
-                                                            <?php
-                                                            $employee = new Employee();
-                                                            $result = $employee->loadGrades();
-
-                                                            foreach ($result as $array) {
-
-                                                                echo '<option  value="' . $array['gradeID'] . '" >' . $array['gradeName'] . '</option>';
-                                                            }
-                                                            ?>
-
+                                                            
                                                         </select>
                                                     </div>
                                                 </div>
@@ -236,7 +230,7 @@
                                         </div>
 
 
-
+                                        
                                         <div class="row">
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
@@ -245,7 +239,7 @@
 
                                             </div>
                                         </div>
-
+                                        
                                     </div>
 
                                 </div>
@@ -260,16 +254,16 @@
             <!-- /#page-content-wrapper -->
 
 
-            <script src = "../assets/js/addEmployee.js"></script>
 
             <?php include 'footer.php' ?>
+           
 
             <script src="../assets/js/jquery.js"></script>
 
 
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-            <script src = "../assets/js/addEmployee.js"></script>
+           
 
 
         </div>

@@ -23,6 +23,7 @@ session_start();
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
 
 
     </head>
@@ -253,7 +254,6 @@ session_start();
             <!-- /#page-content-wrapper -->
 
 
-            <script src = "../assets/js/addEmployee.js"></script>
 
 <?php include 'footer.php' ?>
 
@@ -262,7 +262,7 @@ session_start();
 
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-            <script src = "../assets/js/addEmployee.js"></script>
+            
 
 
         </div>

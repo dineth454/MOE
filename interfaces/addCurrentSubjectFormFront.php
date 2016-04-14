@@ -16,13 +16,12 @@ session_start();
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-
-
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
 
 
     </head>
@@ -49,8 +48,8 @@ session_start();
                         <?php
                         $roletypeID = $designationIdLoggedUser = $LoggedUsernic = '';
                         $roletypeID = 1;
-                        $designationIdLoggedUser = 4;
-                        $LoggedUsernic = '945855456v';
+                        $designationIdLoggedUser = 1;
+                        $LoggedUsernic = '921003072v';
                         require("../classes/employee.php");
                         $employee = new Employee();
                         // submit button action
@@ -140,16 +139,17 @@ session_start();
             <!-- /#page-content-wrapper -->
 
 
-            <script src = "../assets/js/addEmployee.js"></script>
+          
 
             <?php include 'footer.php' ?>
 
             <script src="../assets/js/jquery.js"></script>
 
 
+                
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-            <script src = "../assets/js/addEmployee.js"></script>
+            
 
 
         </div>
