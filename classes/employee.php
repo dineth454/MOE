@@ -373,8 +373,23 @@ class Employee {
         // print_r($result_employeeArray);
     }
     //UPDATE eMPLOYEE FUNCTION
-    function updateEmployeeBasic($nicNumber,$role_subitted,$nameInitialsSubmitted,$eIDSubmitted,$emailUpdated,$addressUpdated,$genderUpdated,$merrageUpdated,$mobileUpdated){
+    function updateEmployeeBasic($nicNumber,$role_subitted,$nameInitialsSubmitted,$nameFullUpdated,$eIDSubmitted,$emailUpdated,$addressUpdated,$genderUpdated,$merrageUpdated,$mobileUpdated){
+        global $mysqli;
+        $updateOK =1 ;
         
+        $updateEmployeeQuery = "update employee set roleType = '$role_subitted',nameWithInitials = '$nameInitialsSubmitted', fullName = '$nameFullUpdated',employeementID = '$eIDSubmitted',email = '$emailUpdated',currentAddress = '$addressUpdated' ,gender = '$genderUpdated' ,marrigeState = '$merrageUpdated',mobileNum = '$mobileUpdated' where nic = '$nicNumber' ";
+        $booleanResult = $mysqli->query($updateEmployeeQuery);
+        
+        $updateUserQuery = "update user set roleTypeID = '$role_subitted' where nic = '$nicNumber'";
+        $booleanResult2 = $mysqli->query($updateUserQuery);
+        if($booleanResult != true){
+            $updateOK = 0;
+            
+        }
+        if($booleanResult2 != true){
+            $updateOK = 0;
+        }
+        return $updateOK;
         
     }
 

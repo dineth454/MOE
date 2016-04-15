@@ -107,6 +107,19 @@
                             $merrageUpdated = $_POST['marrrige'];
                             $mobileUpdated = $_POST['mobileNm'];
                             
+                            $resultUpdated = $employee->updateEmployeeBasic($nicNumber,$role_subitted,$nameInitialsSubmitted,$nameFullUpdated,$eIDSubmitted,$emailUpdated,$addressUpdated,$genderUpdated,$merrageUpdated,$mobileUpdated);
+                            if($resultUpdated == 1){
+                                
+                                echo '<script language="javascript">';
+                                echo 'alert("Updated SuccessFully.Thankyou")';
+                                echo '</script>';
+                            }else{
+                                echo '<script language="javascript">';
+                                echo 'alert("Error Occured While Updating.Thankyou")';
+                                echo '</script>';
+                            }
+                            
+                            
                         }
                         ?>
 
@@ -199,7 +212,7 @@
                                                         <?php } else if ($designationTypeID == 3) { ?>
                                                             <option value="">Select Designation</option>
                                                             <option value="1" >ministryOfficer</option>
-                                          885555555v                  <option value="2" >provincial Officer</option>
+                                                           <option value="2" >provincial Officer</option>
                                                             <option value="3" selected="true">zonal Officer</option>
                                                             <option value="4">principal</option>
                                                             <option value="5">teacher</option>
