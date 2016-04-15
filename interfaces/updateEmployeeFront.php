@@ -44,7 +44,7 @@ session_start();
             <div id="page-content-wrapper" style="min-height: 540px;">
 
                 <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+                    <div class="col-lg-9  col-lg-offset-1">
 
 
                         <?php
@@ -208,7 +208,7 @@ session_start();
                         ?>
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1>Update Employee</h1>
+                            <h1>Update Employee </h1>
                         </div>
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" >

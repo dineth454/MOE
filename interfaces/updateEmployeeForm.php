@@ -95,7 +95,7 @@
                         ?>
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1>Update Employee</h1>
+                            <h1>Update Employee Form</h1>
                         </div>
                         <div style="">
                             <form >
