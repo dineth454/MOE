@@ -372,6 +372,11 @@ class Employee {
 
         // print_r($result_employeeArray);
     }
+    //UPDATE eMPLOYEE FUNCTION
+    function updateEmployeeBasic($nicNumber,$role_subitted,$nameInitialsSubmitted,$eIDSubmitted,$emailUpdated,$addressUpdated,$genderUpdated,$merrageUpdated,$mobileUpdated){
+        
+        
+    }
 
 //find all details according to logged User Nic
     function findFullDetailsOfLoggedUser($loggedUserNic) {
