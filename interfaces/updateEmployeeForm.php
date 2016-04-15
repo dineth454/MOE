@@ -91,6 +91,14 @@
                         // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
                             
+                            //$nicSubmitted = $_POST['nic'];
+                           
+                            echo $nicNumber;
+                            echo 'kalinga';
+                            echo '</br>';
+                            
+                            $role_subitted = $_POST['select_role'];
+                            echo $role_subitted;
                         }
                         ?>
 
@@ -98,7 +106,7 @@
                             <h1>Update Employee Form</h1>
                         </div>
                         <div style="">
-                            <form >
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                                 <div class="row">
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
@@ -108,7 +116,7 @@
                                                 <!-- NIC number-->
                                                 <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true"/>
+                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true" />
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                 </div>
 
@@ -488,8 +496,8 @@
                 </div>
             </div>
             <!-- /#page-content-wrapper -->
-            <?php session_unset(); ?>
-            <?php session_destroy(); ?>
+           <?php #session_unset(); ?>
+            <?php #session_destroy(); ?>
 
             
 
