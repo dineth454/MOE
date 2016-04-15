@@ -98,7 +98,15 @@
                             echo '</br>';
                             
                             $role_subitted = $_POST['select_role'];
-                            echo $role_subitted;
+                            $nameInitialsSubmitted = $_POST['name'];
+                            $nameFullUpdated = $_POST['fname'];
+                            $eIDSubmitted = $_POST['eId'];
+                            $emailUpdated = $_POST['address'];
+                            $addressUpdated = $_POST['address'];
+                            $genderUpdated = $_POST['gender'];
+                            $merrageUpdated = $_POST['marrrige'];
+                            $mobileUpdated = $_POST['mobileNm'];
+                            
                         }
                         ?>
 
