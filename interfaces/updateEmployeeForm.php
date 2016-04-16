@@ -93,15 +93,15 @@
                             
                             //$nicSubmitted = $_POST['nic'];
                            
-                            echo $nicNumber;
-                            echo 'kalinga';
+                           // echo $nicNumber;
+                           // echo 'kalinga';
                             echo '</br>';
                             
                             $role_subitted = $_POST['select_role'];
                             $nameInitialsSubmitted = $_POST['name'];
                             $nameFullUpdated = $_POST['fname'];
                             $eIDSubmitted = $_POST['eId'];
-                            $emailUpdated = $_POST['address'];
+                            $emailUpdated = $_POST['email'];
                             $addressUpdated = $_POST['address'];
                             $genderUpdated = $_POST['gender'];
                             $merrageUpdated = $_POST['marrrige'];
@@ -113,6 +113,7 @@
                                 echo '<script language="javascript">';
                                 echo 'alert("Updated SuccessFully.Thankyou")';
                                 echo '</script>';
+                               // header("Location: updateEmployeeFront.php");
                             }else{
                                 echo '<script language="javascript">';
                                 echo 'alert("Error Occured While Updating.Thankyou")';
