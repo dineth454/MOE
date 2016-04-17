@@ -19,7 +19,7 @@
                 <a class="slide_font active" href="updateEmployeeFront.php">Update User</a>   
             </li>
             <li>
-                <a class="slide_font active" href="#">Delete User</a>
+                <a class="slide_font active" href="deleteUserFront.php">Delete User</a>
             </li>
         </div>
       

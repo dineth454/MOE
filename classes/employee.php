@@ -350,7 +350,7 @@ class Employee {
                     return $result_employeeArray;
                 } else {
                     echo '<script language="javascript">';
-                    echo 'alert("You Dont Have Permission to Update this employee!!!  Thank You.")';
+                    echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
                     echo '</script>';
                 }
                 // Logged In as a Zonal Officer
@@ -365,7 +365,7 @@ class Employee {
                 } else {
 
                     echo '<script language="javascript">';
-                    echo 'alert("You Dont Have Permission to Update this employee!!!  Thank You.")';
+                    echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
                     echo '</script>';
                 }
                 //logged in as a principal
@@ -375,13 +375,13 @@ class Employee {
                     return $result_employeeArray;
                 } else {
                     echo '<script language="javascript">';
-                    echo 'alert("You Dont Have Permission to Update this employee!!!  Thank You.")';
+                    echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
                     echo '</script>';
                 }
             } else {
 
                 echo '<script language="javascript">';
-                echo 'alert("You Dont Have Permission to Update this employee!!!  Thank You.")';
+                echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
                 echo '</script>';
             }
 
@@ -389,7 +389,7 @@ class Employee {
             //return $result_employeeArray;
         } else {
             echo '<script language="javascript">';
-            echo 'alert("You are not allowed to Update this employee!!!  Thank You.")';
+            echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
             echo '</script>';
         }
 
@@ -592,6 +592,23 @@ class Employee {
         $result_school_arry = mysqli_fetch_array($result_School);
        // $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
        return $result_school_arry;
+    }
+    
+    function deleteUser($searchUserNIC){
+        
+        global $mysqli;
+        $deleteOK = 1;
+        
+        $deleteQuery = "delete from employee where nic = '".$searchUserNIC."'";
+        $result = $mysqli->query($deleteQuery);
+        
+        if($result != true){
+            $deleteOK = 0;
+        }
+        
+        return $deleteOK;
+        
+        
     }
 
 }
