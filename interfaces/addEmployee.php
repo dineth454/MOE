@@ -253,6 +253,7 @@
                                                 <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
                                                 </div>
+                                                <label id="errorZonal" style="font-size: 10px"> </label>
 
                                             </div>
                                         </div>

@@ -21,6 +21,9 @@ function validateForm() {
     if (!validateDropDown("provinceID", "errorProvince")) {
         errors.push("errorProvince");
     }
+     if (!validateDropDown("abc", "errorZonal")) {
+        errors.push("errorZonal");
+    }
     
     
 
