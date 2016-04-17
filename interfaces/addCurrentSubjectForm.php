@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>AddCurrentSubjectForm</title>
+        <title>Add Current Subject Form</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">

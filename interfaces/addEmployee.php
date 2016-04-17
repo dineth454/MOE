@@ -44,10 +44,25 @@
 
 
                         <?php
+                        $roletypeID = $designationIdLoggedUser = $LoggedUsernic = '';
+                        $roletypeID = 1;
+                        $designationIdLoggedUser = 4;
+                        $LoggedUsernic = '945855456v';
+
                         require("../classes/employee.php");
                         $employee = new Employee();
 
+                        $result1 = $employee->getProvinceIdOfLoggedUser($LoggedUsernic);
+                        $provinceIdLoggedUser = $result1['provinceID'];
+
+                        $result2 = $employee->getZonalIDLoggedUser($LoggedUsernic);
+                        $zonalIdLoggedUser = $result2['zonalID'];
+
+                        $result3 = $employee->getSchoolIDOfLoggedUser($LoggedUsernic);
+                        $schoolIDLoggedUser = $result3['schoolID'];
+
                         if (isset($_POST['submit'])) {
+
                             $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $dob = $currentAddress = $gender = $marrigeState = $mobileNum = "";
                             $provinceID = $zoneID = $schoolId = $subjectID = "";
                             $nic = $_POST['nic'];
@@ -83,8 +98,51 @@
                             } else {
                                 $designation = $_POST['designation'];
                             }
+                            // logged in sys admin
+                            if ($designationIdLoggedUser == 1 and $roletypeID == 1) {
+                                $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                            } else if ($designationIdLoggedUser < $designation) {
 
-                            $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                // log wela inne ministry officer kenek nam
+                                if ($designationIdLoggedUser == 1) {
+                                    $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+
+                                    //log wela inne province officer kenek nam
+                                } else if ($designationIdLoggedUser == 2) {
+
+                                    //zonal officer kenek nam add karanne
+                                    if ($provinceIdLoggedUser == $provinceID) {
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                    }
+                                    // logged wela inne zonal officer kenek nam
+                                } else if ($designationIdLoggedUser == 3) {
+                                    //principal kenek nam add karanne 
+                                    if ($zonalIdLoggedUser == $zoneID) {
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                    }
+                                    //logged wela inne principal kenek nam
+                                } else if ($designationIdLoggedUser == 4) {
+                                    //add karanne teacher kenek nam
+                                    if ($schoolIDLoggedUser == $schoolId) {
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                    } else {
+                                        echo '<script language="javascript">';
+                                        echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
+                                        echo '</script>';
+                                    }
+                                } else {
+                                    echo '<script language="javascript">';
+                                    echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
+                                    echo '</script>';
+                                }
+
+                                /// $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                            } else {
+
+                                echo '<script language="javascript">';
+                                echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.3")';
+                                echo '</script>';
+                            }
                         }
                         ?>
 
@@ -165,23 +223,23 @@
 
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            
-                                                <div  class="form-group" style="display: none;" id="provinceIDDiv">
 
-                                                    <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> province Office :  </label>
+                                            <div  class="form-group" style="display: none;" id="provinceIDDiv">
 
-                                                    <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
-                                                        <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                            <option value="" >Select ProvinceOffice</option>
-                                                            <option value="1">centralProvince</option>
-                                                            <option value="2">westernProvince</option>
-                                                            <option value="3">sothernProvince</option>
-                                                            <option value="4">NothernProvince</option>
-                                                            <option value="5">esternProvince</option>
-                                                        </select>
-                                                    </div>
+                                                <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> province Office :  </label>
+
+                                                <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
+                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                        <option value="" >Select ProvinceOffice</option>
+                                                        <option value="1">centralProvince</option>
+                                                        <option value="2">westernProvince</option>
+                                                        <option value="3">sothernProvince</option>
+                                                        <option value="4">NothernProvince</option>
+                                                        <option value="5">esternProvince</option>
+                                                    </select>
                                                 </div>
-                                            
+                                            </div>
+
 
                                         </div>
                                     </div>
@@ -218,22 +276,19 @@
                                                 <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="subject" id="subject" >
                                                         <option value="none">--Select subject--</option>
-                                                         <?php
-                                                           
-                                                            $result = $employee->loadSubjects();
+                                                        <?php
+                                                        $result = $employee->loadSubjects();
 
-                                                            foreach ($result as $array) {
-                                                                
-                                                                    echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-                                                                
-                                                            }
-                                                            
-                                                            ?>
-                                                     <!--   <option value="1">Mathematics</option>
-                                                        <option  value="2">Science</option>
-                                                        <option  value="3">Buddhism</option>
-                                                        <option  value="4">History</option>
-                                                        <option  value="5">English</option> -->
+                                                        foreach ($result as $array) {
+
+                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                        }
+                                                        ?>
+                                                        <!--   <option value="1">Mathematics</option>
+                                                           <option  value="2">Science</option>
+                                                           <option  value="3">Buddhism</option>
+                                                           <option  value="4">History</option>
+                                                           <option  value="5">English</option> -->
                                                     </select>
                                                 </div>
                                             </div>

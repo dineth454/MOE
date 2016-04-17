@@ -125,7 +125,7 @@
                         ?>
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1>Update Employee Form</h1>
+                            <h1>Update Employee Basic Details</h1>
                         </div>
                         <div style="">
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">

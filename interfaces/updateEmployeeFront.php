@@ -208,7 +208,7 @@ session_start();
                         ?>
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1>Update Employee </h1>
+                            <h1>Update Employee Basic Details</h1>
                         </div>
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" >
