@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2016 at 06:04 PM
--- Server version: 5.6.14
--- PHP Version: 5.5.6
+-- Generation Time: Apr 17, 2016 at 06:43 ප.ව.
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -121,18 +121,18 @@ CREATE TABLE IF NOT EXISTS `employee` (
 --
 
 INSERT INTO `employee` (`nic`, `instituteID`, `roleType`, `designationTypeID`, `nameWithInitials`, `fullName`, `employeementID`, `email`, `currentAddress`, `gender`, `marrigeState`, `mobileNum`) VALUES
-('8011111111v', 1, 2, 1, 'duminda', 'Yapa', '123234', 'dumi@gmail.com', 'kandy', '2', '2', 712854724),
+('8011111111v', 1, 2, 1, 'duminda', 'Yapa', '123234', 'dumi@gmail.com', 'kandy', '2', '3', 712854724),
 ('812222222v', 2, 3, 2, 'sanjeewa', 'yapa', '147586', 'sanjee@gmail.com', 'kandy', '2', '2', 716545624),
 ('8211111111v', 7, 4, 3, 'kkyapa', 'Yaparathna', '12456', 'kk@gmail.com', 'kandy', '2', '2', 719335699),
 ('834444444v', 9, 5, 4, 'Poornima', 'Karunarathne', '187656', 'pooh@gmail.com', 'Panadura', '3', '2', 715685458),
-('849999999v', 9, 3, 5, 'Nilushan', 'Roshan', '177626', 'Nilu@gmail.com', 'kandy', '2', '2', 715839496),
+('849999999v', 9, 3, 5, 'ymnrYaparathne', 'RoshanYaparathne', '177626', 'nilu@gmail.com', 'kandy', '2', '2', 715839496),
+('8812545854v', 9, 5, 5, 'Kaaaali', 'Yaparathhne', '9545658', 'kaali@gmail.com', 'kandy', '2', '2', 714585458),
 ('92000000v', 8, 3, 3, 'Seetha', 'Kumari', '123569', 'seetha@gmail.com', 'kandy', '2', '2', 714585658),
 ('921003072v', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
 ('921474558v', 2, 2, 2, 'Sanjeewa', '', '123456', 'san@gmail.com', 'Digana', '2', '3', 716545624),
 ('921595654v', 3, 5, 2, 'somba', 'Deeya', '123432', 'somba@gmail.com', 'Galle', '2', '2', 718767654),
-('945855456v', 9, 3, 4, 'kb', 'Herath', '123485', 'kb@gmail.com', 'Kandy', '2', '2', 2345),
-('951232545v', 9, 5, 5, 'nilusha', 'roshan', '14758', 'nilu@gmail.com', 'wepathana', '2', '2', 714565845),
-('984565654v', 9, 2, 5, 'asela', 'bandara', '124', 'asela@gmail.com', 'kandy', '2', '2', 123);
+('945855456v', 9, 3, 4, 'kbc', 'Herath', '123485', 'kb@gmail.com', 'Kandy', '2', '2', 2345),
+('951232545v', 9, 2, 5, 'ymnkYaparathne', 'Nilusha Roshan', '14758', 'rosh@gmail.com', 'wepathana', '2', '2', 715839496);
 
 -- --------------------------------------------------------
 
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `institute` (
   `instituteTypeID` int(11) NOT NULL,
   PRIMARY KEY (`instituteID`),
   KEY `institute_instituteTypeID_idx` (`instituteTypeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `institute`
@@ -202,7 +202,8 @@ INSERT INTO `institute` (`instituteID`, `instituteTypeID`) VALUES
 (6, 2),
 (7, 3),
 (8, 3),
-(9, 4);
+(9, 4),
+(10, 4);
 
 -- --------------------------------------------------------
 
@@ -362,14 +363,15 @@ CREATE TABLE IF NOT EXISTS `school` (
   KEY `school_schooltypeID_idx` (`schoolTypeID`),
   KEY `school_zonalID_idx` (`zonalOfficeID`),
   KEY `school_provinceID_idx` (`provinceOfficeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `school`
 --
 
 INSERT INTO `school` (`schoolID`, `schoolName`, `instituteID`, `provinceOfficeID`, `zonalOfficeID`, `schoolTypeID`, `numOfStudents`) VALUES
-(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250);
+(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250),
+(2, 'Gonawala Maha Vidyalaya,waththegama', 10, 1, 1, 1, 200);
 
 -- --------------------------------------------------------
 
@@ -426,6 +428,16 @@ CREATE TABLE IF NOT EXISTS `subject_combination` (
   KEY `subjectCombination_GradeID` (`grade`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `subject_combination`
+--
+
+INSERT INTO `subject_combination` (`teacherID`, `subjectID`, `grade`) VALUES
+(5, 1, 1),
+(5, 1, 5),
+(8, 2, 7),
+(8, 3, 9);
+
 -- --------------------------------------------------------
 
 --
@@ -444,7 +456,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   KEY `teacher_zonalOfficeID_idx` (`zonalOfficeID`),
   KEY `teacher_provinceOfficeID_idx` (`provinceOfficeID`),
   KEY `teacher_appoinmentSubjectID` (`appoinmentSubject`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `teacher`
@@ -452,8 +464,8 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 
 INSERT INTO `teacher` (`teachetID`, `nic`, `zonalOfficeID`, `provinceOfficeID`, `currentState`, `appoinmentSubject`) VALUES
 (5, '951232545v', 1, 1, 'working', 3),
-(6, '984565654v', 1, 1, 'working', 1),
-(8, '849999999v', 1, 1, 'working', 2);
+(8, '849999999v', 1, 1, 'working', 2),
+(9, '8812545854v', 1, 1, 'working', 3);
 
 -- --------------------------------------------------------
 
@@ -479,13 +491,13 @@ INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
 ('8211111111v', '8211111111v', 4),
 ('834444444v', '834444444v', 5),
 ('849999999v', '849999999v', 3),
+('8812545854v', '918264e13515d70f21886ea5c965fb13890de391', 5),
 ('92000000v', '92000000v', 3),
 ('921003072V', '1b7b3bb43ee47fb92f715b866a888ba3e8fd40de', 1),
 ('921474558V', '9350d1db852e518c0e27107fe1349bfa83e18281', 2),
 ('921595654v', '921595654v', 5),
 ('945855456v', '945855456v', 3),
-('951232545v', '951232545v', 5),
-('984565654v', '984565654v', 2);
+('951232545v', '951232545v', 2);
 
 -- --------------------------------------------------------
 
