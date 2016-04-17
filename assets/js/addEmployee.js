@@ -36,6 +36,11 @@ function validateForm() {
         errors.push("errormobileNumbber");
     }
 
+    var email = document.getElementById("email").value;
+    if (!validateEmail(email)) {
+        errors.push("errorEmail");
+    }
+
 
 
     if (errors.length > 0) {
@@ -103,29 +108,50 @@ function validateDropDown(text, errorLbl) {
     }
 }
 
-            //method to validate mobile number
-            function validateMobileNumber(text) {
-                var pattern = /^([+0-9]{1,3})?([0-9]{10,11})$/i;
-                if (text == null || text == "") {
-                    document.getElementById("mobileNm").focus();
-                    document.getElementById("mobileNm").style.borderColor = "red";
-                    document.getElementById("errormobileNumbber").innerHTML = "required";
-                    document.getElementById("errormobileNumbber").style.color = "red";
-                    return false;
-                }
-                else if ((pattern.test(text)) == false || text.length < 10) {
-                    document.getElementById("mobileNm").focus();
-                    document.getElementById("mobileNm").style.borderColor = "red";
-                    document.getElementById("errormobileNumbber").innerHTML = "invalid type";
-                    document.getElementById("errormobileNumbber").style.color = "red";
-                    return false;
-                }
-                else {
-                    document.getElementById("mobileNm").style.borderColor = "green";
-                    document.getElementById("errormobileNumbber").innerHTML = "";
-                    return true;
-                }
-            }
+//method to validate mobile number
+function validateMobileNumber(text) {
+    var pattern = /^([+0-9]{1,3})?([0-9]{10,11})$/i;
+    if (text == null || text == "") {
+        document.getElementById("mobileNm").focus();
+        document.getElementById("mobileNm").style.borderColor = "red";
+        document.getElementById("errormobileNumb").innerHTML = "required";
+        document.getElementById("errormobileNumb").style.color = "red";
+        return false;
+    }
+    else if ((pattern.test(text)) == false || text.length < 10) {
+        document.getElementById("mobileNm").focus();
+        document.getElementById("mobileNm").style.borderColor = "red";
+        document.getElementById("errormobileNumb").innerHTML = "invalid type";
+        document.getElementById("errormobileNumb").style.color = "red";
+        return false;
+    }
+    else {
+        document.getElementById("mobileNm").style.borderColor = "green";
+        document.getElementById("errormobileNumb").innerHTML = "";
+        return true;
+    }
+}
+
+//method to validate email address
+function validateEmail(text) {
+    var pattern = /^[a-z0-9._-]+@[a-z]+.[a-z.]{2,5}$/i;
+    if (text == "" || text == null) {
+        document.getElementById("errorEmail").innerHTML = "";
+        return true;
+    }
+    else if ((pattern.test(text)) == false) {
+        document.getElementById("email").focus();
+        document.getElementById("email").style.borderColor = "red";
+        document.getElementById("errorEmail").innerHTML = "invalid email";
+        document.getElementById("errorEmail").style.color = "red";
+        return false;
+    }
+    else {
+        document.getElementById("email").style.borderColor = "green";
+        document.getElementById("errorEmail").innerHTML = "";
+        return true;
+    }
+}
 
 
 

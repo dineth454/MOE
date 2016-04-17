@@ -336,7 +336,7 @@
                                             <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
-                                                <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                                <label id="errorEmail" style="font-size:10px"> </label>
                                             </div>
                                         </div>
                                     </div>
@@ -351,7 +351,7 @@
                                                 <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                             </div>
 
-                                            <!--Email-->
+                                            <!--Current Address-->
                                             <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Current Address </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" />
@@ -392,7 +392,7 @@
                                             <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="mobileNm" name="mobileNm" placeholder="Enter mobile Number"/>
-                                                <label id="errormobileNumbber" style="font-size:10px"> </label>
+                                                <label id="errormobileNumb" style="font-size:10px"> </label>
                                             </div>
 
 
