@@ -150,7 +150,7 @@
                             <h1 class="topic_font">Add Employee</h1>
                         </div>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post"  novalidate>
+                        <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return addEmployeeFormValidation();"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -161,7 +161,7 @@
                                             <!-- NIC number-->
                                             <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number"/>
+                                                <input type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number" autofocus/>
                                                 <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                             </div>
 
