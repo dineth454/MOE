@@ -17,15 +17,22 @@ function validateForm() {
     if (!validateDropDown("designation", "errorDesignation")) {
         errors.push("errorDesignation");
     }
-    
+
     if (!validateDropDown("provinceID", "errorProvince")) {
         errors.push("errorProvince");
     }
-     if (!validateDropDown("abc", "errorZonal")) {
+    if (!validateDropDown("abc", "errorZonal")) {
         errors.push("errorZonal");
     }
-    
-    
+    if (!validateDropDown("abcd", "errorSchool")) {
+        errors.push("errorSchool");
+    }
+
+    if (!validateDropDown("subject", "errorSubject")) {
+        errors.push("errorSubject");
+    }
+
+
 
     if (errors.length > 0) {
         return false;

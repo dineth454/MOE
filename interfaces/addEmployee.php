@@ -266,6 +266,7 @@
                                                 <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control required" name="schoolId" id="abcd"  ></select>
                                                 </div>
+                                                <label id="errorSchool" style="font-size: 10px"> </label>
                                             </div>
                                         </div>
                                     </div>
@@ -277,10 +278,10 @@
                                                 <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
                                                 <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="subject" id="subject" >
-                                                        <option value="none">--Select subject--</option>
+                                                        <option value="">--Select Subject--</option>
                                                         <?php
                                                         $result = $employee->loadSubjects();
-
+                                                        
                                                         foreach ($result as $array) {
 
                                                             echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
@@ -293,6 +294,8 @@
                                                            <option  value="5">English</option> -->
                                                     </select>
                                                 </div>
+                                                <label id="errorSubject" style="font-size: 10px"> </label>
+                                                
                                             </div>
                                         </div>
                                     </div>
