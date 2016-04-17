@@ -1,52 +1,96 @@
-//nic validation 
-function nicValidation(form, inputName) {
-    var nic = document.forms[form][inputName].value;
-	var pattern = /^[0-9]{9}(V|v){1}/;
+function validateForm() {
+    var errors = [];
 
-    if ((pattern.test(nic)) == false || nic.length < 10) {
-        document.getElementById(inputName).focus();
-        document.getElementById(inputName).style.borderColor = "red";
-        document.getElementById(inputName + "Error").innerHTML = "invalid type";
-        document.getElementById(inputName + "Error").style.color = "red";
+    /*if (!validateName("firstName", "errorFirstName")) {
+     errors.push("errorFirstName");
+     }*/
+    // validate Nic 
+    var nicNumber = document.getElementById("nic").value;
+    if (!validateNicNumber(nicNumber)) {
+        errors.push("errorNicNumber");
+    }
+    //validate Roletype
+    if (!validateDropDown("select_role", "errorRole")) {
+        errors.push("errorRole");
+    }
+    // validate designation
+    if (!validateDropDown("designation", "errorDesignation")) {
+        errors.push("errorDesignation");
+    }
+    
+    if (!validateDropDown("provinceID", "errorProvince")) {
+        errors.push("errorProvince");
+    }
+    
+    
+
+    if (errors.length > 0) {
         return false;
     }
     else {
-        document.getElementById(inputName).style.borderColor = "green";
-        document.getElementById(inputName + "Error").innerHTML = "";
         return true;
     }
 }
 
-//required field validation 
-function requiredValidation(form,inputName) {
-    var text = document.forms[form][inputName].value;
-
-    if (text == null || text == "") {
-        document.getElementById(inputName).focus();
-        document.getElementById(inputName).style.borderColor = "red";
-        document.getElementById(inputName + "Error").innerHTML = "required";
-        document.getElementById(inputName + "Error").style.color = "red";
+//method to validate name field is empty or not
+function validateName(text, errorLbl) {
+    if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
+        document.getElementById(text).focus();
+        document.getElementById(text).style.borderColor = "red";
+        document.getElementById(errorLbl).innerHTML = "required";
+        document.getElementById(errorLbl).style.color = "red";
         return false;
     }
     else {
-        document.getElementById(inputName).style.borderColor = "green";
-        document.getElementById(inputName + "Error").innerHTML = "";
+        document.getElementById(text).style.borderColor = "green";
+        document.getElementById(errorLbl).innerHTML = "";
         return true;
     }
 }
 
-//login validation
-function addEmployeeFormValidation() {
-    var nic = document.forms["addEmployeeForm"]["nic"].value;
-    //var password = document.forms["loginForm"]["password"].value;
-
-    var nicValid = requiredValidation("addEmployeeForm","nic") && nicValidation("addEmployeeForm","nic");
-    //var passwordValid = requiredValidation("loginForm","password");
-
-    if( !(nicValid) ){
+//method to validate nic number
+function validateNicNumber(text) {
+    var pattern = /^[0-9]{9}(V|v){1}/;
+    if (text == "" || text == null) {
+        document.getElementById("nic").focus();
+        document.getElementById("nic").style.borderColor = "red";
+        document.getElementById("errornicNum").innerHTML = "required";
+        document.getElementById("errornicNum").style.color = "red";
         return false;
     }
+    else if ((pattern.test(text)) == false || text.length < 10) {
+        document.getElementById("nic").focus();
+        document.getElementById("nic").style.borderColor = "red";
+        document.getElementById("errornicNum").innerHTML = "invalid type";
+        document.getElementById("errornicNum").style.color = "red";
+        return false;
+    }
+    else {
+        document.getElementById("nic").style.borderColor = "green";
+        document.getElementById("errornicNum").innerHTML = "";
+        return true;
+    }
 }
+
+//method to validate a dropdown is selected or not
+function validateDropDown(text, errorLbl) {
+    if (document.getElementById(text).value == "") {
+        document.getElementById(text).focus();
+        document.getElementById(text).style.borderColor = "red";
+        document.getElementById(errorLbl).innerHTML = "please select a value";
+        document.getElementById(errorLbl).style.color = "red";
+
+        return false;
+    }
+    else {
+        document.getElementById(text).style.borderColor = "green";
+        document.getElementById(errorLbl).innerHTML = "";
+        return true;
+    }
+}
+
+
+
 
 
 $(document).ready(function () {
@@ -90,30 +134,30 @@ function selectionForm(val) {
         $('#zonalOfficeDiv').slideDown("slow");
         $('#schoolIdDiv').slideUp("slow");
         $('#subjectHiddenDiv').slideUp("slow");
-       /* document.getElementById('zonalOfficeHidden').style.visibility = 'visible';
-        document.getElementById('schoolHidden').style.visibility = 'hidden';
-        document.getElementById('provinceHiddenForm').style.visibility = 'visible';
-        document.getElementById('subjectHidden').style.visibility = 'hidden';*/
+        /* document.getElementById('zonalOfficeHidden').style.visibility = 'visible';
+         document.getElementById('schoolHidden').style.visibility = 'hidden';
+         document.getElementById('provinceHiddenForm').style.visibility = 'visible';
+         document.getElementById('subjectHidden').style.visibility = 'hidden';*/
     } else if (val == "2") {
         $('#provinceIDDiv').slideDown("slow");
         $('#zonalOfficeDiv').slideUp("slow");
         $('#schoolIdDiv').slideUp("slow");
         $('#subjectHiddenDiv').slideUp("slow");
-        
-       /* document.getElementById('provinceHiddenForm').style.visibility = 'visible';
-        document.getElementById('schoolHidden').style.visibility = 'hidden';
-        document.getElementById('zonalOfficeHidden').style.visibility = 'hidden';
-        document.getElementById('subjectHidden').style.visibility = 'hidden';*/
+
+        /* document.getElementById('provinceHiddenForm').style.visibility = 'visible';
+         document.getElementById('schoolHidden').style.visibility = 'hidden';
+         document.getElementById('zonalOfficeHidden').style.visibility = 'hidden';
+         document.getElementById('subjectHidden').style.visibility = 'hidden';*/
     } else if (val == "1") {
         $('#provinceIDDiv').slideUp("slow");
         $('#zonalOfficeDiv').slideUp("slow");
         $('#schoolIdDiv').slideUp("slow");
         $('#subjectHiddenDiv').slideUp("slow");
-        
-       /* document.getElementById('schoolHidden').style.visibility = 'hidden';
-        document.getElementById('zonalOfficeHidden').style.visibility = 'hidden';
-        document.getElementById('provinceHiddenForm').style.visibility = 'hidden';
-        document.getElementById('subjectHidden').style.visibility = 'hidden';*/
+
+        /* document.getElementById('schoolHidden').style.visibility = 'hidden';
+         document.getElementById('zonalOfficeHidden').style.visibility = 'hidden';
+         document.getElementById('provinceHiddenForm').style.visibility = 'hidden';
+         document.getElementById('subjectHidden').style.visibility = 'hidden';*/
     } else {
 
         alert('select a value');
@@ -121,10 +165,7 @@ function selectionForm(val) {
 }
 
 
-function validationForm() {
 
-    //alert('please validate Form');
-}
 
 
 function showUser(str) {

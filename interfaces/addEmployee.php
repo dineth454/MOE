@@ -150,7 +150,7 @@
                             <h1 class="topic_font">Add Employee</h1>
                         </div>
 
-                        <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return addEmployeeFormValidation();"  novalidate>
+                        <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateForm())"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -159,10 +159,10 @@
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- NIC number-->
-                                            <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
+                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number" autofocus/>
-                                                <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                <input maxlength="10" type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number" autofocus/>
+                                                <label id="errornicNum" style="font-size:10px"> </label>
                                             </div>
 
                                         </div>
@@ -194,7 +194,7 @@
                                                     ?>
 
                                                 </select>
-                                                <!--<label id="errorMain" style="font-size:10px;"></label>-->
+                                                <label id="errorRole" style="font-size:10px;"></label>
                                             </div>
 
                                         </div>
@@ -216,7 +216,7 @@
 
                                             </div>
 
-                                            <label id="errorPkg" style="font-size: 10px"> </label>
+                                            <label id="errorDesignation" style="font-size: 10px"> </label>
 
                                         </div>
                                     </div>
@@ -238,6 +238,7 @@
                                                         <option value="5">esternProvince</option>
                                                     </select>
                                                 </div>
+                                                <label id="errorProvince" style="font-size: 10px"> </label>
                                             </div>
 
 
