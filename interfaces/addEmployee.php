@@ -392,7 +392,7 @@
                                             <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="mobileNm" name="mobileNm" placeholder="Enter mobile Number"/>
-                                                <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                <label id="errormobileNumbber" style="font-size:10px"> </label>
                                             </div>
 
 

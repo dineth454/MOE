@@ -31,6 +31,10 @@ function validateForm() {
     if (!validateDropDown("subject", "errorSubject")) {
         errors.push("errorSubject");
     }
+    var mobileNumber = document.getElementById("mobileNm").value;
+    if (!validateMobileNumber(mobileNumber)) {
+        errors.push("errormobileNumbber");
+    }
 
 
 
@@ -98,6 +102,31 @@ function validateDropDown(text, errorLbl) {
         return true;
     }
 }
+
+            //method to validate mobile number
+            function validateMobileNumber(text) {
+                var pattern = /^([+0-9]{1,3})?([0-9]{10,11})$/i;
+                if (text == null || text == "") {
+                    document.getElementById("mobileNm").focus();
+                    document.getElementById("mobileNm").style.borderColor = "red";
+                    document.getElementById("errormobileNumbber").innerHTML = "required";
+                    document.getElementById("errormobileNumbber").style.color = "red";
+                    return false;
+                }
+                else if ((pattern.test(text)) == false || text.length < 10) {
+                    document.getElementById("mobileNm").focus();
+                    document.getElementById("mobileNm").style.borderColor = "red";
+                    document.getElementById("errormobileNumbber").innerHTML = "invalid type";
+                    document.getElementById("errormobileNumbber").style.color = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById("mobileNm").style.borderColor = "green";
+                    document.getElementById("errormobileNumbber").innerHTML = "";
+                    return true;
+                }
+            }
+
 
 
 
