@@ -46,13 +46,14 @@
                         if (isset($_POST['submit'])) {
                             require '../classes/employee.php';
 
-                            $nic = $_POST['nic'];
+                           // $nic = $_POST['nic'];
+                            $nicNumber = $_SESSION['nicNumber'];
                             $currentSubject = $_POST['currentsubject'];
                             $grade = $_POST['grade'];
 
                             $employee = new Employee();
 
-                            $insertSuccess = $employee->insertIntoSubjetcCombination($nic, $currentSubject, $grade);
+                            $insertSuccess = $employee->insertIntoSubjetcCombination($nicNumber, $currentSubject, $grade);
 
                             if ($insertSuccess == 1) {
                                 echo '<script language="javascript">';
@@ -98,7 +99,7 @@
                                                 <!-- NIC number-->
                                                 <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" />
+                                                    <input type="text" disabled="true" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" />
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                 </div>
 
@@ -167,6 +168,11 @@
                                                                 <option  value="2">Science</option>
                                                                 <option   value="3">Buddhism</option>
                                                             <?php } ?>    
+                                                            
+                                                                
+                                                                
+                                                            
+                                                         
                                                         </select>
                                                     </div>
                                                 </div>
