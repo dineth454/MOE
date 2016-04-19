@@ -281,7 +281,7 @@
                                                         <option value="">--Select Subject--</option>
                                                         <?php
                                                         $result = $employee->loadSubjects();
-                                                        
+
                                                         foreach ($result as $array) {
 
                                                             echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
@@ -295,7 +295,7 @@
                                                     </select>
                                                 </div>
                                                 <label id="errorSubject" style="font-size: 10px"> </label>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -425,13 +425,14 @@
         </div>
 
         <?php include 'footer.php' ?>
+        <script src = "../assets/js/addEmployee.js"></script>
 
         <script src="../assets/js/jquery.js"></script>
 
 
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-        <script src = "../assets/js/addEmployee.js"></script>
+
 
 
 

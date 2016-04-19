@@ -46,7 +46,7 @@
                         if (isset($_POST['submit'])) {
                             require '../classes/employee.php';
 
-                           // $nic = $_POST['nic'];
+                            // $nic = $_POST['nic'];
                             $nicNumber = $_SESSION['nicNumber'];
                             $currentSubject = $_POST['currentsubject'];
                             $grade = $_POST['grade'];
@@ -59,7 +59,6 @@
                                 echo '<script language="javascript">';
                                 echo 'alert("Inserted SuccessFully.Thankyou")';
                                 echo '</script>';
-                              
                             } else {
                                 echo '<script language="javascript">';
                                 echo 'alert("error Occured While Insertin data.check")';
@@ -77,10 +76,9 @@
                         // teacher kenek nam
                         if ($designationTypeID == 5) {
                             $nicNumber = $_SESSION['nicNumber'];
-                             $nameWithInitials = $_SESSION['nameWithInitials'];
+                            $nameWithInitials = $_SESSION['nameWithInitials'];
                             $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
                             $searchUserSubjectId = $_SESSION['subjectIdSearchUser'];
-
                         }
                         ?>
 
@@ -89,7 +87,7 @@
                             <h1>Add Current Working Subject</h1>
                         </div>
                         <div style="">
-                            <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                            <form name="currentSubjectForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="return(validateCurrenntSubjectForm())" novalidate>
                                 <div class="row">
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
@@ -120,25 +118,25 @@
 
                                             </div>
                                         </div>
-                                        
 
-                                   <!--     <div class="row">
-                                            <div  id="schoolIdDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="schoolHidden" class="form-group">
-                                                    <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
-                                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                         
-                                                        <select disabled="true" class="form-control required" name="schoolId" id="abcd"  >
-                                                       
+
+                                        <!--     <div class="row">
+                                                 <div  id="schoolIdDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                     <div id="schoolHidden" class="form-group">
+                                                         <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
+                                                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                              
+                                                             <select disabled="true" class="form-control required" name="schoolId" id="abcd"  >
                                                             
-                                                        </select>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    -->
+                                                                 
+                                                             </select>
+     
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+     
+                                        -->
 
 
                                         <div class="row">
@@ -168,13 +166,15 @@
                                                                 <option  value="2">Science</option>
                                                                 <option   value="3">Buddhism</option>
                                                             <?php } ?>    
-                                                            
-                                                                
-                                                                
-                                                            
-                                                         
+
+
+
+
+
                                                         </select>
+
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -191,17 +191,18 @@
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                         <select  required class="form-control" name="currentsubject" id="currentsubject" >
 
-                                                            <option   value="none">--Select subject--</option>
+                                                            <option   value="">--Select subject--</option>
 
 
-                                                                <option  value="1">Mathematics</option>
-                                                                <option  value="2">Science</option>
-                                                                <option  value="3">Buddhism</option>
-                                                            
-                                                           
+                                                            <option  value="1">Mathematics</option>
+                                                            <option  value="2">Science</option>
+                                                            <option  value="3">Buddhism</option>
+
+
 
                                                         </select>
                                                     </div>
+                                                    <label id="errorCurrentSubject" style="font-size: 10px"> </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,9 +214,9 @@
                                                 <div id="GeradeHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">Select Grade :</label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    
+
                                                         <select  required class="form-control" name="grade" id="grade" >
-                                                            <option value="none">--Select Grade--</option>
+                                                            <option value="">--Select Grade--</option>
                                                             <option value="1">Grade 1</option>
                                                             <option value="2">Grade 2</option>
                                                             <option value="3">Grade 3</option>
@@ -228,15 +229,16 @@
                                                             <option value="10">Grade 10</option>
                                                             <option value="11">Grade 11</option>
 
-                                                            
+
                                                         </select>
                                                     </div>
+                                                    <label id="errorGrade" style="font-size: 10px"> </label>
                                                 </div>
                                             </div>
                                         </div>
 
 
-                                        
+
                                         <div class="row">
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
@@ -245,7 +247,7 @@
 
                                             </div>
                                         </div>
-                                        
+
                                     </div>
 
                                 </div>
@@ -262,14 +264,16 @@
 
 
             <?php include 'footer.php' ?>
-           
+             <script src="../assets/js/currentSubjectFormValidation.js"></script>
 
             <script src="../assets/js/jquery.js"></script>
 
 
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
+
            
+
 
 
         </div>
