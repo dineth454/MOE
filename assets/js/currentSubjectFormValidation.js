@@ -2,7 +2,7 @@
 
 function validateCurrenntSubjectForm() {
     var errors = [];
-    alert('kalinga');
+  //  alert('kalinga');
 
     if (!validateDropDown("currentsubject", "errorCurrentSubject")) {
         errors.push("errorCurentSubject");
