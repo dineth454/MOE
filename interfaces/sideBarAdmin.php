@@ -32,7 +32,7 @@
                 <a class="slide_font active" href="addZonalOffice.php">Add Zonal</a>
             </li>
             <li>
-                <a class="slide_font active " href="#">Add School</a>
+                <a class="slide_font active " href="addSchool.php">Add School</a>
             </li>
 
         </div>
