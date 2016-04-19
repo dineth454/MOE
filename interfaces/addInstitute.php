@@ -20,10 +20,11 @@
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
 
     </head>
 
-    <body>
+    <body onload="initialize()">
 
     	<div id="wrapper">
 
@@ -101,18 +102,21 @@
                                             
                                         </div>
                                     </div>
-
-
+                                    <div class="row">
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                                            <div class="container-fluid">
+                                                <div id="map-canvas" style="width:500px;height:730px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="latlong">
+                                            <p>Latitude: <input size="20" type="text" id="latbox" name="lat" ></p>
+                                            <p>Longitude: <input size="20" type="text" id="lngbox" name="lng" ></p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                                	<div class="container-fluid">
-                    <div id="googleMap" style="width:400px;height:400px;"></div>
-
-
-
-                </div>
-                                </div>
                             </div>
                         </form>
 
@@ -127,6 +131,8 @@
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
     	<script src="../assets/js/googlemap.js"></script>
+        <script src="../assets/js/addSchoolMarker.js"></script>
+
 
     </body>
 </html>

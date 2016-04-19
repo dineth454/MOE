@@ -238,12 +238,13 @@
                                                         <option value="5">esternProvince</option>
                                                     </select>
                                                 </div>
+
                                                 <label id="errorProvince" style="font-size: 10px"> </label>
                                             </div>
 
 
                                         </div>
-                                    </div>
+
 
                                     <div  class="row">
                                         <div  style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
@@ -252,6 +253,7 @@
                                                 <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
                                                 <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
+
                                                 </div>
                                                 <label id="errorZonal" style="font-size: 10px"> </label>
 
