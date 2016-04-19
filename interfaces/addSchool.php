@@ -101,6 +101,38 @@
 
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                        <div  class="form-group"  id="SchoolType" style="margin-bottom: 0px;">
+
+                                            <label for="SchoolType" class="control-label col-xs-6  required" style="text-align: left;"> SchoolType :  </label>
+
+                                            <div style="margin-bottom: -10px;"   class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+                                                <select required class="form-control " name="SchoolType" id="SchoolType" >
+                                                    <option value="" >Select Type</option>
+                                                    <option value="1">MIX</option>
+                                                </select>
+                                            </div>
+
+                                            <label id="SchoolTypeError" style="font-size: 10px"> </label>
+                                        </div>
+
+
+                                    </div>
+                                         <div class="row">
+                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!-- No:OF:Students-->
+                                            <label for="NoOfStudents" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> No Of Students :  </label>
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                                <input type="text" class="form-control" id="students" name="students"  placeholder="NOS"/>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
 
 
 
