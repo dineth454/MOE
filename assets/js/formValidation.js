@@ -1,3 +1,4 @@
+//==========================   validation methods  =============================
 //nic validation 
 function nicValidation(form, inputName) {
     var nic = document.forms[form][inputName].value;
@@ -35,10 +36,9 @@ function requiredValidation(form,inputName) {
     }
 }
 
-//login validation
+
+//================================= login validations =================================
 function loginValidation() {
-    //var nic = document.forms["loginForm"]["nic"].value;
-    //var password = document.forms["loginForm"]["password"].value;
 
     var nicValid = requiredValidation("loginForm","nic") && nicValidation("loginForm","nic");
     var passwordValid = requiredValidation("loginForm","password");
@@ -46,4 +46,12 @@ function loginValidation() {
     if( !(nicValid && passwordValid) ){
         return false;
     }
+}
+
+function jsfunction(){
+
+    document.getElementById("password").focus();
+    document.getElementById("password").style.borderColor = "red";
+    document.getElementById("password" + "Error").innerHTML = "password eka waradiy bn..";
+    document.getElementById("password" + "Error").style.color = "red";
 }
