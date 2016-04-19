@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Home</title>
+        <title>Delete Employee Form</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -90,33 +90,16 @@
 
                         // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
-                            
-                            //$nicSubmitted = $_POST['nic'];
-                           
-                           // echo $nicNumber;
-                           // echo 'kalinga';
-                            echo '</br>';
-                            
-                            $role_subitted = $_POST['select_role'];
-                            $nameInitialsSubmitted = $_POST['name'];
-                            $nameFullUpdated = $_POST['fname'];
-                            $eIDSubmitted = $_POST['eId'];
-                            $emailUpdated = $_POST['email'];
-                            $addressUpdated = $_POST['address'];
-                            $genderUpdated = $_POST['gender'];
-                            $merrageUpdated = $_POST['marrrige'];
-                            $mobileUpdated = $_POST['mobileNm'];
-                            
-                            $resultUpdated = $employee->updateEmployeeBasic($nicNumber,$role_subitted,$nameInitialsSubmitted,$nameFullUpdated,$eIDSubmitted,$emailUpdated,$addressUpdated,$genderUpdated,$merrageUpdated,$mobileUpdated);
-                            if($resultUpdated == 1){
+                            $resultDeleted = $employee->deleteUser($nicNumber);
+                            if($resultDeleted == 1){
                                 
                                 echo '<script language="javascript">';
-                                echo 'alert("Updated SuccessFully.Thankyou")';
+                                echo 'alert("Deleted SuccessFully.Thankyou")';
                                 echo '</script>';
                                // header("Location: updateEmployeeFront.php");
                             }else{
                                 echo '<script language="javascript">';
-                                echo 'alert("Error Occured While Updating.Thankyou")';
+                                echo 'alert("Error Occured While Deleting.Thankyou")';
                                 echo '</script>';
                             }
                             
@@ -125,7 +108,7 @@
                         ?>
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1>Update Employee Basic Details</h1>
+                            <h1>Delete Employee</h1>
                         </div>
                         <div style="">
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
@@ -149,7 +132,7 @@
                                                 <!-- Select role-->
                                                 <label for="selec_trole" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Select Role </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select required class="form-control" id="select_role" name="select_role" >
+                                                    <select required class="form-control" id="select_role" name="select_role" disabled="true">
 
                                                         <?php if ($roleType == 2) { ?>
 
@@ -401,14 +384,14 @@
                                                 <!-- Name with initials-->
                                                 <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $nameWithInitials; ?>" placeholder="Enter name with Initials"/>
+                                                    <input disabled="true" type="text" class="form-control" id="name" name="name" value="<?php echo $nameWithInitials; ?>" placeholder="Enter name with Initials"/>
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                 </div>
 
                                                 <!-- Full Name-->
                                                 <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="fname"  name="fname" value="<?php echo $fullName; ?>" placeholder="Enter full name"/>
+                                                    <input disabled="true" type="text" class="form-control" id="fname"  name="fname" value="<?php echo $fullName; ?>" placeholder="Enter full name"/>
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                                 </div>
                                             </div>
@@ -420,14 +403,14 @@
                                                 <!-- Employment ID-->
                                                 <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="eId" name="eId" value="<?php echo $employmentID; ?>" placeholder="Enter Emp ID"/>
+                                                    <input disabled="true" type="text" class="form-control" id="eId" name="eId" value="<?php echo $employmentID; ?>" placeholder="Enter Emp ID"/>
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                 </div>
 
                                                 <!--Email-->
                                                 <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="email" class="form-control" id="email" value="<?php echo $emailAddress; ?>" name="email" placeholder="Enter email" required/>
+                                                    <input disabled="true" type="email" class="form-control" id="email" value="<?php echo $emailAddress; ?>" name="email" placeholder="Enter email" required/>
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                                 </div>
                                             </div>
@@ -440,7 +423,7 @@
                                                 <!--Email-->
                                                 <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required"  style="display: inline-block; text-align: left;"> Current Address </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="address" value="<?php echo $address; ?>" name="address" placeholder="Enter address" />
+                                                    <input disabled="true" type="text" class="form-control" id="address" value="<?php echo $address; ?>" name="address" placeholder="Enter address" />
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                                 </div>
                                             </div>
@@ -452,7 +435,7 @@
                                                 <!-- Gender-->
                                                 <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select class="form-control" name= "gender" value="" id = "gender">
+                                                    <select disabled="true" class="form-control" name= "gender" value="" id = "gender">
                                                         <?php if ($gender == 2) { ?>
 
                                                             <option value="">Select Gender</option>
@@ -469,7 +452,7 @@
                                                 <!--Marrige-->
                                                 <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select class="form-control" name = "marrrige" value="<?php echo $marrigeState; ?>" id = "marrrige">
+                                                    <select disabled="true" class="form-control" name = "marrrige" value="<?php echo $marrigeState; ?>" id = "marrrige">
                                                         <?php if ($marrigeState == 2) { ?>
                                                             <option value="">Select State</option>
                                                             <option selected="true" value="2">Yes</option>
@@ -489,7 +472,7 @@
                                                 <!--mobile_numb-->
                                                 <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="mobileNm" value="<?php echo $mobileNumber; ?>" name="mobileNm" placeholder="Enter mobile Number"/>
+                                                    <input disabled="true" type="text" class="form-control" id="mobileNm" value="<?php echo $mobileNumber; ?>" name="mobileNm" placeholder="Enter mobile Number"/>
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                 </div>
 
@@ -500,7 +483,7 @@
                                         <div class="row">
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
+                                                    <button type="submit" name="submit" id="submit" class="btn btn-primary">Delete</button>
                                                 </div>
 
                                             </div>

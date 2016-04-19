@@ -1435,7 +1435,7 @@ ul.list li img{
 .icon1 li:hover > a {
 	color: #fafafa;
 }
-*html .icon1 li a:hover { 
+html .icon1 li a:hover { 
 	color: #fafafa;
 }
 .icon1 ul {
@@ -1894,7 +1894,7 @@ ul.sub_list2 li a:hover{
 .icon2 li:hover > a {
 	color: #fafafa;
 }
-*html .icon2 li a:hover { /* IE6 only */
+html .icon2 li a:hover { /* IE6 only */
 	color: #fafafa;
 }
 .icon2 ul {
@@ -4369,7 +4369,7 @@ ul.list li img{
 .icon1 li:hover > a {
 	color: #fafafa;
 }
-*html .icon1 li a:hover { 
+html .icon1 li a:hover { 
 	color: #fafafa;
 }
 .icon1 ul {
@@ -4828,7 +4828,7 @@ ul.sub_list2 li a:hover{
 .icon2 li:hover > a {
 	color: #fafafa;
 }
-*html .icon2 li a:hover { /* IE6 only */
+html .icon2 li a:hover { /* IE6 only */
 	color: #fafafa;
 }
 .icon2 ul {

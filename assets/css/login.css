@@ -7,7 +7,7 @@
 body, html {
     height: 100%;
     background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+    /*background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
 }
 
 .card-container.card {
@@ -127,7 +127,7 @@ body, html {
 .btn.btn-signin:hover,
 .btn.btn-signin:active,
 .btn.btn-signin:focus {
-    background-color: rgb(12, 97, 33);
+    background-color: rgb(0, 46, 98);
 }
 
 .forgot-password {

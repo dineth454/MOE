@@ -17,6 +17,8 @@
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
+        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
 
     </head>
 
@@ -42,10 +44,25 @@
 
 
                         <?php
-                        require("../classes/Employee.php");
+                        $roletypeID = $designationIdLoggedUser = $LoggedUsernic = '';
+                        $roletypeID = 1;
+                        $designationIdLoggedUser = 4;
+                        $LoggedUsernic = '945855456v';
+
+                        require("../classes/employee.php");
                         $employee = new Employee();
 
+                        $result1 = $employee->getProvinceIdOfLoggedUser($LoggedUsernic);
+                        $provinceIdLoggedUser = $result1['provinceID'];
+
+                        $result2 = $employee->getZonalIDLoggedUser($LoggedUsernic);
+                        $zonalIdLoggedUser = $result2['zonalID'];
+
+                        $result3 = $employee->getSchoolIDOfLoggedUser($LoggedUsernic);
+                        $schoolIDLoggedUser = $result3['schoolID'];
+
                         if (isset($_POST['submit'])) {
+
                             $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $dob = $currentAddress = $gender = $marrigeState = $mobileNum = "";
                             $provinceID = $zoneID = $schoolId = $subjectID = "";
                             $nic = $_POST['nic'];
@@ -81,23 +98,59 @@
                             } else {
                                 $designation = $_POST['designation'];
                             }
+                            // logged in sys admin
+                            if ($designationIdLoggedUser == 1 and $roletypeID == 1) {
+                                $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                            } else if ($designationIdLoggedUser < $designation) {
 
-                            $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                // log wela inne ministry officer kenek nam
+                                if ($designationIdLoggedUser == 1) {
+                                    $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
 
+                                    //log wela inne province officer kenek nam
+                                } else if ($designationIdLoggedUser == 2) {
 
+                                    //zonal officer kenek nam add karanne
+                                    if ($provinceIdLoggedUser == $provinceID) {
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                    }
+                                    // logged wela inne zonal officer kenek nam
+                                } else if ($designationIdLoggedUser == 3) {
+                                    //principal kenek nam add karanne 
+                                    if ($zonalIdLoggedUser == $zoneID) {
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                    }
+                                    //logged wela inne principal kenek nam
+                                } else if ($designationIdLoggedUser == 4) {
+                                    //add karanne teacher kenek nam
+                                    if ($schoolIDLoggedUser == $schoolId) {
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                    } else {
+                                        echo '<script language="javascript">';
+                                        echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
+                                        echo '</script>';
+                                    }
+                                } else {
+                                    echo '<script language="javascript">';
+                                    echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
+                                    echo '</script>';
+                                }
 
+                                /// $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                            } else {
 
-
-
-                            // echo $nic;
+                                echo '<script language="javascript">';
+                                echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.3")';
+                                echo '</script>';
+                            }
                         }
                         ?>
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1>Add Employee</h1>
+                            <h1 class="topic_font">Add Employee</h1>
                         </div>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="validationForm();">
+                        <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateForm())"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -106,10 +159,10 @@
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- NIC number-->
-                                            <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
+                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number"/>
-                                                <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                <input maxlength="10" type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number" autofocus/>
+                                                <label id="errornicNum" style="font-size:10px"> </label>
                                             </div>
 
                                         </div>
@@ -141,7 +194,7 @@
                                                     ?>
 
                                                 </select>
-                                                <!--<label id="errorMain" style="font-size:10px;"></label>-->
+                                                <label id="errorRole" style="font-size:10px;"></label>
                                             </div>
 
                                         </div>
@@ -159,47 +212,51 @@
                                                     <option value="4">principal</option>
                                                     <option value="5">teacher</option>
 
-                                                 </select>
-                                                
+                                                </select>
+
                                             </div>
 
-                                            <label id="errorPkg" style="font-size: 10px"> </label>
+                                            <label id="errorDesignation" style="font-size: 10px"> </label>
 
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <span id="provinceHiddenForm">
-                                                <div  class="form-group" style="display: none;" id="provinceIDDiv">
 
-                                                    <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> province Office :  </label>
+                                            <div  class="form-group" style="display: none;" id="provinceIDDiv">
 
-                                                    <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
-                                                        <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                            <option value="" >Select ProvinceOffice</option>
-                                                            <option value="1">centralProvince</option>
-                                                            <option value="2">westernProvince</option>
-                                                            <option value="3">sothernProvince</option>
-                                                            <option value="4">NothernProvince</option>
-                                                            <option value="5">esternProvince</option>
-                                                        </select>
-                                                    </div>
+                                                <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> province Office :  </label>
+
+                                                <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
+                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                        <option value="" >Select ProvinceOffice</option>
+                                                        <option value="1">centralProvince</option>
+                                                        <option value="2">westernProvince</option>
+                                                        <option value="3">sothernProvince</option>
+                                                        <option value="4">NothernProvince</option>
+                                                        <option value="5">esternProvince</option>
+                                                    </select>
                                                 </div>
-                                            </span>
+
+                                                <label id="errorProvince" style="font-size: 10px"> </label>
+                                            </div>
+
+
                                         </div>
 
 
                                     <div  class="row">
                                         <div  style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
                                             <div id="zonalOfficeHidden" class="form-group">
-                                                
+
                                                 <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
                                                 <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
 
                                                 </div>
-                                                
+                                                <label id="errorZonal" style="font-size: 10px"> </label>
+
                                             </div>
                                         </div>
                                     </div>
@@ -211,6 +268,7 @@
                                                 <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control required" name="schoolId" id="abcd"  ></select>
                                                 </div>
+                                                <label id="errorSchool" style="font-size: 10px"> </label>
                                             </div>
                                         </div>
                                     </div>
@@ -222,10 +280,24 @@
                                                 <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
                                                 <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="subject" id="subject" >
-                                                        <option value="none">Select subject</option>
-                                                        <option value="1">Mathematics</option>
+                                                        <option value="">--Select Subject--</option>
+                                                        <?php
+                                                        $result = $employee->loadSubjects();
+                                                        
+                                                        foreach ($result as $array) {
+
+                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                        }
+                                                        ?>
+                                                        <!--   <option value="1">Mathematics</option>
+                                                           <option  value="2">Science</option>
+                                                           <option  value="3">Buddhism</option>
+                                                           <option  value="4">History</option>
+                                                           <option  value="5">English</option> -->
                                                     </select>
                                                 </div>
+                                                <label id="errorSubject" style="font-size: 10px"> </label>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -237,7 +309,7 @@
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- Name with initials-->
-                                            <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials </label>
+                                            <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text885555555v-align: left;"> Name with Initials </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter name with Initials"/>
                                                 <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
@@ -265,8 +337,8 @@
                                             <!--Email-->
                                             <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required/>
-                                                <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
+                                                <label id="errorEmail" style="font-size:10px"> </label>
                                             </div>
                                         </div>
                                     </div>
@@ -281,7 +353,7 @@
                                                 <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                             </div>
 
-                                            <!--Email-->
+                                            <!--Current Address-->
                                             <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Current Address </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" />
@@ -322,7 +394,7 @@
                                             <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="mobileNm" name="mobileNm" placeholder="Enter mobile Number"/>
-                                                <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                <label id="errormobileNumb" style="font-size:10px"> </label>
                                             </div>
 
 
@@ -355,17 +427,17 @@
         </div>
 
         <?php include 'footer.php' ?>
-         
+
         <script src="../assets/js/jquery.js"></script>
-        
-        
+
+
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
         <script src = "../assets/js/addEmployee.js"></script>
-        
-        
-        
-        
-        </body>
-        
-        </html>
+
+
+
+
+    </body>
+
+</html>

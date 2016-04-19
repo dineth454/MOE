@@ -1,47 +1,67 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               5.5.27 - MySQL Community Server (GPL)
--- Server OS:                    Win32
--- HeidiSQL Version:             8.3.0.4694
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Apr 17, 2016 at 06:43 ප.ව.
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping structure for table moe.degree
+--
+-- Database: `moe`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `degree`
+--
+
 CREATE TABLE IF NOT EXISTS `degree` (
   `degreeID` int(11) NOT NULL AUTO_INCREMENT,
   `degreeName` varchar(200) NOT NULL,
   `university` varchar(200) NOT NULL,
   PRIMARY KEY (`degreeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
--- Dumping data for table moe.degree: ~0 rows (approximately)
-/*!40000 ALTER TABLE `degree` DISABLE KEYS */;
-/*!40000 ALTER TABLE `degree` ENABLE KEYS */;
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `designation`
+--
 
--- Dumping structure for table moe.designation
 CREATE TABLE IF NOT EXISTS `designation` (
   `designationTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `designation` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`designationTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
--- Dumping data for table moe.designation: ~5 rows (approximately)
-/*!40000 ALTER TABLE `designation` DISABLE KEYS */;
+--
+-- Dumping data for table `designation`
+--
+
 INSERT INTO `designation` (`designationTypeID`, `designation`) VALUES
-	(1, 'ministryOfficer'),
-	(2, 'provincial Officer'),
-	(3, 'zonal Officer'),
-	(4, 'principal'),
-	(5, 'teacher');
-/*!40000 ALTER TABLE `designation` ENABLE KEYS */;
+(1, 'ministryOfficer'),
+(2, 'provincial Officer'),
+(3, 'zonal Officer'),
+(4, 'principal'),
+(5, 'teacher');
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.designation_history
+--
+-- Table structure for table `designation_history`
+--
+
 CREATE TABLE IF NOT EXISTS `designation_history` (
   `designationHistoryID` int(11) NOT NULL AUTO_INCREMENT,
   `affectedUserID` varchar(12) NOT NULL,
@@ -51,18 +71,15 @@ CREATE TABLE IF NOT EXISTS `designation_history` (
   PRIMARY KEY (`designationHistoryID`),
   KEY `designationHistory_employeenic_idx` (`affectedUserID`),
   KEY `DesignationHistory_designationTypeID_idx` (`designationTypeID`),
-  KEY `designationHistory_editedby_idx` (`editedBynic`),
-  CONSTRAINT `DesignationHistory_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `designationHistory_editedby` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `designationHistory_employeenic` FOREIGN KEY (`affectedUserID`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `designationHistory_editedby_idx` (`editedBynic`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
--- Dumping data for table moe.designation_history: ~0 rows (approximately)
-/*!40000 ALTER TABLE `designation_history` DISABLE KEYS */;
-/*!40000 ALTER TABLE `designation_history` ENABLE KEYS */;
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `edit_log`
+--
 
--- Dumping structure for table moe.edit_log
 CREATE TABLE IF NOT EXISTS `edit_log` (
   `editLogID` varchar(45) NOT NULL,
   `affectedUsernic` varchar(12) NOT NULL,
@@ -71,17 +88,15 @@ CREATE TABLE IF NOT EXISTS `edit_log` (
   `date` date NOT NULL,
   PRIMARY KEY (`editLogID`),
   KEY `editLog_affectednic_idx` (`affectedUsernic`),
-  KEY `editLog_editedbynic_idx` (`editedBynic`),
-  CONSTRAINT `editLog_affectednic` FOREIGN KEY (`affectedUsernic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `editLog_editedbynic` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `editLog_editedbynic_idx` (`editedBynic`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.edit_log: ~0 rows (approximately)
-/*!40000 ALTER TABLE `edit_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `edit_log` ENABLE KEYS */;
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `employee`
+--
 
--- Dumping structure for table moe.employee
 CREATE TABLE IF NOT EXISTS `employee` (
   `nic` varchar(12) NOT NULL,
   `instituteID` int(11) NOT NULL,
@@ -98,103 +113,146 @@ CREATE TABLE IF NOT EXISTS `employee` (
   PRIMARY KEY (`nic`),
   KEY `employee_instituteID_idx` (`instituteID`),
   KEY `employee_roleTypeID_idx` (`roleType`),
-  KEY `employee_designationTypeID_idx` (`designationTypeID`),
-  CONSTRAINT `employee_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `employee_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `employee_roleTypeID` FOREIGN KEY (`roleType`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `employee_designationTypeID_idx` (`designationTypeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.employee: ~1 rows (approximately)
-/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+--
+-- Dumping data for table `employee`
+--
+
 INSERT INTO `employee` (`nic`, `instituteID`, `roleType`, `designationTypeID`, `nameWithInitials`, `fullName`, `employeementID`, `email`, `currentAddress`, `gender`, `marrigeState`, `mobileNum`) VALUES
-	('894564565v', 9, 4, 5, 'Ayesh', '', '123678', 'ayesh@gmail.com', 'Gonawala', '2', '3', 774254565),
-	('921003072v', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', 'male', NULL, 719335699),
-	('921474558v', 2, 2, 2, 'Sanjeewa', '', '123456', 'san@gmail.com', 'Digana', '2', '3', 716545624),
-	('924565658v', 7, 2, 3, 'Chamal', '', '159456', 'chamal@gmail.com', 'Galle', '2', '3', 712585456),
-	('924585565v', 1, 2, 1, 'Dineth', '', '1545458', 'dineth@gmail.com', 'Matara', '2', '3', 775456585),
-	('924585652v', 1, 2, 1, 'Pasindu', '', '132254', 'pasi@gmail.com', 'Galle', '2', '3', 715456585),
-	('95456545v', 9, 2, 5, 'dasda', '', '', 'w@gmail.com', 'Galle', '2', '2', 333),
-	('954565654v', 1, 4, 1, 'A.M.Amal', '', '15456', 'amal@gmail.com', 'kandy', '2', '2', 716545856),
-	('956545857v', 9, 5, 4, 'nilusha', '', '154585', 'n@gmail.com', 'Gonawala', '2', '3', 715839496),
-	('981232526v', 9, 3, 5, 'asen', '', '159564', 'asen@gmail.com', 'kandy', '2', '3', 714855698);
-/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+('8011111111v', 1, 2, 1, 'duminda', 'Yapa', '123234', 'dumi@gmail.com', 'kandy', '2', '3', 712854724),
+('812222222v', 2, 3, 2, 'sanjeewa', 'yapa', '147586', 'sanjee@gmail.com', 'kandy', '2', '2', 716545624),
+('8211111111v', 7, 4, 3, 'kkyapa', 'Yaparathna', '12456', 'kk@gmail.com', 'kandy', '2', '2', 719335699),
+('834444444v', 9, 5, 4, 'Poornima', 'Karunarathne', '187656', 'pooh@gmail.com', 'Panadura', '3', '2', 715685458),
+('849999999v', 9, 3, 5, 'ymnrYaparathne', 'RoshanYaparathne', '177626', 'nilu@gmail.com', 'kandy', '2', '2', 715839496),
+('8812545854v', 9, 5, 5, 'Kaaaali', 'Yaparathhne', '9545658', 'kaali@gmail.com', 'kandy', '2', '2', 714585458),
+('92000000v', 8, 3, 3, 'Seetha', 'Kumari', '123569', 'seetha@gmail.com', 'kandy', '2', '2', 714585658),
+('921003072v', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
+('921474558v', 2, 2, 2, 'Sanjeewa', '', '123456', 'san@gmail.com', 'Digana', '2', '3', 716545624),
+('921595654v', 3, 5, 2, 'somba', 'Deeya', '123432', 'somba@gmail.com', 'Galle', '2', '2', 718767654),
+('945855456v', 9, 3, 4, 'kbc', 'Herath', '123485', 'kb@gmail.com', 'Kandy', '2', '2', 2345),
+('951232545v', 9, 2, 5, 'ymnkYaparathne', 'Nilusha Roshan', '14758', 'rosh@gmail.com', 'wepathana', '2', '2', 715839496);
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.employee_degree
+--
+-- Table structure for table `employee_degree`
+--
+
 CREATE TABLE IF NOT EXISTS `employee_degree` (
   `nic` varchar(12) NOT NULL,
   `degreeID` int(11) NOT NULL,
   PRIMARY KEY (`nic`,`degreeID`),
-  KEY `emolyeeDegree_degreeID_idx` (`degreeID`),
-  CONSTRAINT `emolyeeDegree_degreeID` FOREIGN KEY (`degreeID`) REFERENCES `degree` (`degreeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `emolyeeDegree_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `emolyeeDegree_degreeID_idx` (`degreeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.employee_degree: ~0 rows (approximately)
-/*!40000 ALTER TABLE `employee_degree` DISABLE KEYS */;
-/*!40000 ALTER TABLE `employee_degree` ENABLE KEYS */;
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `grade`
+--
 
--- Dumping structure for table moe.institute
+CREATE TABLE IF NOT EXISTS `grade` (
+  `gradeID` int(5) NOT NULL AUTO_INCREMENT,
+  `gradeName` varchar(15) NOT NULL,
+  PRIMARY KEY (`gradeID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `grade`
+--
+
+INSERT INTO `grade` (`gradeID`, `gradeName`) VALUES
+(1, 'Grade 1'),
+(2, 'Grade 2'),
+(3, 'Grade 3'),
+(4, 'Grade 4'),
+(5, 'Grade 5'),
+(6, 'Grade 6'),
+(7, 'Grade 7'),
+(8, 'Grade 8'),
+(9, 'Grade 9'),
+(10, 'Grade 10'),
+(11, 'Grade 11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `institute`
+--
+
 CREATE TABLE IF NOT EXISTS `institute` (
   `instituteID` int(11) NOT NULL AUTO_INCREMENT,
   `instituteTypeID` int(11) NOT NULL,
   PRIMARY KEY (`instituteID`),
-  KEY `institute_instituteTypeID_idx` (`instituteTypeID`),
-  CONSTRAINT `institute_instituteTypeID` FOREIGN KEY (`instituteTypeID`) REFERENCES `intitute_type` (`instituteTypeID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  KEY `institute_instituteTypeID_idx` (`instituteTypeID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
--- Dumping data for table moe.institute: ~9 rows (approximately)
-/*!40000 ALTER TABLE `institute` DISABLE KEYS */;
+--
+-- Dumping data for table `institute`
+--
+
 INSERT INTO `institute` (`instituteID`, `instituteTypeID`) VALUES
-	(1, 1),
-	(2, 2),
-	(3, 2),
-	(4, 2),
-	(5, 2),
-	(6, 2),
-	(7, 3),
-	(8, 3),
-	(9, 4);
-/*!40000 ALTER TABLE `institute` ENABLE KEYS */;
+(1, 1),
+(2, 2),
+(3, 2),
+(4, 2),
+(5, 2),
+(6, 2),
+(7, 3),
+(8, 3),
+(9, 4),
+(10, 4);
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.intitute_type
+--
+-- Table structure for table `intitute_type`
+--
+
 CREATE TABLE IF NOT EXISTS `intitute_type` (
   `instituteTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `instituteType` varchar(100) NOT NULL,
   PRIMARY KEY (`instituteTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
--- Dumping data for table moe.intitute_type: ~4 rows (approximately)
-/*!40000 ALTER TABLE `intitute_type` DISABLE KEYS */;
+--
+-- Dumping data for table `intitute_type`
+--
+
 INSERT INTO `intitute_type` (`instituteTypeID`, `instituteType`) VALUES
-	(1, 'ministry'),
-	(2, 'provinceOffice'),
-	(3, 'zonalOffice'),
-	(4, 'school');
-/*!40000 ALTER TABLE `intitute_type` ENABLE KEYS */;
+(1, 'ministry'),
+(2, 'provinceOffice'),
+(3, 'zonalOffice'),
+(4, 'school');
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.ministry_officer
+--
+-- Table structure for table `ministry_officer`
+--
+
 CREATE TABLE IF NOT EXISTS `ministry_officer` (
   `ministryOfficerID` int(11) NOT NULL AUTO_INCREMENT,
   `nic` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`ministryOfficerID`),
-  KEY `ministryOfficer_employeenic_idx` (`nic`),
-  CONSTRAINT `ministryOfficer_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  KEY `ministryOfficer_employeenic_idx` (`nic`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
--- Dumping data for table moe.ministry_officer: ~0 rows (approximately)
-/*!40000 ALTER TABLE `ministry_officer` DISABLE KEYS */;
+--
+-- Dumping data for table `ministry_officer`
+--
+
 INSERT INTO `ministry_officer` (`ministryOfficerID`, `nic`) VALUES
-	(5, '924585565v'),
-	(4, '924585652v'),
-	(3, '954565654v');
-/*!40000 ALTER TABLE `ministry_officer` ENABLE KEYS */;
+(8, '8011111111v');
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.principal
+--
+-- Table structure for table `principal`
+--
+
 CREATE TABLE IF NOT EXISTS `principal` (
   `principalID` int(11) NOT NULL AUTO_INCREMENT,
   `nic` varchar(12) NOT NULL,
@@ -203,20 +261,23 @@ CREATE TABLE IF NOT EXISTS `principal` (
   PRIMARY KEY (`principalID`),
   KEY `principal_employeenic_idx` (`nic`),
   KEY `pricipal_zonalOfficeID_idx` (`zonalOfficeID`),
-  KEY `principal_ProvinceOfficeID_idx` (`provinceOfficerID`),
-  CONSTRAINT `principal_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `principal_ProvinceOfficeID` FOREIGN KEY (`provinceOfficerID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `principal_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `principal_ProvinceOfficeID_idx` (`provinceOfficerID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
--- Dumping data for table moe.principal: ~0 rows (approximately)
-/*!40000 ALTER TABLE `principal` DISABLE KEYS */;
+--
+-- Dumping data for table `principal`
+--
+
 INSERT INTO `principal` (`principalID`, `nic`, `zonalOfficeID`, `provinceOfficerID`) VALUES
-	(1, '956545857v', 1, 1);
-/*!40000 ALTER TABLE `principal` ENABLE KEYS */;
+(2, '945855456v', 1, 1),
+(3, '834444444v', 1, 1);
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.province_office
+--
+-- Table structure for table `province_office`
+--
+
 CREATE TABLE IF NOT EXISTS `province_office` (
   `provinceID` int(11) NOT NULL AUTO_INCREMENT,
   `instituteID` int(11) NOT NULL,
@@ -224,56 +285,71 @@ CREATE TABLE IF NOT EXISTS `province_office` (
   `numOfEmployees` int(11) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`provinceID`),
-  KEY `province_InstituteID_idx` (`instituteID`),
-  CONSTRAINT `province_InstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  KEY `province_InstituteID_idx` (`instituteID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
--- Dumping data for table moe.province_office: ~5 rows (approximately)
-/*!40000 ALTER TABLE `province_office` DISABLE KEYS */;
+--
+-- Dumping data for table `province_office`
+--
+
 INSERT INTO `province_office` (`provinceID`, `instituteID`, `province`, `numOfEmployees`, `name`) VALUES
-	(1, 2, 'centralProvince', 100, 'centralProvinceEdu'),
-	(2, 3, 'westernProvince', 150, 'westernProvinceEdu'),
-	(3, 4, 'sothernProvince', 100, 'sothernProvinceEdu'),
-	(4, 5, 'NothernProvince', 150, 'NothernProvinceEdu'),
-	(5, 6, 'esternProvince', 100, 'esternProvinceEdu');
-/*!40000 ALTER TABLE `province_office` ENABLE KEYS */;
+(1, 2, 'centralProvince', 100, 'centralProvinceEdu'),
+(2, 3, 'westernProvince', 150, 'westernProvinceEdu'),
+(3, 4, 'sothernProvince', 100, 'sothernProvinceEdu'),
+(4, 5, 'NothernProvince', 150, 'NothernProvinceEdu'),
+(5, 6, 'esternProvince', 100, 'esternProvinceEdu');
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.province_officer
+--
+-- Table structure for table `province_officer`
+--
+
 CREATE TABLE IF NOT EXISTS `province_officer` (
   `provinceOfficerID` int(11) NOT NULL AUTO_INCREMENT,
   `nic` varchar(12) NOT NULL,
   PRIMARY KEY (`provinceOfficerID`),
-  KEY `proviceOfficer_employeenic_idx` (`nic`),
-  CONSTRAINT `proviceOfficer_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `proviceOfficer_employeenic_idx` (`nic`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
--- Dumping data for table moe.province_officer: ~0 rows (approximately)
-/*!40000 ALTER TABLE `province_officer` DISABLE KEYS */;
+--
+-- Dumping data for table `province_officer`
+--
+
 INSERT INTO `province_officer` (`provinceOfficerID`, `nic`) VALUES
-	(1, '921474558v');
-/*!40000 ALTER TABLE `province_officer` ENABLE KEYS */;
+(3, '812222222v'),
+(1, '921474558v'),
+(2, '921595654v');
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.role_type
+--
+-- Table structure for table `role_type`
+--
+
 CREATE TABLE IF NOT EXISTS `role_type` (
   `roleTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `roleType` varchar(45) NOT NULL,
   PRIMARY KEY (`roleTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
--- Dumping data for table moe.role_type: ~5 rows (approximately)
-/*!40000 ALTER TABLE `role_type` DISABLE KEYS */;
+--
+-- Dumping data for table `role_type`
+--
+
 INSERT INTO `role_type` (`roleTypeID`, `roleType`) VALUES
-	(1, 'sysAdmin'),
-	(2, 'role2'),
-	(3, 'role3'),
-	(4, 'role4'),
-	(5, 'role5');
-/*!40000 ALTER TABLE `role_type` ENABLE KEYS */;
+(1, 'sysAdmin'),
+(2, 'role2'),
+(3, 'role3'),
+(4, 'role4'),
+(5, 'role5');
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.school
+--
+-- Table structure for table `school`
+--
+
 CREATE TABLE IF NOT EXISTS `school` (
   `schoolID` int(11) NOT NULL AUTO_INCREMENT,
   `schoolName` varchar(150) NOT NULL DEFAULT '0',
@@ -286,65 +362,88 @@ CREATE TABLE IF NOT EXISTS `school` (
   KEY `schoolInstituteID_idx` (`instituteID`),
   KEY `school_schooltypeID_idx` (`schoolTypeID`),
   KEY `school_zonalID_idx` (`zonalOfficeID`),
-  KEY `school_provinceID_idx` (`provinceOfficeID`),
-  CONSTRAINT `schoolInstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `school_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `school_schooltypeID` FOREIGN KEY (`schoolTypeID`) REFERENCES `school_type` (`schoolTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `school_zonalID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `school_provinceID_idx` (`provinceOfficeID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
--- Dumping data for table moe.school: ~1 rows (approximately)
-/*!40000 ALTER TABLE `school` DISABLE KEYS */;
+--
+-- Dumping data for table `school`
+--
+
 INSERT INTO `school` (`schoolID`, `schoolName`, `instituteID`, `provinceOfficeID`, `zonalOfficeID`, `schoolTypeID`, `numOfStudents`) VALUES
-	(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250);
-/*!40000 ALTER TABLE `school` ENABLE KEYS */;
+(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250),
+(2, 'Gonawala Maha Vidyalaya,waththegama', 10, 1, 1, 1, 200);
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.school_type
+--
+-- Table structure for table `school_type`
+--
+
 CREATE TABLE IF NOT EXISTS `school_type` (
   `schoolTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `schoolType` varchar(100) NOT NULL,
   PRIMARY KEY (`schoolTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
--- Dumping data for table moe.school_type: ~1 rows (approximately)
-/*!40000 ALTER TABLE `school_type` DISABLE KEYS */;
+--
+-- Dumping data for table `school_type`
+--
+
 INSERT INTO `school_type` (`schoolTypeID`, `schoolType`) VALUES
-	(1, 'Mix');
-/*!40000 ALTER TABLE `school_type` ENABLE KEYS */;
+(1, 'Mix');
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.subject
+--
+-- Table structure for table `subject`
+--
+
 CREATE TABLE IF NOT EXISTS `subject` (
   `subjectID` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`subjectID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
--- Dumping data for table moe.subject: ~1 rows (approximately)
-/*!40000 ALTER TABLE `subject` DISABLE KEYS */;
+--
+-- Dumping data for table `subject`
+--
+
 INSERT INTO `subject` (`subjectID`, `subject`) VALUES
-	(1, 'Mathematics');
-/*!40000 ALTER TABLE `subject` ENABLE KEYS */;
+(1, 'Mathematics'),
+(2, 'Science'),
+(3, 'Buddhism');
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.subject_combination
+--
+-- Table structure for table `subject_combination`
+--
+
 CREATE TABLE IF NOT EXISTS `subject_combination` (
   `teacherID` int(11) NOT NULL,
   `subjectID` int(11) NOT NULL,
   `grade` int(11) NOT NULL,
   PRIMARY KEY (`teacherID`,`subjectID`,`grade`),
   KEY `subjectCombination_subjectID_idx` (`subjectID`),
-  CONSTRAINT `subjectCombination_subjectID` FOREIGN KEY (`subjectID`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `subjectCombination_teacherID` FOREIGN KEY (`teacherID`) REFERENCES `teacher` (`teachetID`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `subjectCombination_GradeID` (`grade`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.subject_combination: ~0 rows (approximately)
-/*!40000 ALTER TABLE `subject_combination` DISABLE KEYS */;
-/*!40000 ALTER TABLE `subject_combination` ENABLE KEYS */;
+--
+-- Dumping data for table `subject_combination`
+--
 
+INSERT INTO `subject_combination` (`teacherID`, `subjectID`, `grade`) VALUES
+(5, 1, 1),
+(5, 1, 5),
+(8, 2, 7),
+(8, 3, 9);
 
--- Dumping structure for table moe.teacher
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher`
+--
+
 CREATE TABLE IF NOT EXISTS `teacher` (
   `teachetID` int(11) NOT NULL AUTO_INCREMENT,
   `nic` varchar(12) NOT NULL,
@@ -356,40 +455,56 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   KEY `teacher_employeenic_idx` (`nic`),
   KEY `teacher_zonalOfficeID_idx` (`zonalOfficeID`),
   KEY `teacher_provinceOfficeID_idx` (`provinceOfficeID`),
-  KEY `teacher_appoinmentSubjectID` (`appoinmentSubject`),
-  CONSTRAINT `teacher_appoinmentSubjectID` FOREIGN KEY (`appoinmentSubject`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `teacher_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `teacher_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `teacher_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  KEY `teacher_appoinmentSubjectID` (`appoinmentSubject`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
--- Dumping data for table moe.teacher: ~0 rows (approximately)
-/*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
+--
+-- Dumping data for table `teacher`
+--
+
 INSERT INTO `teacher` (`teachetID`, `nic`, `zonalOfficeID`, `provinceOfficeID`, `currentState`, `appoinmentSubject`) VALUES
-	(4, '981232526v', 1, 1, 'working', 1);
-/*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
+(5, '951232545v', 1, 1, 'working', 3),
+(8, '849999999v', 1, 1, 'working', 2),
+(9, '8812545854v', 1, 1, 'working', 3);
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.user
+--
+-- Table structure for table `user`
+--
+
 CREATE TABLE IF NOT EXISTS `user` (
   `nic` varchar(12) NOT NULL,
   `password` varchar(50) NOT NULL,
   `roleTypeID` int(11) NOT NULL,
   PRIMARY KEY (`nic`),
-  KEY `user_roleType_idx` (`roleTypeID`),
-  CONSTRAINT `user_nic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_roleType` FOREIGN KEY (`roleTypeID`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `user_roleType_idx` (`roleTypeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table moe.user: ~1 rows (approximately)
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+--
+-- Dumping data for table `user`
+--
+
 INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
-	('921003072V', '1b7b3bb43ee47fb92f715b866a888ba3e8fd40de', 1),
-	('921474558V', '9350d1db852e518c0e27107fe1349bfa83e18281', 2);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+('8011111111v', '8011111111v', 2),
+('812222222v', '812222222v', 3),
+('8211111111v', '8211111111v', 4),
+('834444444v', '834444444v', 5),
+('849999999v', '849999999v', 3),
+('8812545854v', '918264e13515d70f21886ea5c965fb13890de391', 5),
+('92000000v', '92000000v', 3),
+('921003072V', '1b7b3bb43ee47fb92f715b866a888ba3e8fd40de', 1),
+('921474558V', '9350d1db852e518c0e27107fe1349bfa83e18281', 2),
+('921595654v', '921595654v', 5),
+('945855456v', '945855456v', 3),
+('951232545v', '951232545v', 2);
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.working_history
+--
+-- Table structure for table `working_history`
+--
+
 CREATE TABLE IF NOT EXISTS `working_history` (
   `workingHistoryID` int(11) NOT NULL AUTO_INCREMENT,
   `nic` varchar(12) NOT NULL,
@@ -397,17 +512,15 @@ CREATE TABLE IF NOT EXISTS `working_history` (
   `description` varchar(45) NOT NULL,
   PRIMARY KEY (`workingHistoryID`),
   KEY `workingHistory_employeenic_idx` (`nic`),
-  KEY `workingHistory_instituteID_idx` (`instituteID`),
-  CONSTRAINT `workingHistory_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `workingHistory_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `workingHistory_instituteID_idx` (`instituteID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
--- Dumping data for table moe.working_history: ~0 rows (approximately)
-/*!40000 ALTER TABLE `working_history` DISABLE KEYS */;
-/*!40000 ALTER TABLE `working_history` ENABLE KEYS */;
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `zonal_office`
+--
 
--- Dumping structure for table moe.zonal_office
 CREATE TABLE IF NOT EXISTS `zonal_office` (
   `zonalID` int(11) NOT NULL AUTO_INCREMENT,
   `zonalName` varchar(100) NOT NULL,
@@ -415,36 +528,160 @@ CREATE TABLE IF NOT EXISTS `zonal_office` (
   `provinceOfficeID` int(11) NOT NULL,
   PRIMARY KEY (`zonalID`),
   KEY `zonal_instituteID_idx` (`instituteID`),
-  KEY `zonal_provinceID_idx` (`provinceOfficeID`),
-  CONSTRAINT `zonal_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `zonal_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  KEY `zonal_provinceID_idx` (`provinceOfficeID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
--- Dumping data for table moe.zonal_office: ~2 rows (approximately)
-/*!40000 ALTER TABLE `zonal_office` DISABLE KEYS */;
+--
+-- Dumping data for table `zonal_office`
+--
+
 INSERT INTO `zonal_office` (`zonalID`, `zonalName`, `instituteID`, `provinceOfficeID`) VALUES
-	(1, 'waththegama', 7, 1),
-	(2, 'pathadumbara', 8, 1);
-/*!40000 ALTER TABLE `zonal_office` ENABLE KEYS */;
+(1, 'waththegama', 7, 1),
+(2, 'pathadumbara', 8, 1);
 
+-- --------------------------------------------------------
 
--- Dumping structure for table moe.zonal_officer
+--
+-- Table structure for table `zonal_officer`
+--
+
 CREATE TABLE IF NOT EXISTS `zonal_officer` (
   `zonalOfficerID` int(11) NOT NULL AUTO_INCREMENT,
   `nic` varchar(12) NOT NULL,
   `provinceOfficeID` int(11) NOT NULL,
   PRIMARY KEY (`zonalOfficerID`),
   KEY `zonalOfficer_employeeID_idx` (`nic`),
-  KEY `zonalOfficer_provinceOfficeID_idx` (`provinceOfficeID`),
-  CONSTRAINT `zonalOfficer_employeeID` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `zonalOfficer_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `zonalOfficer_provinceOfficeID_idx` (`provinceOfficeID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
--- Dumping data for table moe.zonal_officer: ~0 rows (approximately)
-/*!40000 ALTER TABLE `zonal_officer` DISABLE KEYS */;
+--
+-- Dumping data for table `zonal_officer`
+--
+
 INSERT INTO `zonal_officer` (`zonalOfficerID`, `nic`, `provinceOfficeID`) VALUES
-	(1, '924565658v', 1);
-/*!40000 ALTER TABLE `zonal_officer` ENABLE KEYS */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+(3, '92000000v', 1),
+(4, '8211111111v', 1);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `designation_history`
+--
+ALTER TABLE `designation_history`
+  ADD CONSTRAINT `DesignationHistory_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `designationHistory_editedby` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `designationHistory_employeenic` FOREIGN KEY (`affectedUserID`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `edit_log`
+--
+ALTER TABLE `edit_log`
+  ADD CONSTRAINT `editLog_affectednic` FOREIGN KEY (`affectedUsernic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `editLog_editedbynic` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `employee`
+--
+ALTER TABLE `employee`
+  ADD CONSTRAINT `employee_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `employee_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `employee_roleTypeID` FOREIGN KEY (`roleType`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `employee_degree`
+--
+ALTER TABLE `employee_degree`
+  ADD CONSTRAINT `emolyeeDegree_degreeID` FOREIGN KEY (`degreeID`) REFERENCES `degree` (`degreeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `emolyeeDegree_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `institute`
+--
+ALTER TABLE `institute`
+  ADD CONSTRAINT `institute_instituteTypeID` FOREIGN KEY (`instituteTypeID`) REFERENCES `intitute_type` (`instituteTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `ministry_officer`
+--
+ALTER TABLE `ministry_officer`
+  ADD CONSTRAINT `ministryOfficer_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `principal`
+--
+ALTER TABLE `principal`
+  ADD CONSTRAINT `principal_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `principal_ProvinceOfficeID` FOREIGN KEY (`provinceOfficerID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `principal_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `province_office`
+--
+ALTER TABLE `province_office`
+  ADD CONSTRAINT `province_InstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `province_officer`
+--
+ALTER TABLE `province_officer`
+  ADD CONSTRAINT `proviceOfficer_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `school`
+--
+ALTER TABLE `school`
+  ADD CONSTRAINT `schoolInstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `school_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `school_schooltypeID` FOREIGN KEY (`schoolTypeID`) REFERENCES `school_type` (`schoolTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `school_zonalID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `subject_combination`
+--
+ALTER TABLE `subject_combination`
+  ADD CONSTRAINT `subjectCombination_GradeID` FOREIGN KEY (`grade`) REFERENCES `grade` (`gradeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `subjectCombination_subjectID` FOREIGN KEY (`subjectID`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `subjectCombination_teacherID` FOREIGN KEY (`teacherID`) REFERENCES `teacher` (`teachetID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD CONSTRAINT `teacher_appoinmentSubjectID` FOREIGN KEY (`appoinmentSubject`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `teacher_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `teacher_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `teacher_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_nic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_roleType` FOREIGN KEY (`roleTypeID`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `working_history`
+--
+ALTER TABLE `working_history`
+  ADD CONSTRAINT `workingHistory_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `workingHistory_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `zonal_office`
+--
+ALTER TABLE `zonal_office`
+  ADD CONSTRAINT `zonal_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `zonal_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `zonal_officer`
+--
+ALTER TABLE `zonal_officer`
+  ADD CONSTRAINT `zonalOfficer_employeeID` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `zonalOfficer_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
