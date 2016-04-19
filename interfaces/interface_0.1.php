@@ -10,11 +10,8 @@
         <meta name="author" content="">
 
         <title>Home</title>
-
-        <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom CSS -->
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
@@ -27,13 +24,12 @@
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <!-- Sidebar -->
             <?php include 'sideBarAdmin.php' ?>
             <!-- /#sidebar-wrapper -->
-            
+
             <!-- include Navigation BAr -->
             <?php include 'navigationBar.php' ?>
-            
+
             <!-- Finished NAvigation bar -->
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 540px;">
@@ -91,15 +87,13 @@
             </div>
             <!-- /#page-content-wrapper -->
 
-        </div>
+        </div> 
         <!-- /#wrapper -->
 
-        <!--footer-->
-       <?php include 'footer.php' ?>
-        <!-- jQuery -->
+        <?php include 'footer.php' ?>
+        <!--jQuery -->
         <script src="../assets/js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
+ 
         <script src="../assets/js/bootstrap.min.js"></script>
 
 

@@ -19,7 +19,7 @@
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
-
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -27,9 +27,11 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+        
+
     </head>
 
-    <body>
+    <body onload="load()">
 
         <div id="wrapper">
 
@@ -46,12 +48,13 @@
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 550px;">
 
-                <div class="container-fluid">
-                    <div id="googleMap" style="width:500px;height:500px;"></div>
+                <div class="container-fluid" >
+                    <div id="map-canvas" style="width:500px;height:730px;"></div>
 
 
 
                 </div>
+
             </div>
             <!-- /#page-content-wrapper -->
 
@@ -66,7 +69,9 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="../assets/js/bootstrap.min.js"></script>
 
-        <script src="../assets/js/googlemap.js"></script>
+        <!-- google map Core JavaScript -->
+
+        <script type="text/javascript" src="../assets/js/viewmapmarkers.js"></script>
 
     </body>
 

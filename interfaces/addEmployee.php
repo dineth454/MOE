@@ -11,10 +11,8 @@
 
         <title>Home</title>
 
-        <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom CSS -->
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
@@ -29,14 +27,15 @@
             <!-- Sidebar -->
             <?php include 'sideBarAdmin.php' ?>
             <!-- /#sidebar-wrapper -->
-            
+
             <!-- include Navigation BAr -->
             <?php include 'navigationBar.php' ?>
-            
+
             <!-- Finished NAvigation bar -->
-            
+
             <!-- Page Content -->
-            <div id="page-content-wrapper" style="min-height: 540px;">
+
+            <div  id="page-content-wrapper" style="min-height: 540px;" >
 
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1">
@@ -160,97 +159,77 @@
                                                     <option value="4">principal</option>
                                                     <option value="5">teacher</option>
 
-                                                    <?php
-                                                    /*   //$sqlQuery = "select * from designation";
-
-                                                      //$designationResult = $mysqli->query($sqlQuery);
-
-                                                      $designationTypeResult = $employee->loadDesignation();
-
-                                                      if(mysqli_num_rows($designationTypeResult) > 0 ){
-                                                      while($row = mysqli_fetch_assoc($designationTypeResult)){
-                                                      echo '<br>';
-                                                      echo '<option value="'.$row['designationTypeID'].'" >'.$row['designation'].'</option>';
-                                                      }
-
-                                                      }
-                                                     */
-                                                    ?>
-
-
-                                                </select>
-                                                <!--<label id="errorMain" style="font-size:10px;"></label>-->
+                                                 </select>
+                                                
                                             </div>
 
-                                            
+                                            <label id="errorPkg" style="font-size: 10px"> </label>
 
-                                                 <!-- hidden forms -->
-
-                                                
-
-                                                <!--end hidden forms -->
-                                                <label id="errorPkg" style="font-size: 10px"> </label>
-                                            
                                         </div>
                                     </div>
-                                        
-                                            <div class="row">
-                                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                    <div id="provinceHiddenForm" class="form-group">
-                                                    <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> province Office :  </label>
 
-                                                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                            <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                                <option value="" >Select ProvinceOffice</option>
+                                    <div class="row">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <span id="provinceHiddenForm">
+                                                <div  class="form-group" style="display: none;" id="provinceIDDiv">
 
-                                                                <option value="1">centralProvince</option>
-                                                                <option value="2">westernProvince</option>
-                                                                <option value="3">sothernProvince</option>
-                                                                <option value="4">NothernProvince</option>
-                                                                <option value="5">esternProvince</option>
-                                                            </select>
-                                                        </div>
+                                                    <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> province Office :  </label>
+
+                                                    <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
+                                                        <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                            <option value="" >Select ProvinceOffice</option>
+                                                            <option value="1">centralProvince</option>
+                                                            <option value="2">westernProvince</option>
+                                                            <option value="3">sothernProvince</option>
+                                                            <option value="4">NothernProvince</option>
+                                                            <option value="5">esternProvince</option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </span>
+                                        </div>
 
-                                            <div class="row" >
-                                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                    <div id="zonalOfficeHidden" class="form-group">
-                                                        <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Zonal Office :  </label>
-                                                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                            <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
-                                                        </div>
-                                                    </div>
+
+                                    <div  class="row">
+                                        <div  style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
+                                            <div id="zonalOfficeHidden" class="form-group">
+                                                
+                                                <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
+                                                <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
+
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div id="schoolIdDiv" style="display: none; "class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="schoolHidden" class="form-group">
+                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> School : </label>
+                                                <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select required class="form-control required" name="schoolId" id="abcd"  ></select>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
 
-                                            <div class="row">
-                                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                    <div id="schoolHidden" class="form-group">
-                                                        <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
-                                                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                            <select required class="form-control required" name="schoolId" id="abcd"  ></select>
-                                                        </div>
-                                                    </div>
+
+                                    <div class="row">
+                                        <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="subjectHidden" class="form-group">
+                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
+                                                <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select required class="form-control" name="subject" id="subject" >
+                                                        <option value="none">Select subject</option>
+                                                        <option value="1">Mathematics</option>
+                                                    </select>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
 
-
-                                            <div class="row">
-                                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                    <div id="subjectHidden" class="form-group">
-                                                        <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Appoinment Subject :</label>
-                                                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                            <select required class="form-control" name="subject" id="subject" >
-                                                                <option value="none">Select subject</option>
-                                                                <option value="1">Mathematics</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    
 
                                     <!--___________________________________________________________-->
 
@@ -346,7 +325,7 @@
                                                 <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                             </div>
 
-                                          
+
                                         </div>
                                     </div>
 
@@ -370,23 +349,23 @@
 
                 </div>
             </div>
+
             <!-- /#page-content-wrapper -->
 
         </div>
-        <!-- /#wrapper -->
 
-        <!--footer-->
-       <?php include 'footer.php' ?>
-        <!-- jQuery -->
+        <?php include 'footer.php' ?>
+         
         <script src="../assets/js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
+        
+        
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
         <script src = "../assets/js/addEmployee.js"></script>
-
-
-
-    </body>
-
-</html>
+        
+        
+        
+        
+        </body>
+        
+        </html>

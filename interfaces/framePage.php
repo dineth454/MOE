@@ -24,7 +24,7 @@
 
     <body>
 
-        <div id="wrapper" style="background-color: yellow;">
+        <div id="wrapper" >
 
             <!-- Sidebar -->
             <?php include 'sideBarAdmin.php' ?>
@@ -36,7 +36,7 @@
             <!-- Finished NAvigation bar -->
 
             <!-- Page Content -->
-            <div id="page-content-wrapper" style="min-height: 540px ; background-color: blueviolet">
+            <div id="page-content-wrapper" style="min-height: 540px ; ">
 
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1">
@@ -63,7 +63,23 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-        <script src = "../assets/js/addEmployee.js"></script>
+        
+        
+        
+        <script> 
+            
+            var loadDiv = $('#page-content-wrapper');
+            
+            $("a.ajax_load").on("click" ,function(e){
+                e.preventDefault();
+                loadDiv.empty();
+               // loadDiv.prepend('<img src = "../images/visa.png"/>');
+                loadDiv.load(this.href);
+                //Onready();
+           });
+           
+           
+         </script>
 
 
 
