@@ -20,11 +20,12 @@
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
 
 
     </head>
 
-    <body >
+    <body onload="initialize()">
 
         <div id="wrapper">
 
@@ -37,9 +38,9 @@
 
             <!-- Finished NAvigation bar -->
 
-            <div id="page-content-wrapper" style="min-height: 540px;">
-                <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+            <div  id="page-content-wrapper" style="min-height: 540px; background-color: blue;">
+                <div class="row container-fluid" style="background-color: yellow; padding-left: 15px;">
+                    <div class="col-lg-7 " style="background-color: grey; margin-right: 50px;padding-left: 0px;">
 
                         <div align="center" style="padding-bottom:10px;">
                             <h1>Add School</h1>
@@ -47,16 +48,16 @@
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="">
 
-                            <div class="row">
+                            <div class="row" style="background-color: red;">
                                 <div class="form-group col-lg-8 col-md-18 col-sm-8">
 
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                         <div  class="form-group"  id="provinceIDDiv" style="margin-bottom: 0px;">
 
                                             <label for="province Office" class="control-label col-xs-6  required" style="text-align: left;"> province Office :  </label>
 
-                                            <div style="margin-bottom: -10px;"   class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+                                            <div style="margin-bottom: -10px;"   class="col-md-6 col-lg-6" >
                                                 <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
                                                     <option value="" >Select Province Office</option>
                                                     <option value="1">centralProvince</option>
@@ -77,8 +78,8 @@
                                         <div   class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
                                             <div id="zonalOfficeHidden" class="form-group">
 
-                                                 <label for="ZonalOffice" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Zonal Office :  </label>
-                                                 <div style="margin-bottom: -20px;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <label for="ZonalOffice" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Zonal Office :  </label>
+                                                <div style="margin-bottom: -20px;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                     <select required class="form-control" name="zonalID"  id="zonalID" > </select>
 
                                                 </div>
@@ -87,12 +88,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- School Name-->
-                                            <label for="School" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> School Name :  </label>
+                                            <label for="School" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> School Name/Address :  </label>
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="School" name="School"  placeholder="School Name"/>
 
@@ -101,7 +102,7 @@
 
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                         <div  class="form-group"  id="SchoolType" style="margin-bottom: 0px;">
@@ -120,7 +121,7 @@
 
 
                                     </div>
-                                         <div class="row">
+                                    <div class="row">
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- No:OF:Students-->
@@ -133,15 +134,35 @@
 
                                         </div>
                                     </div>
-
-
-
-
-
-
                                     <div class="row">
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+
+                                            <!-- Latitude-->
+                                            <label for="Latitude" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Latitude :  </label>
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                                <input type="text" class="form-control" id="latbox" name="lat"  placeholder="Latitude"/>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!-- No:OF:Students-->
+                                            <label for="Longitude" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Longitude :  </label>
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                                <input type="text" class="form-control" id="lngbox" name="lng"  placeholder="Longitude"/>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"style="padding-left: 68px;">
                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
                                             </div>
 
@@ -153,7 +174,23 @@
                         </form>
 
                     </div>
+                    <div style="background-color: orange; height: 530px">
+                        <!-- map -->
+                        <div  >
+                            <div  class="form-group col-lg-4 col-md-4 col-sm-4">
+                                <div class="container-fluid">
+                                    <div id="map-canvas" style="width:300px;height:400px;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- end map -->
+
+                    </div>
+
                 </div>
+
             </div>
 
         </div>
@@ -164,6 +201,8 @@
         <script src="../assets/js/jquery.js" ></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
+         <script src="../assets/js/googlemap.js"></script>
+        <script src="../assets/js/addSchoolMarker.js"></script>
 
 
 
