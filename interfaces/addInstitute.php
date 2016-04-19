@@ -59,11 +59,10 @@
                                             <label for="selec_trole" class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 required" style="display: inline-block; text-align: left;">Institute Type</label>
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <select required class="form-control" id="select_role" name="select_role" >
-                                                    <option value="">Select Type</option>
-                                                    <option value="2">type1</option>
-                                                    <option value="3">type2</option>
-                                                    <option value="4">type3</option>
-                                                    <option value="5">type4</option>
+                                                    <option value="">--Select Type--</option>
+                                                    <option value="2">Zonal Office</option>
+                                                    <option value="3">School</option>
+                                                
 
                                                    
 
@@ -106,6 +105,7 @@
                                         <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                             <div class="container-fluid">
                                                 <div id="map-canvas" style="width:500px;height:730px;"></div>
+                                                
                                             </div>
                                         </div>
                                     </div>
