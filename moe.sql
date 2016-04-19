@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 17, 2016 at 06:43 ප.ව.
+-- Generation Time: Apr 19, 2016 at 06:09 ප.ව.
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -130,9 +130,9 @@ INSERT INTO `employee` (`nic`, `instituteID`, `roleType`, `designationTypeID`, `
 ('92000000v', 8, 3, 3, 'Seetha', 'Kumari', '123569', 'seetha@gmail.com', 'kandy', '2', '2', 714585658),
 ('921003072v', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
 ('921474558v', 2, 2, 2, 'Sanjeewa', '', '123456', 'san@gmail.com', 'Digana', '2', '3', 716545624),
-('921595654v', 3, 5, 2, 'somba', 'Deeya', '123432', 'somba@gmail.com', 'Galle', '2', '2', 718767654),
+('921595654v', 3, 5, 2, 'Pasindu', 'Deeyagahage', '123432', 'somba@gmail.com', 'Galle', '2', '2', 718767654),
 ('945855456v', 9, 3, 4, 'kbc', 'Herath', '123485', 'kb@gmail.com', 'Kandy', '2', '2', 2345),
-('951232545v', 9, 2, 5, 'ymnkYaparathne', 'Nilusha Roshan', '14758', 'rosh@gmail.com', 'wepathana', '2', '2', 715839496);
+('951232545v', 9, 2, 5, 'ymnkYaparathne', 'Nilusha Roshan', '147583', 'rosh@gmail.com', 'wepathana', '2', '2', 715839496);
 
 -- --------------------------------------------------------
 
@@ -358,6 +358,8 @@ CREATE TABLE IF NOT EXISTS `school` (
   `zonalOfficeID` int(11) NOT NULL,
   `schoolTypeID` int(11) NOT NULL,
   `numOfStudents` int(11) DEFAULT NULL,
+  `lat` float DEFAULT NULL,
+  `lng` float DEFAULT NULL,
   PRIMARY KEY (`schoolID`),
   KEY `schoolInstituteID_idx` (`instituteID`),
   KEY `school_schooltypeID_idx` (`schoolTypeID`),
@@ -369,9 +371,9 @@ CREATE TABLE IF NOT EXISTS `school` (
 -- Dumping data for table `school`
 --
 
-INSERT INTO `school` (`schoolID`, `schoolName`, `instituteID`, `provinceOfficeID`, `zonalOfficeID`, `schoolTypeID`, `numOfStudents`) VALUES
-(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250),
-(2, 'Gonawala Maha Vidyalaya,waththegama', 10, 1, 1, 1, 200);
+INSERT INTO `school` (`schoolID`, `schoolName`, `instituteID`, `provinceOfficeID`, `zonalOfficeID`, `schoolTypeID`, `numOfStudents`, `lat`, `lng`) VALUES
+(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250, NULL, NULL),
+(2, 'Gonawala Maha Vidyalaya,waththegama', 10, 1, 1, 1, 200, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -433,8 +435,8 @@ CREATE TABLE IF NOT EXISTS `subject_combination` (
 --
 
 INSERT INTO `subject_combination` (`teacherID`, `subjectID`, `grade`) VALUES
-(5, 1, 1),
 (5, 1, 5),
+(5, 2, 1),
 (8, 2, 7),
 (8, 3, 9);
 
