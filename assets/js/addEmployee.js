@@ -158,13 +158,13 @@ function validateEmail(text) {
 
 
 
-$(document).ready(function () {
+//$(document).ready(function () {
 
     /*document.getElementById("provinceHiddenForm").style.visibility = 'hidden';
      document.getElementById("zonalOfficeHidden").style.visibility = 'hidden';
      document.getElementById("schoolHidden").style.visibility = 'hidden';
      document.getElementById('subjectHidden').style.visibility = 'hidden';*/
-});
+//});
 
 function selectionForm(val) {
     if (val == "5") {
