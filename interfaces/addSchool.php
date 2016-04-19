@@ -56,7 +56,7 @@
 
                                             <label for="province Office" class="control-label col-xs-6  required" style="text-align: left;"> province Office :  </label>
 
-                                            <div   class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+                                            <div style="margin-bottom: -10px;"   class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
                                                 <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
                                                     <option value="" >Select Province Office</option>
                                                     <option value="1">centralProvince</option>
@@ -77,14 +77,28 @@
                                         <div   class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
                                             <div id="zonalOfficeHidden" class="form-group">
 
-                                                 <label for="province Office" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Zonal Office :  </label>
-                                                <div  class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                 <label for="ZonalOffice" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Zonal Office :  </label>
+                                                 <div style="margin-bottom: -20px;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                     <select required class="form-control" name="zonalID"  id="zonalID" > </select>
 
                                                 </div>
                                                 <label id="errorZonal" style="font-size: 10px"> </label>
 
                                             </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!-- School Name-->
+                                            <label for="School" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> School Name :  </label>
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                                <input type="text" class="form-control" id="School" name="School"  placeholder="School Name"/>
+
+                                            </div>
+
+
                                         </div>
                                     </div>
 
