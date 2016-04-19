@@ -29,7 +29,7 @@
 
         <div id="collapse2" class="panel-collapse collapse">
             <li>
-                <a class="slide_font active" href="#">Add Zonal</a>
+                <a class="slide_font active" href="addZonalOffice.php">Add Zonal</a>
             </li>
             <li>
                 <a class="slide_font active " href="#">Add School</a>
