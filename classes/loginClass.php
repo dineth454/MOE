@@ -36,29 +36,32 @@ require("dbcon.php");
 					}
 				}
         		
-        		if($roleTypeID==1){
+        		if($roleTypeID==1 || $roleTypeID==2 || $roleTypeID==3 || $roleTypeID==4){
         			session_start();
+        			$_SESSION["login_time"]= time();
+        			$_SESSION["nic"]= $nic;
 					$_SESSION["roleTypeID"]= $roleTypeID;
 					$_SESSION["instituteID"]= $instituteID;
 					$_SESSION["designationTypeID"]= $designationTypeID;
 					$_SESSION["fullName"]= $fullName;
-        			header("Location: admin.php"); /* Redirect browser */
+        			header("Location: interface_0.1.php"); /* Redirect browser */
 					exit();
         		}
-        		else if($roleTypeID==2){
+        		else if($roleTypeID==5){
         			session_start();
 					$_SESSION["roleTypeID"]= $roleTypeID;
 					$_SESSION["instituteID"]= $instituteID;
 					$_SESSION["designationTypeID"]= $designationTypeID;
 					$_SESSION["fullName"]= $fullName;
-        			header("Location: teacher.php"); /* Redirect browser */
+        			header("Location: teacher.php"); 
 					exit();
         		}
 
 			}else{
 				//if there is nic, password must not there. so it is a incorrect password
 				if(mysqli_num_rows($result2)==1){
-					echo "Check ur password again!";
+					//echo "Check ur password again!";
+					echo '<script type="text/javascript">alert("Check ur password again!");</script>';
 				}
 				else{
 					echo "Invalid Username or password!!";
