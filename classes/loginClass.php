@@ -61,7 +61,13 @@ require("dbcon.php");
 				//if there is nic, password must not there. so it is a incorrect password
 				if(mysqli_num_rows($result2)==1){
 					//echo "Check ur password again!";
-					echo '<script type="text/javascript">alert("Check ur password again!");</script>';
+					//echo '<script type="text/javascript">alert("Check ur password again!");</script>';
+
+     echo "<div class='alert alert-danger fade in'>";
+     echo "<a href='#' class='close' data-dismiss='alert'>&times;</a>";
+     echo "<strong>Error!</strong> A problem has been occurred while submitting your data.";
+     echo "</div>";
+
 				}
 				else{
 					echo "Invalid Username or password!!";
