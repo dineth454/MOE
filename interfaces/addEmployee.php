@@ -44,10 +44,10 @@
 
 
                         <?php
-                        $roletypeID = $designationIdLoggedUser = $LoggedUsernic = '';
-                        $roletypeID = 1;
-                        $designationIdLoggedUser = 4;
-                        $LoggedUsernic = '945855456v';
+                        $roletypeID = $_SESSION["roleTypeID"];
+                        $designationIdLoggedUser = $_SESSION["designationTypeID"];
+                        $LoggedUsernic = $_SESSION["nic"];
+
 
                         require("../classes/employee.php");
                         $employee = new Employee();
