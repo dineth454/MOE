@@ -59,9 +59,9 @@
                             $school = new School();
 
                             $insertSuccess = $school->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
-
+                        }
                     ?>
-                    
+
                         <div align="center" style="padding-bottom:10px;">
                             <h1>Add School</h1>
                         </div>
