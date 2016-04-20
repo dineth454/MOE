@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Home</title>
+        <title>Update Employee Form</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">

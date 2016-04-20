@@ -14,7 +14,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Home</title>
+        <title>Update Employee Front</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -60,6 +60,7 @@ ob_start();
                         // submit button action
                         if (isset($_POST['submit'])) {
                             global $LoggedUsernic;
+                            
                             $searchUsernic = "";
 
                             $searchUsernic = $_POST['nic'];
