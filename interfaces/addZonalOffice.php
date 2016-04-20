@@ -49,11 +49,11 @@ session_start();
 
                     if ($insertSuccess == 1) {
                         echo '<script language="javascript">';
-                        echo 'alert("Inserted SuccessFully.Thankyou")';
+                        echo 'alert("Zonal Added SuccessFully.Thankyou")';
                         echo '</script>';
                     } else {
                         echo '<script language="javascript">';
-                        echo 'alert("error Occured While Insertin data.check")';
+                        echo 'alert("error Occured While Adding data.check")';
                         echo '</script>';
                     }
                 } else {
