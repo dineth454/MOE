@@ -48,7 +48,7 @@ ob_start();
 
                 $provinceID = $_POST['provinceID'];
                 $zonlName = $_POST['zonalName'];
-                $LoggedUsernic = '921003072v';
+                $LoggedUsernic = $_SESSION["nic"];
                 $institute = new Institute();
                 
                
