@@ -48,11 +48,13 @@ ob_start();
 
                 $provinceID = $_POST['provinceID'];
                 $zonlName = $_POST['zonalName'];
-                $LoggedUsernic = $_SESSION["nic"];
+                $LoggedUsernic = '921003072v';
                 $institute = new Institute();
                 
+               
+                
                 // check karanawa sys adminda kiala
-                if ($LoggedUsernic == '921003072V') {
+                if ($LoggedUsernic == '921003072v') {
                     $insertSuccess = $institute->addZonalOffice($provinceID, $zonlName);
 
 
