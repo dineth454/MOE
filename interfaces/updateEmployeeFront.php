@@ -54,6 +54,7 @@ ob_start();
                         $designationIdLoggedUser = $_SESSION["designationTypeID"];
                         $LoggedUsernic = $_SESSION["nic"];
 
+
                         require("../classes/employee.php");
                         $employee = new Employee();
                         // submit button action

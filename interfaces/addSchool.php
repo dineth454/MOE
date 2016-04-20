@@ -170,7 +170,7 @@
                                     <div class="row">
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                            <!-- No:OF:Students-->
+                                            <!-- Longitude-->
                                             <label for="Longitude" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Longitude :  </label>
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="lngbox" name="lng"  placeholder="Longitude"/>
