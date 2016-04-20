@@ -23,7 +23,7 @@ class Institute {
             $result2 = $mysqli->query($query2);
             $resultArray = mysqli_fetch_array($result2 );
             $instituteID = $resultArray['max(instituteID)'];
-            echo $instituteID;
+            
             
             if($result2->num_rows > 0){
                 
