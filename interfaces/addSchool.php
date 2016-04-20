@@ -38,17 +38,37 @@
 
             <!-- Finished NAvigation bar -->
 
-            <div  id="page-content-wrapper" style="min-height: 540px; background-color: blue;">
-                <div class="row container-fluid" style="background-color: yellow; padding-left: 15px;">
-                    <div class="col-lg-7 " style="background-color: grey; margin-right: 50px;padding-left: 0px;">
+            <div  id="page-content-wrapper" style="min-height: 540px;">
+                <div class="row container-fluid" style="padding-left: 15px;">
+                    <div class="col-lg-7 " style="padding-left: 0px;">
 
+                    <?php
+                        // echo $_SESSION['designationType'];
+                        if (isset($_POST['submit'])) {
+                            require '../classes/school.php';
+
+                            // $nic = $_POST['nic'];
+                            $provinceId = $_POST['provinceID'];
+                            $zonalId = $_POST['zonalID'];
+                            $school = $_POST['School'];
+                            $SchoolType = $_POST['SchoolType'];
+                            $NoOfStudents = $_POST['students'];
+                            $lat = $_POST['latbox'];
+                            $lang = $_POST['lngbox'];
+
+                            $school = new School();
+
+                            $insertSuccess = $school->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
+
+                    ?>
+                    
                         <div align="center" style="padding-bottom:10px;">
                             <h1>Add School</h1>
                         </div>
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="">
 
-                            <div class="row" style="background-color: red;">
+                            <div class="row" >
                                 <div class="form-group col-lg-8 col-md-18 col-sm-8">
 
                                     <div  class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -174,12 +194,12 @@
                         </form>
 
                     </div>
-                    <div style="background-color: orange; height: 530px">
+                    <div style="height: 530px">
                         <!-- map -->
                         <div  >
-                            <div  class="form-group col-lg-4 col-md-4 col-sm-4">
-                                <div class="container-fluid">
-                                    <div id="map-canvas" style="width:300px;height:400px;"></div>
+                            <div  class="form-group col-lg-4 col-md-4 col-sm-4" style="padding:0;">
+                                <div class="container-fluid" style="padding:0;">
+                                    <div id="map-canvas" style="width:420px;height:530px;"></div>
 
                                 </div>
                             </div>
@@ -201,7 +221,7 @@
         <script src="../assets/js/jquery.js" ></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-         <script src="../assets/js/googlemap.js"></script>
+        <script src="../assets/js/googlemap.js"></script>
         <script src="../assets/js/addSchoolMarker.js"></script>
 
 
