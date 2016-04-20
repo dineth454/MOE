@@ -1,6 +1,5 @@
 <?php
 ob_start();
-session_start();
 ?>
 <!DOCTYPE html>
 
@@ -40,8 +39,9 @@ session_start();
 
                 $provinceID = $_POST['provinceID'];
                 $zonlName = $_POST['zonalName'];
-                $LoggedUsernic = '921003072V';
+                $LoggedUsernic = $_SESSION["nic"];
                 $institute = new Institute();
+                
                 // check karanawa sys adminda kiala
                 if ($LoggedUsernic == '921003072V') {
                     $insertSuccess = $institute->addZonalOffice($provinceID, $zonlName);
@@ -49,11 +49,11 @@ session_start();
 
                     if ($insertSuccess == 1) {
                         echo '<script language="javascript">';
-                        echo 'alert("Inserted SuccessFully.Thankyou")';
+                        echo 'alert("Zonal Added SuccessFully.Thankyou")';
                         echo '</script>';
                     } else {
                         echo '<script language="javascript">';
-                        echo 'alert("error Occured While Insertin data.check")';
+                        echo 'alert("error Occured While Adding data.check")';
                         echo '</script>';
                     }
                 } else {

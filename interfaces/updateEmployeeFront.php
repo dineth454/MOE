@@ -1,7 +1,7 @@
 
 <?php
 ob_start();
-session_start();
+//session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,10 +50,11 @@ session_start();
 
 
                         <?php
-                        $roletypeID = $designationIdLoggedUser = $LoggedUsernic = '';
-                        $roletypeID = 2;
-                        $designationIdLoggedUser = 1;
-                        $LoggedUsernic = '8011111111v';
+                        $roletypeID = $_SESSION["roleTypeID"];
+                        $designationIdLoggedUser = $_SESSION["designationTypeID"];
+                        $LoggedUsernic = $_SESSION["nic"];
+
+
                         require("../classes/employee.php");
                         $employee = new Employee();
                         // submit button action
@@ -83,62 +84,62 @@ session_start();
                                 if ($result['designationTypeID'] == 1) {
 
 
-                                    $_SESSION['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['nicNumber'] = $result['nic'];
-                                    $_SESSION['Address'] = $result['currentAddress'];
-                                    $_SESSION['roleType'] = $result['roleType'];
-                                    $_SESSION['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['fullName'] = $result['fullName'];
-                                    $_SESSION['employementID'] = $result['employeementID'];
-                                    $_SESSION['emailAddress'] = $result['email'];
-                                    $_SESSION['gender'] = $result['gender'];
-                                    $_SESSION['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     header("Location: updateEmployeeForm.php");
                                     // search karana user province Officer kenek nam
                                 } else if ($result['designationTypeID'] == 2) {
 
-                                    $_SESSION['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['nicNumber'] = $result['nic'];
-                                    $_SESSION['Address'] = $result['currentAddress'];
-                                    $_SESSION['roleType'] = $result['roleType'];
-                                    $_SESSION['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['fullName'] = $result['fullName'];
-                                    $_SESSION['employementID'] = $result['employeementID'];
-                                    $_SESSION['emailAddress'] = $result['email'];
-                                    $_SESSION['gender'] = $result['gender'];
-                                    $_SESSION['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     ///////////////////////////////////////////////////////////////////////////////////////
 
-                                    $_SESSION['proviceIDSearchUser'] = $result1['provinceID'];
+                                    $_SESSION['update']['proviceIDSearchUser'] = $result1['provinceID'];
 
                                     header("Location: updateEmployeeForm.php");
 
                                     //search karana kena zonal officer kenek nam
                                 } else if ($result['designationTypeID'] == 3) {
-                                    $_SESSION['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['nicNumber'] = $result['nic'];
-                                    $_SESSION['Address'] = $result['currentAddress'];
-                                    $_SESSION['roleType'] = $result['roleType'];
-                                    $_SESSION['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['fullName'] = $result['fullName'];
-                                    $_SESSION['employementID'] = $result['employeementID'];
-                                    $_SESSION['emailAddress'] = $result['email'];
-                                    $_SESSION['gender'] = $result['gender'];
-                                    $_SESSION['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     ///////////////////////////////////////////////////////////////////////////////////////
                                     // provinceOfficeId eka 
-                                    $_SESSION['proviceIDSearchUser'] = $result2['provinceOfficeID'];
+                                    $_SESSION['update']['proviceIDSearchUser'] = $result2['provinceOfficeID'];
                                     // zonal officeID
-                                    $_SESSION['zonalIdSearchUser'] = $result2['zonalID'];
+                                    $_SESSION['update']['zonalIdSearchUser'] = $result2['zonalID'];
 
 
                                     //redirect to this page
@@ -146,56 +147,56 @@ session_start();
 
                                     // search karana kenak principal kenek nam
                                 } else if ($result['designationTypeID'] == 4) {
-                                    $_SESSION['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['nicNumber'] = $result['nic'];
-                                    $_SESSION['Address'] = $result['currentAddress'];
-                                    $_SESSION['roleType'] = $result['roleType'];
-                                    $_SESSION['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['fullName'] = $result['fullName'];
-                                    $_SESSION['employementID'] = $result['employeementID'];
-                                    $_SESSION['emailAddress'] = $result['email'];
-                                    $_SESSION['gender'] = $result['gender'];
-                                    $_SESSION['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     ///////////////////////////////////////////////////////////////////////////////////////
                                     // provinceOfficeId eka 
-                                    $_SESSION['proviceIDSearchUser'] = $result3['provinceOfficeID'];
+                                    $_SESSION['update']['proviceIDSearchUser'] = $result3['provinceOfficeID'];
                                     // zonal officeID
-                                    $_SESSION['zonalIdSearchUser'] = $result3['zonalOfficeID'];
+                                    $_SESSION['update']['zonalIdSearchUser'] = $result3['zonalOfficeID'];
 
                                     //schoolId
-                                    $_SESSION['schoolIdSearchUser'] = $result3['schoolID'];
+                                    $_SESSION['update']['schoolIdSearchUser'] = $result3['schoolID'];
                                     //redirect to this page
                                     header("Location: updateEmployeeForm.php");
 
                                     //search karana kena teacher kenek nam
                                 } else {
 
-                                    $_SESSION['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['nicNumber'] = $result['nic'];
-                                    $_SESSION['Address'] = $result['currentAddress'];
-                                    $_SESSION['roleType'] = $result['roleType'];
-                                    $_SESSION['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['fullName'] = $result['fullName'];
-                                    $_SESSION['employementID'] = $result['employeementID'];
-                                    $_SESSION['emailAddress'] = $result['email'];
-                                    $_SESSION['gender'] = $result['gender'];
-                                    $_SESSION['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     ///////////////////////////////////////////////////////////////////////////////////////
                                     // provinceOfficeId eka 
-                                    $_SESSION['proviceIDSearchUser'] = $result3['provinceOfficeID'];
+                                    $_SESSION['update']['proviceIDSearchUser'] = $result3['provinceOfficeID'];
                                     // zonal officeID
-                                    $_SESSION['zonalIdSearchUser'] = $result3['zonalOfficeID'];
+                                    $_SESSION['update']['zonalIdSearchUser'] = $result3['zonalOfficeID'];
 
                                     //schoolId
-                                    $_SESSION['schoolIdSearchUser'] = $result3['schoolID'];
+                                    $_SESSION['update']['schoolIdSearchUser'] = $result3['schoolID'];
                                     //subjectId
-                                    $_SESSION['subjectIdSearchUser'] = $result4['appoinmentSubject'];
+                                    $_SESSION['update']['subjectIdSearchUser'] = $result4['appoinmentSubject'];
                                     //redirect to this page
                                     header("Location: updateEmployeeForm.php");
                                 }

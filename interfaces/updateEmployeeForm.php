@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +33,8 @@
             <?php include 'sideBarAdmin.php' ?>
             <!-- /#sidebar-wrapper -->
 
-            <!-- include Navigation BAr -->
+            <!-- include Navigation BAr 
+            Navigation bar eke call wena session_start eka (login eke eka) dekatama use karala thiyenne (update front/form atharath...)-->
             <?php include 'navigationBar.php' ?>
 
             <!-- Finished NAvigation bar -->
@@ -50,40 +51,40 @@
                         require '../classes/employee.php';
                         $employee = new Employee();
 
-                        $designationTypeID = $_SESSION['designationType'];
-                        $address = $_SESSION['Address'];
-                        $roleType = $_SESSION['roleType'];
-                        $nicNumber = $_SESSION['nicNumber'];
-                        $nameWithInitials = $_SESSION['nameWithInitials'];
-                        $fullName = $_SESSION['fullName'];
-                        $employmentID = $_SESSION['employementID'];
-                        $emailAddress = $_SESSION['emailAddress'];
-                        $gender = $_SESSION['gender'];
-                        $marrigeState = $_SESSION['marrigeState'];
-                        $mobileNumber = $_SESSION['mobileNumber'];
+                        $designationTypeID = $_SESSION['update']['designationType'];
+                        $address = $_SESSION['update']['Address'];
+                        $roleType = $_SESSION['update']['roleType'];
+                        $nicNumber = $_SESSION['update']['nicNumber'];
+                        $nameWithInitials = $_SESSION['update']['nameWithInitials'];
+                        $fullName = $_SESSION['update']['fullName'];
+                        $employmentID = $_SESSION['update']['employementID'];
+                        $emailAddress = $_SESSION['update']['emailAddress'];
+                        $gender = $_SESSION['update']['gender'];
+                        $marrigeState = $_SESSION['update']['marrigeState'];
+                        $mobileNumber = $_SESSION['update']['mobileNumber'];
 
                         // province Officer kenek nam
                         if ($designationTypeID == 2) {
-                            $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
+                            $searchUserProvinceId = $_SESSION['update']['proviceIDSearchUser'];
                         }
                         // zonal officer kenek nam
                         if ($designationTypeID == 3) {
-                            $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
-                            $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
+                            $searchUserProvinceId = $_SESSION['update']['proviceIDSearchUser'];
+                            $searchUserZonalId = $_SESSION['update']['zonalIdSearchUser'];
                         }
                         // principal kenek nam
                         if ($designationTypeID == 4) {
 
-                            $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
-                            $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
-                            $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
+                            $searchUserProvinceId = $_SESSION['update']['proviceIDSearchUser'];
+                            $searchUserZonalId = $_SESSION['update']['zonalIdSearchUser'];
+                            $searchUserSchoolId = $_SESSION['update']['schoolIdSearchUser'];
                         }
                         // teacher kenek nam
                         if ($designationTypeID == 5) {
-                            $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
-                            $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
-                            $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
-                            $searchUserSubjectId = $_SESSION['subjectIdSearchUser'];
+                            $searchUserProvinceId = $_SESSION['update']['proviceIDSearchUser'];
+                            $searchUserZonalId = $_SESSION['update']['zonalIdSearchUser'];
+                            $searchUserSchoolId = $_SESSION['update']['schoolIdSearchUser'];
+                            $searchUserSubjectId = $_SESSION['update']['subjectIdSearchUser'];
                         }
 
 
