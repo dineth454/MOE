@@ -59,6 +59,7 @@
                             $school = new School();
 
                             $insertSuccess = $school->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
+                        }
 
                     ?>
                     
