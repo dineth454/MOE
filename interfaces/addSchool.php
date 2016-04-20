@@ -59,7 +59,13 @@
                             $institute = new Institute();
 
                             $insertSuccess = $institute->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
+
+                            echo $provinceId;
+                        echo $zonalId;
                         }
+
+                        
+
 
                     ?>
 
