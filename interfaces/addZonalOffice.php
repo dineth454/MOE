@@ -30,6 +30,15 @@ ob_start();
     <body >
 
         <div id="wrapper">
+            
+            <!-- Sidebar -->
+            <?php include 'sideBarAdmin.php' ?>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- include Navigation BAr -->
+            <?php include 'navigationBar.php' ?>
+
+            <!-- Finished NAvigation bar -->
 
             <?php
             // echo $_SESSION['designationType'];
@@ -65,17 +74,6 @@ ob_start();
                 }
             }
             ?>
-
-            <!-- Sidebar -->
-            <?php include 'sideBarAdmin.php' ?>
-            <!-- /#sidebar-wrapper -->
-
-            <!-- include Navigation BAr -->
-            <?php include 'navigationBar.php' ?>
-
-            <!-- Finished NAvigation bar -->
-
-
 
             <div id="page-content-wrapper" style="min-height: 540px;">
                 <div class="container-fluid">

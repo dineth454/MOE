@@ -47,7 +47,7 @@
                             require '../classes/employee.php';
 
                             // $nic = $_POST['nic'];
-                            $nicNumber = $_SESSION['nicNumber'];
+                            $nicNumber = $_SESSION['subject']['nicNumber'];
                             $currentSubject = $_POST['currentsubject'];
                             $grade = $_POST['grade'];
 
@@ -72,13 +72,13 @@
 
 
 
-                        $designationTypeID = $_SESSION['designationType'];
+                        $designationTypeID = $_SESSION['subject']['designationType'];
                         // teacher kenek nam
                         if ($designationTypeID == 5) {
-                            $nicNumber = $_SESSION['nicNumber'];
-                            $nameWithInitials = $_SESSION['nameWithInitials'];
-                            $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
-                            $searchUserSubjectId = $_SESSION['subjectIdSearchUser'];
+                            $nicNumber = $_SESSION['subject']['nicNumber'];
+                            $nameWithInitials = $_SESSION['subject']['nameWithInitials'];
+                            $searchUserSchoolId = $_SESSION['subject']['schoolIdSearchUser'];
+                            $searchUserSubjectId = $_SESSION['subject']['subjectIdSearchUser'];
                         }
                         ?>
 
