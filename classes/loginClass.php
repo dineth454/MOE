@@ -38,11 +38,12 @@ require("dbcon.php");
         		
         		if($roleTypeID==1){
         			session_start();
+        			$_SESSION["login_time"]= time();
 					$_SESSION["roleTypeID"]= $roleTypeID;
 					$_SESSION["instituteID"]= $instituteID;
 					$_SESSION["designationTypeID"]= $designationTypeID;
 					$_SESSION["fullName"]= $fullName;
-        			header("Location: admin.php"); /* Redirect browser */
+        			header("Location: interface_0.1.php"); /* Redirect browser */
 					exit();
         		}
         		else if($roleTypeID==2){

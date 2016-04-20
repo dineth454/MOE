@@ -1,4 +1,11 @@
+
+
 <!DOCTYPE html>
+<?php 
+
+
+ ?>
+
 <html lang="en">
 
     <head>
@@ -45,7 +52,7 @@
                             <!-- small box -->
                             <div class="small-box aqua ">
                                 <div class="inner newstyle">
-                                    <div class="e"><i>69</i>
+                                    <div class="e">
                                         <div class="icon pull-right">
                                             <img src="../images/school.png">
                                         </div>
