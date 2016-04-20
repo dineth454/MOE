@@ -48,6 +48,14 @@ $mysqli = $db->connection();
 			return $schoolTypeResult;
 			
 		}
+
+		function addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang){
+			global $mysqli;
+
+			$query_for_insert_values = "insert into school values('$teacherID',$currentSubject,$grade)";
+        	$result1 = $mysqli->query($query_for_insert_values);
+
+		}
 	}
 
 ?>

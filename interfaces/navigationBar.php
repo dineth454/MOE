@@ -17,6 +17,7 @@ ob_end_flush();
 ?>
 
 <nav class="navbar navbar-default" style="height: 65px; border-radius:0px;">
+
                 <div class="col-md-3 pull-right" style="margin-top: 18px;">
                     <label><?php echo $_SESSION["fullName"]?></label>
                     <div class="pull-right"><a href="../classes/signout.php">Sign out</a></div>
