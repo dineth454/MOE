@@ -1,3 +1,7 @@
+<?php
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -10,7 +14,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>AddZonalOffice</title>
+        <title>Add Zonal Office</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +32,38 @@
 
         <div id="wrapper">
 
+            <?php
+            // echo $_SESSION['designationType'];
+            if (isset($_POST['submit'])) {
+                require '../classes/institute.php';
+
+
+                $provinceID = $_POST['provinceID'];
+                $zonlName = $_POST['zonalName'];
+                $LoggedUsernic = '921003072V';
+                $institute = new Institute();
+                // check karanawa sys adminda kiala
+                if ($LoggedUsernic == '921003072V') {
+                    $insertSuccess = $institute->addZonalOffice($provinceID, $zonlName);
+
+
+                    if ($insertSuccess == 1) {
+                        echo '<script language="javascript">';
+                        echo 'alert("Inserted SuccessFully.Thankyou")';
+                        echo '</script>';
+                    } else {
+                        echo '<script language="javascript">';
+                        echo 'alert("error Occured While Insertin data.check")';
+                        echo '</script>';
+                    }
+                } else {
+                    echo '<script language="javascript">';
+                    echo 'alert("You Dont Have Permission to do this action")';
+                    echo '</script>';
+                }
+            }
+            ?>
+
             <!-- Sidebar -->
             <?php include 'sideBarAdmin.php' ?>
             <!-- /#sidebar-wrapper -->
@@ -36,6 +72,8 @@
             <?php include 'navigationBar.php' ?>
 
             <!-- Finished NAvigation bar -->
+
+
 
             <div id="page-content-wrapper" style="min-height: 540px;">
                 <div class="container-fluid">
