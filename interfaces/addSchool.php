@@ -113,6 +113,14 @@
                                                 <select required class="form-control " name="SchoolType" id="SchoolType" >
                                                     <option value="" >Select Type</option>
                                                     <option value="1">MIX</option>
+                                                    <option value="2">Girls'</option>
+                                                    <option value="3">Boys'</option>
+                                                    <option value="4">Primary Girls'</option>
+                                                    <option value="5">Primary Boys'</option>
+                                                    <option value="6">Primary Mix</option>
+                                                    <option value="7">Secondary Girls'</option>
+                                                    <option value="8">Secondary Boys'</option>
+                                                    <option value="9">Secondary Mix</option>
                                                 </select>
                                             </div>
 
