@@ -46,10 +46,11 @@ ob_start();
 
 
                         <?php
-                        $roletypeID = $designationIdLoggedUser = $LoggedUsernic = '';
-                        $roletypeID = 1;
-                        $designationIdLoggedUser = 1;
-                        $LoggedUsernic = '921003072v';
+
+                        $roletypeID = $_SESSION["roleTypeID"];
+                        $designationIdLoggedUser = $_SESSION["designationTypeID"];
+                        $LoggedUsernic = $_SESSION["nic"];
+
                         require("../classes/employee.php");
                         $employee = new Employee();
                         // submit button action
@@ -73,15 +74,15 @@ ob_start();
                              
                                 //teacher kenekda kiyala check karanawa
                             } else if ($result['designationTypeID'] == 5) {
-                                $_SESSION['designationType'] = $result['designationTypeID'];
-                                $_SESSION['nicNumber'] = $result['nic'];
+                                $_SESSION['subject']['designationType'] = $result['designationTypeID'];
+                                $_SESSION['subject']['nicNumber'] = $result['nic'];
 
-                                $_SESSION['nameWithInitials'] = $result['nameWithInitials'];
+                                $_SESSION['subject']['nameWithInitials'] = $result['nameWithInitials'];
 
                                 //schoolId
-                                $_SESSION['schoolIdSearchUser'] = $result3['schoolID'];
+                                $_SESSION['subject']['schoolIdSearchUser'] = $result3['schoolID'];
                                 //subjectId
-                                $_SESSION['subjectIdSearchUser'] = $result4['appoinmentSubject'];
+                                $_SESSION['subject']['subjectIdSearchUser'] = $result4['appoinmentSubject'];
                                 //redirect to this page
                                 header("Location: addCurrentSubjectForm.php");
                             } else {
