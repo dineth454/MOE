@@ -1,4 +1,3 @@
-
 <?php
 require("../classes/loginClass.php");
 
@@ -11,7 +10,6 @@ if (isset($_POST["submit"])) {
     $login->syslog($nic, $pass);
 }
 ?>
-
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8"/>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 	session_unset();
 	session_destroy();
@@ -8,4 +8,6 @@
 	//include '../SystemLogin.php';
 	//include 'home.php';
 	exit();
+
 ?>
+
