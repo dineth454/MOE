@@ -45,7 +45,7 @@
                     <?php
                         // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
-                            require '../classes/school.php';
+                            require '../classes/institute.php';
 
                             // $nic = $_POST['nic'];
                             $provinceId = $_POST['provinceID'];
@@ -53,12 +53,12 @@
                             $school = $_POST['School'];
                             $SchoolType = $_POST['SchoolType'];
                             $NoOfStudents = $_POST['students'];
-                            $lat = $_POST['latbox'];
-                            $lang = $_POST['lngbox'];
+                            $lat = $_POST['lat'];
+                            $lang = $_POST['lng'];
 
-                            $school = new School();
+                            $institute = new Institute();
 
-                            $insertSuccess = $school->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
+                            $insertSuccess = $institute->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
                         }
                     ?>
 
