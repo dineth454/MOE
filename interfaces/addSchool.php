@@ -62,7 +62,7 @@
                         }
 
                     ?>
-                    
+
                         <div align="center" style="padding-bottom:10px;">
                             <h1>Add School</h1>
                         </div>
