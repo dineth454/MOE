@@ -51,9 +51,9 @@ session_start();
 
                         <?php
                         $roletypeID = $designationIdLoggedUser = $LoggedUsernic = '';
-                        $roletypeID = 1;
+                        $roletypeID = 2;
                         $designationIdLoggedUser = 1;
-                        $LoggedUsernic = '921003072v';
+                        $LoggedUsernic = '8011111111v';
                         require("../classes/employee.php");
                         $employee = new Employee();
                         // submit button action
