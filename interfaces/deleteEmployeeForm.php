@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,40 +49,40 @@
                         require '../classes/employee.php';
                         $employee = new Employee();
 
-                        $designationTypeID = $_SESSION['designationType'];
-                        $address = $_SESSION['Address'];
-                        $roleType = $_SESSION['roleType'];
-                        $nicNumber = $_SESSION['nicNumber'];
-                        $nameWithInitials = $_SESSION['nameWithInitials'];
-                        $fullName = $_SESSION['fullName'];
-                        $employmentID = $_SESSION['employementID'];
-                        $emailAddress = $_SESSION['emailAddress'];
-                        $gender = $_SESSION['gender'];
-                        $marrigeState = $_SESSION['marrigeState'];
-                        $mobileNumber = $_SESSION['mobileNumber'];
+                        $designationTypeID = $_SESSION['delete']['designationType'];
+                        $address = $_SESSION['delete']['Address'];
+                        $roleType = $_SESSION['delete']['roleType'];
+                        $nicNumber = $_SESSION['delete']['nicNumber'];
+                        $nameWithInitials = $_SESSION['delete']['nameWithInitials'];
+                        $fullName = $_SESSION['delete']['fullName'];
+                        $employmentID = $_SESSION['delete']['employementID'];
+                        $emailAddress = $_SESSION['delete']['emailAddress'];
+                        $gender = $_SESSION['delete']['gender'];
+                        $marrigeState = $_SESSION['delete']['marrigeState'];
+                        $mobileNumber = $_SESSION['delete']['mobileNumber'];
 
                         // province Officer kenek nam
                         if ($designationTypeID == 2) {
-                            $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
+                            $searchUserProvinceId = $_SESSION['delete']['proviceIDSearchUser'];
                         }
                         // zonal officer kenek nam
                         if ($designationTypeID == 3) {
-                            $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
-                            $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
+                            $searchUserProvinceId = $_SESSION['delete']['proviceIDSearchUser'];
+                            $searchUserZonalId = $_SESSION['delete']['zonalIdSearchUser'];
                         }
                         // principal kenek nam
                         if ($designationTypeID == 4) {
 
-                            $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
-                            $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
-                            $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
+                            $searchUserProvinceId = $_SESSION['delete']['proviceIDSearchUser'];
+                            $searchUserZonalId = $_SESSION['delete']['zonalIdSearchUser'];
+                            $searchUserSchoolId = $_SESSION['delete']['schoolIdSearchUser'];
                         }
                         // teacher kenek nam
                         if ($designationTypeID == 5) {
-                            $searchUserProvinceId = $_SESSION['proviceIDSearchUser'];
-                            $searchUserZonalId = $_SESSION['zonalIdSearchUser'];
-                            $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
-                            $searchUserSubjectId = $_SESSION['subjectIdSearchUser'];
+                            $searchUserProvinceId = $_SESSION['delete']['proviceIDSearchUser'];
+                            $searchUserZonalId = $_SESSION['delete']['zonalIdSearchUser'];
+                            $searchUserSchoolId = $_SESSION['delete']['schoolIdSearchUser'];
+                            $searchUserSubjectId = $_SESSION['delete']['subjectIdSearchUser'];
                         }
 
 
