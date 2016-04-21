@@ -49,7 +49,7 @@ class Institute{
 
     
     function addZonalOffice($provinceID, $zonlName){
-        global $mysqli;
+        global $con;
         $insertOK = 1;
         //Zonal office or not
         $instituteType = 3;
@@ -57,7 +57,7 @@ class Institute{
         // insert into institute tabel
         
         $Query = "insert into institute(instituteTypeID) values('$instituteType')";
-        $result = $mysqli->query($Query);
+        $result = $con->query($Query);
         if($result != 1){
             $insertOK = 0;
         }else{
