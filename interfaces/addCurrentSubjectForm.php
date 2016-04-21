@@ -192,11 +192,22 @@
                                                         <select  required class="form-control" name="currentsubject" id="currentsubject" >
 
                                                             <option   value="">--Select subject--</option>
+                                                            
+                                                            <?php
+                                                            /*
+                                                            $result = $employee->loadSubjects();
 
+                                                            foreach ($result as $array) {
+
+                                                                echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                            }
+                                                             
+                                                             */
+                                                            ?>
 
                                                             <option  value="1">Mathematics</option>
                                                             <option  value="2">Science</option>
-                                                            <option  value="3">Buddhism</option>
+                                                            <option  value="3">Buddhism</option> 
 
 
 

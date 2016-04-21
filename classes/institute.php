@@ -83,6 +83,20 @@ class Institute{
         
         
     }
+    
+    function addSubject($subject){
+        global $con;
+        $insertOK = 1;
+        
+        $Query = "insert into subject(subject) values('$subject')";
+        $result = $con->query($Query);
+        if($result != 1){
+            $insertOK = 0;
+        }
+        
+        return $insertOK;
+        
+    }
 
 }
 

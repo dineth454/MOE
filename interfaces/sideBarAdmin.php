@@ -45,7 +45,7 @@
 
         <div id="collapse6" class="panel-collapse collapse">
             <li>
-                <a class="slide_font active" href="#">Add Subject</a>
+                <a class="slide_font active" href="addNewSubject.php">Add Subject</a>
             </li>
             <li>
                 <a class="slide_font active" href="addCurrentSubjectFormFront.php">Add Current subject Of Teacher</a>
