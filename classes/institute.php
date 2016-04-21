@@ -62,7 +62,7 @@ class Institute{
             $insertOK = 0;
         }else{
             $query2 = "select max(instituteID) from institute";
-            $result2 = $mysqli->query($query2);
+            $result2 = $con->query($query2);
             $resultArray = mysqli_fetch_array($result2 );
             $instituteID = $resultArray['max(instituteID)'];
             
@@ -70,7 +70,7 @@ class Institute{
             if($result2->num_rows > 0){
                 
                 $query3 = "insert into  zonal_office(zonalName,instituteID,provinceOfficeID) values('$zonlName','$instituteID',$provinceID)";
-                $result3 = $mysqli->query($query3);
+                $result3 = $con->query($query3);
                 
                 if($result3 != 1){
                     $insertOK = 0;
