@@ -160,12 +160,20 @@
                                                                 <option  value="1">Mathematics</option>
                                                                 <option  value="2">Science</option>
                                                                 <option selected="true"  value="3">Buddhism</option>
-                                                            <?php } else { ?>
-                                                                <option selected="true"  value="none">Select subject</option>
+                                                            <?php } else if($searchUserSubjectId == 4){ ?>
+                                                                <option   value="none">Select subject</option>
                                                                 <option  value="1">Mathematics</option>
                                                                 <option  value="2">Science</option>
                                                                 <option   value="3">Buddhism</option>
-                                                            <?php } ?>    
+                                                                <option selected="true" value="4">English</option>
+                                                            <?php } else {?>
+                                                                <option selected="true"   value="none">Select subject</option>
+                                                                <option  value="1">Mathematics</option>
+                                                                <option  value="2">Science</option>
+                                                                <option   value="3">Buddhism</option>
+                                                                <option  value="4">English</option>
+                                                                
+                                                            <?php } ?>
 
 
 
@@ -207,7 +215,8 @@
 
                                                             <option  value="1">Mathematics</option>
                                                             <option  value="2">Science</option>
-                                                            <option  value="3">Buddhism</option> 
+                                                            <option  value="3">Buddhism</option>
+                                                            <option value="4">English</option>
 
 
 

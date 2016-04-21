@@ -46,7 +46,7 @@ ob_start();
                 require '../classes/institute.php';
 
 
-               
+
                 $subject = $_POST['subject'];
                 $LoggedUsernic = $_SESSION["nic"];
                 $institute = new Institute();
@@ -83,7 +83,7 @@ ob_start();
                             <h1>Add New Subject</h1>
                         </div>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return validateaddNewSubjectForm()" novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-8 col-md-18 col-sm-8">
@@ -94,11 +94,13 @@ ob_start();
                                             <label for="Subject" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Subject :  </label>
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject Name"/>
-
+                                                <label id="errorSubject" style="font-size: 10px"> </label>
                                             </div>
 
 
+
                                         </div>
+
                                     </div>
 
 
@@ -123,6 +125,7 @@ ob_start();
 
 
         <!-- Bootstrap Core JavaScript -->
+        <script src="../assets/js/addNewSubjectValidation.js"></script>
         <script src="../assets/js/jquery.js" ></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
