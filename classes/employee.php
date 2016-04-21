@@ -70,9 +70,8 @@ class Employee {
         
 
             // add ministry officer into the system --------------------------------------------------------------------------------
-            if ($designation == '1') {
-                // methanin check karanna oni log wela inne ministry officer dakiyala
-                // eyata witharai ministry officer kenek add karanna puluwan
+            if ($designation == 1) {
+               
 
                 $instituteType = 1;
 
@@ -112,7 +111,7 @@ class Employee {
 
 
                 // add province officer into the system ----------------------------------------------------------------------
-            } else if ($designation == '2') {
+            } else if ($designation == 2) {
 
                 // province officer kenekwa add karanna puluwan sysadmin ta ho ministry officer kenekta witharai
                 // methanin eka check karanna onii
@@ -144,12 +143,7 @@ class Employee {
                     }
                 }
                 // add Zonal officer into the system -----------------------------------------------------------------------
-            } else if ($designation == '3') {
-
-                // 1) Sys adminta puluwan
-                // 2) ministry officer kenekta puluwan awulak ne
-                // 3) province officer kenek wenna puluwan(hebei add karana zonal officerge
-                // province office id ekama thyenna oni anik ayata baaa)
+            } else if ($designation == 3) {
 
                 $query_for_get_institute_id = "select instituteID from zonal_office where zonalID = '" . $zoneID . "'";
                 $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
@@ -179,13 +173,9 @@ class Employee {
                     }
                 }
                 //add principal into the system ---------------------------------------------------------------------
-            } else if ($designation == '4') {
+            } else if ($designation == 4) {
 
-                //  sys adminta puluwan add karanna puluwan
-                // ministry officerta puluwan
-                // province officerta puluwan ekama province office id eka wenna oni
-                // zonal officer kenekta puluwan ekama zonal id eka wenna oniii
-
+               
 
                 $query_for_get_institute_id = "select instituteID from school where schoolID = '" . $schoolId . "'";
                 $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
@@ -213,12 +203,7 @@ class Employee {
                         }
                     }
                 }
-                // add teacher into the system -----------------------------------------------------------------------
-                //  sys adminta puluwan add karanna puluwan
-                // ministry officerta puluwan
-                // province officerta puluwan ekama province office id eka wenna oni
-                // zonal officer kenekta puluwan ekama zonal id eka wenna oniii
-                // prinsipal  kenek nam ekama schoolid eka thiyenna oniii
+            
             } else {
 
                 $query_for_get_institute_id = "select instituteID from school where schoolID = '" . $schoolId . "'";

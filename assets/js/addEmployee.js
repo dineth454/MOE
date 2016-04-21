@@ -13,24 +13,54 @@ function validateForm() {
     if (!validateDropDown("select_role", "errorRole")) {
         errors.push("errorRole");
     }
-    // validate designation
+
     if (!validateDropDown("designation", "errorDesignation")) {
         errors.push("errorDesignation");
     }
+    var validateDropdownID = document.getElementById("designation").value;
 
-    if (!validateDropDown("provinceID", "errorProvince")) {
-        errors.push("errorProvince");
-    }
-    if (!validateDropDown("abc", "errorZonal")) {
-        errors.push("errorZonal");
-    }
-    if (!validateDropDown("abcd", "errorSchool")) {
-        errors.push("errorSchool");
+    if (validateDropdownID == 1) {
+       // alert(validateDropdownID);
+    } else if (validateDropdownID == 2) {
+
+        if (!validateDropDown("provinceID", "errorProvince")) {
+            errors.push("errorProvince");
+        }
+
+    } else if (validateDropdownID == 3) {
+        if (!validateDropDown("provinceID", "errorProvince")) {
+            errors.push("errorProvince");
+        }
+        if (!validateDropDown("abc", "errorZonal")) {
+            errors.push("errorZonal");
+        }
+    } else if (validateDropdownID == 4) {
+        if (!validateDropDown("provinceID", "errorProvince")) {
+            errors.push("errorProvince");
+        }
+        if (!validateDropDown("abc", "errorZonal")) {
+            errors.push("errorZonal");
+        }
+        if (!validateDropDown("abcd", "errorSchool")) {
+            errors.push("errorSchool");
+        }
+    } else {
+
+        if (!validateDropDown("provinceID", "errorProvince")) {
+            errors.push("errorProvince");
+        }
+        if (!validateDropDown("abc", "errorZonal")) {
+            errors.push("errorZonal");
+        }
+        if (!validateDropDown("abcd", "errorSchool")) {
+            errors.push("errorSchool");
+        }
+
+        if (!validateDropDown("subject", "errorSubject")) {
+            errors.push("errorSubject");
+        }
     }
 
-    if (!validateDropDown("subject", "errorSubject")) {
-        errors.push("errorSubject");
-    }
     var mobileNumber = document.getElementById("mobileNm").value;
     if (!validateMobileNumber(mobileNumber)) {
         errors.push("errormobileNumbber");
@@ -45,8 +75,7 @@ function validateForm() {
 
     if (errors.length > 0) {
         return false;
-    }
-    else {
+    } else {
         return true;
     }
 }
@@ -59,8 +88,7 @@ function validateName(text, errorLbl) {
         document.getElementById(errorLbl).innerHTML = "required";
         document.getElementById(errorLbl).style.color = "red";
         return false;
-    }
-    else {
+    } else {
         document.getElementById(text).style.borderColor = "green";
         document.getElementById(errorLbl).innerHTML = "";
         return true;
@@ -76,15 +104,13 @@ function validateNicNumber(text) {
         document.getElementById("errornicNum").innerHTML = "required";
         document.getElementById("errornicNum").style.color = "red";
         return false;
-    }
-    else if ((pattern.test(text)) == false || text.length < 10) {
+    } else if ((pattern.test(text)) == false || text.length < 10) {
         document.getElementById("nic").focus();
         document.getElementById("nic").style.borderColor = "red";
         document.getElementById("errornicNum").innerHTML = "invalid type";
         document.getElementById("errornicNum").style.color = "red";
         return false;
-    }
-    else {
+    } else {
         document.getElementById("nic").style.borderColor = "green";
         document.getElementById("errornicNum").innerHTML = "";
         return true;
@@ -100,8 +126,7 @@ function validateDropDown(text, errorLbl) {
         document.getElementById(errorLbl).style.color = "red";
 
         return false;
-    }
-    else {
+    } else {
         document.getElementById(text).style.borderColor = "green";
         document.getElementById(errorLbl).innerHTML = "";
         return true;
@@ -117,15 +142,13 @@ function validateMobileNumber(text) {
         document.getElementById("errormobileNumb").innerHTML = "required";
         document.getElementById("errormobileNumb").style.color = "red";
         return false;
-    }
-    else if ((pattern.test(text)) == false || text.length < 10) {
+    } else if ((pattern.test(text)) == false || text.length < 10) {
         document.getElementById("mobileNm").focus();
         document.getElementById("mobileNm").style.borderColor = "red";
         document.getElementById("errormobileNumb").innerHTML = "invalid type";
         document.getElementById("errormobileNumb").style.color = "red";
         return false;
-    }
-    else {
+    } else {
         document.getElementById("mobileNm").style.borderColor = "green";
         document.getElementById("errormobileNumb").innerHTML = "";
         return true;
@@ -138,15 +161,13 @@ function validateEmail(text) {
     if (text == "" || text == null) {
         document.getElementById("errorEmail").innerHTML = "";
         return true;
-    }
-    else if ((pattern.test(text)) == false) {
+    } else if ((pattern.test(text)) == false) {
         document.getElementById("email").focus();
         document.getElementById("email").style.borderColor = "red";
         document.getElementById("errorEmail").innerHTML = "invalid email";
         document.getElementById("errorEmail").style.color = "red";
         return false;
-    }
-    else {
+    } else {
         document.getElementById("email").style.borderColor = "green";
         document.getElementById("errorEmail").innerHTML = "";
         return true;
@@ -160,36 +181,34 @@ function validateEmail(text) {
 
 //$(document).ready(function () {
 
-    /*document.getElementById("provinceHiddenForm").style.visibility = 'hidden';
-     document.getElementById("zonalOfficeHidden").style.visibility = 'hidden';
-     document.getElementById("schoolHidden").style.visibility = 'hidden';
-     document.getElementById('subjectHidden').style.visibility = 'hidden';*/
+/*document.getElementById("provinceHiddenForm").style.visibility = 'hidden';
+ document.getElementById("zonalOfficeHidden").style.visibility = 'hidden';
+ document.getElementById("schoolHidden").style.visibility = 'hidden';
+ document.getElementById('subjectHidden').style.visibility = 'hidden';*/
 //});
 
 function selectionForm(val) {
     if (val == "5") {
-       
+
         $('#provinceIDDiv').slideDown("slow");
         $('#zonalOfficeDiv').slideDown("slow");
         $('#schoolIdDiv').slideDown("slow");
         $('#subjectHiddenDiv').slideDown("slow");
 
 
-    }
-    else if (val == "4") {
-        
+    } else if (val == "4") {
+
         $('#provinceIDDiv').slideDown("slow");
         $('#zonalOfficeDiv').slideDown("slow");
         $('#schoolIdDiv').slideDown("slow");
         $('#subjectHiddenDiv').slideUp("slow");
 
-    }
-    else if (val == "3") {
+    } else if (val == "3") {
         $('#provinceIDDiv').slideDown("slow");
         $('#zonalOfficeDiv').slideDown("slow");
         $('#schoolIdDiv').slideUp("slow");
         $('#subjectHiddenDiv').slideUp("slow");
-        
+
     } else if (val == "2") {
         $('#provinceIDDiv').slideDown("slow");
         $('#zonalOfficeDiv').slideUp("slow");
