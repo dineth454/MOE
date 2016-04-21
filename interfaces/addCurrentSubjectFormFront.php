@@ -1,6 +1,5 @@
 <?php
 ob_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Home</title>
+        <title>Add Current Subject Form Front</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +21,7 @@ ob_start();
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
-        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
+        <!--<link href="../assets/css/fonts_styles.css" rel="stylesheet">-->
 
 
     </head>
@@ -47,7 +46,6 @@ ob_start();
 
 
                         <?php
-
                         $roletypeID = $_SESSION["roleTypeID"];
                         $designationIdLoggedUser = $_SESSION["designationTypeID"];
                         $LoggedUsernic = $_SESSION["nic"];
@@ -72,7 +70,7 @@ ob_start();
                                 echo '<script language="javascript">';
                                 echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
                                 echo '</script>';
-                             
+
                                 //teacher kenekda kiyala check karanawa
                             } else if ($result['designationTypeID'] == 5) {
                                 $_SESSION['subject']['designationType'] = $result['designationTypeID'];
@@ -141,17 +139,17 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
 
-          
+
 
             <?php include 'footer.php' ?>
 
             <script src="../assets/js/jquery.js"></script>
 
 
-                
+
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-            
+
 
 
         </div>
