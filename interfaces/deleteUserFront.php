@@ -68,7 +68,7 @@
                 } else {
 
                     //search karana user ministry Officer keneknam 
-                    if ($result['designationTypeID'] == 1) {
+                    if ($result['designationTypeID'] == 1 ) {
 
 
                         $_SESSION['delete']['designationType'] = $result['designationTypeID'];

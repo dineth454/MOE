@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +47,7 @@
                             require '../classes/employee.php';
 
                             // $nic = $_POST['nic'];
-                            $nicNumber = $_SESSION['nicNumber'];
+                            $nicNumber = $_SESSION['subject']['nicNumber'];
                             $currentSubject = $_POST['currentsubject'];
                             $grade = $_POST['grade'];
 
@@ -72,13 +72,13 @@
 
 
 
-                        $designationTypeID = $_SESSION['designationType'];
+                        $designationTypeID = $_SESSION['subject']['designationType'];
                         // teacher kenek nam
                         if ($designationTypeID == 5) {
-                            $nicNumber = $_SESSION['nicNumber'];
-                            $nameWithInitials = $_SESSION['nameWithInitials'];
-                            $searchUserSchoolId = $_SESSION['schoolIdSearchUser'];
-                            $searchUserSubjectId = $_SESSION['subjectIdSearchUser'];
+                            $nicNumber = $_SESSION['subject']['nicNumber'];
+                            $nameWithInitials = $_SESSION['subject']['nameWithInitials'];
+                            $searchUserSchoolId = $_SESSION['subject']['schoolIdSearchUser'];
+                            $searchUserSubjectId = $_SESSION['subject']['subjectIdSearchUser'];
                         }
                         ?>
 
@@ -160,12 +160,20 @@
                                                                 <option  value="1">Mathematics</option>
                                                                 <option  value="2">Science</option>
                                                                 <option selected="true"  value="3">Buddhism</option>
-                                                            <?php } else { ?>
-                                                                <option selected="true"  value="none">Select subject</option>
+                                                            <?php } else if($searchUserSubjectId == 4){ ?>
+                                                                <option   value="none">Select subject</option>
                                                                 <option  value="1">Mathematics</option>
                                                                 <option  value="2">Science</option>
                                                                 <option   value="3">Buddhism</option>
-                                                            <?php } ?>    
+                                                                <option selected="true" value="4">English</option>
+                                                            <?php } else {?>
+                                                                <option selected="true"   value="none">Select subject</option>
+                                                                <option  value="1">Mathematics</option>
+                                                                <option  value="2">Science</option>
+                                                                <option   value="3">Buddhism</option>
+                                                                <option  value="4">English</option>
+                                                                
+                                                            <?php } ?>
 
 
 
@@ -192,11 +200,23 @@
                                                         <select  required class="form-control" name="currentsubject" id="currentsubject" >
 
                                                             <option   value="">--Select subject--</option>
+                                                            
+                                                            <?php
+                                                            /*
+                                                            $result = $employee->loadSubjects();
 
+                                                            foreach ($result as $array) {
+
+                                                                echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                            }
+                                                             
+                                                             */
+                                                            ?>
 
                                                             <option  value="1">Mathematics</option>
                                                             <option  value="2">Science</option>
                                                             <option  value="3">Buddhism</option>
+                                                            <option value="4">English</option>
 
 
 

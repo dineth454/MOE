@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +50,10 @@
                         $roletypeID = $_SESSION["roleTypeID"];
                         $designationIdLoggedUser = $_SESSION["designationTypeID"];
                         $LoggedUsernic = $_SESSION["nic"];
+                        
+                     
+                        
+                      
 
 
                         require("../classes/employee.php");
@@ -62,6 +69,9 @@
                         $schoolIDLoggedUser = $result3['schoolID'];
 
                         if (isset($_POST['submit'])) {
+                            
+                            
+                            
 
                             $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $dob = $currentAddress = $gender = $marrigeState = $mobileNum = "";
                             $provinceID = $zoneID = $schoolId = $subjectID = "";
@@ -81,16 +91,16 @@
 
                             //echo $designation;
 
-                            if ($designation == '2') {
+                            if ($designation == 2) {
                                 $provinceID = $_POST['provinceID'];
-                            } else if ($designation == '3') {
+                            } else if ($designation == 3) {
                                 $provinceID = $_POST['provinceID'];
                                 $zoneID = $_POST['zonalID'];
-                            } else if ($designation == '4') {
+                            } else if ($designation == 4) {
                                 $provinceID = $_POST['provinceID'];
                                 $zoneID = $_POST['zonalID'];
                                 $schoolId = $_POST['schoolId'];
-                            } else if ($designation == '5') {
+                            } else if ($designation == 5) {
                                 $provinceID = $_POST['provinceID'];
                                 $zoneID = $_POST['zonalID'];
                                 $schoolId = $_POST['schoolId'];
@@ -98,6 +108,9 @@
                             } else {
                                 $designation = $_POST['designation'];
                             }
+                            
+                            
+                            
                             // logged in sys admin
                             if ($designationIdLoggedUser == 1 and $roletypeID == 1) {
                                 $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
