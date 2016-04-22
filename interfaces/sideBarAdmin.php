@@ -70,8 +70,17 @@
 
         </div>
         <li>
-            <a class="slide_font" data-toggle="collapse" href="#collapse5">Search</a>
+            <a class="slide_font" data-toggle="collapse" href="#collapse7">Search</a>
         </li>
+        <!--Transer Teacher -->
+        <li>
+            <a class="slide_font" data-toggle="collapse" href="#collapse8">Transer</a>
+        </li>
+        <div id="collapse8" class="panel-collapse collapse">
+            <li>
+                <a class="slide_font active" href="transerFront.php">Transer Teacher</a>
+            </li>
+        </div>
         <li>
             <a href="mapview.php" class="ajax_load slide_font">Map View</a>
         </li>
