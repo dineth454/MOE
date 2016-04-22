@@ -40,7 +40,7 @@
             <div id="page-content-wrapper" style="min-height: 540px;">
 
                 <div class=" row container-fluid" style="">
-                    <div class="col-md-6 " style="background-color: green;">
+                    <div class="col-md-6 " style="background-color: green; padding-bottom: 16px;">
                         <?php
                         //get session attribute Values
 
