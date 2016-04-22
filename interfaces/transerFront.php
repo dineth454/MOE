@@ -81,10 +81,10 @@ ob_start();
 
                                     $_SESSION['transer']['nameWithInitials'] = $result['nameWithInitials'];
 
-                                    //schoolId
-                                    $_SESSION['transer']['schoolIdSearchUser'] = $result3['schoolID'];
-                                    //subjectId
-                                    $_SESSION['transer']['subjectIdSearchUser'] = $result4['appoinmentSubject'];
+                                    //CurrentschoolName
+                                    $_SESSION['transer']['schoolName'] = $result3['schoolName'];
+                                    //currentAddress
+                                    $_SESSION['transer']['currentaddress'] = $result['currentAddress'];
                                     //redirect to this page
                                     header("Location: transerForm.php");
                                 } else {
