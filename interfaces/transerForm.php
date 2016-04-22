@@ -54,6 +54,9 @@
 
                             $searchUserCurrentAddress = $_SESSION['transer']['currentaddress'];
                             $searchUserCurrntSchool = $_SESSION['transer']['schoolName'];
+                            $instituteIDOld = $_SESSION['transer']['instituteID'];
+                            
+                            //echo $instituteIDOld;
                         }
                         ?>
 
@@ -141,23 +144,30 @@
                             $provinceID = $_POST['provinceID'];
                             $zoneID = $_POST['zonalID'];
                             $schoolId = $_POST['schoolId'];
-                            
-                         /*   echo $provinceID;
-                            echo '</br>';
-                            echo $zoneID;
-                            echo '</br>';
-                            echo $schoolId;
-                            echo $nicNumber;*/
+
+                            /*   echo $provinceID;
+                              echo '</br>';
+                              echo $zoneID;
+                              echo '</br>';
+                              echo $schoolId;
+                              echo $nicNumber; */
 
 
                             $employee = new Employee();
-
+                            $insertWorkingHistrySuccess = $employee->insertIntoWorkingHistory($nicNumber, $instituteIDOld);
                             $updateSuccess = $employee->transerUpdateTeacher($nicNumber, $schoolId);
 
                             if ($updateSuccess == 1) {
-                                echo '<script language="javascript">';
-                                echo 'alert("Transer SuccessFully.Thankyou")';
-                                echo '</script>';
+
+                                if ($insertWorkingHistrySuccess == 1) {
+                                    echo '<script language="javascript">';
+                                    echo 'alert("Transer SuccessFully.Thankyou")';
+                                    echo '</script>';
+                                }else{
+                                    echo '<script language="javascript">';
+                                    echo 'alert("not insert into working history")';
+                                    echo '</script>';
+                                }
                             } else {
                                 echo '<script language="javascript">';
                                 echo 'alert("error Occured While trnser")';
@@ -246,7 +256,7 @@
 
 
 
-            <?php include 'footer.php' ?>
+<?php include 'footer.php' ?>
             <script src = "../assets/js/addEmployee.js"></script>
 
 

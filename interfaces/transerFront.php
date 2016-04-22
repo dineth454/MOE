@@ -85,6 +85,8 @@ ob_start();
                                     $_SESSION['transer']['schoolName'] = $result3['schoolName'];
                                     //currentAddress
                                     $_SESSION['transer']['currentaddress'] = $result['currentAddress'];
+                                    //institute ID
+                                    $_SESSION['transer']['instituteID'] = $result3['instituteID'];
                                     //redirect to this page
                                     header("Location: transerForm.php");
                                 } else {

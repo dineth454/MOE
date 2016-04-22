@@ -461,7 +461,7 @@ class Employee {
         $result_InstituteIdArray1 = mysqli_fetch_array($result_InstituteSearchUserID);
         $InstituteIDsearchUser = $result_InstituteIdArray1['instituteID'];
 
-        $query = "select schoolID,schoolName,provinceOfficeID,zonalOfficeID from school where instituteID = '" . $InstituteIDsearchUser . "'";
+        $query = "select schoolID,instituteID,schoolName,provinceOfficeID,zonalOfficeID from school where instituteID = '" . $InstituteIDsearchUser . "'";
         $result_school = $mysqli->query($query);
         $result_array = mysqli_fetch_array($result_school);
         return $result_array;
@@ -619,6 +619,29 @@ class Employee {
         
         return $updateOK;
         
+    }
+    
+    function insertIntoWorkingHistory($nicNumber,$instituteIDOLD){
+        global $mysqli;
+        $description = 'PassedWorked';
+        
+      /*  echo $instituteIDOLD;
+        echo '<br>';
+        echo $nicNumber;
+        echo '<br>';
+        echo $description;*/
+        
+        $insertOK = 1;
+        
+        $query = "insert into working_history(nic,instituteID,description) values ('$nicNumber',$instituteIDOLD,'$description') ";
+        $result = $mysqli->query($query);
+        
+        if($result != 1){
+            $insertOK = 0;
+            
+        }
+        
+        return $insertOK;
     }
 
 }

@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+
+session_start(); 
+ 
+?>
 <?php
 //if logged out or time out user prompt to loggin again
 ob_start();
