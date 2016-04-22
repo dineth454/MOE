@@ -22,6 +22,8 @@
         <link href="../assets/css/footer.css" rel="stylesheet">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
 
+        
+
 
     </head>
 
@@ -60,8 +62,7 @@
 
                             $insertSuccess = $institute->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
 
-                            echo $provinceId;
-                        echo $zonalId;
+                            
                         }
 
                         
@@ -73,7 +74,7 @@
                             <h1>Add School</h1>
                         </div>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())" novalidate>
 
                             <div class="row" >
                                 <div class="form-group col-lg-8 col-md-18 col-sm-8">
@@ -123,6 +124,7 @@
                                             <label for="School" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> School Name/Address :  </label>
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="School" name="School"  placeholder="School Name"/>
+                                                <label id="errorSchoolName" style="font-size:10px"> </label>
 
                                             </div>
 
@@ -163,6 +165,7 @@
                                             <label for="NoOfStudents" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> No Of Students :  </label>
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="students" name="students"  placeholder="NOS"/>
+                                                <label id="errorStudentNumber" style="font-size:10px"> </label>
 
                                             </div>
 
@@ -229,6 +232,69 @@
             </div>
 
         </div>
+
+
+        <!-- Data validation-->
+        <script type="text/javascript">
+            function validateForm() {
+                var errors = [];
+
+                if (!validateSchoolName("School", "errorSchoolName")) {
+                    errors.push("errorSchoolName");
+                }if (!validateStudentNumber("students", "errorStudentNumber")) {
+                    errors.push("errorStudentNumber");
+                }if (errors.length > 0) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+
+
+            function validateSchoolName(text, errorLbl) {
+                if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(errorLbl).innerHTML = "Please enter school name";
+                    document.getElementById(errorLbl).style.color = "red";
+                    return false;
+                }else if(!isNaN(document.getElementById(text).value)){
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(errorLbl).innerHTML = "School name can't be a number";
+                    document.getElementById(errorLbl).style.color = "red";
+                    return false;
+                }
+                else {
+                    document.getElementById(text).style.borderColor = "green";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validateStudentNumber(text, errorLbl) {
+                if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(errorLbl).innerHTML = "Please enter Number of students";
+                    document.getElementById(errorLbl).style.color = "red";
+                    return false;
+                }else if(!isNaN(document.getElementById(text).value)){
+                    document.getElementById(text).style.borderColor = "green";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                }
+                else {
+                    
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(errorLbl).innerHTML = "Number of students can't be a letter";
+                    document.getElementById(errorLbl).style.color = "red";
+                    return false;
+                }
+            }
+        </script>
 
 
         <!-- Bootstrap Core JavaScript -->
