@@ -595,5 +595,30 @@ class Employee {
         
         
     }
+    
+    function transerUpdateTeacher($nicNumber, $schoolId){
+        global $mysqli;
+        $updateOK = 1;
+        
+        $queryForgetInstituteID = "select instituteID from school where schoolID = '".$schoolId."'";
+        $result = $mysqli->query($queryForgetInstituteID);
+        $resultArray = mysqli_fetch_array($result);
+        $instituteId = $resultArray['instituteID'];
+        
+        if($result->num_rows > 0){
+            
+            $queryForUpdateEMployee = "update employee set instituteID = '$instituteId' where nic = '".$nicNumber."'";
+            $result2 = $mysqli->query($queryForUpdateEMployee);
+            
+            if($result2 != true){
+                $updateOK = 0;
+            }
+        }else {
+            $updateOK = 0;
+        }
+        
+        return $updateOK;
+        
+    }
 
 }

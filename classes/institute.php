@@ -27,8 +27,10 @@ class Institute {
         }
 
 
+
 		$query_for_insert_values = "INSERT into school (schoolName,instituteID,provinceOfficeID,zonalOfficeID,SchoolTypeID,numOfStudents,lat,lng) 
                                                 values('$school','$institute_ID','$provinceId','$zonalId','$SchoolType','$NoOfStudents','$lat','$lang')";
+
 
     	$insert_school_data = mysqli_query($con,$query_for_insert_values);
     	if($insert_school_data != 1){
@@ -41,9 +43,6 @@ class Institute {
 
 
 
-    //    $query_for_insert_values = "INSERT into school(schoolName,instituteID,provinceOfficeID,zonalOfficeID,SchoolTypeID,numOfStudents,lat,lng) values('$school','$institute_ID','$provinceId','$zonalId','$SchoolType','$NoOfStudents','$lat','$lang')";
-    //    //$insert_school_data = $con->query($query_for_insert_values);
-    //    $insert_school_data = mysqli_query($con, $query_for_insert_values);
     }
 
     function addZonalOffice($provinceID, $zonlName) {

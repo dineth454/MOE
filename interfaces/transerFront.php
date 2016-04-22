@@ -59,34 +59,43 @@ ob_start();
 
                             $searchUsernic = $_POST['nic'];
 
-
-                            $result = $employee->findEmployee($searchUsernic, $roletypeID, $designationIdLoggedUser, $LoggedUsernic);
-
-                            $result3 = $employee->getPrincipalTeacherBasicDetails($searchUsernic);
-                            $result4 = $employee->getTeacherSubjectDetails($searchUsernic);
+                            //Systemadmin or ministry officer kenekta witharai transer karana ewa karanna puluwan
+                            if ($designationIdLoggedUser == 1) {
 
 
-                            if (sizeof($result) == 0) {
-                                echo '<script language="javascript">';
-                                echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
-                                echo '</script>';
+                                $result = $employee->findEmployee($searchUsernic, $roletypeID, $designationIdLoggedUser, $LoggedUsernic);
 
-                                //teacher kenekda kiyala check karanawa
-                            } else if ($result['designationTypeID'] == 5) {
-                                $_SESSION['subject']['designationType'] = $result['designationTypeID'];
-                                $_SESSION['subject']['nicNumber'] = $result['nic'];
+                                $result3 = $employee->getPrincipalTeacherBasicDetails($searchUsernic);
+                                $result4 = $employee->getTeacherSubjectDetails($searchUsernic);
 
-                                $_SESSION['subject']['nameWithInitials'] = $result['nameWithInitials'];
 
-                                //schoolId
-                                $_SESSION['subject']['schoolIdSearchUser'] = $result3['schoolID'];
-                                //subjectId
-                                $_SESSION['subject']['subjectIdSearchUser'] = $result4['appoinmentSubject'];
-                                //redirect to this page
-                                header("Location: addCurrentSubjectForm.php");
+                                if (sizeof($result) == 0) {
+                                    echo '<script language="javascript">';
+                                    echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
+                                    echo '</script>';
+
+                                    //teacher kenekda kiyala check karanawa
+                                } else if ($result['designationTypeID'] == 5) {
+                                    $_SESSION['transer']['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['transer']['nicNumber'] = $result['nic'];
+
+                                    $_SESSION['transer']['nameWithInitials'] = $result['nameWithInitials'];
+
+                                    //CurrentschoolName
+                                    $_SESSION['transer']['schoolName'] = $result3['schoolName'];
+                                    //currentAddress
+                                    $_SESSION['transer']['currentaddress'] = $result['currentAddress'];
+                                    //redirect to this page
+                                    header("Location: transerForm.php");
+                                } else {
+                                    echo '<script language="javascript">';
+                                    echo 'alert("This NIC Not Belongs To Teacher,Try Again.")';
+                                    echo '</script>';
+                                }
                             } else {
+
                                 echo '<script language="javascript">';
-                                echo 'alert("This NIC Not Belongs To Teacher,Try Again.")';
+                                echo 'alert("You Dont Have Permission to do this")';
                                 echo '</script>';
                             }
                         }
