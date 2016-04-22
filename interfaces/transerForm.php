@@ -132,23 +132,29 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6" style="" >
+                    <div class="col-lg-6" style="background-color: yellowgreen" >
 
                         <?php
                         // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
                             require '../classes/employee.php';
+                            $provinceID = $_POST['provinceID'];
+                            $zoneID = $_POST['zonalID'];
+                            $schoolId = $_POST['schoolId'];
+                            
+                         /*   echo $provinceID;
+                            echo '</br>';
+                            echo $zoneID;
+                            echo '</br>';
+                            echo $schoolId;
+                            echo $nicNumber;*/
 
-                            // $nic = $_POST['nic'];
-                            $nicNumber = $_SESSION['subject']['nicNumber'];
-                            $currentSubject = $_POST['currentsubject'];
-                            $grade = $_POST['grade'];
 
-                            $employee = new Employee();
+                            //$employee = new Employee();
 
-                            $insertSuccess = $employee->insertIntoSubjetcCombination($nicNumber, $currentSubject, $grade);
+                           // $insertSuccess = $employee->insertIntoSubjetcCombination($nicNumber, $currentSubject, $grade);
 
-                            if ($insertSuccess == 1) {
+                          /*  if ($insertSuccess == 1) {
                                 echo '<script language="javascript">';
                                 echo 'alert("Inserted SuccessFully.Thankyou")';
                                 echo '</script>';
@@ -156,7 +162,7 @@
                                 echo '<script language="javascript">';
                                 echo 'alert("error Occured While Insertin data.check")';
                                 echo '</script>';
-                            }
+                            }*/
                         }
                         ?>
                         <div  align="center" style="padding-bottom:10px;">
