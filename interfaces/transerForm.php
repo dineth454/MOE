@@ -150,19 +150,19 @@
                             echo $nicNumber;*/
 
 
-                            //$employee = new Employee();
+                            $employee = new Employee();
 
-                           // $insertSuccess = $employee->insertIntoSubjetcCombination($nicNumber, $currentSubject, $grade);
+                            $updateSuccess = $employee->transerUpdateTeacher($nicNumber, $schoolId);
 
-                          /*  if ($insertSuccess == 1) {
+                            if ($updateSuccess == 1) {
                                 echo '<script language="javascript">';
-                                echo 'alert("Inserted SuccessFully.Thankyou")';
+                                echo 'alert("Transer SuccessFully.Thankyou")';
                                 echo '</script>';
                             } else {
                                 echo '<script language="javascript">';
-                                echo 'alert("error Occured While Insertin data.check")';
+                                echo 'alert("error Occured While trnser")';
                                 echo '</script>';
-                            }*/
+                            }
                         }
                         ?>
                         <div  align="center" style="padding-bottom:10px;">
