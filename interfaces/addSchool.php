@@ -95,9 +95,12 @@
                                                     <option value="4">NothernProvince</option>
                                                     <option value="5">esternProvince</option>
                                                 </select>
+
+                                                <label id="errorProvince" style="font-size:10px;"></label>
                                             </div>
 
-                                            <label id="errorProvince" style="font-size: 10px"> </label>
+                                            
+
                                         </div>
 
 
@@ -111,9 +114,10 @@
                                                 <div style="margin-bottom: -20px;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                     <select required class="form-control" name="zonalID"  id="zonalID" > </select>
 
-                                                </div>
-                                                <label id="errorZonal" style="font-size: 10px"> </label>
+                                                    <label id="errorZonal" style="font-size:10px;"></label>
 
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -152,9 +156,11 @@
                                                     <option value="8">Secondary Boys'</option>
                                                     <option value="9">Secondary Mix</option>
                                                 </select>
+
+                                                <label id="errorSchoolType" style="font-size: 10px"> </label>
                                             </div>
 
-                                            <label id="SchoolTypeError" style="font-size: 10px"> </label>
+                                            
                                         </div>
 
 
@@ -234,7 +240,7 @@
 
         </div>
 
-
+<!--______________________________________________________________________________________________________________-->
         <!-- Data validation-->
         <script type="text/javascript">
             function validateForm() {
@@ -242,8 +248,19 @@
 
                 if (!validateSchoolName("School", "errorSchoolName")) {
                     errors.push("errorSchoolName");
+
                 }if (!validateStudentNumber("students", "errorStudentNumber")) {
                     errors.push("errorStudentNumber");
+
+                }if (!validateProvince("provinceID", "errorProvince")) {
+                    errors.push("errorProvince");
+
+                }if (!validateZonal("zonalID", "errorZonal")) {
+                    errors.push("errorZonal");
+
+                }if (!validateSchoolType("SchoolType", "errorSchoolType")) {
+                    errors.push("errorSchoolType");
+
                 }if (errors.length > 0) {
                     return false;
                 }
@@ -252,47 +269,96 @@
                 }
             }
 
-
+            /*___School name validation function___*/
             function validateSchoolName(text, errorLbl) {
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "Please enter school name";
-                    document.getElementById(errorLbl).style.color = "red";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
                 }else if(!isNaN(document.getElementById(text).value)){
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "School name can't be a number";
-                    document.getElementById(errorLbl).style.color = "red";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
                 }
                 else {
-                    document.getElementById(text).style.borderColor = "green";
+                    document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
                 }
             }
 
+            /*____Number of students validation function_____*/
             function validateStudentNumber(text, errorLbl) {
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "Please enter Number of students";
-                    document.getElementById(errorLbl).style.color = "red";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
                 }else if(!isNaN(document.getElementById(text).value)){
-                    document.getElementById(text).style.borderColor = "green";
+                    document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
                 }
                 else {
                     
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "Number of students can't be a letter";
-                    document.getElementById(errorLbl).style.color = "red";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
+                }
+            }
+
+            /*___Provine selection validation function___*/
+            function validateProvince(text, errorLbl) {
+                if (document.getElementById(text).value == "") {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "please select a Province";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }
+                else {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                }
+            }
+
+            /*___Zonal selection validation function___*/
+            function validateZonal(text, errorLbl) {
+                if (document.getElementById(text).value == "") {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "please select a Zonal";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }
+                else {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                }
+            }
+
+            /*___School Type selection validation function___*/
+            function validateSchoolType(text, errorLbl) {
+                if (document.getElementById(text).value == "") {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "please select a schoolType";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }
+                else {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
                 }
             }
         </script>
