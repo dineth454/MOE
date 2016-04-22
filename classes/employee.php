@@ -461,7 +461,7 @@ class Employee {
         $result_InstituteIdArray1 = mysqli_fetch_array($result_InstituteSearchUserID);
         $InstituteIDsearchUser = $result_InstituteIdArray1['instituteID'];
 
-        $query = "select schoolID,schoolName,provinceOfficeID,zonalOfficeID from school where instituteID = '" . $InstituteIDsearchUser . "'";
+        $query = "select schoolID,instituteID,schoolName,provinceOfficeID,zonalOfficeID from school where instituteID = '" . $InstituteIDsearchUser . "'";
         $result_school = $mysqli->query($query);
         $result_array = mysqli_fetch_array($result_school);
         return $result_array;
@@ -594,6 +594,59 @@ class Employee {
         return $deleteOK;
         
         
+    }
+    
+    function transerUpdateTeacher($nicNumber, $schoolId){
+        global $mysqli;
+        $updateOK = 1;
+        
+        $queryForgetInstituteID = "select instituteID from school where schoolID = '".$schoolId."'";
+        $result = $mysqli->query($queryForgetInstituteID);
+        $resultArray = mysqli_fetch_array($result);
+        $instituteId = $resultArray['instituteID'];
+        
+        if($result->num_rows > 0){
+            
+            $queryForUpdateEMployee = "update employee set instituteID = '$instituteId' where nic = '".$nicNumber."'";
+            $result2 = $mysqli->query($queryForUpdateEMployee);
+            
+            if($result2 != true){
+                $updateOK = 0;
+            }
+        }else {
+            $updateOK = 0;
+        }
+        
+        return $updateOK;
+        
+    }
+    
+    function insertIntoWorkingHistory($nicNumber,$instituteIDOLD){
+        global $mysqli;
+        $description = 'PassedWorked';
+        
+        //Get Affected Date
+        //$affectedDate = date("Y-m-d");
+        
+      /*  echo $instituteIDOLD;
+        echo '<br>';
+        echo $nicNumber;
+        echo '<br>';
+        echo $description;*/
+        
+        //echo $affectedDate;
+        
+        $insertOK = 1;
+        
+        $query = "insert into working_history(nic,instituteID,description,affectedDate) values ('$nicNumber',$instituteIDOLD,'$description',NOW()) ";
+        $result = $mysqli->query($query);
+        
+        if($result != 1){
+            $insertOK = 0;
+            
+        }
+        
+        return $insertOK;
     }
 
 }

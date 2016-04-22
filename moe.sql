@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2016 at 06:09 ප.ව.
+-- Generation Time: Apr 22, 2016 at 01:06 ප.ව.
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -126,13 +126,15 @@ INSERT INTO `employee` (`nic`, `instituteID`, `roleType`, `designationTypeID`, `
 ('8211111111v', 7, 4, 3, 'kkyapa', 'Yaparathna', '12456', 'kk@gmail.com', 'kandy', '2', '2', 719335699),
 ('834444444v', 9, 5, 4, 'Poornima', 'Karunarathne', '187656', 'pooh@gmail.com', 'Panadura', '3', '2', 715685458),
 ('849999999v', 9, 3, 5, 'ymnrYaparathne', 'RoshanYaparathne', '177626', 'nilu@gmail.com', 'kandy', '2', '2', 715839496),
+('854585555v', 9, 2, 5, 'asa', 'sasasa', '123', 'a@gmail.com', 'kandy', '2', '2', 716545844),
 ('8812545854v', 9, 5, 5, 'Kaaaali', 'Yaparathhne', '9545658', 'kaali@gmail.com', 'kandy', '2', '2', 714585458),
 ('92000000v', 8, 3, 3, 'Seetha', 'Kumari', '123569', 'seetha@gmail.com', 'kandy', '2', '2', 714585658),
 ('921003072v', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
-('921474558v', 2, 2, 2, 'Sanjeewa', '', '123456', 'san@gmail.com', 'Digana', '2', '3', 716545624),
+('921474558v', 2, 2, 2, 'Sanjeewa', 'Sanjeewa Yapa', '123456', 'san@gmail.com', 'Digana', '2', '3', 716545624),
 ('921595654v', 3, 5, 2, 'Pasindu', 'Deeyagahage', '123432', 'somba@gmail.com', 'Galle', '2', '2', 718767654),
 ('945855456v', 9, 3, 4, 'kbc', 'Herath', '123485', 'kb@gmail.com', 'Kandy', '2', '2', 2345),
-('951232545v', 9, 2, 5, 'ymnkYaparathne', 'Nilusha Roshan', '147583', 'rosh@gmail.com', 'wepathana', '2', '2', 715839496);
+('951232545v', 9, 2, 5, 'ymnkYaparathne', 'Nilusha Roshan', '147583', 'rosh@gmail.com', 'wepathana', '2', '2', 715839496),
+('960001112v', 10, 5, 5, 'Sumith', 'Sumith Perera', 'E10005', 'Sumi@gmail.com', 'Gonawala', '2', '3', 712585654);
 
 -- --------------------------------------------------------
 
@@ -187,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `institute` (
   `instituteTypeID` int(11) NOT NULL,
   PRIMARY KEY (`instituteID`),
   KEY `institute_instituteTypeID_idx` (`instituteTypeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `institute`
@@ -202,8 +204,14 @@ INSERT INTO `institute` (`instituteID`, `instituteTypeID`) VALUES
 (6, 2),
 (7, 3),
 (8, 3),
+(14, 3),
+(15, 3),
+(16, 3),
+(17, 3),
+(18, 3),
 (9, 4),
-(10, 4);
+(10, 4),
+(19, 4);
 
 -- --------------------------------------------------------
 
@@ -365,15 +373,15 @@ CREATE TABLE IF NOT EXISTS `school` (
   KEY `school_schooltypeID_idx` (`schoolTypeID`),
   KEY `school_zonalID_idx` (`zonalOfficeID`),
   KEY `school_provinceID_idx` (`provinceOfficeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `school`
 --
 
 INSERT INTO `school` (`schoolID`, `schoolName`, `instituteID`, `provinceOfficeID`, `zonalOfficeID`, `schoolTypeID`, `numOfStudents`, `lat`, `lng`) VALUES
-(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250, NULL, NULL),
-(2, 'Gonawala Maha Vidyalaya,waththegama', 10, 1, 1, 1, 200, NULL, NULL);
+(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250, 7.31858, 80.7299),
+(2, 'Gonawala Maha Vidyalaya,waththegama', 10, 1, 1, 1, 200, 7.30976, 80.7332);
 
 -- --------------------------------------------------------
 
@@ -385,14 +393,22 @@ CREATE TABLE IF NOT EXISTS `school_type` (
   `schoolTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `schoolType` varchar(100) NOT NULL,
   PRIMARY KEY (`schoolTypeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `school_type`
 --
 
 INSERT INTO `school_type` (`schoolTypeID`, `schoolType`) VALUES
-(1, 'Mix');
+(1, 'Mix'),
+(2, 'Girls'),
+(3, 'Boys'),
+(4, 'Primary Girls'),
+(5, 'Primary Boys'),
+(6, 'Primary Mix'),
+(7, 'Secondary Girls'),
+(8, 'Secondary Boys'),
+(9, 'Secondary Mix');
 
 -- --------------------------------------------------------
 
@@ -404,7 +420,7 @@ CREATE TABLE IF NOT EXISTS `subject` (
   `subjectID` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`subjectID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `subject`
@@ -413,7 +429,8 @@ CREATE TABLE IF NOT EXISTS `subject` (
 INSERT INTO `subject` (`subjectID`, `subject`) VALUES
 (1, 'Mathematics'),
 (2, 'Science'),
-(3, 'Buddhism');
+(3, 'Buddhism'),
+(4, 'English');
 
 -- --------------------------------------------------------
 
@@ -437,8 +454,11 @@ CREATE TABLE IF NOT EXISTS `subject_combination` (
 INSERT INTO `subject_combination` (`teacherID`, `subjectID`, `grade`) VALUES
 (5, 1, 5),
 (5, 2, 1),
+(5, 2, 3),
 (8, 2, 7),
-(8, 3, 9);
+(8, 3, 3),
+(8, 3, 9),
+(14, 3, 9);
 
 -- --------------------------------------------------------
 
@@ -458,7 +478,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   KEY `teacher_zonalOfficeID_idx` (`zonalOfficeID`),
   KEY `teacher_provinceOfficeID_idx` (`provinceOfficeID`),
   KEY `teacher_appoinmentSubjectID` (`appoinmentSubject`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `teacher`
@@ -467,7 +487,9 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 INSERT INTO `teacher` (`teachetID`, `nic`, `zonalOfficeID`, `provinceOfficeID`, `currentState`, `appoinmentSubject`) VALUES
 (5, '951232545v', 1, 1, 'working', 3),
 (8, '849999999v', 1, 1, 'working', 2),
-(9, '8812545854v', 1, 1, 'working', 3);
+(9, '8812545854v', 1, 1, 'working', 3),
+(10, '854585555v', 1, 1, 'working', 2),
+(14, '960001112v', 1, 1, 'working', 3);
 
 -- --------------------------------------------------------
 
@@ -493,13 +515,15 @@ INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
 ('8211111111v', '8211111111v', 4),
 ('834444444v', '834444444v', 5),
 ('849999999v', '849999999v', 3),
+('854585555v', 'c06a1a1335fa2d74bcb6707b13adc53cbdcbdfda', 2),
 ('8812545854v', '918264e13515d70f21886ea5c965fb13890de391', 5),
 ('92000000v', '92000000v', 3),
 ('921003072V', '1b7b3bb43ee47fb92f715b866a888ba3e8fd40de', 1),
 ('921474558V', '9350d1db852e518c0e27107fe1349bfa83e18281', 2),
 ('921595654v', '921595654v', 5),
 ('945855456v', '945855456v', 3),
-('951232545v', '951232545v', 2);
+('951232545v', '951232545v', 2),
+('960001112v', 'b86eddc80a58705e8e188dbda068eef145c44b13', 5);
 
 -- --------------------------------------------------------
 
@@ -512,10 +536,18 @@ CREATE TABLE IF NOT EXISTS `working_history` (
   `nic` varchar(12) NOT NULL,
   `instituteID` int(11) NOT NULL,
   `description` varchar(45) NOT NULL,
+  `affectedDate` date DEFAULT NULL,
   PRIMARY KEY (`workingHistoryID`),
   KEY `workingHistory_employeenic_idx` (`nic`),
   KEY `workingHistory_instituteID_idx` (`instituteID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `working_history`
+--
+
+INSERT INTO `working_history` (`workingHistoryID`, `nic`, `instituteID`, `description`, `affectedDate`) VALUES
+(5, '951232545v', 10, 'PassedWorked', '2016-04-22');
 
 -- --------------------------------------------------------
 
@@ -531,7 +563,7 @@ CREATE TABLE IF NOT EXISTS `zonal_office` (
   PRIMARY KEY (`zonalID`),
   KEY `zonal_instituteID_idx` (`instituteID`),
   KEY `zonal_provinceID_idx` (`provinceOfficeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `zonal_office`
@@ -539,7 +571,11 @@ CREATE TABLE IF NOT EXISTS `zonal_office` (
 
 INSERT INTO `zonal_office` (`zonalID`, `zonalName`, `instituteID`, `provinceOfficeID`) VALUES
 (1, 'waththegama', 7, 1),
-(2, 'pathadumbara', 8, 1);
+(2, 'pathadumbara', 8, 1),
+(6, 'Medadumbara', 14, 1),
+(7, 'Hasalaka', 15, 1),
+(8, 'Homagama', 16, 2),
+(9, 'Kandy', 18, 1);
 
 -- --------------------------------------------------------
 

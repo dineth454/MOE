@@ -8,6 +8,7 @@ if (isset($_POST["submit"])) {
 
     $login = new Login();
     $login->syslog($nic, $pass);
+
 }
 ?>
 <!DOCTYPE html>
@@ -15,15 +16,29 @@ if (isset($_POST["submit"])) {
     <meta charset="utf-8"/>
     <title>Login</title>
 
-
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="../assets/css/login.css" rel="stylesheet">
+    <link href="../assets/css/jquery-ui.css" rel="stylesheet">
+
     <script src="../assets/js/formValidation.js"></script>
     <script src="../assets/js/login_new.js"></script>
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/jquery.validate.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#dialog-message" ).dialog({
+      modal: true,
+      buttons: {
+        Ok: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  });
+  </script>
 
 
     <body>
@@ -53,5 +68,6 @@ if (isset($_POST["submit"])) {
                 </a>
             </div>
         </div>
+
     </body>
 </html> 
