@@ -10,14 +10,11 @@ class Institute {
         global $con;
 
 
-
         $query_for_insert_institute_type = "INSERT into institute(instituteTypeID) values (4)";
 
         $result1 = mysqli_query($con, $query_for_insert_institute_type);
 
-        //echo $result111;
-
-
+        echo $result1;
 
 
         $query_for_get_enterded_instituteID = "SELECT instituteID FROM institute ORDER BY instituteID DESC LIMIT 1;";
@@ -33,11 +30,11 @@ class Institute {
     
 			$query_for_insert_values = "INSERT into school(schoolName,instituteID,provinceOfficeID,zonalOfficeID,SchoolTypeID,numOfStudents,lat,lng) values('$school','$institute_ID','$provinceId','$zonalId','$SchoolType','$NoOfStudents','$lat','$lang')";
 
-        	$insert_school_data = $mysqli->query($query_for_insert_values);
+        	$insert_school_data = mysqli_query($con,$query_for_insert_values);
         	if($insert_school_data != 1){
         		
         		echo $insert_school_data;
-        	}
+        	}      
         	
 
 
@@ -45,9 +42,9 @@ class Institute {
 
 
 
-        $query_for_insert_values = "INSERT into school(schoolName,instituteID,provinceOfficeID,zonalOfficeID,SchoolTypeID,numOfStudents,lat,lng) values('$school','$institute_ID','$provinceId','$zonalId','$SchoolType','$NoOfStudents','$lat','$lang')";
-        //$insert_school_data = $con->query($query_for_insert_values);
-        $insert_school_data = mysqli_query($con, $query_for_insert_values);
+    //    $query_for_insert_values = "INSERT into school(schoolName,instituteID,provinceOfficeID,zonalOfficeID,SchoolTypeID,numOfStudents,lat,lng) values('$school','$institute_ID','$provinceId','$zonalId','$SchoolType','$NoOfStudents','$lat','$lang')";
+    //    //$insert_school_data = $con->query($query_for_insert_values);
+    //    $insert_school_data = mysqli_query($con, $query_for_insert_values);
     }
 
     function addZonalOffice($provinceID, $zonlName) {
