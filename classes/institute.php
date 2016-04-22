@@ -19,6 +19,7 @@ class Institute {
 
 
 
+
         $query_for_get_enterded_instituteID = "SELECT instituteID FROM institute ORDER BY instituteID DESC LIMIT 1;";
         $result = mysqli_query($con, $query_for_get_enterded_instituteID);
 
@@ -27,6 +28,17 @@ class Institute {
                 $institute_ID = $row["instituteID"];
             }
         }
+
+
+    
+			$query_for_insert_values = "INSERT into school(schoolName,instituteID,provinceOfficeID,zonalOfficeID,SchoolTypeID,numOfStudents,lat,lng) values('$school','$institute_ID','$provinceId','$zonalId','$SchoolType','$NoOfStudents','$lat','$lang')";
+
+        	$insert_school_data = $mysqli->query($query_for_insert_values);
+        	if($insert_school_data != 1){
+        		
+        		echo $insert_school_data;
+        	}
+        	
 
 
 

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <?php 
-
-
+    require("../classes/home.php");
+    $home = new Home();
+    $schools = $home->schools();
+    $teachers = $home->teachers();
+    $users = $home->users();
+    
  ?>
 
 <html lang="en">
@@ -50,7 +54,7 @@
                             <!-- small box -->
                             <div class="small-box aqua ">
                                 <div class="inner newstyle">
-                                    <div class="e">
+                                    <div class="e"><i><?php echo $schools; ?></i>
                                         <div class="icon pull-right">
                                             <img src="../images/school.png">
                                         </div>
@@ -64,7 +68,7 @@
                             <!-- small box -->
                             <div class="small-box aqua ">
                                 <div class="inner newstyle">
-                                    <div class="e"><i>298</i>
+                                    <div class="e"><i><?php echo $teachers; ?></i>
                                         <div class="icon pull-right">
                                             <img src="../images/mmm.png">
                                         </div>
@@ -78,7 +82,7 @@
                             <!-- small box -->
                             <div class="small-box aqua ">
                                 <div class="inner newstyle">
-                                    <div class="e"><i>173</i>
+                                    <div class="e"><i><?php echo $users; ?></i>
                                         <div class="icon pull-right">
                                             <img src="../images/school.png">
                                         </div>
