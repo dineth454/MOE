@@ -625,15 +625,20 @@ class Employee {
         global $mysqli;
         $description = 'PassedWorked';
         
+        //Get Affected Date
+        //$affectedDate = date("Y-m-d");
+        
       /*  echo $instituteIDOLD;
         echo '<br>';
         echo $nicNumber;
         echo '<br>';
         echo $description;*/
         
+        //echo $affectedDate;
+        
         $insertOK = 1;
         
-        $query = "insert into working_history(nic,instituteID,description) values ('$nicNumber',$instituteIDOLD,'$description') ";
+        $query = "insert into working_history(nic,instituteID,description,affectedDate) values ('$nicNumber',$instituteIDOLD,'$description',NOW()) ";
         $result = $mysqli->query($query);
         
         if($result != 1){
