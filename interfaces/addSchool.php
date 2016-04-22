@@ -20,6 +20,7 @@
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
 
         
@@ -144,8 +145,8 @@
                                             <label for="SchoolType" class="control-label col-xs-6  required" style="text-align: left;"> SchoolType :  </label>
 
                                             <div style="margin-bottom: -10px;"   class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
-                                                <select required class="form-control " name="SchoolType" id="SchoolType" >
-                                                    <option value="" >Select Type</option>
+                                                <select required class="form-control " name="SchoolTypeSelect" id="SchoolTypeSelect">
+                                                    <option value="">Select Type</option>
                                                     <option value="1">MIX</option>
                                                     <option value="2">Girls'</option>
                                                     <option value="3">Boys'</option>
@@ -157,7 +158,8 @@
                                                     <option value="9">Secondary Mix</option>
                                                 </select>
 
-                                                <label id="errorSchoolType" style="font-size: 10px"> </label>
+                                               <label id="errorSchoolType" style="font-size:10px;"> </label>
+
                                             </div>
 
                                             
@@ -187,6 +189,8 @@
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="latbox" name="lat"  placeholder="Latitude"/>
 
+                                                <label id="errorLat" style="font-size:10px"> </label>
+
                                             </div>
 
 
@@ -199,6 +203,8 @@
                                             <label for="Longitude" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Longitude :  </label>
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="lngbox" name="lng"  placeholder="Longitude"/>
+
+                                                <label id="errorLng" style="font-size:10px"> </label>
 
                                             </div>
 
@@ -227,6 +233,7 @@
                                     <div id="map-canvas" style="width:420px;height:530px;"></div>
 
                                 </div>
+                                <label style="font-size:10px; color: #146BA7;">Right Click on the map & drag to the place you want & get lat and long</label>
                             </div>
                         </div>
 
@@ -258,8 +265,14 @@
                 }if (!validateZonal("zonalID", "errorZonal")) {
                     errors.push("errorZonal");
 
-                }if (!validateSchoolType("SchoolType", "errorSchoolType")) {
+                }if (!validateSchoolType("SchoolTypeSelect", "errorSchoolType")) {
                     errors.push("errorSchoolType");
+
+                }if (!validateLatitude("latbox", "errorLat")) {
+                    errors.push("errorLat");
+
+                }if (!validateLongtitude("lngbox", "errorLng")) {
+                    errors.push("errorLng");
 
                 }if (errors.length > 0) {
                     return false;
@@ -361,7 +374,54 @@
                     return true;
                 }
             }
+
+
+            /*___School destination latitude validation function___*/
+            function validateLatitude(text, errorLbl) {
+                if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Please Select the Latitude";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }else if(isNaN(document.getElementById(text).value)){
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Invalid type";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }
+                else {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                }
+            }
+
+            /*___School destination longtitude validation function___*/
+            function validateLongtitude(text, errorLbl) {
+                if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Please Select the Longitude";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }else if(isNaN(document.getElementById(text).value)){
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Invalid type";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }
+                else {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                }
+            }
         </script>
+
+    <!--______________________end of validation______________________________________-->
 
 
         <!-- Bootstrap Core JavaScript -->
