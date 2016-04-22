@@ -39,8 +39,8 @@
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 540px;">
 
-                <div class="container-fluid" style="background-color: brown">
-                    <div class="row col-lg-6 " style="background-color: yellowgreen;">
+                <div class=" row container-fluid" style="">
+                    <div class="col-md-6 " style="background-color: green;">
                         <?php
                         // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
@@ -171,6 +171,12 @@
                                 </div>
                            
                         </div>
+                    </div>
+                    
+                    <div class="col-lg-6" style="background-color: yellow;" >
+                        kalingad
+                       
+                        
                     </div>
                     
 
