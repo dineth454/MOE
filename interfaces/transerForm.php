@@ -39,8 +39,8 @@
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 540px;">
 
-                <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+                <div class="container-fluid" style="background-color: brown">
+                    <div class="row col-lg-6 " style="background-color: yellowgreen;">
                         <?php
                         // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
@@ -89,15 +89,15 @@
                             <h1>Transer Form</h1>
                         </div>
                         <div style="">
-                            <form name="currentSubjectForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="return(validateCurrenntSubjectForm())" novalidate>
-                                <div class="row">
+                            
+                            <div class="row" ">
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                         <div class="row">
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- NIC number-->
-                                                <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number :</label>
+                                                <label for="firstName" class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 required" style="display: inline-block; text-align: left;"> NIC Number :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                    
                                                     <label id="nic" style="font-size:15px"> <?php echo $nicNumber; ?></label>
@@ -109,8 +109,8 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- School Name-->
-                                                <label for="SchoolName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School Name :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <label for="SchoolName" class="control-label col-xs-6 col-sm-4 col-md-4 col-lg-4 required" style="display: inline-block; text-align: left;"> School Name :</label>
+                                                <div >
                                                    
                                                     <label id="School" style="font-size:15px"> <?php echo $searchUserCurrntSchool; ?></label>
                                                 </div>
@@ -123,7 +123,7 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- Name with initials-->
-                                                <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials: </label>
+                                                <label for="ini_name" class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-5 required" style="display: inline-block; text-align: left;"> Name with Initials: </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     
                                                     <label id="NamewithInitials" style="font-size:15px"><?php echo $nameWithInitials; ?> </label>
@@ -137,7 +137,7 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- Current Address-->
-                                                <label for="CurrentAddress" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Current Address: </label>
+                                                <label for="CurrentAddress" class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-5 required" style="display: inline-block; text-align: left;"> Current Address: </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     
                                                     <label id="currentAddress" style="font-size:15px"><?php echo $searchUserCurrentAddress; ?> </label>
@@ -165,11 +165,14 @@
                                         </div>
 
                                     </div>
+                                
+                                
 
                                 </div>
-                            </form>
+                           
                         </div>
                     </div>
+                    
 
 
 
@@ -180,7 +183,7 @@
 
 
             <?php include 'footer.php' ?>
-             <script src="../assets/js/currentSubjectFormValidation.js"></script>
+             
 
             <script src="../assets/js/jquery.js"></script>
 
