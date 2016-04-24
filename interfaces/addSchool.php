@@ -57,7 +57,7 @@ ob_start();
                             $provinceId = $_POST['provinceID'];
                             $zonalId = $_POST['zonalID'];
                             $school = $_POST['School'];
-                            $SchoolType = $_POST['SchoolType'];
+                            $SchoolType = $_POST['SchoolTypeSelect'];
                             $NoOfStudents = $_POST['students'];
                             $lat = $_POST['lat'];
                             $lang = $_POST['lng'];
