@@ -74,7 +74,7 @@ ob_start();
 
                             $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $dob = $currentAddress = $gender = $marrigeState = $mobileNum = "";
                             $provinceID = $zoneID = $schoolId = $subjectID = "";
-                            $nic = $_POST['nic'];
+                            $nic = strtoupper($_POST['nic']);
                             $roleType = $_POST['select_role'];
                             $designation = $_POST['designation'];
                             $nameInitials = $_POST['name'];
