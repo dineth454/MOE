@@ -32,7 +32,7 @@ function validateNicNumber(text) {
         document.getElementById("nic").focus();
         document.getElementById("nic").style.borderColor = "red";
         document.getElementById("errorNicNumbertranser").innerHTML = "required";
-        alert('1');
+        
         document.getElementById("errorNicNumbertranser").style.color = "red";
         return false;
     } else if ((pattern.test(text)) == false || text.length < 10) {
