@@ -119,7 +119,7 @@ ob_start();
                                             <label  for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3" style="display: inline-block; text-align: left;">Enter NIC Number :</label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text"  class="form-control" id="nic" name="nic" placeholder="Enter NIC number"/>
-                                                <label id="errorNicNumber" style="font-size:10px"> </label>
+                                                <label id="errorNicNumbertranser" style="font-size:10px"> </label>
                                             </div>
 
                                         </div>
