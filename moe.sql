@@ -129,7 +129,7 @@ INSERT INTO `employee` (`nic`, `instituteID`, `roleType`, `designationTypeID`, `
 ('854585555v', 9, 2, 5, 'asa', 'sasasa', '123', 'a@gmail.com', 'kandy', '2', '2', 716545844),
 ('8812545854v', 9, 5, 5, 'Kaaaali', 'Yaparathhne', '9545658', 'kaali@gmail.com', 'kandy', '2', '2', 714585458),
 ('92000000v', 8, 3, 3, 'Seetha', 'Kumari', '123569', 'seetha@gmail.com', 'kandy', '2', '2', 714585658),
-('921003072v', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
+('921003072V', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
 ('921474558v', 2, 2, 2, 'Sanjeewa', 'Sanjeewa Yapa', '123456', 'san@gmail.com', 'Digana', '2', '3', 716545624),
 ('921595654v', 3, 5, 2, 'Pasindu', 'Deeyagahage', '123432', 'somba@gmail.com', 'Galle', '2', '2', 718767654),
 ('945855456v', 9, 3, 4, 'kbc', 'Herath', '123485', 'kb@gmail.com', 'Kandy', '2', '2', 2345),

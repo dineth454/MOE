@@ -14,7 +14,7 @@ class Institute {
 
         $result1 = mysqli_query($con, $query_for_insert_institute_type);
 
-        echo $result1;
+        //echo $result1;
 
 
         $query_for_get_enterded_instituteID = "SELECT instituteID FROM institute ORDER BY instituteID DESC LIMIT 1;";
@@ -35,13 +35,8 @@ class Institute {
     	$insert_school_data = mysqli_query($con,$query_for_insert_values);
     	if($insert_school_data != 1){
     		
-    		echo $insert_school_data;
+    		//echo $insert_school_data;
     	}  
-        
-
-
-
-
 
     }
 

@@ -1,5 +1,8 @@
-<!DOCTYPE html>
 
+<?php
+ob_start();
+?>
+<!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -22,9 +25,6 @@
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
-
-        
-
 
     </head>
 
@@ -54,7 +54,7 @@
                             $provinceId = $_POST['provinceID'];
                             $zonalId = $_POST['zonalID'];
                             $school = $_POST['School'];
-                            $SchoolType = $_POST['SchoolType'];
+                            $SchoolType = $_POST['SchoolTypeSelect'];
                             $NoOfStudents = $_POST['students'];
                             $lat = $_POST['lat'];
                             $lang = $_POST['lng'];
@@ -63,13 +63,8 @@
 
 
                             $insertSuccess = $institute->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
-
                             
                         }
-
-                        
-
-
                     ?>
 
                         <div align="center" style="padding-bottom:10px;">
