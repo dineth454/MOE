@@ -171,7 +171,7 @@ ob_start();
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- NIC number-->
-                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
+                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">NIC Number </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input maxlength="10" type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number" autofocus/>
                                                 <label id="errornicNum" style="font-size:10px"> </label>
