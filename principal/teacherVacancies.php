@@ -35,7 +35,7 @@ ob_start();
             <!-- /#sidebar-wrapper -->
 
             <!-- include Navigation BAr -->
-            <?php include 'navigationBar.php' ?>
+            <?php include '../interfaces/navigationBar.php' ?>
 
             <!-- Finished NAvigation bar -->
             <!-- Page Content -->
@@ -96,7 +96,7 @@ ob_start();
 
 
 
-            <?php include 'footer.php' ?>
+            <?php include '../interfaces/footer.php' ?>
             <script src="../assets/js/jquery.js"></script>
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
