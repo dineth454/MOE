@@ -43,7 +43,10 @@ ob_start();
 
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1">
-
+                        <?php
+                        require("../classes/employee.php");
+                        $employee = new Employee();
+                        ?>
 
 
 
@@ -56,22 +59,47 @@ ob_start();
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
+
                                     <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div  class="form-group">
+                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Select Subject :</label>
+                                                <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select required class="form-control" name="subject" id="subject" >
+                                                        <option value="">-Select Subject-</option>
+                                                        <?php
+                                                        $result = $employee->loadSubjects();
 
-                                            <!-- NIC number-->
-                                            <label  for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3" style="display: inline-block; text-align: left;">Enter NIC Number :</label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text"  class="form-control" id="nic" name="nic" placeholder="Enter NIC number"/>
-                                                <label id="errorNicNumbertranser" style="font-size:10px"> </label>
+                                                        foreach ($result as $array) {
+
+                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                        }
+                                                        ?>
+
+                                                    </select>
+                                                </div>
+                                                <label id="errorSubject" style="font-size: 10px"> </label>
+
                                             </div>
-
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!-- Vacansies-->
+                                            <label for="Vacansies" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> No Of Vacancies </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <input type="text" class="form-control" id="vacansies" name="vacansies" placeholder="Vacancies"/>
+                                                <label id="errorVacancies" style="font-size:10px"> </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
+                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
                                             </div>
 
                                         </div>

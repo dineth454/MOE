@@ -80,7 +80,7 @@
         </li>
         <div id="collapse9" class="panel-collapse collapse">
             <li>
-                <a class="slide_font active" href="teacherVacancies.php">Teacher Vacancies</a>
+                <a class="slide_font active" href="teacherVacancies.php">Add Vacancies</a>
             </li>
         </div>
         <li>

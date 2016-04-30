@@ -301,11 +301,7 @@ ob_start();
                                                                 echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
                                                             }
                                                             ?>
-                                                            <!--   <option value="1">Mathematics</option>
-                                                               <option  value="2">Science</option>
-                                                               <option  value="3">Buddhism</option>
-                                                               <option  value="4">History</option>
-                                                               <option  value="5">English</option> -->
+                                                            
                                                         </select>
                                                     </div>
                                                     <label id="errorSubject" style="font-size: 10px"> </label>
