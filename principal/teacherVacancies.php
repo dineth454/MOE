@@ -87,7 +87,7 @@ ob_start();
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                            <!-- Vacansies-->
+                                            <!-- Vacancies-->
                                             <label for="Vacansies" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> No Of Vacancies </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="vacansies" name="vacansies" placeholder="Vacancies"/>

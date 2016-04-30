@@ -64,180 +64,178 @@ class Employee {
 
     function addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID) {
         global $mysqli;
-     
-        
-        
-        
-
-            // add ministry officer into the system --------------------------------------------------------------------------------
-            if ($designation == 1) {
-               
-
-                $instituteType = 1;
-
-
-                $query_for_get_institute_id = "select instituteID from institute where instituteTypeID = '" . $instituteType . "'";
-                $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
-                $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
-                $instituteID = $instituteIDArray["instituteID"];
-
-
-                if ($instituteID != 0) {
-
-                    $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
-
-                    $result1 = $mysqli->query($query_for_insert_data_into_employee);
-
-                    if ($result1 == 1) {
-
-                        $query_for_insert_ministryOffeicer_tabel = "insert into ministry_officer (nic) values('$nic')";
-
-                        $result2 = $mysqli->query($query_for_insert_ministryOffeicer_tabel);
-
-
-                        if ($result2 == 1) {
-
-                            $password = sha1($nic);
-                            $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
-                            $result = $mysqli->query($query_for_insert_user_table);
-
-                            echo '<script language="javascript">';
-                            echo 'alert("Employee successfully registered as a MinistryOfficer!!!  Thank You.")';
-                            echo '</script>';
-                        }
-                    }
-                }
 
 
 
-                // add province officer into the system ----------------------------------------------------------------------
-            } else if ($designation == 2) {
-
-                // province officer kenekwa add karanna puluwan sysadmin ta ho ministry officer kenekta witharai
-                // methanin eka check karanna onii
-
-                $query_for_get_institute_id = "select instituteID from province_office where provinceID = '" . $provinceID . "'";
-                $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
-                $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
-                $instituteID = $instituteIDArray["instituteID"];
-
-                if ($instituteID != 0) {
-
-                    $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
-                    $result1 = $mysqli->query($query_for_insert_data_into_employee);
-                    if ($result1 == 1) {
-
-                        $query_for_insert_proviceOffeicer_tabel = "insert into province_officer (nic) values('$nic')";
-
-                        $result2 = $mysqli->query($query_for_insert_proviceOffeicer_tabel);
-
-                        if ($result2 == 1) {
-                            $password = sha1($nic);
-                            $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
-                            $result = $mysqli->query($query_for_insert_user_table);
-
-                            echo '<script language="javascript">';
-                            echo 'alert("Employee successfully registered as a ProvinceOfficer!!!  Thank You.")';
-                            echo '</script>';
-                        }
-                    }
-                }
-                // add Zonal officer into the system -----------------------------------------------------------------------
-            } else if ($designation == 3) {
-
-                $query_for_get_institute_id = "select instituteID from zonal_office where zonalID = '" . $zoneID . "'";
-                $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
-                $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
-                $instituteID = $instituteIDArray["instituteID"];
-
-                //echo $instituteID;
-
-                if ($instituteID != 0) {
-                    $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
-                    $result1 = $mysqli->query($query_for_insert_data_into_employee);
-                    if ($result1 == 1) {
-
-                        $query_for_insert_zonalOfficer_tabel = "insert into zonal_officer (nic,provinceOfficeID) values('$nic',$provinceID)";
-
-                        $result2 = $mysqli->query($query_for_insert_zonalOfficer_tabel);
-
-                        if ($result2 == 1) {
-                            $password = sha1($nic);
-                            $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
-                            $result = $mysqli->query($query_for_insert_user_table);
-
-                            echo '<script language="javascript">';
-                            echo 'alert("Employee successfully registered as a ZonalOfficer!!!  Thank You.")';
-                            echo '</script>';
-                        }
-                    }
-                }
-                //add principal into the system ---------------------------------------------------------------------
-            } else if ($designation == 4) {
-
-               
-
-                $query_for_get_institute_id = "select instituteID from school where schoolID = '" . $schoolId . "'";
-                $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
-                $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
-                $instituteID = $instituteIDArray["instituteID"];
 
 
-
-                if ($instituteID != 0) {
-                    $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
-                    $result1 = $mysqli->query($query_for_insert_data_into_employee);
-                    if ($result1 == 1) {
-                        $query_for_insert_principal_tabel = "insert into principal (nic,zonalOfficeID,provinceOfficerID) values('$nic',$zoneID,$provinceID)";
-
-                        $result2 = $mysqli->query($query_for_insert_principal_tabel);
-
-                        if ($result2 == 1) {
-                            $password = sha1($nic);
-                            $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password,$roleType)";
-                            $result = $mysqli->query($query_for_insert_user_table);
-
-                            echo '<script language="javascript">';
-                            echo 'alert("Employee successfully registered as a principal!!!  Thank You.")';
-                            echo '</script>';
-                        }
-                    }
-                }
-            
-            } else {
-
-                $query_for_get_institute_id = "select instituteID from school where schoolID = '" . $schoolId . "'";
-                $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
-                $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
-                $instituteID = $instituteIDArray["instituteID"];
+        // add ministry officer into the system --------------------------------------------------------------------------------
+        if ($designation == 1) {
 
 
-                if ($instituteID != 0) {
-                    $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
-                    $result1 = $mysqli->query($query_for_insert_data_into_employee);
-
-                    if ($result1 == 1) {
-
-                        $query_for_insert_teacher_tabel = "insert into teacher (nic,zonalOfficeID,provinceOfficeID,appoinmentSubject) values('$nic',$zoneID,$provinceID,$subjectID)";
-
-                        $result2 = $mysqli->query($query_for_insert_teacher_tabel);
+            $instituteType = 1;
 
 
-                        if ($result2 == 1) {
-                            $password = sha1($nic);
-                            $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
+            $query_for_get_institute_id = "select instituteID from institute where instituteTypeID = '" . $instituteType . "'";
+            $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
+            $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
+            $instituteID = $instituteIDArray["instituteID"];
 
-                            $result = $mysqli->query($query_for_insert_user_table);
 
-                            echo '<script language="javascript">';
-                            echo 'alert("Employee successfully registered as a teacher!!!  Thank You.")';
-                            echo '</script>';
-                            //  header("Location: framePage.php");
-                        }
+            if ($instituteID != 0) {
+
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+
+                $result1 = $mysqli->query($query_for_insert_data_into_employee);
+
+                if ($result1 == 1) {
+
+                    $query_for_insert_ministryOffeicer_tabel = "insert into ministry_officer (nic) values('$nic')";
+
+                    $result2 = $mysqli->query($query_for_insert_ministryOffeicer_tabel);
+
+
+                    if ($result2 == 1) {
+
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
+                        $result = $mysqli->query($query_for_insert_user_table);
+
+                        echo '<script language="javascript">';
+                        echo 'alert("Employee successfully registered as a MinistryOfficer!!!  Thank You.")';
+                        echo '</script>';
                     }
                 }
             }
-        
+
+
+
+            // add province officer into the system ----------------------------------------------------------------------
+        } else if ($designation == 2) {
+
+            // province officer kenekwa add karanna puluwan sysadmin ta ho ministry officer kenekta witharai
+            // methanin eka check karanna onii
+
+            $query_for_get_institute_id = "select instituteID from province_office where provinceID = '" . $provinceID . "'";
+            $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
+            $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
+            $instituteID = $instituteIDArray["instituteID"];
+
+            if ($instituteID != 0) {
+
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+                $result1 = $mysqli->query($query_for_insert_data_into_employee);
+                if ($result1 == 1) {
+
+                    $query_for_insert_proviceOffeicer_tabel = "insert into province_officer (nic) values('$nic')";
+
+                    $result2 = $mysqli->query($query_for_insert_proviceOffeicer_tabel);
+
+                    if ($result2 == 1) {
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
+                        $result = $mysqli->query($query_for_insert_user_table);
+
+                        echo '<script language="javascript">';
+                        echo 'alert("Employee successfully registered as a ProvinceOfficer!!!  Thank You.")';
+                        echo '</script>';
+                    }
+                }
+            }
+            // add Zonal officer into the system -----------------------------------------------------------------------
+        } else if ($designation == 3) {
+
+            $query_for_get_institute_id = "select instituteID from zonal_office where zonalID = '" . $zoneID . "'";
+            $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
+            $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
+            $instituteID = $instituteIDArray["instituteID"];
+
+            //echo $instituteID;
+
+            if ($instituteID != 0) {
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+                $result1 = $mysqli->query($query_for_insert_data_into_employee);
+                if ($result1 == 1) {
+
+                    $query_for_insert_zonalOfficer_tabel = "insert into zonal_officer (nic,provinceOfficeID) values('$nic',$provinceID)";
+
+                    $result2 = $mysqli->query($query_for_insert_zonalOfficer_tabel);
+
+                    if ($result2 == 1) {
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
+                        $result = $mysqli->query($query_for_insert_user_table);
+
+                        echo '<script language="javascript">';
+                        echo 'alert("Employee successfully registered as a ZonalOfficer!!!  Thank You.")';
+                        echo '</script>';
+                    }
+                }
+            }
+            //add principal into the system ---------------------------------------------------------------------
+        } else if ($designation == 4) {
+
+
+
+            $query_for_get_institute_id = "select instituteID from school where schoolID = '" . $schoolId . "'";
+            $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
+            $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
+            $instituteID = $instituteIDArray["instituteID"];
+
+
+
+            if ($instituteID != 0) {
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+                $result1 = $mysqli->query($query_for_insert_data_into_employee);
+                if ($result1 == 1) {
+                    $query_for_insert_principal_tabel = "insert into principal (nic,zonalOfficeID,provinceOfficerID) values('$nic',$zoneID,$provinceID)";
+
+                    $result2 = $mysqli->query($query_for_insert_principal_tabel);
+
+                    if ($result2 == 1) {
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password,$roleType)";
+                        $result = $mysqli->query($query_for_insert_user_table);
+
+                        echo '<script language="javascript">';
+                        echo 'alert("Employee successfully registered as a principal!!!  Thank You.")';
+                        echo '</script>';
+                    }
+                }
+            }
+        } else {
+
+            $query_for_get_institute_id = "select instituteID from school where schoolID = '" . $schoolId . "'";
+            $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
+            $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
+            $instituteID = $instituteIDArray["instituteID"];
+
+
+            if ($instituteID != 0) {
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+                $result1 = $mysqli->query($query_for_insert_data_into_employee);
+
+                if ($result1 == 1) {
+
+                    $query_for_insert_teacher_tabel = "insert into teacher (nic,zonalOfficeID,provinceOfficeID,appoinmentSubject) values('$nic',$zoneID,$provinceID,$subjectID)";
+
+                    $result2 = $mysqli->query($query_for_insert_teacher_tabel);
+
+
+                    if ($result2 == 1) {
+                        $password = sha1($nic);
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
+
+                        $result = $mysqli->query($query_for_insert_user_table);
+
+                        echo '<script language="javascript">';
+                        echo 'alert("Employee successfully registered as a teacher!!!  Thank You.")';
+                        echo '</script>';
+                        //  header("Location: framePage.php");
+                    }
+                }
+            }
+        }
     }
 
     function findEmployee($searchUsernic, $roletypeID, $designationIdLoggedUser, $LoggedUsernic) {
@@ -523,129 +521,132 @@ class Employee {
 
         return $insertok;
     }
-    
-    
-    function getProvinceIdOfLoggedUser($LoggedUsernic){
+
+    function getInstituteIDLoggedUser($loggedUserNIC) {
         global $mysqli;
-         // select Institute Id of logged User
+        // select Institute Id of logged User
+        $query_for_get_instituteId = "select instituteID from employee where nic = '" . $loggedUserNIC . "'";
+        $result_InstituteID = $mysqli->query($query_for_get_instituteId);
+        $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
+        $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
+        return $InstituteIDLoggedUser;
+    }
+
+    function getProvinceIdOfLoggedUser($LoggedUsernic) {
+        global $mysqli;
+        // select Institute Id of logged User
         $query_for_get_instituteId = "select instituteID from employee where nic = '" . $LoggedUsernic . "'";
         $result_InstituteID = $mysqli->query($query_for_get_instituteId);
         $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
         $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
 
-        
+
         // province Id of logged User
 
         $query_for_find_provinceID = "select provinceID from province_office where instituteID = '" . $InstituteIDLoggedUser . "'";
         $result_loggedUserProvinceID = $mysqli->query($query_for_find_provinceID);
         $result_loggedUserProvinceIdArray = mysqli_fetch_array($result_loggedUserProvinceID);
-       // $provinceID_LoggedUser = $result_loggedUserProvinceIdArray['provinceID'];
-        
-       return $result_loggedUserProvinceIdArray;
-        
+        // $provinceID_LoggedUser = $result_loggedUserProvinceIdArray['provinceID'];
+
+        return $result_loggedUserProvinceIdArray;
     }
-    
-    function getZonalIDLoggedUser($loggedUsernic){
-        
-         global $mysqli;
-         // select Institute Id of logged User
+
+    function getZonalIDLoggedUser($loggedUsernic) {
+
+        global $mysqli;
+        // select Institute Id of logged User
         $query_for_get_instituteId = "select instituteID from employee where nic = '" . $loggedUsernic . "'";
         $result_InstituteID = $mysqli->query($query_for_get_instituteId);
         $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
         $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
-        
+
         //get zonal Office Id Of Logged User
         $query_for_get_zonal_id_of_logged_user = "select zonalID from zonal_office where instituteID =' " . $InstituteIDLoggedUser . " ' ";
         $result_zonalOffice = $mysqli->query($query_for_get_zonal_id_of_logged_user);
         $result_zonal_arry = mysqli_fetch_array($result_zonalOffice);
-       // $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
-       return $result_zonal_arry;
-        
+        // $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
+        return $result_zonal_arry;
     }
-    
-    function getSchoolIDOfLoggedUser($loggedUsernic){
-          global $mysqli;
-         // select Institute Id of logged User
+
+    function getSchoolIDOfLoggedUser($loggedUsernic) {
+        global $mysqli;
+        // select Institute Id of logged User
         $query_for_get_instituteId = "select instituteID from employee where nic = '" . $loggedUsernic . "'";
         $result_InstituteID = $mysqli->query($query_for_get_instituteId);
         $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
         $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
-        
+
         //get School Id Of Logged User
         $query_for_get_schoolID_of_logged_user = "select schoolID from school where instituteID =' " . $InstituteIDLoggedUser . " ' ";
         $result_School = $mysqli->query($query_for_get_schoolID_of_logged_user);
         $result_school_arry = mysqli_fetch_array($result_School);
-       // $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
-       return $result_school_arry;
+        // $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
+        return $result_school_arry;
     }
-    
-    function deleteUser($searchUserNIC){
-        
+
+    function deleteUser($searchUserNIC) {
+
         global $mysqli;
         $deleteOK = 1;
-        
-        $deleteQuery = "delete from employee where nic = '".$searchUserNIC."'";
+
+        $deleteQuery = "delete from employee where nic = '" . $searchUserNIC . "'";
         $result = $mysqli->query($deleteQuery);
-        
-        if($result != true){
+
+        if ($result != true) {
             $deleteOK = 0;
         }
-        
+
         return $deleteOK;
-        
-        
     }
-    
-    function transerUpdateTeacher($nicNumber, $schoolId){
+
+    function transerUpdateTeacher($nicNumber, $schoolId) {
         global $mysqli;
         $updateOK = 1;
-        
-        $queryForgetInstituteID = "select instituteID from school where schoolID = '".$schoolId."'";
+
+        $queryForgetInstituteID = "select instituteID from school where schoolID = '" . $schoolId . "'";
         $result = $mysqli->query($queryForgetInstituteID);
         $resultArray = mysqli_fetch_array($result);
         $instituteId = $resultArray['instituteID'];
-        
-        if($result->num_rows > 0){
-            
-            $queryForUpdateEMployee = "update employee set instituteID = '$instituteId' where nic = '".$nicNumber."'";
+
+        if ($result->num_rows > 0) {
+
+            $queryForUpdateEMployee = "update employee set instituteID = '$instituteId' where nic = '" . $nicNumber . "'";
             $result2 = $mysqli->query($queryForUpdateEMployee);
-            
-            if($result2 != true){
+
+            if ($result2 != true) {
                 $updateOK = 0;
             }
-        }else {
+        } else {
             $updateOK = 0;
         }
-        
+
         return $updateOK;
-        
     }
-    
-    function insertIntoWorkingHistory($nicNumber,$instituteIDOLD){
+
+    function insertIntoWorkingHistory($nicNumber, $instituteIDOLD) {
         global $mysqli;
         $description = 'PassedWorked';
-        
+
         //Get Affected Date
         //$affectedDate = date("Y-m-d");
-        
-      /*  echo $instituteIDOLD;
-        echo '<br>';
-        echo $nicNumber;
-        echo '<br>';
-        echo $description;*/
-        
+
+        /*  echo $instituteIDOLD;
+          echo '<br>';
+          echo $nicNumber;
+          echo '<br>';
+          echo $description; */
+
         //echo $affectedDate;
-        
+
         $insertOK = 1;
-        
+
         $query = "insert into working_history(nic,instituteID,description,affectedDate) values ('$nicNumber',$instituteIDOLD,'$description',NOW()) ";
         $result = $mysqli->query($query);
-        
-        if($result != 1){
+
+        if ($result != 1) {
             $insertOK = 0;
-            
         }
-        
+
         return $insertOK;
     }
 
