@@ -46,6 +46,35 @@ ob_start();
                         <?php
                         require("../classes/employee.php");
                         $employee = new Employee();
+
+                        $designationIdLoggedUser = $_SESSION["designationTypeID"];
+                        $LoggedUsernic = $_SESSION['nic'];
+
+                        if (isset($_POST['submit'])) {
+                            //principal kenekda balanawa
+                            if ($designationIdLoggedUser == 4) {
+
+                                $instituteId = $employee->getInstituteIDLoggedUser($LoggedUsernic);
+                                $subjetcID = $_POST['subject'];
+                                $noOfVacancies = $_POST['vacansies'];
+
+                                $insertVacancies = $employee->insertVacancies($instituteId, $subjetcID, $noOfVacancies);
+
+                                if ($insertVacancies == 1) {
+                                    echo '<script language="javascript">';
+                                    echo 'alert("Vacanci Added SuccessFully.Thankyou")';
+                                    echo '</script>';
+                                } else {
+                                    echo '<script language="javascript">';
+                                    echo 'alert("Error Occurd While Inserting data")';
+                                    echo '</script>';
+                                }
+                            } else {
+                                echo '<script language="javascript">';
+                                echo 'alert("You are Not allowed to do this Action")';
+                                echo '</script>';
+                            }
+                        }
                         ?>
 
 
@@ -67,14 +96,14 @@ ob_start();
                                                 <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="subject" id="subject" >
                                                         <option value="">-Select Subject-</option>
-                                                        <?php
-                                                        $result = $employee->loadSubjects();
+<?php
+$result = $employee->loadSubjects();
 
-                                                        foreach ($result as $array) {
+foreach ($result as $array) {
 
-                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-                                                        }
-                                                        ?>
+    echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+}
+?>
 
                                                     </select>
                                                 </div>
@@ -124,7 +153,7 @@ ob_start();
 
 
 
-            <?php include '../interfaces/footer.php' ?>
+<?php include '../interfaces/footer.php' ?>
             <script src="../assets/js/jquery.js"></script>
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>

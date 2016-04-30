@@ -627,16 +627,6 @@ class Employee {
         global $mysqli;
         $description = 'PassedWorked';
 
-        //Get Affected Date
-        //$affectedDate = date("Y-m-d");
-
-        /*  echo $instituteIDOLD;
-          echo '<br>';
-          echo $nicNumber;
-          echo '<br>';
-          echo $description; */
-
-        //echo $affectedDate;
 
         $insertOK = 1;
 
@@ -648,6 +638,21 @@ class Employee {
         }
 
         return $insertOK;
+    }
+    
+    function insertVacancies($instituteId,$subjetcID,$noOfVacancies){
+        global $mysqli;
+        $insertOk = 1;
+        
+        $query = "insert into Vacancies(InstituteID,SubjectId,noOfVacansies) values ('$instituteId','$subjetcID','$noOfVacancies')";
+        $result = $mysqli->queru($query);
+        
+        if($result != 1){
+            $insertOk = 0;
+        }
+        
+        return $insertOk;
+    
     }
 
 }
