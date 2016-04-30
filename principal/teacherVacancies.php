@@ -83,7 +83,7 @@ ob_start();
                             <h1>Vacancies</h1>
                         </div>
 
-                        <form action="" method = "post"  onsubmit="" novalidate>
+                        <form action="" method = "post"  onsubmit="return validateVacanciesForm()" novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -96,14 +96,14 @@ ob_start();
                                                 <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control" name="subject" id="subject" >
                                                         <option value="">-Select Subject-</option>
-<?php
-$result = $employee->loadSubjects();
+                                                        <?php
+                                                        $result = $employee->loadSubjects();
 
-foreach ($result as $array) {
+                                                        foreach ($result as $array) {
 
-    echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-}
-?>
+                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                        }
+                                                        ?>
 
                                                     </select>
                                                 </div>
@@ -153,7 +153,11 @@ foreach ($result as $array) {
 
 
 
-<?php include '../interfaces/footer.php' ?>
+            <?php 
+            
+            include '../interfaces/footer.php' ?>
+            
+            <script src="../assets/js/AddVacansiesValidation.js">
             <script src="../assets/js/jquery.js"></script>
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
