@@ -194,7 +194,7 @@ class Employee {
 
                     if ($result2 == 1) {
                         $password = sha1($nic);
-                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password,$roleType)";
+                        $query_for_insert_user_table = "insert into user (nic,password,roleTypeID) values ('$nic','$password',$roleType)";
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
@@ -645,7 +645,7 @@ class Employee {
         $insertOk = 1;
         
         $query = "insert into Vacancies(InstituteID,SubjectId,noOfVacansies) values ('$instituteId','$subjetcID','$noOfVacancies')";
-        $result = $mysqli->queru($query);
+        $result = $mysqli->query($query);
         
         if($result != 1){
             $insertOk = 0;
