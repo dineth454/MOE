@@ -120,8 +120,9 @@ ob_start();
                                             <label for="Vacansies" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> No Of Vacancies </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <input type="text" class="form-control" id="vacansies" name="vacansies" placeholder="Vacancies"/>
-                                                <label id="errorVacancies" style="font-size:10px"> </label>
+                                                
                                             </div>
+                                            <label id="errorVacancies" style="font-size:10px"> </label>
                                         </div>
                                     </div>
 
