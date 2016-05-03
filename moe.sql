@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 22, 2016 at 01:06 ප.ව.
+-- Generation Time: Apr 28, 2016 at 08:11 ප.ව.
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -373,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `school` (
   KEY `school_schooltypeID_idx` (`schoolTypeID`),
   KEY `school_zonalID_idx` (`zonalOfficeID`),
   KEY `school_provinceID_idx` (`provinceOfficeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `school`
@@ -456,6 +456,7 @@ INSERT INTO `subject_combination` (`teacherID`, `subjectID`, `grade`) VALUES
 (5, 2, 1),
 (5, 2, 3),
 (8, 2, 7),
+(14, 2, 5),
 (8, 3, 3),
 (8, 3, 9),
 (14, 3, 9);
@@ -524,6 +525,20 @@ INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
 ('945855456v', '945855456v', 3),
 ('951232545v', '951232545v', 2),
 ('960001112v', 'b86eddc80a58705e8e188dbda068eef145c44b13', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Vacancies`
+--
+
+CREATE TABLE IF NOT EXISTS `Vacancies` (
+  `InstituteID` int(5) NOT NULL,
+  `SubjectId` int(5) NOT NULL,
+  `noOfVacansies` int(5) NOT NULL,
+  KEY `f_keyForInstitute` (`InstituteID`),
+  KEY `subjectId` (`SubjectId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -698,6 +713,13 @@ ALTER TABLE `teacher`
 ALTER TABLE `user`
   ADD CONSTRAINT `user_nic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_roleType` FOREIGN KEY (`roleTypeID`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `Vacancies`
+--
+ALTER TABLE `Vacancies`
+  ADD CONSTRAINT `ForeignKeyConstraint` FOREIGN KEY (`InstituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `f_ke_con_4_subject` FOREIGN KEY (`SubjectId`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `working_history`
