@@ -72,7 +72,7 @@ ob_start();
                             
                             
 
-                            $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $dob = $currentAddress = $gender = $marrigeState = $mobileNum = "";
+                            $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $currentAddress = $gender = $marrigeState = $mobileNum = "";
                             $provinceID = $zoneID = $schoolId = $subjectID = "";
                             $nic = strtoupper($_POST['nic']);
                             $roleType = $_POST['select_role'];
@@ -81,7 +81,7 @@ ob_start();
                             $fName = $_POST['fname'];
                             $empID = $_POST['eId'];
                             $email = $_POST['email'];
-                            $dob = $_POST['dob'];
+                           
                             $currentAddress = $_POST['address'];
                             $gender = $_POST['gender'];
                             $marrigeState = $_POST['marrrige'];
@@ -112,31 +112,31 @@ ob_start();
                             
                             // logged in sys admin
                             if ($designationIdLoggedUser == 1 and $roletypeID == 1) {
-                                $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                             } else if ($designationIdLoggedUser < $designation) {
 
                                 // log wela inne ministry officer kenek nam
                                 if ($designationIdLoggedUser == 1) {
-                                    $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                    $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
 
                                     //log wela inne province officer kenek nam
                                 } else if ($designationIdLoggedUser == 2) {
 
                                     //zonal officer kenek nam add karanne
                                     if ($provinceIdLoggedUser == $provinceID) {
-                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                                     }
                                     // logged wela inne zonal officer kenek nam
                                 } else if ($designationIdLoggedUser == 3) {
                                     //principal kenek nam add karanne 
                                     if ($zonalIdLoggedUser == $zoneID) {
-                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                                     }
                                     //logged wela inne principal kenek nam
                                 } else if ($designationIdLoggedUser == 4) {
                                     //add karanne teacher kenek nam
                                     if ($schoolIDLoggedUser == $schoolId) {
-                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                                     } else {
                                         echo '<script language="javascript">';
                                         echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
@@ -355,12 +355,13 @@ ob_start();
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- Date of birth-->
+                                                <!--
                                                 <label for="date_of_birth" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Date of Birth </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <input type="date" class="form-control" id="dob" name="dob" placeholder="Enter DOB"/>
-                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                    <label id="errorFirstName" style="font-size:10px"> </label>
                                                 </div>
-
+                                                -->
                                                 <!--Current Address-->
                                                 <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Current Address </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
