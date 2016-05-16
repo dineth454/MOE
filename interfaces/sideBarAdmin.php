@@ -34,6 +34,10 @@
             <li>
                 <a class="slide_font active " href="addSchool.php">Add School</a>
             </li>
+            
+            <li>
+                <a class="slide_font active " href="#">Update School</a>
+            </li>
 
         </div>
       
@@ -53,23 +57,7 @@
           
 
         </div>
-        <li>
-            <a class="slide_font" data-toggle="collapse" href="#collapse4">Edit</a>
-        </li>
-
-        <div id="collapse4" class="panel-collapse collapse">
-            <li>
-                <a class="slide_font active ajax_load" href="#">Province</a>
-            </li>
-            <li>
-                <a class="slide_font active ajax_load" href="#">Zonal</a>
-            </li>
-            <li>
-                <a class="slide_font active ajax_load" href="#">School</a>
-            </li>
-
-        </div>
-        <li>
+       <li>
             <a class="slide_font" data-toggle="collapse" href="#collapse7">Search</a>
         </li>
         <!--Transer Teacher -->
