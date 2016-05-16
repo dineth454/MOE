@@ -36,6 +36,7 @@ $mysqli = $db->connection();
 
 			return $no_users;
 		}
+
 	}
 
 
