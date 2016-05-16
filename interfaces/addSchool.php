@@ -49,7 +49,7 @@ ob_start();
                         // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
                             require '../classes/institute.php';
-
+                            
                             // $nic = $_POST['nic'];
                             $provinceId = $_POST['provinceID'];
                             $zonalId = $_POST['zonalID'];
@@ -63,7 +63,15 @@ ob_start();
 
 
                             $insertSuccess = $institute->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
-                            
+                            if($insertSuccess == 1){
+                                echo '<script language = "javascript">';
+                                echo 'alert("School Added Succeccfully")';
+                                echo '</script>';
+                            }else{
+                                echo '<script language = "javascript">';
+                                echo 'alert("error Occurd while inserting data")';
+                                echo '</script>';
+                            }
                         }
                     ?>
 
