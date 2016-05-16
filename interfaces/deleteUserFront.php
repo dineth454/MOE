@@ -68,10 +68,14 @@ ob_start();
                     echo '</script>';
                     // echo $result1['provinceID'];
                     // echo 'kalingaMAuau';
+                } elseif ($searchUsernic == '921003072V' || $searchUsernic == '921003072v') {
+                    echo '<script language="javascript">';
+                    echo 'alert("Access Denied")';
+                    echo '</script>';
                 } else {
 
                     //search karana user ministry Officer keneknam 
-                    if ($result['designationTypeID'] == 1 ) {
+                    if ($result['designationTypeID'] == 1 && $roletypeID != 1) {
 
 
                         $_SESSION['delete']['designationType'] = $result['designationTypeID'];
