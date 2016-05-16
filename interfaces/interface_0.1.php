@@ -95,15 +95,15 @@
                                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-
+<!--
                         <div>
                             <?php 
-                                include '../classes/jpbar.php';
-                                GenGraph();
+                               # include '../classes/jpbar.php';
+                               # GenGraph();
                             ?>
                             <img src="fff.png">
                         </div>
-
+-->
                     </div>
                 </div>
             </div>
