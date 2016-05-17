@@ -1,6 +1,7 @@
 
 <?php
 ob_start();
+//session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,11 +46,14 @@ ob_start();
                 <div class="row container-fluid" style="padding-left: 15px;">
                     <div class="col-lg-7 " style="padding-left: 0px;">
 
-                    <?php
+                        <?php
                         // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
                             require '../classes/institute.php';
-                            
+                            // get logged User details
+                          
+                            $designationTypeID = $_SESSION["designationTypeID"];
+                            echo $designationTypeID;
                             // $nic = $_POST['nic'];
                             $provinceId = $_POST['provinceID'];
                             $zonalId = $_POST['zonalID'];
@@ -61,19 +65,26 @@ ob_start();
 
                             $institute = new Institute();
 
+                            if ($designationTypeID == 1) {
+                                $insertSuccess = $institute->addschool($provinceId, $zonalId, $school, $SchoolType, $NoOfStudents, $lat, $lang);
 
-                            $insertSuccess = $institute->addschool($provinceId, $zonalId, $school,$SchoolType,$NoOfStudents,$lat,$lang);
-                            if($insertSuccess == 1){
-                                echo '<script language = "javascript">';
-                                echo 'alert("School Added Succeccfully")';
-                                echo '</script>';
+                                if ($insertSuccess == 1) {
+                                    echo '<script language = "javascript">';
+                                    echo 'alert("School Added Succeccfully")';
+                                    echo '</script>';
+                                } else {
+                                    echo '<script language = "javascript">';
+                                    echo 'alert("error Occurd while inserting data")';
+                                    echo '</script>';
+                                }
                             }else{
+                                
                                 echo '<script language = "javascript">';
-                                echo 'alert("error Occurd while inserting data")';
+                                echo 'alert("Permission Denied")';
                                 echo '</script>';
                             }
                         }
-                    ?>
+                        ?>
 
                         <div align="center" style="padding-bottom:10px;">
                             <h1>Add School</h1>
@@ -103,7 +114,7 @@ ob_start();
                                                 <label id="errorProvince" style="font-size:10px;"></label>
                                             </div>
 
-                                            
+
 
                                         </div>
 
@@ -121,7 +132,7 @@ ob_start();
                                                     <label id="errorZonal" style="font-size:10px;"></label>
 
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -161,11 +172,11 @@ ob_start();
                                                     <option value="9">Secondary Mix</option>
                                                 </select>
 
-                                               <label id="errorSchoolType" style="font-size:10px;"> </label>
+                                                <label id="errorSchoolType" style="font-size:10px;"> </label>
 
                                             </div>
 
-                                            
+
                                         </div>
 
 
@@ -250,7 +261,7 @@ ob_start();
 
         </div>
 
-<!--______________________________________________________________________________________________________________-->
+        <!--______________________________________________________________________________________________________________-->
         <!-- Data validation-->
         <script type="text/javascript">
             function validateForm() {
@@ -259,28 +270,34 @@ ob_start();
                 if (!validateSchoolName("School", "errorSchoolName")) {
                     errors.push("errorSchoolName");
 
-                }if (!validateStudentNumber("students", "errorStudentNumber")) {
+                }
+                if (!validateStudentNumber("students", "errorStudentNumber")) {
                     errors.push("errorStudentNumber");
 
-                }if (!validateProvince("provinceID", "errorProvince")) {
+                }
+                if (!validateProvince("provinceID", "errorProvince")) {
                     errors.push("errorProvince");
 
-                }if (!validateZonal("zonalID", "errorZonal")) {
+                }
+                if (!validateZonal("zonalID", "errorZonal")) {
                     errors.push("errorZonal");
 
-                }if (!validateSchoolType("SchoolTypeSelect", "errorSchoolType")) {
+                }
+                if (!validateSchoolType("SchoolTypeSelect", "errorSchoolType")) {
                     errors.push("errorSchoolType");
 
-                }if (!validateLatitude("latbox", "errorLat")) {
+                }
+                if (!validateLatitude("latbox", "errorLat")) {
                     errors.push("errorLat");
 
-                }if (!validateLongtitude("lngbox", "errorLng")) {
+                }
+                if (!validateLongtitude("lngbox", "errorLng")) {
                     errors.push("errorLng");
 
-                }if (errors.length > 0) {
-                    return false;
                 }
-                else {
+                if (errors.length > 0) {
+                    return false;
+                } else {
                     return true;
                 }
             }
@@ -293,14 +310,13 @@ ob_start();
                     document.getElementById(errorLbl).innerHTML = "Please enter school name";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }else if(!isNaN(document.getElementById(text).value)){
+                } else if (!isNaN(document.getElementById(text).value)) {
                     document.getElementById(text).focus();
                     document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "School name can't be a number";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }
-                else {
+                } else {
                     document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
@@ -315,13 +331,12 @@ ob_start();
                     document.getElementById(errorLbl).innerHTML = "Please enter Number of students";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }else if(!isNaN(document.getElementById(text).value)){
+                } else if (!isNaN(document.getElementById(text).value)) {
                     document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
-                }
-                else {
-                    
+                } else {
+
                     document.getElementById(text).focus();
                     document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "Number of students can't be a letter";
@@ -338,8 +353,7 @@ ob_start();
                     document.getElementById(errorLbl).innerHTML = "please select a Province";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }
-                else {
+                } else {
                     document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
@@ -354,8 +368,7 @@ ob_start();
                     document.getElementById(errorLbl).innerHTML = "please select a Zonal";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }
-                else {
+                } else {
                     document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
@@ -370,8 +383,7 @@ ob_start();
                     document.getElementById(errorLbl).innerHTML = "please select a schoolType";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }
-                else {
+                } else {
                     document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
@@ -387,14 +399,13 @@ ob_start();
                     document.getElementById(errorLbl).innerHTML = "Please Select the Latitude";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }else if(isNaN(document.getElementById(text).value)){
+                } else if (isNaN(document.getElementById(text).value)) {
                     document.getElementById(text).focus();
                     document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "Invalid type";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }
-                else {
+                } else {
                     document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
@@ -409,14 +420,13 @@ ob_start();
                     document.getElementById(errorLbl).innerHTML = "Please Select the Longitude";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }else if(isNaN(document.getElementById(text).value)){
+                } else if (isNaN(document.getElementById(text).value)) {
                     document.getElementById(text).focus();
                     document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "Invalid type";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
-                }
-                else {
+                } else {
                     document.getElementById(text).style.borderColor = "#46BB24";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
@@ -424,7 +434,7 @@ ob_start();
             }
         </script>
 
-    <!--______________________end of validation______________________________________-->
+        <!--______________________end of validation______________________________________-->
 
 
         <!-- Bootstrap Core JavaScript -->

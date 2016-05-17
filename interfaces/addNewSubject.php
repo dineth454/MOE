@@ -54,7 +54,7 @@ ob_start();
 
 
                 // check karanawa sys adminda kiala
-                if ($LoggedUsernic == '921003072V' || $LoggedUsernic == '921003072v') {
+                if ($LoggedUsernic == '921003072V' || $LoggedUsernic == '921003072v ') {
                     $insertSuccess = $institute->addSubject($subject);
 
 
