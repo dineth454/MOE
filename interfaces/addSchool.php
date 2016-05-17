@@ -64,7 +64,7 @@ ob_start();
                             $lang = $_POST['lng'];
 
                             $institute = new Institute();
-
+                            // check sysadmin or ministry officer    
                             if ($designationTypeID == 1) {
                                 $insertSuccess = $institute->addschool($provinceId, $zonalId, $school, $SchoolType, $NoOfStudents, $lat, $lang);
 
