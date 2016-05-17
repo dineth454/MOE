@@ -40,7 +40,7 @@
             <div id="page-content-wrapper" style="min-height: 540px;">
 
                 <div class=" row container-fluid" style="">
-                    <div class="col-md-6 " style="background-color: green; padding-bottom: 16px;">
+                    <div class="col-md-6 " style="background-color: whitesmoke; padding-bottom: 16px;">
                         <?php
                         //get session attribute Values
 
@@ -135,7 +135,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6" style="background-color: yellowgreen" >
+                    <div class="col-lg-6" style="background-color: white" >
 
                         <?php
                         // echo $_SESSION['designationType'];
