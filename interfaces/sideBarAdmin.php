@@ -36,7 +36,7 @@
             </li>
             
             <li>
-                <a class="slide_font active " href="#">Update School</a>
+                <a class="slide_font active " href="updateSchool.php">Update School</a>
             </li>
 
         </div>
