@@ -141,7 +141,7 @@ ob_start();
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- School Name-->
-                                            <label for="School" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> School Name/Address :  </label>
+                                            <label for="School" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> School Name/Address:  </label>
                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="School" name="School"  placeholder="School Name"/>
                                                 <label id="errorSchoolName" style="font-size:10px"> </label>
