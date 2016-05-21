@@ -43,33 +43,65 @@ ob_start();
 
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1">
-                        <?php 
+                        <?php
                         require("../classes/institute.php");
-                        $institute = new Institute();
-                            
-                            if(isset($_POST['submit'])){
-                                $schoolID = $_POST['schoolId'];
-                                echo $schoolID;
-                                
-                               $resultFindschool =  $institute->findSchool($schoolID);
-                               
-                               $schoolName = $resultFindschool['schoolName'];
-                              // echo $schoolName;
-                               $numOfStudents = $resultFindschool['numOfStudents'];
-                               $latitude = $resultFindschool['lat'];
-                               $langitude = $resultFindschool['lng'];
-                              
-                                $_SESSION['updateSchool']['schoolID'] = $schoolID;
-                               $_SESSION['updateSchool']['schoolName'] = $schoolName;
-                               $_SESSION['updateSchool']['numOfStudents'] = $numOfStudents;
-                               $_SESSION['updateSchool']['lat'] = $latitude;
-                               $_SESSION['updateSchool']['lng'] = $langitude;
-                              // echo 'kalinga';
-                               header("Location: updateSchoolForm.php");
-                              // echo 'yapa' ; 
-                                
-                            }
                         
+                        $institute = new Institute();
+                        
+                        // logged User Details
+                        $LoggedUsernic = $_SESSION["nic"];
+                        $designationIdLoggedUser = $_SESSION['designationTypeID'];
+
+
+
+
+
+                        if (isset($_POST['submit'])) {
+                            $schoolID = $_POST['schoolId'];
+                            // echo $schoolID;
+
+                            $resultFindschool = $institute->findSchool($schoolID);
+
+                            $schoolName = $resultFindschool['schoolName'];
+                            // echo $schoolName;
+                            $numOfStudents = $resultFindschool['numOfStudents'];
+                            $latitude = $resultFindschool['lat'];
+                            $langitude = $resultFindschool['lng'];
+                            $instituteIdSearchSchool = $resultFindschool['instituteID'];
+                            $instituteIDLoggedUser = $institute->getInstituteIDLoggedUser($LoggedUsernic);
+
+                            if ($designationIdLoggedUser == 1) {
+                                $_SESSION['updateSchool']['schoolID'] = $schoolID;
+                                $_SESSION['updateSchool']['schoolName'] = $schoolName;
+                                $_SESSION['updateSchool']['numOfStudents'] = $numOfStudents;
+                                $_SESSION['updateSchool']['lat'] = $latitude;
+                                $_SESSION['updateSchool']['lng'] = $langitude;
+                                // echo 'kalinga';
+                                header("Location: updateSchoolForm.php");
+                                // echo 'yapa' ; 
+                                //Principal kenekda kiyala balanawa
+                            } elseif ($designationIdLoggedUser == 4) {
+                                //principalge School ekama wenna oni search karana school ekath
+                                if ($instituteIdSearchSchool == $instituteIDLoggedUser) {
+                                    $_SESSION['updateSchool']['schoolID'] = $schoolID;
+                                    $_SESSION['updateSchool']['schoolName'] = $schoolName;
+                                    $_SESSION['updateSchool']['numOfStudents'] = $numOfStudents;
+                                    $_SESSION['updateSchool']['lat'] = $latitude;
+                                    $_SESSION['updateSchool']['lng'] = $langitude;
+                                    // echo 'kalinga';
+                                    header("Location: updateSchoolForm.php");
+                                    // echo 'yapa' ; 
+                                } else {
+                                    echo '<script language = "javascript">';
+                                    echo 'alert("You Dont Have Permission to Do this Action")';
+                                    echo '</script>';
+                                }
+                            } else {
+                                echo '<script language = "javascript">';
+                                echo 'alert("You Dont Have Permission to Do this Action")';
+                                echo '</script>';
+                            }
+                        }
                         ?>
 
 
@@ -132,7 +164,7 @@ ob_start();
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row">
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">

@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>UpdateSchool</title>
+        <title>Update School</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -45,6 +45,8 @@
                         <?php
                         // echo $_SESSION['designationType'];
                         
+                        
+                        //Update School Details
                         $schoolID =  $_SESSION['updateSchool']['schoolID'];
                         $schoolName = $_SESSION['updateSchool']['schoolName'];
                         $noOfStudents = $_SESSION['updateSchool']['numOfStudents'];

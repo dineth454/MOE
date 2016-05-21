@@ -111,6 +111,16 @@ class Institute {
         
         return $updatedOK;
     }
+    
+    function getInstituteIDLoggedUser($loggedUserNIC) {
+        global $con;
+        // select Institute Id of logged User
+        $query_for_get_instituteId = "select instituteID from employee where nic = '" . $loggedUserNIC . "'";
+        $result_InstituteID = $con->query($query_for_get_instituteId);
+        $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
+        $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
+        return $InstituteIDLoggedUser;
+    }
 
 }
 
