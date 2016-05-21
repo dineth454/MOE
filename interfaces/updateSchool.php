@@ -193,7 +193,48 @@ ob_start();
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
+        <script type="text/javascript">
 
+                                                            function validateForm() {
+                                                                var errors = [];
+                                                                if (!validateDropDown("provinceID", "errorProvince")) {
+                                                                    errors.push("errorProvince");
+                                                                }
+
+
+                                                                if (!validateDropDown("abc", "errorZonal")) {
+                                                                    errors.push("errorZonal");
+                                                                }
+
+                                                                if (!validateDropDown("abcd", "errorSchool")) {
+                                                                    errors.push("errorSchool");
+                                                                }
+                                                                if (errors.length > 0) {
+                                                                    return false;
+                                                                } else {
+                                                                    return true;
+                                                                }
+
+                                                            }
+
+                                                            //method to validate a dropdown is selected or not
+                                                            function validateDropDown(text, errorLbl) {
+                                                                if (document.getElementById(text).value == "") {
+                                                                    document.getElementById(text).focus();
+                                                                    document.getElementById(text).style.borderColor = "red";
+                                                                    document.getElementById(errorLbl).innerHTML = "please select a value";
+                                                                    document.getElementById(errorLbl).style.color = "red";
+
+                                                                    return false;
+                                                                } else {
+                                                                    document.getElementById(text).style.borderColor = "green";
+                                                                    document.getElementById(errorLbl).innerHTML = "";
+                                                                    return true;
+                                                                }
+                                                            }
+
+
+        </script>
 
 
 

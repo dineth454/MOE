@@ -60,7 +60,7 @@ ob_start();
                         // submit button action
                         if (isset($_POST['submit'])) {
                             global $LoggedUsernic;
-                            
+
                             $searchUsernic = "";
 
                             $searchUsernic = $_POST['nic'];
@@ -256,7 +256,7 @@ ob_start();
 
 
 
-<?php include 'footer.php' ?>
+            <?php include 'footer.php' ?>
 
             <script src="../assets/js/jquery.js"></script>
 

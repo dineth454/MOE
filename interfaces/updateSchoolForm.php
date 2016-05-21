@@ -22,6 +22,7 @@
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
+        
 
     </head>
 
@@ -197,18 +198,7 @@
                     errors.push("errorStudentNumber");
 
                 }
-                if (!validateProvince("provinceID", "errorProvince")) {
-                    errors.push("errorProvince");
-
-                }
-                if (!validateZonal("zonalID", "errorZonal")) {
-                    errors.push("errorZonal");
-
-                }
-                if (!validateSchoolType("SchoolTypeSelect", "errorSchoolType")) {
-                    errors.push("errorSchoolType");
-
-                }
+               
                 if (!validateLatitude("latbox", "errorLat")) {
                     errors.push("errorLat");
 
@@ -267,50 +257,11 @@
                 }
             }
 
-            /*___Provine selection validation function___*/
-            function validateProvince(text, errorLbl) {
-                if (document.getElementById(text).value == "") {
-                    document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
-                    document.getElementById(errorLbl).innerHTML = "please select a Province";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
-                    return false;
-                } else {
-                    document.getElementById(text).style.borderColor = "#46BB24";
-                    document.getElementById(errorLbl).innerHTML = "";
-                    return true;
-                }
-            }
+          
 
-            /*___Zonal selection validation function___*/
-            function validateZonal(text, errorLbl) {
-                if (document.getElementById(text).value == "") {
-                    document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
-                    document.getElementById(errorLbl).innerHTML = "please select a Zonal";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
-                    return false;
-                } else {
-                    document.getElementById(text).style.borderColor = "#46BB24";
-                    document.getElementById(errorLbl).innerHTML = "";
-                    return true;
-                }
-            }
+          
 
-            /*___School Type selection validation function___*/
-            function validateSchoolType(text, errorLbl) {
-                if (document.getElementById(text).value == "") {
-                    document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
-                    document.getElementById(errorLbl).innerHTML = "please select a schoolType";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
-                    return false;
-                } else {
-                    document.getElementById(text).style.borderColor = "#46BB24";
-                    document.getElementById(errorLbl).innerHTML = "";
-                    return true;
-                }
-            }
+            
 
 
             /*___School destination latitude validation function___*/
@@ -366,6 +317,7 @@
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
         <script src="../assets/js/googlemap.js"></script>
         <script src="../assets/js/addSchoolMarker.js"></script>
+        
 
 
 
