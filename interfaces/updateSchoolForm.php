@@ -53,6 +53,25 @@
                         if (isset($_POST['submit'])) {
                             require '../classes/institute.php';
                             
+                            $updatedSchoolName=$_POST['School'];
+                            $updatedNoOFStudents = $_POST['students'];
+                            $updatesLatitude = $_POST['lat'];
+                            $updatedLangitude = $_POST['lng'];
+                            
+                            $institute = new Institute();
+                            $result =  $institute->updateInstitute($schoolID,$updatedSchoolName,$updatedNoOFStudents,$updatesLatitude,$updatedLangitude);
+                            
+                            if($result == 1){
+                                echo '<script language = "javascript">';
+                                echo 'alert("updated successfully")';
+                                echo '</script>';
+                            }else{
+                                echo '<script language = "javascript">';
+                                echo 'alert("Error Occured While Updating Data")';
+                                echo '</script>';
+                                
+                            }
+                            
                         }
                         ?>
 

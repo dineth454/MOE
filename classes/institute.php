@@ -96,6 +96,21 @@ class Institute {
 
         return $insertOK;
     }
+    
+    function updateInstitute($schoolID,$updatedSchoolName,$updatedNoOFStudents,$updatesLatitude,$updatedLangitude){
+        global $con;
+        $updatedOK = 1;
+        
+        $query = "update school set schoolName = '".$updatedSchoolName."',numOfStudents = '".$updatedNoOFStudents."',lat = '".$updatesLatitude."',lng = '".$updatedLangitude."' where schoolID = '".$schoolID."' ";
+        $resultBoolean = $con->query($query);
+        if($resultBoolean != 1 ){
+            
+            $updatedOK = 0;
+            
+        }
+        
+        return $updatedOK;
+    }
 
 }
 
