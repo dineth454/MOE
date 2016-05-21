@@ -45,17 +45,12 @@ ob_start();
                     <div class="col-lg-9 col-lg-offset-1">
                         <?php
                         require("../classes/institute.php");
-                        
+
                         $institute = new Institute();
-                        
+
                         // logged User Details
                         $LoggedUsernic = $_SESSION["nic"];
                         $designationIdLoggedUser = $_SESSION['designationTypeID'];
-
-
-
-
-
                         if (isset($_POST['submit'])) {
                             $schoolID = $_POST['schoolId'];
                             // echo $schoolID;
