@@ -44,7 +44,7 @@ ob_start();
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1">
                         <?php 
-                        require("../classes/institue.php");
+                        require("../classes/institute.php");
                         $institute = new Institute();
                             
                             if(isset($_POST['submit'])){
