@@ -43,7 +43,19 @@ ob_start();
 
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1">
-
+                        <?php 
+                        require("../classes/institue.php");
+                        $institute = new Institute();
+                            
+                            if(isset($_POST['submit'])){
+                                $schoolID = $_POST['schoolId'];
+                                //echo $schoolID;
+                                
+                               $resultFindschool =  $institute->findSchool($schoolID);
+                                
+                            }
+                        
+                        ?>
 
 
                         <div align="center" style="padding-bottom:10px;">

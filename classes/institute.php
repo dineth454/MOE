@@ -74,6 +74,12 @@ class Institute {
 
         return $insertOK;
     }
+    
+    function findSchool($schoolID){
+        global $con;
+        $query = "select * from school where schoolID = '".$schoolID."'";
+        
+    }
 
     function addSubject($subject) {
         global $con;
