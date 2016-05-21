@@ -78,6 +78,9 @@ class Institute {
     function findSchool($schoolID){
         global $con;
         $query = "select * from school where schoolID = '".$schoolID."'";
+        $resultFindSchool = $con->query($query);
+        $resultSchoolArray = mysqli_fetch_array($resultFindSchool);
+        return $resultSchoolArray;
         
     }
 

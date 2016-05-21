@@ -49,9 +49,24 @@ ob_start();
                             
                             if(isset($_POST['submit'])){
                                 $schoolID = $_POST['schoolId'];
-                                //echo $schoolID;
+                                echo $schoolID;
                                 
                                $resultFindschool =  $institute->findSchool($schoolID);
+                               
+                               $schoolName = $resultFindschool['schoolName'];
+                              // echo $schoolName;
+                               $numOfStudents = $resultFindschool['numOfStudents'];
+                               $latitude = $resultFindschool['lat'];
+                               $langitude = $resultFindschool['lng'];
+                              
+                                $_SESSION['updateSchool']['schoolID'] = $schoolID;
+                               $_SESSION['updateSchool']['schoolName'] = $schoolName;
+                               $_SESSION['updateSchool']['numOfStudents'] = $numOfStudents;
+                               $_SESSION['updateSchool']['lat'] = $latitude;
+                               $_SESSION['updateSchool']['lng'] = $langitude;
+                              // echo 'kalinga';
+                               header("Location: updateSchoolForm.php");
+                              // echo 'yapa' ; 
                                 
                             }
                         
