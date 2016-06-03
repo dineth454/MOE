@@ -24,7 +24,7 @@ ob_end_flush();
         <a href="#" >
             <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["fullName"] ?> 
         </a>
-        <div class="pull-right" style="padding-right:50px;">
+        <div class="pull-right" style="padding-right: 21px;">
             <a href="../classes/signout.php">Sign out</a></div>
 
     </div>
