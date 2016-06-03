@@ -11,7 +11,7 @@ function validateVacanciesForm() {
     if(!validateNumber(x)){
         errors.push("errorNumber");
     }
-  
+
 
 
 
@@ -40,7 +40,7 @@ function validateDropDown(text, errorLbl) {
 
 //method to validate number
 function validateNumber(text) {
-    
+
     if (text == "" || text == null) {
         document.getElementById("vacansies").focus();
         document.getElementById("vacansies").style.borderColor = "red";
