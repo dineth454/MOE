@@ -1,5 +1,5 @@
 <?php 
-
+$mysqli = new mysqli("localhost", "gtms", "gtms", "moe");
 
 class Shownotification{
 
@@ -7,6 +7,7 @@ class Shownotification{
         global $mysqli;
         $sqlQuery = "SELECT * FROM notification";
         $Result = $mysqli->query($sqlQuery);
+        
         $output="";
         if (mysqli_num_rows($Result) > 0) {
             while ($row = mysqli_fetch_assoc($Result)) {

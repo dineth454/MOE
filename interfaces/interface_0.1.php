@@ -8,9 +8,6 @@
     $schools = $home->schools();
     $teachers = $home->teachers();
     $users = $home->users();
-    require("../classes/showNotification.php");
-    $not = new Shownotification();
-    
  ?>
 
 <html lang="en">

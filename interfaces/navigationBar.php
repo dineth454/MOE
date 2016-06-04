@@ -1,5 +1,7 @@
 <?php
 session_start();
+require("../classes/Shownotification.php");
+$not = new Shownotification();
 ?>
 
 <?php
@@ -20,7 +22,7 @@ ob_end_flush();
 <nav class="navbar navbar-default" style="height: 65px; border-radius:0px;">
 
     <div class="col-md-3 pull-right" style="margin-top: 18px;padding-left: 0px;">
-        <label></label>
+       
         <a href="viewProfile.php" >
             <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["fullName"] ?> 
         </a>
@@ -35,14 +37,17 @@ ob_end_flush();
 
                     <?php 
 
-                       // $not ->notResualt();
+                       $not->notResualt();
+                        
+                        
                     ?>
                     </div>
                 <div id="notificationFooter"><a href="#">See All</a></div>
             </div>
         </span> 
         <div class="pull-right" style="padding-right:50px;">
-            <a href="../classes/signout.php">Sign out</a></div>
+            <a href="../classes/signout.php">Sign out</a>
+        </div>
 
     </div>
 
