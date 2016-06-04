@@ -34,7 +34,7 @@ ob_end_flush();
                     <div id="notificationsBody" class="notifications" runat="server">
 
                     <?php 
-                        $not ->notResualt();
+                        //$not ->notResualt();
                     ?>
                     </div>
                 <div id="notificationFooter"><a href="#">See All</a></div>
