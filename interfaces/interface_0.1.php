@@ -8,8 +8,8 @@
     $schools = $home->schools();
     $teachers = $home->teachers();
     $users = $home->users();
-    //require("../classes/showNotification.php");
-    //$not = new Shownotification();
+    require("../classes/showNotification.php");
+    $not = new Shownotification();
     
  ?>
 
@@ -32,7 +32,7 @@
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/fonts_styles.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
-        <!--<link href="../assets/css/notification.css" rel="stylesheet">-->
+        <link href="../assets/css/notification.css" rel="stylesheet">
 
     </head>
 
