@@ -55,7 +55,7 @@
                             $searchUserCurrentAddress = $_SESSION['transer']['currentaddress'];
                             $searchUserCurrntSchool = $_SESSION['transer']['schoolName'];
                             $instituteIDOld = $_SESSION['transer']['instituteID'];
-                            
+
                             //echo $instituteIDOld;
                         }
                         ?>
@@ -163,7 +163,7 @@
                                     echo '<script language="javascript">';
                                     echo 'alert("Transer SuccessFully.Thankyou")';
                                     echo '</script>';
-                                }else{
+                                } else {
                                     echo '<script language="javascript">';
                                     echo 'alert("not insert into working history")';
                                     echo '</script>';
@@ -256,7 +256,7 @@
 
 
 
-<?php include 'footer.php' ?>
+            <?php include 'footer.php' ?>
             <script src = "../assets/js/addEmployee.js"></script>
 
             <script src="../assets/js/validateTranserForm.js"></script>
