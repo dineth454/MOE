@@ -437,7 +437,8 @@ class Employee {
         $result_searchUserProvinceID = $mysqli->query($query_for_find_provinceID);
         $result_searchUserProvinceIdArray = mysqli_fetch_array($result_searchUserProvinceID);
         // $provinceID_searchUser =  $result_searchUserProvinceIdArray['provinceID'];
-
+       // echo 'banda';
+        //echo $provinceID_searchUser;
         return $result_searchUserProvinceIdArray;
     }
 
