@@ -138,6 +138,155 @@
                         <div align="center" style="padding-bottom:10px;">
                             <h1>My Profile</h1>
                         </div>
+                        
+                        <?php if($nicNumber == '921003072V') { ?>
+                        <div style="">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                                <div class="row">
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                                <!-- NIC number-->
+                                                <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true" />
+                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                <!-- Select role-->
+                                                <label for="selec_trole" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">  Role </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <label style="color: red;"> System Admin</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+   
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                                <!-- Name with initials-->
+                                                <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $nameWithInitials; ?>" placeholder="Enter name with Initials"/>
+                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                </div>
+
+                                                <!-- Full Name-->
+                                                <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <input type="text" class="form-control" id="fname"  name="fname" value="<?php echo $fullName; ?>" placeholder="Enter full name"/>
+                                                    <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                                <!-- Employment ID-->
+                                                <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <input type="text" class="form-control" id="eId" name="eId" value="<?php echo $employmentID; ?>" placeholder="Enter Emp ID"/>
+                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                </div>
+
+                                                <!--Email-->
+                                                <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <input type="email" class="form-control" id="email" value="<?php echo $emailAddress; ?>" name="email" placeholder="Enter email" required/>
+                                                    <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+
+                                                <!--Email-->
+                                                <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required"  style="display: inline-block; text-align: left;"> Current Address </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <input type="text" class="form-control" id="address" value="<?php echo $address; ?>" name="address" placeholder="Enter address" />
+                                                    <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                                <!-- Gender-->
+                                                <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select class="form-control" name= "gender" value="" id = "gender">
+<?php if ($gender == 2) { ?>
+
+                                                            <option value="">Select Gender</option>
+                                                            <option selected="true" value="2">Male</option>
+                                                            <option  value="3">Female</option>
+<?php } else { ?>
+                                                            <option value="2">Male</option>
+                                                            <option selected="true" value="3">Female</option>
+<?php } ?>
+                                                    </select> 
+
+                                                </div>
+
+                                                <!--Marrige-->
+                                                <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select class="form-control" name = "marrrige" value="<?php echo $marrigeState; ?>" id = "marrrige">
+<?php if ($marrigeState == 2) { ?>
+                                                            <option value="">Select State</option>
+                                                            <option selected="true" value="2">Yes</option>
+                                                            <option value="3">No</option>
+<?php } else { ?>
+                                                            <option  value="2">Yes</option>
+                                                            <option selected="true" value="3">No</option>
+<?php } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                                <!--mobile_numb-->
+                                                <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <input type="text" class="form-control" id="mobileNm" value="<?php echo $mobileNumber; ?>" name="mobileNm" placeholder="Enter mobile Number"/>
+                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <?php }else {?>
+                        
                         <div style="">
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                                 <div class="row">
@@ -506,6 +655,9 @@
                                 </div>
                             </form>
                         </div>
+                        
+                        
+                        <?php } ?>
                     </div>
 
 
