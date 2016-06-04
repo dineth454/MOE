@@ -317,9 +317,7 @@ class Employee {
             echo '<script language="javascript">';
             echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
             echo '</script>';
-        }
-
-        else if ($roletypeID == 1 and $designationIdLoggedUser == 1) {
+        } else if ($roletypeID == 1 and $designationIdLoggedUser == 1) {
             return $result_employeeArray;
             //echo '123456';
         } else if ($designationIdLoggedUser < $designationOfsearchUser) {
