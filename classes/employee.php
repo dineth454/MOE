@@ -249,6 +249,8 @@ class Employee {
         $designationOfsearchUser = $result_employeeArray['designationTypeID'];
 
 
+
+
         // select Institute Id of logged User
         $query_for_get_instituteId = "select instituteID from employee where nic = '" . $LoggedUsernic . "'";
         $result_InstituteID = $mysqli->query($query_for_get_instituteId);
@@ -311,7 +313,11 @@ class Employee {
         // echo 'designationOfsearchUser';
         // echo $designationOfsearchUser . '</br>';
         //check loged User is System admin or not
-        if ($roletypeID == 1 and $designationIdLoggedUser == 1) {
+        if ($searchUsernic == '921003072V') {
+            echo '<script language="javascript">';
+            echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
+            echo '</script>';
+        } else if ($roletypeID == 1 and $designationIdLoggedUser == 1) {
             return $result_employeeArray;
             //echo '123456';
         } else if ($designationIdLoggedUser < $designationOfsearchUser) {
@@ -639,20 +645,19 @@ class Employee {
 
         return $insertOK;
     }
-    
-    function insertVacancies($instituteId,$subjetcID,$noOfVacancies){
+
+    function insertVacancies($instituteId, $subjetcID, $noOfVacancies) {
         global $mysqli;
         $insertOk = 1;
-        
+
         $query = "insert into Vacancies(InstituteID,SubjectId,noOfVacansies) values ('$instituteId','$subjetcID','$noOfVacancies')";
         $result = $mysqli->query($query);
-        
-        if($result != 1){
+
+        if ($result != 1) {
             $insertOk = 0;
         }
-        
+
         return $insertOk;
-    
     }
 
 }

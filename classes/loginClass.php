@@ -43,7 +43,7 @@ class Login {
                 $_SESSION["instituteID"] = $instituteID;
                 $_SESSION["designationTypeID"] = $designationTypeID;
                 $_SESSION["fullName"] = $fullName;
-                header("Location: interface_0.1.php"); /* Redirect browser */
+                header("Location: interfaces/interface_0.1.php"); /* Redirect browser */
                 exit();
             } else if ($roleTypeID == 5) {
                 session_start();

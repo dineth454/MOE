@@ -55,7 +55,7 @@
                             $searchUserCurrentAddress = $_SESSION['transer']['currentaddress'];
                             $searchUserCurrntSchool = $_SESSION['transer']['schoolName'];
                             $instituteIDOld = $_SESSION['transer']['instituteID'];
-                            
+
                             //echo $instituteIDOld;
                         }
                         ?>
@@ -163,7 +163,7 @@
                                     echo '<script language="javascript">';
                                     echo 'alert("Transer SuccessFully.Thankyou")';
                                     echo '</script>';
-                                }else{
+                                } else {
                                     echo '<script language="javascript">';
                                     echo 'alert("not insert into working history")';
                                     echo '</script>';
@@ -179,7 +179,7 @@
                             <h1>Transer To</h1>
                         </div>
 
-                        <form name="TranserForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="" novalidate>
+                        <form name="TranserForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="return (validateTranserForm())" novalidate>
 
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -256,10 +256,10 @@
 
 
 
-<?php include 'footer.php' ?>
+            <?php include 'footer.php' ?>
             <script src = "../assets/js/addEmployee.js"></script>
 
-
+            <script src="../assets/js/validateTranserForm.js"></script>
             <script src="../assets/js/jquery.js"></script>
 
 
