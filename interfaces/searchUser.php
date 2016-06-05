@@ -63,7 +63,6 @@ ob_start();
                         $result3 = $employee->getSchoolIDOfLoggedUser($LoggedUsernic);
                         $schoolIDLoggedUser = $result3['schoolID'];
 
-
                         ?>
 
                         
@@ -86,10 +85,10 @@ ob_start();
                                                 <input maxlength="10" type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number" autofocus/>
                                             </div>
 
-                                            <!-- Employement ID-->
-                                            <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
+                                            <!-- Name-->
+                                            <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" class="form-control" id="eId" name="eId" placeholder="Enter Emp ID"/>
+                                                <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter full name"/>
                                             </div>
                                         </div>
                                     </div>
@@ -97,23 +96,17 @@ ob_start();
 
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <!-- Select role-->
-                                            <label for="selec_trole" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Select Role </label>
-
+                                            <!-- Employement ID-->
+                                            <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <select required class="form-control" id="select_role" name="select_role" >
-                                                    <option value="">Select Role</option>
-                                                    <option value="2">role2</option>
-                                                    <option value="3">role3</option>
-                                                    <option value="4">role4</option>
-                                                    <option value="5">role5</option>
-                                                </select>
-                                            </div>
+                                                <input type="text" class="form-control" id="eId" name="eId" placeholder="Enter Emp ID"/>
+                                            </div> 
 
-                                            <!-- Name-->
-                                            <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name </label>
+                                            <!--Email-->
+                                            <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter full name"/>
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
+                                                    <label id="errorEmail" style="font-size:10px"> </label>
                                             </div>
                                         </div>
                                     </div>
@@ -132,13 +125,6 @@ ob_start();
                                                     <option value="4">principal</option>
                                                     <option value="5">teacher</option>
                                                 </select>
-                                            </div>
-
-                                            <!--Email-->
-                                            <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
-                                                    <label id="errorEmail" style="font-size:10px"> </label>
                                             </div>
                                         </div>
                                     </div>
@@ -217,17 +203,6 @@ ob_start();
 
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <!--mobile_numb-->
-                                            <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" class="form-control" id="mobileNm" name="mobileNm" placeholder="Enter mobile Number"/>
-                                            </div>  
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
                                             </div>
@@ -242,13 +217,11 @@ ob_start();
                         if (isset($_POST['submit'])) {
 
                             $search_nic = "";
+                            $search_fullName = "";
 
-                            $roleType = $_POST['select_role'];
                             $designation = $_POST['designation'];
-                            $fName = $_POST['fname'];
                             $empID = $_POST['eId'];
                             $email = $_POST['email'];
-                            $mobileNum = $_POST['mobileNm'];
 
 
                             if (isset($_POST["nic"]) && $_POST["nic"] != '') {
@@ -256,12 +229,17 @@ ob_start();
                                 $search_nic = " AND (nic LIKE '%$nic%')";
                             }
 
-                            $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic;
+                            if (isset($_POST["fname"]) && $_POST["fname"] != '') {
+                                $fullName = mysql_real_escape_string($_POST["fname"]);
+                                $search_fullName = " AND (fullName LIKE '%$fullName%')";
+                            }
+
+                            $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName;
 
                             echo '<table width="700" border="1" cellspacing="0" cellpadding="4">';
-                            echo '<tr><td width="90" bgcolor="#CCCCCC"><strong>Policy No.</strong></td>';
+                            echo '<tr><td width="90" bgcolor="#CCCCCC"><strong>NIC</strong></td>';
                             echo '<td width="95" bgcolor="#CCCCCC"><strong>Name</strong></td>';
-                            echo '<td width="159" bgcolor="#CCCCCC"><strong>Surname</strong></td></tr>';
+                            echo '<td width="159" bgcolor="#CCCCCC"><strong>Employment ID</strong></td></tr>';
 
                             $result = mysqli_query($mysqli, $query);
 
@@ -269,8 +247,8 @@ ob_start();
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo '<tr>';
                                     echo "<td>{$row['nic']}</td>";
-                                    echo "<td>{$row['designationTypeID']}</td>";
                                     echo "<td>{$row['fullName']}</td>";
+                                    echo "<td>{$row['employeementID']}</td>";
                                     echo '</tr>';
                                 }
                             }else{

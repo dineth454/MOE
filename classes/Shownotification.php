@@ -1,4 +1,5 @@
-<?php 
+<?php
+// machan dbcon.php eken connection eka gattha nm hondai neda?
 $mysqli = new mysqli("localhost", "gtms", "gtms", "moe");
 
 class Shownotification{
