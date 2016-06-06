@@ -69,7 +69,7 @@ ob_start();
 
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">Add Employee</h1>
+                            <h1 class="topic_font">Search User</h1>
                         </div>
 
                         <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit=""  novalidate>
@@ -218,11 +218,10 @@ ob_start();
 
                             $search_nic = "";
                             $search_fullName = "";
+                            $search_eID = "";
+                            $search_email = "";
 
                             $designation = $_POST['designation'];
-                            $empID = $_POST['eId'];
-                            $email = $_POST['email'];
-
 
                             if (isset($_POST["nic"]) && $_POST["nic"] != '') {
                                 $nic = strtoupper(mysql_real_escape_string($_POST["nic"]));
@@ -234,21 +233,36 @@ ob_start();
                                 $search_fullName = " AND (fullName LIKE '%$fullName%')";
                             }
 
-                            $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName;
+                            if (isset($_POST["eId"]) && $_POST["eId"] != '') {
+                                $eID = mysql_real_escape_string($_POST["eId"]);
+                                $search_eID = " AND (employeementID LIKE '%$eID%')";
+                            }
+
+                            if (isset($_POST["email"]) && $_POST["email"] != '') {
+                                $email = mysql_real_escape_string($_POST["email"]);
+                                $search_email = " AND (email LIKE '%$email%')";
+                            }
+
+                            $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName.$search_eID.$search_email;
 
                             echo '<table width="700" border="1" cellspacing="0" cellpadding="4">';
-                            echo '<tr><td width="90" bgcolor="#CCCCCC"><strong>NIC</strong></td>';
-                            echo '<td width="95" bgcolor="#CCCCCC"><strong>Name</strong></td>';
-                            echo '<td width="159" bgcolor="#CCCCCC"><strong>Employment ID</strong></td></tr>';
+                            echo '<tr><td width="90" bgcolor="#CCCCCC" align="center"><strong>NIC</strong></td>';
+                            echo '<td width="95" bgcolor="#CCCCCC" align="center"><strong>Name</strong></td>';
+                            echo '<td width="90" bgcolor="#CCCCCC" align="center"><strong>Employment ID</strong></td>';
+                            echo '<td width="120" bgcolor="#CCCCCC" align="center"><strong>Email</strong></td>';
+                            echo '<td width="90" bgcolor="#CCCCCC"><strong></strong></td></tr>';
 
                             $result = mysqli_query($mysqli, $query);
 
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
+                                    $rslt_ID = $row['nic'];
                                     echo '<tr>';
                                     echo "<td>{$row['nic']}</td>";
                                     echo "<td>{$row['fullName']}</td>";
                                     echo "<td>{$row['employeementID']}</td>";
+                                    echo "<td>{$row['email']}</td>";
+                                    echo "<td align='center'><a href='searchResult.php?rslt_ID=".$rslt_ID."'>more</a></td>";
                                     echo '</tr>';
                                 }
                             }else{
