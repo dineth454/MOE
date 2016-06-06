@@ -26,7 +26,7 @@ ob_end_flush();
         <a href="viewProfile.php" >
             <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["fullName"] ?> 
         </a>
-        <span id="notification_li">
+<!--        <span id="notification_li">
             <span id="notification_count" runat="server"></span>
             <a href="#" id="notificationLink">
                 <img src="../images/bell.jpg" style="width: 27px;"/>
@@ -37,14 +37,14 @@ ob_end_flush();
 
                     <?php 
 
-                       $not->notResualt();
+                       //$not->notResualt();
                         
                         
                     ?>
                     </div>
                 <div id="notificationFooter"><a href="#">See All</a></div>
             </div>
-        </span> 
+        </span> -->
         <div class="pull-right" style="padding-right:50px;">
             <a href="../classes/signout.php">Sign out</a>
         </div>
