@@ -256,7 +256,9 @@ ob_start();
 
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
+                                    //to send results to searchResult page
                                     $rslt_ID = $row['nic'];
+                                    
                                     echo '<tr>';
                                     echo "<td>{$row['nic']}</td>";
                                     echo "<td>{$row['fullName']}</td>";

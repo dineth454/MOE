@@ -10,7 +10,7 @@ ob_start();
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 //header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
-if (!isset($_SESSION['fullName']) || time() - $_SESSION['login_time'] > 600) {
+if (!isset($_SESSION['fullName']) || time() - $_SESSION['login_time'] > 60000) {
     header('Location: ../SystemLogin.php');
     exit();
 } else {
