@@ -119,11 +119,11 @@ ob_start();
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
                                                     <option value="">Select Designation</option>
-                                                    <option value="1">ministryOfficer</option>
-                                                    <option value="2">provincial Officer</option>
-                                                    <option value="3">zonal Officer</option>
-                                                    <option value="4">principal</option>
-                                                    <option value="5">teacher</option>
+                                                    <option value="1">Ministry Officer</option>
+                                                    <option value="2">Provincial Officer</option>
+                                                    <option value="3">Zonal Officer</option>
+                                                    <option value="4">Principal</option>
+                                                    <option value="5">Teacher</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -176,30 +176,7 @@ ob_start();
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <div class="row">
-                                        <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div id="subjectHidden" class="form-group">
-                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
-
-                                                <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select required class="form-control" name="subject" id="subject" >
-                                                        <option value="">--Select Subject--</option>
-                                                            <?php
-                                                            $result = $employee->loadSubjects();
-
-                                                            foreach ($result as $array) {
-
-                                                                echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-                                                            }
-                                                            ?> 
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    
 
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -216,12 +193,13 @@ ob_start();
                         <?php
                         if (isset($_POST['submit'])) {
 
+                            $query = "";
                             $search_nic = "";
                             $search_fullName = "";
                             $search_eID = "";
                             $search_email = "";
+                            $search_designation = "";
 
-                            $designation = $_POST['designation'];
 
                             if (isset($_POST["nic"]) && $_POST["nic"] != '') {
                                 $nic = strtoupper(mysql_real_escape_string($_POST["nic"]));
@@ -244,6 +222,75 @@ ob_start();
                             }
 
                             $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName.$search_eID.$search_email;
+
+                            if (isset($_POST["designation"]) && $_POST["designation"] != '') {
+                                $designation = mysql_real_escape_string($_POST["designation"]);
+                                $search_designation = " AND (designationTypeID = '$designation')";
+
+
+                                if($_POST["designation"] == 1){
+                                    
+                                    $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation;
+                                }
+                                else if($_POST["designation"] == 2){
+                                    if($_POST["provinceID"] != ''){
+                                        $provinceID = $_POST["provinceID"];
+                                        //echo $provinceID;
+                                        $query ="SELECT * FROM employee e INNER JOIN province_office p ON p.instituteID = e.instituteID WHERE p.provinceID = '$provinceID'".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation; 
+                                    }else{
+                                        $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation;
+                                    }
+                                    
+                                }
+                                else if($_POST["designation"] == 3){
+                                    if($_POST["provinceID"] != '' && $_POST["zonalID"] != ''){
+                                        $provinceID = $_POST["provinceID"];
+                                        $zonalID = $_POST["zonalID"];
+                                        //echo $provinceID;
+                                        $query ="SELECT * FROM employee e INNER JOIN zonal_office z ON z.instituteID = e.instituteID WHERE z.provinceOfficeID = '$provinceID' AND z.zonalID = '$zonalID'".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation; 
+                                    }
+                                    else if($_POST["provinceID"] != '' && $_POST["zonalID"] == ''){
+                                        $provinceID = $_POST["provinceID"];
+                                        $zonalID = $_POST["zonalID"];
+                                    
+                                        $query ="SELECT * FROM employee e INNER JOIN province_office p ON p.instituteID = e.instituteID WHERE p.provinceID = '$provinceID'".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation;
+                                    }
+                                    else{
+                                        $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation;
+                                    }
+                                    
+                                }
+                                else if($_POST["designation"] == 4 || $_POST["designation"] == 5){
+                                    if($_POST["provinceID"] != '' && $_POST["zonalID"] != '' && $_POST["schoolId"] != ''){
+                                        $provinceID = $_POST["provinceID"];
+                                        $zonalID = $_POST["zonalID"];
+                                        $schoolID = $_POST["schoolId"];
+                                        //echo $provinceID;
+                                        $query ="SELECT * FROM employee e INNER JOIN school s ON s.instituteID = e.instituteID WHERE s.provinceOfficeID = '$provinceID' AND s.zonalOfficeID = '$zonalID' AND s.schoolID = '$schoolID'".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation; 
+                                    }
+                                    else if($_POST["provinceID"] != '' && $_POST["zonalID"] != '' && $_POST["schoolId"] == ''){
+                                        $provinceID = $_POST["provinceID"];
+                                        $zonalID = $_POST["zonalID"];
+        
+                                        //echo $provinceID;
+                                        $query ="SELECT * FROM employee e INNER JOIN zonal_office z ON z.instituteID = e.instituteID WHERE z.provinceOfficeID = '$provinceID' AND z.zonalID = '$zonalID'".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation; 
+                                    }
+                                    else if($_POST["provinceID"] != ''){
+                                        echo "fyfhgjk";
+                                        $provinceID = $_POST["provinceID"];
+                                        $zonalID = $_POST["zonalID"];
+    
+                                        $query ="SELECT * FROM employee e INNER JOIN province_office p ON p.instituteID = e.instituteID WHERE p.provinceID = '$provinceID'".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation;
+                                    }
+                                    else{
+                                        $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation;
+                                    }
+                                    
+                                }
+                            }
+
+
+                            
 
                             echo '<table width="700" border="1" cellspacing="0" cellpadding="4">';
                             echo '<tr><td width="90" bgcolor="#CCCCCC" align="center"><strong>NIC</strong></td>';
