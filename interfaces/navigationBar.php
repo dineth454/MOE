@@ -19,17 +19,22 @@ if (!isset($_SESSION['fullName']) || time() - $_SESSION['login_time'] > 60000) {
 ob_end_flush();
 ?>
 
-<nav class="navbar navbar-inverse" style="height: 65px; border-radius:0px;">
+
+        <link href="../assets/css/notification.css" rel="stylesheet">
+
+<nav class="navbar navbar-default" style="height: 65px; border-radius:0px;">
+
 
     <div class="col-md-3 pull-right" style="margin-top: 18px;padding-left: 0px;">
-       
+
         <a href="viewProfile.php" >
             <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["fullName"] ?> 
-        </a>
-<!--        <span id="notification_li">
+        </a> 
+
+       <span id="notification_li">
             <span id="notification_count" runat="server"></span>
             <a href="#" id="notificationLink">
-                <img src="../images/bell.jpg" style="width: 27px;"/>
+                <img src="../images/letter.png" style="width: 27px;"/>
             </a>
             <div id="notificationContainer">
                 <div id="notificationTitle" runat="server">Notifications</div>
@@ -44,7 +49,7 @@ ob_end_flush();
                     </div>
                 <div id="notificationFooter"><a href="#">See All</a></div>
             </div>
-        </span> -->
+        </span> 
         <div class="pull-right" style="padding-right:50px;">
             <a href="../classes/signout.php">Sign out</a>
         </div>

@@ -29,8 +29,7 @@
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/fonts_styles.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
-        <link href="../assets/css/notification.css" rel="stylesheet">
-
+        
     </head>
 
     <body>
@@ -114,11 +113,7 @@
         <!-- /#wrapper -->
 
         <?php include 'footer.php' ?>
-        <!--jQuery -->
-        <script src="../assets/js/jquery.js"></script>
- 
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/notification.js"></script>
+        
 
 
     </body>

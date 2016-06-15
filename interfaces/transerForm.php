@@ -100,7 +100,7 @@
 
                                             <!-- Name with initials-->
                                             <label for="ini_name" class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-5 required" style="display: inline-block; text-align: left;"> Name with Initials: </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-5">
 
                                                 <label id="NamewithInitials" style="font-size:15px"><?php echo $nameWithInitials; ?> </label>
                                             </div>
@@ -114,7 +114,7 @@
 
                                             <!-- Current Address-->
                                             <label for="CurrentAddress" class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-5 required" style="display: inline-block; text-align: left;"> Current Address: </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-6">
 
                                                 <label id="currentAddress" style="font-size:15px"><?php echo $searchUserCurrentAddress; ?> </label>
                                             </div>
@@ -261,8 +261,6 @@
 
             <script src="../assets/js/validateTranserForm.js"></script>
             <script src="../assets/js/jquery.js"></script>
-
-
             <script src="../assets/js/bootstrap.min.js"></script>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
