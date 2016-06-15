@@ -516,16 +516,16 @@ class Employee {
         return $result;
     }
 
-    function insertIntoSubjetcCombination($nic, $currentSubject, $grade) {
+    function insertIntoSubjetcCombination($nic, $currentSubject, $grade,$schoolID) {
         global $mysqli;
         $insertok = 1;
-
+        //echo $schoolID;
         $query_for_get_teacherId = "select teachetID from teacher where nic = '" . $nic . "'";
         $result = $mysqli->query($query_for_get_teacherId);
         $resultArray = mysqli_fetch_array($result);
         $teacherID = $resultArray['teachetID'];
 
-        $query_for_insert_values = "insert into subject_combination values('$teacherID',$currentSubject,$grade)";
+        $query_for_insert_values = "insert into subject_combinat values($teacherID,$currentSubject,$grade,$schoolID)";
         $result1 = $mysqli->query($query_for_insert_values);
         if ($result1 != 1) {
             $insertok = 0;

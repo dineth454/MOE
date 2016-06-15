@@ -52,8 +52,11 @@
                             $grade = $_POST['grade'];
 
                             $employee = new Employee();
-
-                            $insertSuccess = $employee->insertIntoSubjetcCombination($nicNumber, $currentSubject, $grade);
+                            $schoolIDArray = $employee->getSchoolIDOfLoggedUser($nicNumber);
+                            //echo $schoolID;
+                            $schoolID= $schoolIDArray['schoolID'];
+                           // echo $schoolID;
+                            $insertSuccess = $employee->insertIntoSubjetcCombination($nicNumber, $currentSubject, $grade,$schoolID);
 
                             if ($insertSuccess == 1) {
                                 echo '<script language="javascript">';
