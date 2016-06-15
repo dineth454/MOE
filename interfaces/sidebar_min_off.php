@@ -4,7 +4,7 @@
                         <a href="interface_0.1.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse1"><i class="fa fa-users fa-2x" aria-hidden="true"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse1"><i class="fa fa-users fa-2x" ></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse1" class="collapse">
                             <li>
                                 <a href="addEmployee.php">Add User</a>
