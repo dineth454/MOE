@@ -69,7 +69,7 @@ ob_start();
 
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">Add Employee</h1>
+                            <h1 class="topic_font">Search User</h1>
                         </div>
 
                         <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit=""  novalidate>
@@ -119,11 +119,11 @@ ob_start();
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
                                                     <option value="">Select Designation</option>
-                                                    <option value="1">ministryOfficer</option>
-                                                    <option value="2">provincial Officer</option>
-                                                    <option value="3">zonal Officer</option>
-                                                    <option value="4">principal</option>
-                                                    <option value="5">teacher</option>
+                                                    <option value="1">Ministry Officer</option>
+                                                    <option value="2">Provincial Officer</option>
+                                                    <option value="3">Zonal Officer</option>
+                                                    <option value="4">Principal</option>
+                                                    <option value="5">Teacher</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -176,30 +176,7 @@ ob_start();
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <div class="row">
-                                        <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div id="subjectHidden" class="form-group">
-                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
-
-                                                <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select required class="form-control" name="subject" id="subject" >
-                                                        <option value="">--Select Subject--</option>
-                                                            <?php
-                                                            $result = $employee->loadSubjects();
-
-                                                            foreach ($result as $array) {
-
-                                                                echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-                                                            }
-                                                            ?> 
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    
 
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -216,46 +193,136 @@ ob_start();
                         <?php
                         if (isset($_POST['submit'])) {
 
-                            $search_nic = "";
-                            $search_fullName = "";
+                            if($_POST["nic"] != '' || $_POST["fname"] != '' || $_POST["eId"] != '' ||
+                                $_POST["email"] != '' || $_POST["designation"] != '' || $_POST["provinceID"] != '') {
 
-                            $designation = $_POST['designation'];
-                            $empID = $_POST['eId'];
-                            $email = $_POST['email'];
+                                $query = "";
+                                $search_nic = "";
+                                $search_fullName = "";
+                                $search_eID = "";
+                                $search_email = "";
+                                $search_designation = "";
+                                $search_designation_two = "";
+                                $search_designation_three = "";
+                                $search_designation_four = "";
 
 
-                            if (isset($_POST["nic"]) && $_POST["nic"] != '') {
-                                $nic = strtoupper(mysql_real_escape_string($_POST["nic"]));
-                                $search_nic = " AND (nic LIKE '%$nic%')";
-                            }
-
-                            if (isset($_POST["fname"]) && $_POST["fname"] != '') {
-                                $fullName = mysql_real_escape_string($_POST["fname"]);
-                                $search_fullName = " AND (fullName LIKE '%$fullName%')";
-                            }
-
-                            $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName;
-
-                            echo '<table width="700" border="1" cellspacing="0" cellpadding="4">';
-                            echo '<tr><td width="90" bgcolor="#CCCCCC"><strong>NIC</strong></td>';
-                            echo '<td width="95" bgcolor="#CCCCCC"><strong>Name</strong></td>';
-                            echo '<td width="159" bgcolor="#CCCCCC"><strong>Employment ID</strong></td></tr>';
-
-                            $result = mysqli_query($mysqli, $query);
-
-                            if (mysqli_num_rows($result) > 0) {
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    echo '<tr>';
-                                    echo "<td>{$row['nic']}</td>";
-                                    echo "<td>{$row['fullName']}</td>";
-                                    echo "<td>{$row['employeementID']}</td>";
-                                    echo '</tr>';
+                                if ($_POST["nic"] != '') {
+                                    $nic = strtoupper(mysql_real_escape_string($_POST["nic"]));
+                                    $search_nic = " AND (nic LIKE '%$nic%')";
                                 }
-                            }else{
-                                echo '<tr><td colspan="5">No results found.</td></tr>';
-                            }
 
-                            echo '</table>';
+                                if ($_POST["fname"] != '') {
+                                    $fullName = mysql_real_escape_string($_POST["fname"]);
+                                    $search_fullName = " AND (fullName LIKE '%$fullName%')";
+                                }
+
+                                if ($_POST["eId"] != '') {
+                                    $eID = mysql_real_escape_string($_POST["eId"]);
+                                    $search_eID = " AND (employeementID LIKE '%$eID%')";
+                                }
+
+                                if ($_POST["email"] != '') {
+                                    $email = mysql_real_escape_string($_POST["email"]);
+                                    $search_email = " AND (email LIKE '%$email%')";
+                                }
+
+
+                                if ($_POST["designation"] != '') {
+                                    $designation = mysql_real_escape_string($_POST["designation"]);
+                                    $search_designation = " AND (designationTypeID = '$designation')";
+
+
+                                    if($_POST["designation"] == 1){
+                                        $search_designation = " AND (designationTypeID = '$designation')";
+                                    }
+                                    else if($_POST["designation"] == 2){
+                                        if($_POST["provinceID"] != ''){
+                                            $provinceID = $_POST["provinceID"];
+                                            $search_designation_two = " AND (province_OfficeID = '$provinceID')";
+                                            
+                                        }else{
+                                            $search_designation_two = "";
+                                        }
+                                        
+                                    }
+                                    else if($_POST["designation"] == 3){
+                                        if($_POST["provinceID"] != '' && $_POST["zonalID"] != ''){
+                                            $provinceID = $_POST["provinceID"];
+                                            $zonalID = $_POST["zonalID"];
+                                            $search_designation_three = " AND (province_OfficeID = '$provinceID') AND (zonalOffics_ID = '$zonalID')";
+                            
+                                        }
+                                        else if($_POST["provinceID"] != '' && $_POST["zonalID"] == ''){
+                                            $provinceID = $_POST["provinceID"];
+                                            $zonalID = $_POST["zonalID"];
+                                            $search_designation_three = " AND (province_OfficeID = '$provinceID')";
+                                        }
+                                        else{
+                                            $search_designation_three = "";
+                                        }
+                                        
+                                    }
+                                    else if($_POST["designation"] == 4 || $_POST["designation"] == 5){
+                                        if($_POST["provinceID"] != '' && $_POST["zonalID"] != '' && $_POST["schoolId"] != ''){
+                                            $provinceID = $_POST["provinceID"];
+                                            $zonalID = $_POST["zonalID"];
+                                            $schoolID = $_POST["schoolId"];
+                                            $search_designation_four = " AND (province_OfficeID = '$provinceID') AND (zonalOffics_ID = '$zonalID') AND (SchoolID = '$schoolID')";
+                                            
+                                        }
+                                        else if($_POST["provinceID"] != '' && $_POST["zonalID"] != '' && $_POST["schoolId"] == ''){
+                                            $provinceID = $_POST["provinceID"];
+                                            $zonalID = $_POST["zonalID"];
+                                            $search_designation_four = " AND (province_OfficeID = '$provinceID') AND (zonalOffics_ID = '$zonalID')";
+
+                                        }
+                                        else if($_POST["provinceID"] != ''){
+                                            $provinceID = $_POST["provinceID"];
+                                            $search_designation_four = " AND (province_OfficeID = '$provinceID')";
+                                        }
+                                        else{
+                                            $search_designation_four = "";
+                                        }
+                                        
+                                    }
+                                }
+
+                                $query = "SELECT * FROM employee WHERE roleType > 0".$search_nic.$search_fullName.$search_eID.$search_email.$search_designation.$search_designation_two.$search_designation_three.$search_designation_four;
+
+                                echo '<table width="700" border="1" cellspacing="0" cellpadding="4">';
+                                echo '<tr><td width="90" bgcolor="#CCCCCC" align="center"><strong>NIC</strong></td>';
+                                echo '<td width="95" bgcolor="#CCCCCC" align="center"><strong>Name</strong></td>';
+                                echo '<td width="90" bgcolor="#CCCCCC" align="center"><strong>Employment ID</strong></td>';
+                                echo '<td width="120" bgcolor="#CCCCCC" align="center"><strong>Email</strong></td>';
+                                echo '<td width="90" bgcolor="#CCCCCC"><strong></strong></td></tr>';
+
+                                $result = mysqli_query($mysqli, $query);
+
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        //to send results to searchResult page
+                                        $rslt_ID = $row['nic'];
+                                        
+                                        echo '<tr>';
+                                        echo "<td>{$row['nic']}</td>";
+                                        echo "<td>{$row['fullName']}</td>";
+                                        echo "<td>{$row['employeementID']}</td>";
+                                        echo "<td>{$row['email']}</td>";
+                                        echo "<td align='center'><a href='searchResult.php?rslt_ID=".$rslt_ID."'>more</a></td>";
+                                        echo '</tr>';
+                                    }
+                                }else{
+                                    echo '<tr><td colspan="5">No results found.</td></tr>';
+                                }
+
+                                echo '</table>';
+                            }
+                            else{
+                                echo '<script language="javascript">';
+                                echo 'alert("Please fill/select one or more details to search!!")';
+                                echo '</script>';
+                            }
                         }
                         ?>
 

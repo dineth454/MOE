@@ -58,7 +58,7 @@
 
         </div>
        <li>
-            <a class="slide_font" data-toggle="collapse" href="#collapse7">Search</a>
+            <a class="slide_font active" href="searchUser.php">Search</a>
         </li>
         <!--Transer Teacher -->
         <li>

@@ -123,7 +123,7 @@ class Employee {
 
             if ($instituteID != 0) {
 
-                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,province_OfficeID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$provinceID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
                 $result1 = $mysqli->query($query_for_insert_data_into_employee);
                 if ($result1 == 1) {
 
@@ -145,15 +145,16 @@ class Employee {
             // add Zonal officer into the system -----------------------------------------------------------------------
         } else if ($designation == 3) {
 
-            $query_for_get_institute_id = "select instituteID from zonal_office where zonalID = '" . $zoneID . "'";
+            $query_for_get_institute_id = "select instituteID,provinceOfficeID from zonal_office where zonalID = '" . $zoneID . "'";
             $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
             $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
             $instituteID = $instituteIDArray["instituteID"];
+            $provinceOfficeId = $instituteIDArray["provinceOfficeID"];
 
             //echo $instituteID;
 
             if ($instituteID != 0) {
-                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,province_OfficeID,zonalOffics_ID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$provinceOfficeId,$zoneID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
                 $result1 = $mysqli->query($query_for_insert_data_into_employee);
                 if ($result1 == 1) {
 
@@ -177,15 +178,17 @@ class Employee {
 
 
 
-            $query_for_get_institute_id = "select instituteID from school where schoolID = '" . $schoolId . "'";
+            $query_for_get_institute_id = "select instituteID,provinceOfficeID,zonalOfficeID from school where schoolID = '" . $schoolId . "'";
             $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
             $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
             $instituteID = $instituteIDArray["instituteID"];
+            $provinceOfficeId = $instituteIDArray["provinceOfficeID"];
+            $zonalOfficeId = $instituteIDArray["zonalOfficeID"];
 
 
 
             if ($instituteID != 0) {
-                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,province_OfficeID,zonalOffics_ID,SchoolID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$provinceOfficeId,$zonalOfficeId,$schoolId,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
                 $result1 = $mysqli->query($query_for_insert_data_into_employee);
                 if ($result1 == 1) {
                     $query_for_insert_principal_tabel = "insert into principal (nic,zonalOfficeID,provinceOfficerID) values('$nic',$zoneID,$provinceID)";
@@ -205,14 +208,16 @@ class Employee {
             }
         } else {
 
-            $query_for_get_institute_id = "select instituteID from school where schoolID = '" . $schoolId . "'";
+            $query_for_get_institute_id = "select instituteID,provinceOfficeID,zonalOfficeID from school where schoolID = '" . $schoolId . "'";
             $resultOfInstituteId = $mysqli->query($query_for_get_institute_id);
             $instituteIDArray = mysqli_fetch_assoc($resultOfInstituteId);
             $instituteID = $instituteIDArray["instituteID"];
+            $provinceOfficeId = $instituteIDArray["provinceOfficeID"];
+            $zonalOfficeId = $instituteIDArray["zonalOfficeID"];
 
 
             if ($instituteID != 0) {
-                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
+                $query_for_insert_data_into_employee = "insert into employee (nic,instituteID,province_OfficeID,zonalOffics_ID,SchoolID,roleType,designationTypeID,nameWithInitials,fullName,employeementID,email,currentAddress,gender,marrigeState,mobileNum) values ('$nic',$instituteID,$provinceOfficeId,$zonalOfficeId,$schoolId,$roleType,$designation,'$nameInitials','$fName','$empID','$email','$currentAddress','$gender','$marrigeState','$mobileNum')";
                 $result1 = $mysqli->query($query_for_insert_data_into_employee);
 
                 if ($result1 == 1) {

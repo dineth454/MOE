@@ -1,4 +1,4 @@
-
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,8 +165,9 @@
                                                 <!-- NIC number-->
                                                 <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" required class="form-control" value="<?php echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true" />
+                                                   <!-- <input type="text" required class="form-control" value="<?php //echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true" /> -->
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                    <label style="color: blue"> <?php echo $nicNumber; ?> </label>
                                                 </div>
 
                                             </div>
@@ -210,48 +211,27 @@
 
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
 
-                                                        <select required disabled="true" class="form-control " name="provinceID" id="provinceID" >
+                                                        
 
                                                             <?php if ($searchUserProvinceId == 1) { ?>
-                                                                <option value="" >Select ProvinceOffice</option>
-
-                                                                <option selected="true" value="1">centralProvince</option>
-                                                                <option value="2">westernProvince</option>
-                                                                <option value="3">sothernProvince</option>
-                                                                <option value="4">NothernProvince</option>
-                                                                <option value="5">esternProvince</option>
+                                                                <!--<option selected="true" value="1">centralProvince</option>-->
+                                                                
+                                                                <label style="color: blue;">centralProvince</label>
                                                             <?php } else if ($searchUserProvinceId == 2) { ?>
-                                                                <option value="" >Select ProvinceOffice</option>
-
-                                                                <option  value="1">centralProvince</option>
-                                                                <option selected="true" value="2">westernProvince</option>
-                                                                <option value="3">sothernProvince</option>
-                                                                <option value="4">NothernProvince</option>
-                                                                <option value="5">esternProvince</option>
+                                                                
+                                                                <label style="color: blue;">westernProvince</label>
+                                                                
                                                             <?php } else if ($searchUserProvinceId == 3) { ?>
-                                                                <option value="" >Select ProvinceOffice</option>
-
-                                                                <option  value="1">centralProvince</option>
-                                                                <option  value="2">westernProvince</option>
-                                                                <option selected="true"  value="3">sothernProvince</option>
-                                                                <option value="4">NothernProvince</option>
-                                                                <option value="5">esternProvince</option>
+                                                                
+                                                                <label style="color: blue;">sothernProvince</label>
+                                                                
                                                             <?php } else if ($searchUserProvinceId == 4) { ?>
-                                                                <option value="" >Select ProvinceOffice</option>
-
-                                                                <option  value="1">centralProvince</option>
-                                                                <option  value="2">westernProvince</option>
-                                                                <option   value="3">sothernProvince</option>
-                                                                <option selected="true" value="4">NothernProvince</option>
-                                                                <option value="5">esternProvince</option>
+                                                                 <label style="color: blue;">NothernProvince</label>
+                                                              
                                                             <?php } else if ($searchUserProvinceId == 5) { ?>
-                                                                <option value="" >Select ProvinceOffice</option>
-
-                                                                <option  value="1">centralProvince</option>
-                                                                <option  value="2">westernProvince</option>
-                                                                <option   value="3">sothernProvince</option>
-                                                                <option  value="4">NothernProvince</option>
-                                                                <option selected="true" value="5">esternProvince</option>
+                                                                 
+                                                                 <label style="color: blue;">esternProvince</label>
+                                                                
                                                             <?php } else {
                                                                 
                                                             }
@@ -273,17 +253,15 @@
                                                 <div id="zonalOfficeHidden" class="form-group">
                                                     <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Zonal Office :  </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select disabled="true"  required class="form-control" name="zonalID"  id="abc" >  
-                                                            <?php
+                                                        <?php
                                                             $result = $employee->loadZonalOffices();
 
                                                             foreach ($result as $array) {
                                                                 if ($array['zonalID'] == $searchUserZonalId) {
-                                                                    echo '<option selected = "true" value="' . $array['zonalID'] . '" >' . $array['zonalName'] . '</option>';
+                                                                    echo '<label style="color:blue;" selected = "true" value="' . $array['zonalID'] . '" >' . $array['zonalName'] . '</label>';
                                                                 }
                                                             }
                                                             ?>
-                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -296,17 +274,15 @@
                                                 <div id="schoolHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select disabled="true" class="form-control required" name="schoolId" id="abcd"  >
-                                                            <?php
+                                                          <?php
                                                             $result = $employee->loadSchools();
 
                                                             foreach ($result as $array) {
                                                                 if ($array['schoolID'] == $searchUserSchoolId) {
-                                                                    echo '<option selected = "true" value="' . $array['schoolID'] . '" >' . $array['schoolName'] . '</option>';
+                                                                    echo '<label style="color:blue;" selected = "true" value="' . $array['schoolID'] . '" >' . $array['schoolName'] . '</label>';
                                                                 }
                                                             }
                                                             ?>
-                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -319,20 +295,19 @@
                                                 <div id="subjectHidden" class="form-group">
                                                     <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Appoinment Subject :</label>
                                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select disabled="true" required class="form-control" name="subject" id="subject" >
-
-
+                                                       
                                                             <?php
                                                             $result = $employee->loadSubjects();
 
                                                             foreach ($result as $array) {
                                                                 if ($array['subjectID'] == $searchUserSubjectId) {
-                                                                    echo '<option selected = "true" value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                                    echo '<label style="color:blue;" selected = "true" value="' . $array['subjectID'] . '" >' . $array['subject'] . '</label>';
+                                                                    
+                                                                    
+                                                                    
                                                                 }
                                                             }
                                                             ?>
-
-                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -349,15 +324,17 @@
                                                 <!-- Name with initials-->
                                                 <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $nameWithInitials; ?>" placeholder="Enter name with Initials"/>
+                                                   <!-- <input type="text" class="form-control" id="name" name="name" value="<?php echo $nameWithInitials; ?>" placeholder="Enter name with Initials"/>-->
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                    <label style="color: blue;"><?php echo $nameWithInitials; ?></label>
                                                 </div>
 
                                                 <!-- Full Name-->
                                                 <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="fname"  name="fname" value="<?php echo $fullName; ?>" placeholder="Enter full name"/>
+                                                    <!--<input type="text" class="form-control" id="fname"  name="fname" value="<?php echo $fullName; ?>" placeholder="Enter full name"/>-->
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                                    <label style="color: blue;"><?php echo $fullName; ?></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -368,14 +345,16 @@
                                                 <!-- Employment ID-->
                                                 <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="eId" name="eId" value="<?php echo $employmentID; ?>" placeholder="Enter Emp ID"/>
+                                                    <!--<input type="text" class="form-control" id="eId" name="eId" value="<?php echo $employmentID; ?>" placeholder="Enter Emp ID"/>-->
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                    <label style="color: blue;"><?php echo $employmentID; ?></label>
                                                 </div>
 
                                                 <!--Email-->
                                                 <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="email" class="form-control" id="email" value="<?php echo $emailAddress; ?>" name="email" placeholder="Enter email" required/>
+                                                   <!-- <input type="email" class="form-control" id="email" value="<?php echo $emailAddress; ?>" name="email" placeholder="Enter email" required/> -->
+                                                    <label style="color: blue;"><?php echo $emailAddress; ?></label>
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                                 </div>
                                             </div>
@@ -388,7 +367,8 @@
                                                 <!--Email-->
                                                 <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required"  style="display: inline-block; text-align: left;"> Current Address </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="address" value="<?php echo $address; ?>" name="address" placeholder="Enter address" />
+                                                    <!-- <input type="text" class="form-control" id="address" value="<?php echo $address; ?>" name="address" placeholder="Enter address" />-->
+                                                    <label style="color: blue;"><?php echo $address; ?></label>
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                                 </div>
                                             </div>
@@ -400,33 +380,36 @@
                                                 <!-- Gender-->
                                                 <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select class="form-control" name= "gender" value="" id = "gender">
-                                                            <?php if ($gender == 2) { ?>
-
-                                                            <option value="">Select Gender</option>
-                                                            <option selected="true" value="2">Male</option>
-                                                            <option  value="3">Female</option>
+                                                     <?php if ($gender == 2) { ?>
+                                                    
+                                                    <label style="color: blue;"> Male </label>
+                                                            
+                                                           
+                                                            
+                                                            
                                                             <?php } else { ?>
-                                                            <option value="2">Male</option> 
-                                                            <option selected="true" value="3">Female</option>
+                                                           
+                                                    <label style="color: blue;"> Female </label>
                                                             <?php } ?>
-                                                    </select> 
 
                                                 </div>
 
                                                 <!--Marrige-->
                                                 <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select class="form-control" name = "marrrige" value="<?php echo $marrigeState; ?>" id = "marrrige">
+                                                    
                                                             <?php if ($marrigeState == 2) { ?>
-                                                            <option value="">Select State</option>
-                                                            <option selected="true" value="2">Yes</option>
-                                                            <option value="3">No</option>
+                                                    
+                                                    <label style="color: blue;"> Yes </label>
+                                                            
+                                                           
+                                                            
+                                                            
                                                             <?php } else { ?>
-                                                            <option  value="2">Yes</option>
-                                                            <option selected="true" value="3">No</option>
+                                                           
+                                                    <label style="color: blue;"> No </label>
                                                             <?php } ?>
-                                                    </select>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -437,22 +420,16 @@
                                                 <!--mobile_numb-->
                                                 <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="mobileNm" value="<?php echo $mobileNumber; ?>" name="mobileNm" placeholder="Enter mobile Number"/>
+                                                   <!--  <input type="text" class="form-control" id="mobileNm" value="<?php echo $mobileNumber; ?>" name="mobileNm" placeholder="Enter mobile Number"/>--
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                    <label style="color: blue;"> <?php echo $mobileNumber; ?></label>
                                                 </div>
 
 
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                        
 
                                     </div>
 

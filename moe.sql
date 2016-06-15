@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 28, 2016 at 08:11 ප.ව.
--- Server version: 5.6.16
--- PHP Version: 5.5.11
+-- Host: 127.0.0.1
+-- Generation Time: Jun 12, 2016 at 06:39 AM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,10 +27,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `degree` (
-  `degreeID` int(11) NOT NULL AUTO_INCREMENT,
+`degreeID` int(11) NOT NULL,
   `degreeName` varchar(200) NOT NULL,
-  `university` varchar(200) NOT NULL,
-  PRIMARY KEY (`degreeID`)
+  `university` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -40,9 +39,8 @@ CREATE TABLE IF NOT EXISTS `degree` (
 --
 
 CREATE TABLE IF NOT EXISTS `designation` (
-  `designationTypeID` int(11) NOT NULL AUTO_INCREMENT,
-  `designation` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`designationTypeID`)
+`designationTypeID` int(11) NOT NULL,
+  `designation` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
@@ -63,15 +61,11 @@ INSERT INTO `designation` (`designationTypeID`, `designation`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `designation_history` (
-  `designationHistoryID` int(11) NOT NULL AUTO_INCREMENT,
+`designationHistoryID` int(11) NOT NULL,
   `affectedUserID` varchar(12) NOT NULL,
   `designationTypeID` int(11) NOT NULL,
   `editedBynic` varchar(12) NOT NULL,
-  `affectedDate` date NOT NULL,
-  PRIMARY KEY (`designationHistoryID`),
-  KEY `designationHistory_employeenic_idx` (`affectedUserID`),
-  KEY `DesignationHistory_designationTypeID_idx` (`designationTypeID`),
-  KEY `designationHistory_editedby_idx` (`editedBynic`)
+  `affectedDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -85,10 +79,7 @@ CREATE TABLE IF NOT EXISTS `edit_log` (
   `affectedUsernic` varchar(12) NOT NULL,
   `editedBynic` varchar(12) NOT NULL,
   `description` varchar(300) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`editLogID`),
-  KEY `editLog_affectednic_idx` (`affectedUsernic`),
-  KEY `editLog_editedbynic_idx` (`editedBynic`)
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -100,6 +91,9 @@ CREATE TABLE IF NOT EXISTS `edit_log` (
 CREATE TABLE IF NOT EXISTS `employee` (
   `nic` varchar(12) NOT NULL,
   `instituteID` int(11) NOT NULL,
+  `province_OfficeID` int(2) DEFAULT NULL,
+  `zonalOffics_ID` int(2) DEFAULT NULL,
+  `SchoolID` int(2) DEFAULT NULL,
   `roleType` int(11) NOT NULL,
   `designationTypeID` int(11) NOT NULL,
   `nameWithInitials` varchar(100) DEFAULT NULL,
@@ -109,32 +103,22 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `currentAddress` varchar(200) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `marrigeState` varchar(10) DEFAULT NULL,
-  `mobileNum` int(10) DEFAULT NULL,
-  PRIMARY KEY (`nic`),
-  KEY `employee_instituteID_idx` (`instituteID`),
-  KEY `employee_roleTypeID_idx` (`roleType`),
-  KEY `employee_designationTypeID_idx` (`designationTypeID`)
+  `mobileNum` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`nic`, `instituteID`, `roleType`, `designationTypeID`, `nameWithInitials`, `fullName`, `employeementID`, `email`, `currentAddress`, `gender`, `marrigeState`, `mobileNum`) VALUES
-('8011111111v', 1, 2, 1, 'duminda', 'Yapa', '123234', 'dumi@gmail.com', 'kandy', '2', '3', 712854724),
-('812222222v', 2, 3, 2, 'sanjeewa', 'yapa', '147586', 'sanjee@gmail.com', 'kandy', '2', '2', 716545624),
-('8211111111v', 7, 4, 3, 'kkyapa', 'Yaparathna', '12456', 'kk@gmail.com', 'kandy', '2', '2', 719335699),
-('834444444v', 9, 5, 4, 'Poornima', 'Karunarathne', '187656', 'pooh@gmail.com', 'Panadura', '3', '2', 715685458),
-('849999999v', 9, 3, 5, 'ymnrYaparathne', 'RoshanYaparathne', '177626', 'nilu@gmail.com', 'kandy', '2', '2', 715839496),
-('854585555v', 9, 2, 5, 'asa', 'sasasa', '123', 'a@gmail.com', 'kandy', '2', '2', 716545844),
-('8812545854v', 9, 5, 5, 'Kaaaali', 'Yaparathhne', '9545658', 'kaali@gmail.com', 'kandy', '2', '2', 714585458),
-('92000000v', 8, 3, 3, 'Seetha', 'Kumari', '123569', 'seetha@gmail.com', 'kandy', '2', '2', 714585658),
-('921003072V', 1, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
-('921474558v', 2, 2, 2, 'Sanjeewa', 'Sanjeewa Yapa', '123456', 'san@gmail.com', 'Digana', '2', '3', 716545624),
-('921595654v', 3, 5, 2, 'Pasindu', 'Deeyagahage', '123432', 'somba@gmail.com', 'Galle', '2', '2', 718767654),
-('945855456v', 9, 3, 4, 'kbc', 'Herath', '123485', 'kb@gmail.com', 'Kandy', '2', '2', 2345),
-('951232545v', 9, 2, 5, 'ymnkYaparathne', 'Nilusha Roshan', '147583', 'rosh@gmail.com', 'wepathana', '2', '2', 715839496),
-('960001112v', 10, 5, 5, 'Sumith', 'Sumith Perera', 'E10005', 'Sumi@gmail.com', 'Gonawala', '2', '3', 712585654);
+INSERT INTO `employee` (`nic`, `instituteID`, `province_OfficeID`, `zonalOffics_ID`, `SchoolID`, `roleType`, `designationTypeID`, `nameWithInitials`, `fullName`, `employeementID`, `email`, `currentAddress`, `gender`, `marrigeState`, `mobileNum`) VALUES
+('921003072V', 1, NULL, NULL, NULL, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
+('922843775V', 25, 3, 12, 5, 5, 5, 'H G D Madusara', 'Dineth Madusara', 'E0002', 'dineth454@gmail.com', 'No 32, Siridammarathana Mw, Matara', '2', '2', 717504859),
+('922843776V', 25, 3, 12, 5, 4, 4, 'A B Silva', 'Abc', 'E0005', 'absilva@gmail.com', 'vjdjhd', '2', '2', 711111111),
+('922843777V', 8, 1, 2, NULL, 4, 3, 'A C silva', 'acsilva', 'E0006', 'acsilva@gmail.com', 'sbcjbc', '3', '3', 712222222),
+('922843778V', 2, 1, NULL, NULL, 3, 2, 'A D silva', 'adsilva', 'E0007', 'adsilva@gmail.com', 'sdbah', '2', '2', 713333333),
+('922843779V', 1, NULL, NULL, NULL, 2, 1, 'A E silva', 'aesilva', 'E0008', 'aesilva@gmail.com', 'vjvshj', '2', '2', 714444444),
+('922843780V', 4, 3, NULL, NULL, 3, 2, 'sihi', 'dfgg', 'fdgf', 'dd@gmail.com', 'df', '2', '2', 715555555),
+('922843781V', 27, 3, 13, 6, 4, 4, 'vnsdkvn', 'vsvfbvs', 'E0012', 'sasf@gmail.com', 'dvvsv', '2', '2', 716666666);
 
 -- --------------------------------------------------------
 
@@ -144,9 +128,7 @@ INSERT INTO `employee` (`nic`, `instituteID`, `roleType`, `designationTypeID`, `
 
 CREATE TABLE IF NOT EXISTS `employee_degree` (
   `nic` varchar(12) NOT NULL,
-  `degreeID` int(11) NOT NULL,
-  PRIMARY KEY (`nic`,`degreeID`),
-  KEY `emolyeeDegree_degreeID_idx` (`degreeID`)
+  `degreeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -156,9 +138,8 @@ CREATE TABLE IF NOT EXISTS `employee_degree` (
 --
 
 CREATE TABLE IF NOT EXISTS `grade` (
-  `gradeID` int(5) NOT NULL AUTO_INCREMENT,
-  `gradeName` varchar(15) NOT NULL,
-  PRIMARY KEY (`gradeID`)
+`gradeID` int(5) NOT NULL,
+  `gradeName` varchar(15) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
@@ -185,11 +166,9 @@ INSERT INTO `grade` (`gradeID`, `gradeName`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `institute` (
-  `instituteID` int(11) NOT NULL AUTO_INCREMENT,
-  `instituteTypeID` int(11) NOT NULL,
-  PRIMARY KEY (`instituteID`),
-  KEY `institute_instituteTypeID_idx` (`instituteTypeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+`instituteID` int(11) NOT NULL,
+  `instituteTypeID` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `institute`
@@ -209,9 +188,17 @@ INSERT INTO `institute` (`instituteID`, `instituteTypeID`) VALUES
 (16, 3),
 (17, 3),
 (18, 3),
+(22, 3),
+(23, 3),
+(24, 3),
+(26, 3),
 (9, 4),
 (10, 4),
-(19, 4);
+(19, 4),
+(20, 4),
+(21, 4),
+(25, 4),
+(27, 4);
 
 -- --------------------------------------------------------
 
@@ -220,9 +207,8 @@ INSERT INTO `institute` (`instituteID`, `instituteTypeID`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `intitute_type` (
-  `instituteTypeID` int(11) NOT NULL AUTO_INCREMENT,
-  `instituteType` varchar(100) NOT NULL,
-  PRIMARY KEY (`instituteTypeID`)
+`instituteTypeID` int(11) NOT NULL,
+  `instituteType` varchar(100) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
@@ -242,18 +228,36 @@ INSERT INTO `intitute_type` (`instituteTypeID`, `instituteType`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `ministry_officer` (
-  `ministryOfficerID` int(11) NOT NULL AUTO_INCREMENT,
-  `nic` varchar(12) DEFAULT NULL,
-  PRIMARY KEY (`ministryOfficerID`),
-  KEY `ministryOfficer_employeenic_idx` (`nic`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+`ministryOfficerID` int(11) NOT NULL,
+  `nic` varchar(12) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `ministry_officer`
 --
 
 INSERT INTO `ministry_officer` (`ministryOfficerID`, `nic`) VALUES
-(8, '8011111111v');
+(10, '922843779V');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE IF NOT EXISTS `notification` (
+`notID` int(5) NOT NULL,
+  `type` varchar(2) NOT NULL,
+  `action` varchar(10) NOT NULL,
+  `description` varchar(50) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`notID`, `type`, `action`, `description`) VALUES
+(1, 'x', 'adsa', 'dasd');
 
 -- --------------------------------------------------------
 
@@ -262,23 +266,19 @@ INSERT INTO `ministry_officer` (`ministryOfficerID`, `nic`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `principal` (
-  `principalID` int(11) NOT NULL AUTO_INCREMENT,
+`principalID` int(11) NOT NULL,
   `nic` varchar(12) NOT NULL,
   `zonalOfficeID` int(11) NOT NULL,
-  `provinceOfficerID` int(11) NOT NULL,
-  PRIMARY KEY (`principalID`),
-  KEY `principal_employeenic_idx` (`nic`),
-  KEY `pricipal_zonalOfficeID_idx` (`zonalOfficeID`),
-  KEY `principal_ProvinceOfficeID_idx` (`provinceOfficerID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `provinceOfficerID` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `principal`
 --
 
 INSERT INTO `principal` (`principalID`, `nic`, `zonalOfficeID`, `provinceOfficerID`) VALUES
-(2, '945855456v', 1, 1),
-(3, '834444444v', 1, 1);
+(7, '922843776V', 12, 3),
+(8, '922843781V', 13, 3);
 
 -- --------------------------------------------------------
 
@@ -287,13 +287,11 @@ INSERT INTO `principal` (`principalID`, `nic`, `zonalOfficeID`, `provinceOfficer
 --
 
 CREATE TABLE IF NOT EXISTS `province_office` (
-  `provinceID` int(11) NOT NULL AUTO_INCREMENT,
+`provinceID` int(11) NOT NULL,
   `instituteID` int(11) NOT NULL,
   `province` varchar(45) NOT NULL,
   `numOfEmployees` int(11) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`provinceID`),
-  KEY `province_InstituteID_idx` (`instituteID`)
+  `name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
@@ -314,20 +312,17 @@ INSERT INTO `province_office` (`provinceID`, `instituteID`, `province`, `numOfEm
 --
 
 CREATE TABLE IF NOT EXISTS `province_officer` (
-  `provinceOfficerID` int(11) NOT NULL AUTO_INCREMENT,
-  `nic` varchar(12) NOT NULL,
-  PRIMARY KEY (`provinceOfficerID`),
-  KEY `proviceOfficer_employeenic_idx` (`nic`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+`provinceOfficerID` int(11) NOT NULL,
+  `nic` varchar(12) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `province_officer`
 --
 
 INSERT INTO `province_officer` (`provinceOfficerID`, `nic`) VALUES
-(3, '812222222v'),
-(1, '921474558v'),
-(2, '921595654v');
+(4, '922843778V'),
+(5, '922843780V');
 
 -- --------------------------------------------------------
 
@@ -336,9 +331,8 @@ INSERT INTO `province_officer` (`provinceOfficerID`, `nic`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `role_type` (
-  `roleTypeID` int(11) NOT NULL AUTO_INCREMENT,
-  `roleType` varchar(45) NOT NULL,
-  PRIMARY KEY (`roleTypeID`)
+`roleTypeID` int(11) NOT NULL,
+  `roleType` varchar(45) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
@@ -359,7 +353,7 @@ INSERT INTO `role_type` (`roleTypeID`, `roleType`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `school` (
-  `schoolID` int(11) NOT NULL AUTO_INCREMENT,
+`schoolID` int(11) NOT NULL,
   `schoolName` varchar(150) NOT NULL DEFAULT '0',
   `instituteID` int(11) NOT NULL,
   `provinceOfficeID` int(11) NOT NULL,
@@ -367,21 +361,20 @@ CREATE TABLE IF NOT EXISTS `school` (
   `schoolTypeID` int(11) NOT NULL,
   `numOfStudents` int(11) DEFAULT NULL,
   `lat` float DEFAULT NULL,
-  `lng` float DEFAULT NULL,
-  PRIMARY KEY (`schoolID`),
-  KEY `schoolInstituteID_idx` (`instituteID`),
-  KEY `school_schooltypeID_idx` (`schoolTypeID`),
-  KEY `school_zonalID_idx` (`zonalOfficeID`),
-  KEY `school_provinceID_idx` (`provinceOfficeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `lng` float DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `school`
 --
 
 INSERT INTO `school` (`schoolID`, `schoolName`, `instituteID`, `provinceOfficeID`, `zonalOfficeID`, `schoolTypeID`, `numOfStudents`, `lat`, `lng`) VALUES
-(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 250, 7.31858, 80.7299),
-(2, 'Gonawala Maha Vidyalaya,waththegama', 10, 1, 1, 1, 200, 7.30976, 80.7332);
+(1, 'CWW Kannangara maha vidyalaya', 9, 1, 1, 1, 251, 7.31858, 80.7299),
+(2, 'Gonawala Maha Vidyalaya', 10, 1, 1, 1, 200, 7.30957, 80.7334),
+(3, 'Hasalaka Gamini Central College', 20, 1, 7, 1, 526, 7.356, 80.9522),
+(4, 'Dharmaraja College Kandy', 21, 1, 9, 3, 1254, 7.28967, 80.648),
+(5, 'Shariputra College, Pamburana, Matara', 25, 3, 12, 1, 1350, 5.94533, 80.5294),
+(6, 'Siddhartha College, Weligama', 27, 3, 13, 1, 1200, 5.97361, 80.4261);
 
 -- --------------------------------------------------------
 
@@ -390,9 +383,8 @@ INSERT INTO `school` (`schoolID`, `schoolName`, `instituteID`, `provinceOfficeID
 --
 
 CREATE TABLE IF NOT EXISTS `school_type` (
-  `schoolTypeID` int(11) NOT NULL AUTO_INCREMENT,
-  `schoolType` varchar(100) NOT NULL,
-  PRIMARY KEY (`schoolTypeID`)
+`schoolTypeID` int(11) NOT NULL,
+  `schoolType` varchar(100) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
@@ -417,10 +409,9 @@ INSERT INTO `school_type` (`schoolTypeID`, `schoolType`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `subject` (
-  `subjectID` int(11) NOT NULL AUTO_INCREMENT,
-  `subject` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`subjectID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+`subjectID` int(11) NOT NULL,
+  `subject` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `subject`
@@ -430,7 +421,9 @@ INSERT INTO `subject` (`subjectID`, `subject`) VALUES
 (1, 'Mathematics'),
 (2, 'Science'),
 (3, 'Buddhism'),
-(4, 'English');
+(4, 'English'),
+(5, 'Drama'),
+(6, 'Physics');
 
 -- --------------------------------------------------------
 
@@ -441,25 +434,8 @@ INSERT INTO `subject` (`subjectID`, `subject`) VALUES
 CREATE TABLE IF NOT EXISTS `subject_combination` (
   `teacherID` int(11) NOT NULL,
   `subjectID` int(11) NOT NULL,
-  `grade` int(11) NOT NULL,
-  PRIMARY KEY (`teacherID`,`subjectID`,`grade`),
-  KEY `subjectCombination_subjectID_idx` (`subjectID`),
-  KEY `subjectCombination_GradeID` (`grade`)
+  `grade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `subject_combination`
---
-
-INSERT INTO `subject_combination` (`teacherID`, `subjectID`, `grade`) VALUES
-(5, 1, 5),
-(5, 2, 1),
-(5, 2, 3),
-(8, 2, 7),
-(14, 2, 5),
-(8, 3, 3),
-(8, 3, 9),
-(14, 3, 9);
 
 -- --------------------------------------------------------
 
@@ -468,29 +444,20 @@ INSERT INTO `subject_combination` (`teacherID`, `subjectID`, `grade`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `teacher` (
-  `teachetID` int(11) NOT NULL AUTO_INCREMENT,
+`teachetID` int(11) NOT NULL,
   `nic` varchar(12) NOT NULL,
   `zonalOfficeID` int(11) NOT NULL,
   `provinceOfficeID` int(11) NOT NULL,
   `currentState` varchar(45) NOT NULL DEFAULT 'working',
-  `appoinmentSubject` int(2) NOT NULL,
-  PRIMARY KEY (`teachetID`),
-  KEY `teacher_employeenic_idx` (`nic`),
-  KEY `teacher_zonalOfficeID_idx` (`zonalOfficeID`),
-  KEY `teacher_provinceOfficeID_idx` (`provinceOfficeID`),
-  KEY `teacher_appoinmentSubjectID` (`appoinmentSubject`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+  `appoinmentSubject` int(2) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `teacher`
 --
 
 INSERT INTO `teacher` (`teachetID`, `nic`, `zonalOfficeID`, `provinceOfficeID`, `currentState`, `appoinmentSubject`) VALUES
-(5, '951232545v', 1, 1, 'working', 3),
-(8, '849999999v', 1, 1, 'working', 2),
-(9, '8812545854v', 1, 1, 'working', 3),
-(10, '854585555v', 1, 1, 'working', 2),
-(14, '960001112v', 1, 1, 'working', 3);
+(17, '922843775V', 12, 3, 'working', 1);
 
 -- --------------------------------------------------------
 
@@ -501,9 +468,7 @@ INSERT INTO `teacher` (`teachetID`, `nic`, `zonalOfficeID`, `provinceOfficeID`, 
 CREATE TABLE IF NOT EXISTS `user` (
   `nic` varchar(12) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `roleTypeID` int(11) NOT NULL,
-  PRIMARY KEY (`nic`),
-  KEY `user_roleType_idx` (`roleTypeID`)
+  `roleTypeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -511,34 +476,33 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
-('8011111111v', '8011111111v', 2),
-('812222222v', '812222222v', 3),
-('8211111111v', '8211111111v', 4),
-('834444444v', '834444444v', 5),
-('849999999v', '849999999v', 3),
-('854585555v', 'c06a1a1335fa2d74bcb6707b13adc53cbdcbdfda', 2),
-('8812545854v', '918264e13515d70f21886ea5c965fb13890de391', 5),
-('92000000v', '92000000v', 3),
 ('921003072V', '1b7b3bb43ee47fb92f715b866a888ba3e8fd40de', 1),
-('921474558V', '9350d1db852e518c0e27107fe1349bfa83e18281', 2),
-('921595654v', '921595654v', 5),
-('945855456v', '945855456v', 3),
-('951232545v', '951232545v', 2),
-('960001112v', 'b86eddc80a58705e8e188dbda068eef145c44b13', 5);
+('922843775V', '955974f9cddbaf493d8abe0b1e27f15236674141', 5),
+('922843776V', 'b697ca6741cd1e1bc0fbaef1a8bb06980e6a38fb', 4),
+('922843777V', 'a4e9f06beab35ff04345deba8b11e3b2b8f13b36', 4),
+('922843778V', 'cda33bcad4fba068044d706dd1129754fdb65999', 3),
+('922843779V', 'ab682592dc16c3e0692b22b980ce22118bed89af', 2),
+('922843780V', 'af5a2f9cf1c84f128f0bd47220dc1de11a867c9f', 3),
+('922843781V', '66e29769920869928e543226e43506c933fb21a6', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Vacancies`
+-- Table structure for table `vacancies`
 --
 
-CREATE TABLE IF NOT EXISTS `Vacancies` (
+CREATE TABLE IF NOT EXISTS `vacancies` (
   `InstituteID` int(5) NOT NULL,
   `SubjectId` int(5) NOT NULL,
-  `noOfVacansies` int(5) NOT NULL,
-  KEY `f_keyForInstitute` (`InstituteID`),
-  KEY `subjectId` (`SubjectId`)
+  `noOfVacansies` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vacancies`
+--
+
+INSERT INTO `vacancies` (`InstituteID`, `SubjectId`, `noOfVacansies`) VALUES
+(9, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -547,22 +511,12 @@ CREATE TABLE IF NOT EXISTS `Vacancies` (
 --
 
 CREATE TABLE IF NOT EXISTS `working_history` (
-  `workingHistoryID` int(11) NOT NULL AUTO_INCREMENT,
+`workingHistoryID` int(11) NOT NULL,
   `nic` varchar(12) NOT NULL,
   `instituteID` int(11) NOT NULL,
   `description` varchar(45) NOT NULL,
-  `affectedDate` date DEFAULT NULL,
-  PRIMARY KEY (`workingHistoryID`),
-  KEY `workingHistory_employeenic_idx` (`nic`),
-  KEY `workingHistory_instituteID_idx` (`instituteID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `working_history`
---
-
-INSERT INTO `working_history` (`workingHistoryID`, `nic`, `instituteID`, `description`, `affectedDate`) VALUES
-(5, '951232545v', 10, 'PassedWorked', '2016-04-22');
+  `affectedDate` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -571,14 +525,11 @@ INSERT INTO `working_history` (`workingHistoryID`, `nic`, `instituteID`, `descri
 --
 
 CREATE TABLE IF NOT EXISTS `zonal_office` (
-  `zonalID` int(11) NOT NULL AUTO_INCREMENT,
+`zonalID` int(11) NOT NULL,
   `zonalName` varchar(100) NOT NULL,
   `instituteID` int(11) NOT NULL,
-  `provinceOfficeID` int(11) NOT NULL,
-  PRIMARY KEY (`zonalID`),
-  KEY `zonal_instituteID_idx` (`instituteID`),
-  KEY `zonal_provinceID_idx` (`provinceOfficeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  `provinceOfficeID` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `zonal_office`
@@ -590,7 +541,11 @@ INSERT INTO `zonal_office` (`zonalID`, `zonalName`, `instituteID`, `provinceOffi
 (6, 'Medadumbara', 14, 1),
 (7, 'Hasalaka', 15, 1),
 (8, 'Homagama', 16, 2),
-(9, 'Kandy', 18, 1);
+(9, 'Kandy', 18, 1),
+(10, 'Hewaheta', 22, 1),
+(11, 'Kadugannawa', 23, 1),
+(12, 'Matara', 24, 3),
+(13, 'Weligama', 26, 3);
 
 -- --------------------------------------------------------
 
@@ -599,22 +554,271 @@ INSERT INTO `zonal_office` (`zonalID`, `zonalName`, `instituteID`, `provinceOffi
 --
 
 CREATE TABLE IF NOT EXISTS `zonal_officer` (
-  `zonalOfficerID` int(11) NOT NULL AUTO_INCREMENT,
+`zonalOfficerID` int(11) NOT NULL,
   `nic` varchar(12) NOT NULL,
-  `provinceOfficeID` int(11) NOT NULL,
-  PRIMARY KEY (`zonalOfficerID`),
-  KEY `zonalOfficer_employeeID_idx` (`nic`),
-  KEY `zonalOfficer_provinceOfficeID_idx` (`provinceOfficeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `provinceOfficeID` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `zonal_officer`
 --
 
 INSERT INTO `zonal_officer` (`zonalOfficerID`, `nic`, `provinceOfficeID`) VALUES
-(3, '92000000v', 1),
-(4, '8211111111v', 1);
+(5, '922843777V', 1);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `degree`
+--
+ALTER TABLE `degree`
+ ADD PRIMARY KEY (`degreeID`);
+
+--
+-- Indexes for table `designation`
+--
+ALTER TABLE `designation`
+ ADD PRIMARY KEY (`designationTypeID`);
+
+--
+-- Indexes for table `designation_history`
+--
+ALTER TABLE `designation_history`
+ ADD PRIMARY KEY (`designationHistoryID`), ADD KEY `designationHistory_employeenic_idx` (`affectedUserID`), ADD KEY `DesignationHistory_designationTypeID_idx` (`designationTypeID`), ADD KEY `designationHistory_editedby_idx` (`editedBynic`);
+
+--
+-- Indexes for table `edit_log`
+--
+ALTER TABLE `edit_log`
+ ADD PRIMARY KEY (`editLogID`), ADD KEY `editLog_affectednic_idx` (`affectedUsernic`), ADD KEY `editLog_editedbynic_idx` (`editedBynic`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+ ADD PRIMARY KEY (`nic`), ADD KEY `employee_instituteID_idx` (`instituteID`), ADD KEY `employee_roleTypeID_idx` (`roleType`), ADD KEY `employee_designationTypeID_idx` (`designationTypeID`);
+
+--
+-- Indexes for table `employee_degree`
+--
+ALTER TABLE `employee_degree`
+ ADD PRIMARY KEY (`nic`,`degreeID`), ADD KEY `emolyeeDegree_degreeID_idx` (`degreeID`);
+
+--
+-- Indexes for table `grade`
+--
+ALTER TABLE `grade`
+ ADD PRIMARY KEY (`gradeID`);
+
+--
+-- Indexes for table `institute`
+--
+ALTER TABLE `institute`
+ ADD PRIMARY KEY (`instituteID`), ADD KEY `institute_instituteTypeID_idx` (`instituteTypeID`);
+
+--
+-- Indexes for table `intitute_type`
+--
+ALTER TABLE `intitute_type`
+ ADD PRIMARY KEY (`instituteTypeID`);
+
+--
+-- Indexes for table `ministry_officer`
+--
+ALTER TABLE `ministry_officer`
+ ADD PRIMARY KEY (`ministryOfficerID`), ADD KEY `ministryOfficer_employeenic_idx` (`nic`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+ ADD PRIMARY KEY (`notID`);
+
+--
+-- Indexes for table `principal`
+--
+ALTER TABLE `principal`
+ ADD PRIMARY KEY (`principalID`), ADD KEY `principal_employeenic_idx` (`nic`), ADD KEY `pricipal_zonalOfficeID_idx` (`zonalOfficeID`), ADD KEY `principal_ProvinceOfficeID_idx` (`provinceOfficerID`);
+
+--
+-- Indexes for table `province_office`
+--
+ALTER TABLE `province_office`
+ ADD PRIMARY KEY (`provinceID`), ADD KEY `province_InstituteID_idx` (`instituteID`);
+
+--
+-- Indexes for table `province_officer`
+--
+ALTER TABLE `province_officer`
+ ADD PRIMARY KEY (`provinceOfficerID`), ADD KEY `proviceOfficer_employeenic_idx` (`nic`);
+
+--
+-- Indexes for table `role_type`
+--
+ALTER TABLE `role_type`
+ ADD PRIMARY KEY (`roleTypeID`);
+
+--
+-- Indexes for table `school`
+--
+ALTER TABLE `school`
+ ADD PRIMARY KEY (`schoolID`), ADD KEY `schoolInstituteID_idx` (`instituteID`), ADD KEY `school_schooltypeID_idx` (`schoolTypeID`), ADD KEY `school_zonalID_idx` (`zonalOfficeID`), ADD KEY `school_provinceID_idx` (`provinceOfficeID`);
+
+--
+-- Indexes for table `school_type`
+--
+ALTER TABLE `school_type`
+ ADD PRIMARY KEY (`schoolTypeID`);
+
+--
+-- Indexes for table `subject`
+--
+ALTER TABLE `subject`
+ ADD PRIMARY KEY (`subjectID`);
+
+--
+-- Indexes for table `subject_combination`
+--
+ALTER TABLE `subject_combination`
+ ADD PRIMARY KEY (`teacherID`,`subjectID`,`grade`), ADD KEY `subjectCombination_subjectID_idx` (`subjectID`), ADD KEY `subjectCombination_GradeID` (`grade`);
+
+--
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+ ADD PRIMARY KEY (`teachetID`), ADD KEY `teacher_employeenic_idx` (`nic`), ADD KEY `teacher_zonalOfficeID_idx` (`zonalOfficeID`), ADD KEY `teacher_provinceOfficeID_idx` (`provinceOfficeID`), ADD KEY `teacher_appoinmentSubjectID` (`appoinmentSubject`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+ ADD PRIMARY KEY (`nic`), ADD KEY `user_roleType_idx` (`roleTypeID`);
+
+--
+-- Indexes for table `vacancies`
+--
+ALTER TABLE `vacancies`
+ ADD KEY `f_keyForInstitute` (`InstituteID`), ADD KEY `subjectId` (`SubjectId`);
+
+--
+-- Indexes for table `working_history`
+--
+ALTER TABLE `working_history`
+ ADD PRIMARY KEY (`workingHistoryID`), ADD KEY `workingHistory_employeenic_idx` (`nic`), ADD KEY `workingHistory_instituteID_idx` (`instituteID`);
+
+--
+-- Indexes for table `zonal_office`
+--
+ALTER TABLE `zonal_office`
+ ADD PRIMARY KEY (`zonalID`), ADD KEY `zonal_instituteID_idx` (`instituteID`), ADD KEY `zonal_provinceID_idx` (`provinceOfficeID`);
+
+--
+-- Indexes for table `zonal_officer`
+--
+ALTER TABLE `zonal_officer`
+ ADD PRIMARY KEY (`zonalOfficerID`), ADD KEY `zonalOfficer_employeeID_idx` (`nic`), ADD KEY `zonalOfficer_provinceOfficeID_idx` (`provinceOfficeID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `degree`
+--
+ALTER TABLE `degree`
+MODIFY `degreeID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `designation`
+--
+ALTER TABLE `designation`
+MODIFY `designationTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `designation_history`
+--
+ALTER TABLE `designation_history`
+MODIFY `designationHistoryID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `grade`
+--
+ALTER TABLE `grade`
+MODIFY `gradeID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `institute`
+--
+ALTER TABLE `institute`
+MODIFY `instituteID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT for table `intitute_type`
+--
+ALTER TABLE `intitute_type`
+MODIFY `instituteTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `ministry_officer`
+--
+ALTER TABLE `ministry_officer`
+MODIFY `ministryOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+MODIFY `notID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `principal`
+--
+ALTER TABLE `principal`
+MODIFY `principalID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `province_office`
+--
+ALTER TABLE `province_office`
+MODIFY `provinceID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `province_officer`
+--
+ALTER TABLE `province_officer`
+MODIFY `provinceOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `role_type`
+--
+ALTER TABLE `role_type`
+MODIFY `roleTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `school`
+--
+ALTER TABLE `school`
+MODIFY `schoolID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `school_type`
+--
+ALTER TABLE `school_type`
+MODIFY `schoolTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `subject`
+--
+ALTER TABLE `subject`
+MODIFY `subjectID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `teacher`
+--
+ALTER TABLE `teacher`
+MODIFY `teachetID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `working_history`
+--
+ALTER TABLE `working_history`
+MODIFY `workingHistoryID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `zonal_office`
+--
+ALTER TABLE `zonal_office`
+MODIFY `zonalID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `zonal_officer`
+--
+ALTER TABLE `zonal_officer`
+MODIFY `zonalOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --
@@ -623,124 +827,124 @@ INSERT INTO `zonal_officer` (`zonalOfficerID`, `nic`, `provinceOfficeID`) VALUES
 -- Constraints for table `designation_history`
 --
 ALTER TABLE `designation_history`
-  ADD CONSTRAINT `DesignationHistory_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `designationHistory_editedby` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `designationHistory_employeenic` FOREIGN KEY (`affectedUserID`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `DesignationHistory_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `designationHistory_editedby` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `designationHistory_employeenic` FOREIGN KEY (`affectedUserID`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `edit_log`
 --
 ALTER TABLE `edit_log`
-  ADD CONSTRAINT `editLog_affectednic` FOREIGN KEY (`affectedUsernic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `editLog_editedbynic` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `editLog_affectednic` FOREIGN KEY (`affectedUsernic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `editLog_editedbynic` FOREIGN KEY (`editedBynic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
-  ADD CONSTRAINT `employee_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `employee_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `employee_roleTypeID` FOREIGN KEY (`roleType`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `employee_designationTypeID` FOREIGN KEY (`designationTypeID`) REFERENCES `designation` (`designationTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `employee_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `employee_roleTypeID` FOREIGN KEY (`roleType`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `employee_degree`
 --
 ALTER TABLE `employee_degree`
-  ADD CONSTRAINT `emolyeeDegree_degreeID` FOREIGN KEY (`degreeID`) REFERENCES `degree` (`degreeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `emolyeeDegree_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `emolyeeDegree_degreeID` FOREIGN KEY (`degreeID`) REFERENCES `degree` (`degreeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `emolyeeDegree_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `institute`
 --
 ALTER TABLE `institute`
-  ADD CONSTRAINT `institute_instituteTypeID` FOREIGN KEY (`instituteTypeID`) REFERENCES `intitute_type` (`instituteTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `institute_instituteTypeID` FOREIGN KEY (`instituteTypeID`) REFERENCES `intitute_type` (`instituteTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ministry_officer`
 --
 ALTER TABLE `ministry_officer`
-  ADD CONSTRAINT `ministryOfficer_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `ministryOfficer_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `principal`
 --
 ALTER TABLE `principal`
-  ADD CONSTRAINT `principal_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `principal_ProvinceOfficeID` FOREIGN KEY (`provinceOfficerID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `principal_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `principal_ProvinceOfficeID` FOREIGN KEY (`provinceOfficerID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `principal_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `principal_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `province_office`
 --
 ALTER TABLE `province_office`
-  ADD CONSTRAINT `province_InstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `province_InstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `province_officer`
 --
 ALTER TABLE `province_officer`
-  ADD CONSTRAINT `proviceOfficer_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `proviceOfficer_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `school`
 --
 ALTER TABLE `school`
-  ADD CONSTRAINT `schoolInstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `school_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `school_schooltypeID` FOREIGN KEY (`schoolTypeID`) REFERENCES `school_type` (`schoolTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `school_zonalID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `schoolInstituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `school_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `school_schooltypeID` FOREIGN KEY (`schoolTypeID`) REFERENCES `school_type` (`schoolTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `school_zonalID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `subject_combination`
 --
 ALTER TABLE `subject_combination`
-  ADD CONSTRAINT `subjectCombination_GradeID` FOREIGN KEY (`grade`) REFERENCES `grade` (`gradeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `subjectCombination_subjectID` FOREIGN KEY (`subjectID`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `subjectCombination_teacherID` FOREIGN KEY (`teacherID`) REFERENCES `teacher` (`teachetID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `subjectCombination_GradeID` FOREIGN KEY (`grade`) REFERENCES `grade` (`gradeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `subjectCombination_subjectID` FOREIGN KEY (`subjectID`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `subjectCombination_teacherID` FOREIGN KEY (`teacherID`) REFERENCES `teacher` (`teachetID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `teacher`
 --
 ALTER TABLE `teacher`
-  ADD CONSTRAINT `teacher_appoinmentSubjectID` FOREIGN KEY (`appoinmentSubject`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `teacher_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `teacher_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `teacher_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `teacher_appoinmentSubjectID` FOREIGN KEY (`appoinmentSubject`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `teacher_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `teacher_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `teacher_zonalOfficeID` FOREIGN KEY (`zonalOfficeID`) REFERENCES `zonal_office` (`zonalID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_nic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_roleType` FOREIGN KEY (`roleTypeID`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `user_nic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `user_roleType` FOREIGN KEY (`roleTypeID`) REFERENCES `role_type` (`roleTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Vacancies`
+-- Constraints for table `vacancies`
 --
-ALTER TABLE `Vacancies`
-  ADD CONSTRAINT `ForeignKeyConstraint` FOREIGN KEY (`InstituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `f_ke_con_4_subject` FOREIGN KEY (`SubjectId`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `vacancies`
+ADD CONSTRAINT `ForeignKeyConstraint` FOREIGN KEY (`InstituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `f_ke_con_4_subject` FOREIGN KEY (`SubjectId`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `working_history`
 --
 ALTER TABLE `working_history`
-  ADD CONSTRAINT `workingHistory_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `workingHistory_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `workingHistory_employeenic` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `workingHistory_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `zonal_office`
 --
 ALTER TABLE `zonal_office`
-  ADD CONSTRAINT `zonal_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `zonal_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `zonal_instituteID` FOREIGN KEY (`instituteID`) REFERENCES `institute` (`instituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `zonal_provinceID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `zonal_officer`
 --
 ALTER TABLE `zonal_officer`
-  ADD CONSTRAINT `zonalOfficer_employeeID` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `zonalOfficer_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `zonalOfficer_employeeID` FOREIGN KEY (`nic`) REFERENCES `employee` (`nic`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `zonalOfficer_provinceOfficeID` FOREIGN KEY (`provinceOfficeID`) REFERENCES `province_office` (`provinceID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
