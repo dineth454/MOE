@@ -13,12 +13,7 @@
 
 <head>
 
-<style type="text/css">
-	
-	.panel-default > .panel-heading-custom {
-background: #912; color: #992;
-}
-</style>
+
 
 
 
@@ -192,7 +187,7 @@ background: #912; color: #992;
                     </div>
                 </div>
                 <!-- /.row -->
-                <br><br><br><br><br>
+                <br><br><br><br>
                 
                 <!-- /.row -->
 
@@ -215,17 +210,21 @@ background: #912; color: #992;
                 </div> -->
                 <!-- /.row -->
 
+
+
+
             </div>
             <!-- /.container-fluid -->
 
         </div>
         <!-- /#page-wrapper -->
-
+ 
 
     </div>
     <!-- /#wrapper -->
-
     <?php include 'footer.php' ?>
+
+   
 
 
     <!-- jQuery -->
@@ -238,6 +237,8 @@ background: #912; color: #992;
     <script src="../assets/js/plugins/morris/raphael.min.js"></script>
     <script src="../assets/js/plugins/morris/morris.min.js"></script>
     <script src="../assets/js/plugins/morris/morris-data.js"></script>
+
+
 
 </body>
 

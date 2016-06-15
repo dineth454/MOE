@@ -21,8 +21,8 @@
     </div>
 </footer>
 <!--jQuery -->
-        <script src="../assets/js/jquery.js"></script>
+       <!-- <script src="../assets/js/jquery.js"></script>-->
  
-        <script src="../assets/js/bootstrap.min.js"></script>
+       <!-- <script src="../assets/js/bootstrap.min.js"></script>-->
         <script src="../assets/js/notification.js"></script>
 
