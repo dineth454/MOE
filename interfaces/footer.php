@@ -1,6 +1,6 @@
 <style type="text/css">
     .footer_col{
-        background: #000;
+        background: #CDCFD1;
     }
 </style>
 <footer>

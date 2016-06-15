@@ -19,7 +19,7 @@ if (!isset($_SESSION['fullName']) || time() - $_SESSION['login_time'] > 60000) {
 ob_end_flush();
 ?>
 
-<nav class="navbar navbar-default" style="height: 65px; border-radius:0px;">
+<nav class="navbar navbar-inverse" style="height: 65px; border-radius:0px;">
 
     <div class="col-md-3 pull-right" style="margin-top: 18px;padding-left: 0px;">
        
