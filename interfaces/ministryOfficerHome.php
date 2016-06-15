@@ -66,7 +66,7 @@ background: #912; color: #992;
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?php include 'sideBarAdmin.php' ?>
+            <?php include 'sidebar_min_off.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
         </nav>
