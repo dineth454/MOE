@@ -29,7 +29,6 @@
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/fonts_styles.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
-        <link href="../assets/css/notification.css" rel="stylesheet">
 
     </head>
 

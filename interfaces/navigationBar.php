@@ -19,6 +19,8 @@ if (!isset($_SESSION['fullName']) || time() - $_SESSION['login_time'] > 600) {
 ob_end_flush();
 ?>
 
+        <link href="../assets/css/notification.css" rel="stylesheet">
+
 <nav class="navbar navbar-default" style="height: 65px; border-radius:0px;">
 
     <div class="col-md-3 pull-right" style="margin-top: 18px;padding-left: 0px;">
@@ -29,7 +31,7 @@ ob_end_flush();
         <span id="notification_li">
             <span id="notification_count" runat="server"></span>
             <a href="#" id="notificationLink">
-                <img src="../images/bell.jpg" style="width: 27px;"/>
+                <img src="../images/letter.png" style="width: 27px;"/>
             </a>
             <div id="notificationContainer">
                 <div id="notificationTitle" runat="server">Notifications</div>
