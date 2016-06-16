@@ -38,23 +38,19 @@ ob_start();
             <!-- Finished NAvigation bar -->
 
             <!-- Page Content -->
+            
+
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1">
 
-
                         <?php
                         $roletypeID = $_SESSION["roleTypeID"];
                         $designationIdLoggedUser = $_SESSION["designationTypeID"];
                         $LoggedUsernic = $_SESSION["nic"];
-                        
-                     
-                        
-                      
-
-
+     
                         require("../classes/employee.php");
                         $employee = new Employee();
 
@@ -179,6 +175,7 @@ ob_start();
 
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <!-- Select role-->
@@ -190,27 +187,12 @@ ob_start();
                                                     <option value="3">role3</option>
                                                     <option value="4">role4</option>
                                                     <option value="5">role5</option>
-
-                                                    <?php
-                                                    /*     $roleTypeResult = $employee->loadRoles();
-                                                      if(mysqli_num_rows($roleTypeResult) > 0 ){
-                                                      while($row = mysqli_fetch_assoc($roleTypeResult)){
-
-                                                      echo $row['roleType'];
-                                                      echo '<br>';
-                                                      echo '<option value="'.$row['roleTypeID'].'" >'.$row['roleType'].'</option>';
-                                                      }
-
-                                                      }
-                                                     */
-                                                    ?>
-
                                                 </select>
                                                 <label id="errorRole" style="font-size:10px;"></label>
                                             </div>
-
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <!-- Designation-->
@@ -223,13 +205,9 @@ ob_start();
                                                     <option value="3">zonal Officer</option>
                                                     <option value="4">principal</option>
                                                     <option value="5">teacher</option>
-
                                                 </select>
-
                                             </div>
-
                                             <label id="errorDesignation" style="font-size: 10px"> </label>
-
                                         </div>
                                     </div>
 
@@ -253,25 +231,22 @@ ob_start();
 
                                                 <label id="errorProvince" style="font-size: 10px"> </label>
                                             </div>
-
-
                                         </div>
+                                    </div>
 
 
-                                        <div  class="row">
-                                            <div  style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
-                                                <div id="zonalOfficeHidden" class="form-group">
+                                    <div  class="row">
+                                        <div  style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
+                                            <div id="zonalOfficeHidden" class="form-group">
 
-                                                    <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
-                                                    <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
-
-                                                    </div>
-                                                    <label id="errorZonal" style="font-size: 10px"> </label>
-
+                                                <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
+                                                <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
                                                 </div>
+                                                <label id="errorZonal" style="font-size: 10px"> </label>
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="row">
                                             <div id="schoolIdDiv" style="display: none; "class="form-group col-lg-12 col-md-12 col-sm-12">
