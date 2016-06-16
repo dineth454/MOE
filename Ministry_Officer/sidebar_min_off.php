@@ -56,7 +56,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Transfer <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse5" class="collapse">
                             <li>
-                                <a href="addNewSubject.php">Transfer Teacher</a>
+                                <a href="transerFront.php">Transfer Teacher</a>
                             </li>
                             
                             
