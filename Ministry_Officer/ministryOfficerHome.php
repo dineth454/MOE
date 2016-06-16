@@ -187,7 +187,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <br><br><br><br>
+                <br><br><br><br><br>
                 
                 <!-- /.row -->
 
@@ -222,7 +222,7 @@
 
     </div>
     <!-- /#wrapper -->
-    <?php include 'footer.php' ?>
+    <?php include '../interfaces/footer.php' ?>
 
    
 
