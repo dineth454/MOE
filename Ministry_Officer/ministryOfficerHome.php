@@ -57,7 +57,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- include Navigation BAr -->
-            <?php include 'navigation_bar.php' ?>
+            <?php include '../interfaces/navigation_bar.php' ?>
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
@@ -187,7 +187,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <br><br><br><br>
+                <br><br><br><br><br>
                 
                 <!-- /.row -->
 
@@ -222,7 +222,7 @@
 
     </div>
     <!-- /#wrapper -->
-    <?php include 'footer.php' ?>
+    <?php include '../interfaces/footer.php' ?>
 
    
 
