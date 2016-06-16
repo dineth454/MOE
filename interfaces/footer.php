@@ -9,7 +9,7 @@
             <ul class="footer-nav">
                 <li><a href="AboutUs.aspx">About</a></li>
                 <li><a href="Help.aspx">Help</a></li>
-                <li><a href="AdminSitemap.aspx">Site map</a></li>
+                <!-- <li><a href="AdminSitemap.aspx">Site map</a></li> -->
             </ul>
         </div>
         <div class="col-md-2 col-md-offset-2"> 

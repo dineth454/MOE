@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="ministryOfficerHome.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
+                        <a href="interface_0.1.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse1"><i class="fa fa-users fa-2x" ></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
@@ -10,7 +10,7 @@
                                 <a href="min_off_addEmployee.php">Add User</a>
                             </li>
                             <li>
-                                <a href="min_off_updateEmployeeFront.php">Update User</a>
+                                <a href="updateEmployeeFront.php">Update User</a>
                             </li>
                             <li>
                                 <a href="deleteUserFront.php">Delete User</a>
@@ -56,7 +56,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Transfer <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse5" class="collapse">
                             <li>
-                                <a href="transerFront.php">Transfer Teacher</a>
+                                <a href="addNewSubject.php">Transfer Teacher</a>
                             </li>
                             
                             
