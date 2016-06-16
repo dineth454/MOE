@@ -36,7 +36,7 @@
 
         <div id="wrapper">
 
-            <!-- Sidebar -->
+           <!-- Sidebar -->
             <?php include 'sideBarAdmin.php' ?>
             <!-- /#sidebar-wrapper -->
 
@@ -44,6 +44,7 @@
             <?php include 'navigationBar.php' ?>
 
             <!-- Finished NAvigation bar -->
+
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 540px;">
 

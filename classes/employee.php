@@ -611,7 +611,7 @@ class Employee {
         return $deleteOK;
     }
 
-    function transerUpdateTeacher($nicNumber, $schoolId) {
+    function transerUpdateTeacher($nicNumber,$schoolId,$zoneID,$provinceID) {
         global $mysqli;
         $updateOK = 1;
 
@@ -622,7 +622,7 @@ class Employee {
 
         if ($result->num_rows > 0) {
 
-            $queryForUpdateEMployee = "update employee set instituteID = '$instituteId' where nic = '" . $nicNumber . "'";
+            $queryForUpdateEMployee = "update employee set instituteID = '$instituteId' ,province_OfficeID = '$provinceID',zonalOffics_ID = '$zoneID',SchoolID = '$schoolId' where nic = '" . $nicNumber . "'";
             $result2 = $mysqli->query($queryForUpdateEMployee);
 
             if ($result2 != true) {
