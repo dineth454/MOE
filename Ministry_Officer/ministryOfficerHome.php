@@ -14,7 +14,12 @@
 <head>
 
 
-
+<style type="text/css">
+    
+    .panel-heading {
+     background-color: #ffffff;
+}
+</style>
 
 
     <meta charset="utf-8">
@@ -23,7 +28,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Ministry officer Home</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +59,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- include Navigation BAr -->
             <?php include '../interfaces/navigation_bar.php' ?>
@@ -92,12 +97,12 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <br><br><br>
+                <br><br><br><br><br>
 
                 <div class="row" >
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-default ">
-                            <div class="panel-heading">
+                        <div class="panel panel-primary ">
+                            <div class="panel-heading" style="background-color:#0A1A42">
                                 <div class="row">
                                     <div class="col-xs-3">
                                         <div class="col-xs-3">
@@ -106,7 +111,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge"><i><?php echo $schools; ?></i></div>
-                                        <div>School</div>
+                                        <div>Schools</div>
                                     </div>
                                 </div>
                             </div>
@@ -120,8 +125,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" style="background-color:#0A1A42">
                                 <div class="row">
                                     <div class="col-xs-3">
                                         <i class="fa fa-user fa-5x" aria-hidden="true"></i>
@@ -142,8 +147,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" style="background-color:#0A1A42">
                                 <div class="row">
                                     <div class="col-xs-3">
                                         <i class="fa fa-users fa-5x" aria-hidden="true"></i>
@@ -164,8 +169,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" style="background-color:#0A1A42">
                                 <div class="row">
                                     <div class="col-xs-3">
                                         <i class="fa fa-support fa-5x"></i>
@@ -187,7 +192,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <br><br><br><br><br>
+                <br><br><br><br>
                 
                 <!-- /.row -->
 

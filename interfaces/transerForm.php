@@ -155,7 +155,7 @@
 
                             $employee = new Employee();
                             $insertWorkingHistrySuccess = $employee->insertIntoWorkingHistory($nicNumber, $instituteIDOld);
-                            $updateSuccess = $employee->transerUpdateTeacher($nicNumber, $schoolId);
+                            $updateSuccess = $employee->transerUpdateTeacher($nicNumber,$schoolId,$zoneID,$provinceID);
 
                             if ($updateSuccess == 1) {
 
