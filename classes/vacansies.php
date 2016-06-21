@@ -43,9 +43,26 @@ class Vacancy {
         $query_for_add_vacancy = "insert into  Vacancies (Subject_ID,Grade1,Num_of_teachers,ProvinceID,ZonalID) values ($subject,$grade,$num_of_teachers,$provinceId,$zonalId)";
 
         $result = mysqli_query($con, $query_for_add_vacancy);
-        echo "helooo";
+        //echo "helooo";
 
     }
+
+   /* function loadsubject(){
+    	global $con;
+
+    	$sql="select subjectID,subject from subject";
+		$result = mysqli_query($con,$sql);
+
+		//echo '<option value="">Select Subject</option>';
+		// $row = mysqli_fetch_array($result);
+
+		return $result;
+    									//print_r($row);
+    	
+	
+													//echo "\r\n";
+		}*/
+    
 }
 
 
