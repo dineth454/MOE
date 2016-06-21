@@ -54,7 +54,7 @@ ob_start();
             <?php include 'sidebar_min_off.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
-        </nav>
+            </nav>
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
@@ -452,7 +452,7 @@ ob_start();
 
         </div>
 
-        <?php include '../interfaces/footer.php' ?>
+         <?php include '../interfaces/footer.php' ?>
         
         <script src = "../assets/js/addEmployee.js"></script>
 

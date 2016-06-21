@@ -40,12 +40,20 @@ class Vacancy {
 	function addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers) {
         global $con;
 
-        $query_for_add_vacancy = "insert into  Vacancies (Subject_ID,Grade1,Num_of_teachers,ProvinceID,ZonalID) values ($subject,$grade,$num_of_teachers,$provinceId,$zonalId)";
+        $query_for_add_vacancy = "insert into  Vacancies (Subject_ID,Grade,Num_of_teachers,ProvinceID,ZonalID) values ($subject,$grade,$num_of_teachers,$provinceId,$zonalId)";
 
         $result = mysqli_query($con, $query_for_add_vacancy);
         //echo "helooo";
 
     }
+
+     function loadSubjects() {
+        global $mysqli;
+        $query = "select * from subject";
+        $result = $mysqli->query($query);
+        return $result;
+    }
+
 
    /* function loadsubject(){
     	global $con;
