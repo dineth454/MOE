@@ -110,14 +110,14 @@ function validateForm() {
 
 //method to validate nameWithInitials
 function validatenameWithInit(text) {
-    var pattern = /^[A-Za-z0-9]+$/;
+    var pattern = /^[a-zA-Z_ ]*$/;
     if (text == "" || text == null) {
         document.getElementById("name").focus();
         document.getElementById("name").style.borderColor = "red";
         document.getElementById("errorFirstName").innerHTML = "Required";
         document.getElementById("errorFirstName").style.color = "red";
         return false; 
-    } else if ((pattern.test(text)) == false) {
+    } else if (!(pattern.test(text))) {
         document.getElementById("name").focus();
         document.getElementById("name").style.borderColor = "red";
         document.getElementById("errorFirstName").innerHTML = "You can't enter numbers here";
@@ -132,14 +132,14 @@ function validatenameWithInit(text) {
 
 //method to validate fullName
 function validatefullName(text) {
-    var pattern = /^[A-Za-z0-9]+$/;
+    var pattern = /^[a-zA-Z_ ]*$/;
     if (text == "" || text == null) {
         document.getElementById("fname").focus();
         document.getElementById("fname").style.borderColor = "red";
         document.getElementById("errorLastName").innerHTML = "Required";
         document.getElementById("errorLastName").style.color = "red";
         return false; 
-    } else if ((pattern.test(text)) == false) {
+    } else if (!(pattern.test(text))) {
         document.getElementById("fname").focus();
         document.getElementById("fname").style.borderColor = "red";
         document.getElementById("errorLastName").innerHTML = "You can't enter numbers here";
@@ -237,14 +237,14 @@ function validateDropDown(text, errorLbl) {
 
 //method to validate mobile number
 function validateMobileNumber(text) {
-    var pattern = /^([+0-9]{1,3})?([0-9]{10,11})$/i;
+    var pattern = /^\d{10}$/
     if (text == null || text == "") {
         document.getElementById("mobileNm").focus();
         document.getElementById("mobileNm").style.borderColor = "red";
         document.getElementById("errormobileNumb").innerHTML = "Required";
         document.getElementById("errormobileNumb").style.color = "red";
         return false;
-    } else if ((pattern.test(text)) == false || text.length < 10) {
+    } else if (!(pattern.test(text))){
         document.getElementById("mobileNm").focus();
         document.getElementById("mobileNm").style.borderColor = "red";
         document.getElementById("errormobileNumb").innerHTML = "Please enter a valid mobile number";
