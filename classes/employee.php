@@ -442,7 +442,7 @@ class Employee {
         $result_searchUserProvinceID = $mysqli->query($query_for_find_provinceID);
         $result_searchUserProvinceIdArray = mysqli_fetch_array($result_searchUserProvinceID);
         // $provinceID_searchUser =  $result_searchUserProvinceIdArray['provinceID'];
-       // echo 'banda';
+        // echo 'banda';
         //echo $provinceID_searchUser;
         return $result_searchUserProvinceIdArray;
     }
@@ -516,7 +516,7 @@ class Employee {
         return $result;
     }
 
-    function insertIntoSubjetcCombination($nic, $currentSubject, $grade,$schoolID) {
+    function insertIntoSubjetcCombination($nic, $currentSubject, $grade, $schoolID) {
         global $mysqli;
         $insertok = 1;
         //echo $schoolID;
@@ -611,7 +611,7 @@ class Employee {
         return $deleteOK;
     }
 
-    function transerUpdateTeacher($nicNumber,$schoolId,$zoneID,$provinceID) {
+    function transerUpdateTeacher($nicNumber, $schoolId, $zoneID, $provinceID) {
         global $mysqli;
         $updateOK = 1;
 
@@ -664,6 +664,32 @@ class Employee {
         }
 
         return $insertOk;
+    }
+
+    function checkDesignation($schoolId) {
+        global $mysqli;
+        $queryForgetInstituteID = "select instituteID from school where schoolID = '" . $schoolId . "'";
+        $result = $mysqli->query($queryForgetInstituteID);
+        $resultArray = mysqli_fetch_array($result);
+        $instituteId = $resultArray['instituteID'];
+
+        if ($instituteId != null) {
+            $queryForgetDesignationDetails = "select designationTypeID from employee where instituteID = '" . $instituteId . "'";
+            $result1 = $mysqli->query($queryForgetDesignationDetails);
+            //$resultArrayDesignation = mysqli_fetch_array($result1);
+            //var_dump($resultArrayDesignation);
+            foreach ($result1 as $resultArray1){
+                //var_dump($resultArray1);
+               $varx =   $resultArray1['designationTypeID'];
+                if($varx == 4){
+                    
+                    return 0;
+                }else{
+                    return 1;
+                }
+                
+            }
+        }
     }
 
 }
