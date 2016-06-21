@@ -19,5 +19,5 @@ $(document).ready(function () {
 //Notification link click function
 $(".notification").click(function () {
     //alert(this.id);
-    window.location.assign("NotificationView.aspx?id=" + this.id);
+    window.location.assign("viewNotification.php?id=" + this.id);
 });

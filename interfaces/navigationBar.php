@@ -42,7 +42,7 @@ ob_end_flush();
 
                     <?php 
 
-                       //$not->notResualt();
+                       $not->notResualt();
                         
                         
                     ?>

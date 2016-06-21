@@ -38,7 +38,7 @@ ob_start();
             <!-- Finished NAvigation bar -->
 
             <!-- Page Content -->
-            
+
 
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
@@ -50,7 +50,7 @@ ob_start();
                         $roletypeID = $_SESSION["roleTypeID"];
                         $designationIdLoggedUser = $_SESSION["designationTypeID"];
                         $LoggedUsernic = $_SESSION["nic"];
-     
+
                         require("../classes/employee.php");
                         $employee = new Employee();
 
@@ -64,9 +64,9 @@ ob_start();
                         $schoolIDLoggedUser = $result3['schoolID'];
 
                         if (isset($_POST['submit'])) {
-                            
-                            
-                            
+
+
+
 
                             $nic = $roleType = $designation = $nameInitials = $fName = $empID = $email = $currentAddress = $gender = $marrigeState = $mobileNum = "";
                             $provinceID = $zoneID = $schoolId = $subjectID = "";
@@ -77,7 +77,7 @@ ob_start();
                             $fName = $_POST['fname'];
                             $empID = $_POST['eId'];
                             $email = $_POST['email'];
-                           
+
                             $currentAddress = $_POST['address'];
                             $gender = $_POST['gender'];
                             $marrigeState = $_POST['marrrige'];
@@ -103,47 +103,72 @@ ob_start();
                             } else {
                                 $designation = $_POST['designation'];
                             }
-                            
-                            
-                            
+
+
+
                             // logged in sys admin
                             if ($designationIdLoggedUser == 1 and $roletypeID == 1) {
-                                $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                //add Principal into system and check he is already exists.
+                                if ($designation == 4) {
+
+                                    $designationResult = $employee->checkDesignation($schoolId);
+
+                                    if ($designationResult == 0) {
+                                        echo '<script language="javascript">';
+                                        echo 'alert("There Is a Principal Already In this institute")';
+                                        echo '</script>';
+                                    } else {
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                    }
+                                } else {
+                                    $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                }
                             } else if ($designationIdLoggedUser < $designation) {
 
-                                // log wela inne ministry officer kenek nam
-                                if ($designationIdLoggedUser == 1) {
-                                    $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                //add Principal into system and check he is already exists.
+                                if ($designation == 4) {
 
-                                    //log wela inne province officer kenek nam
-                                } else if ($designationIdLoggedUser == 2) {
+                                    $designationResult = $employee->checkDesignation($schoolId);
 
-                                    //zonal officer kenek nam add karanne
-                                    if ($provinceIdLoggedUser == $provinceID) {
-                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
-                                    }
-                                    // logged wela inne zonal officer kenek nam
-                                } else if ($designationIdLoggedUser == 3) {
-                                    //principal kenek nam add karanne 
-                                    if ($zonalIdLoggedUser == $zoneID) {
-                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
-                                    }
-                                    //logged wela inne principal kenek nam
-                                } else if ($designationIdLoggedUser == 4) {
-                                    //add karanne teacher kenek nam
-                                    if ($schoolIDLoggedUser == $schoolId) {
-                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
-                                    } else {
+                                    if ($designationResult == 0) {
                                         echo '<script language="javascript">';
-                                        echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
+                                        echo 'alert("There Is a Principal Already In this institute")';
                                         echo '</script>';
                                     }
                                 } else {
-                                    echo '<script language="javascript">';
-                                    echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
-                                    echo '</script>';
-                                }
+                                    if ($designationIdLoggedUser == 1) {
+                                        $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
 
+                                        //log wela inne province officer kenek nam
+                                    } else if ($designationIdLoggedUser == 2) {
+
+                                        //zonal officer kenek nam add karanne
+                                        if ($provinceIdLoggedUser == $provinceID) {
+                                            $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                        }
+                                        // logged wela inne zonal officer kenek nam
+                                    } else if ($designationIdLoggedUser == 3) {
+                                        //principal kenek nam add karanne 
+                                        if ($zonalIdLoggedUser == $zoneID) {
+                                            $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                        }
+                                        //logged wela inne principal kenek nam
+                                    } else if ($designationIdLoggedUser == 4) {
+                                        //add karanne teacher kenek nam
+                                        if ($schoolIDLoggedUser == $schoolId) {
+                                            $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                        } else {
+                                            echo '<script language="javascript">';
+                                            echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
+                                            echo '</script>';
+                                        }
+                                    } else {
+                                        echo '<script language="javascript">';
+                                        echo 'alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
+                                        echo '</script>';
+                                    }
+                                }
+                                // log wela inne ministry officer kenek nam
                                 /// $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $dob, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                             } else {
 
@@ -248,155 +273,155 @@ ob_start();
                                         </div>
                                     </div>
 
-                                        <div class="row">
-                                            <div id="schoolIdDiv" style="display: none; "class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="schoolHidden" class="form-group">
-                                                    <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> School : </label>
-                                                    <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select required class="form-control required" name="schoolId" id="abcd"  ></select>
-                                                    </div>
-                                                    <label id="errorSchool" style="font-size: 10px"> </label>
+                                    <div class="row">
+                                        <div id="schoolIdDiv" style="display: none; "class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="schoolHidden" class="form-group">
+                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> School : </label>
+                                                <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select required class="form-control required" name="schoolId" id="abcd"  ></select>
                                                 </div>
+                                                <label id="errorSchool" style="font-size: 10px"> </label>
                                             </div>
                                         </div>
+                                    </div>
 
 
-                                        <div class="row">
-                                            <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="subjectHidden" class="form-group">
-                                                    <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
-                                                    <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select required class="form-control" name="subject" id="subject" >
-                                                            <option value="">--Select Subject--</option>
-                                                            <?php
-                                                            $result = $employee->loadSubjects();
+                                    <div class="row">
+                                        <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="subjectHidden" class="form-group">
+                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
+                                                <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select required class="form-control" name="subject" id="subject" >
+                                                        <option value="">--Select Subject--</option>
+                                                        <?php
+                                                        $result = $employee->loadSubjects();
 
-                                                            foreach ($result as $array) {
+                                                        foreach ($result as $array) {
 
-                                                                echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-                                                            }
-                                                            ?>
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <label id="errorSubject" style="font-size: 10px"> </label>
+                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                        }
+                                                        ?>
 
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--___________________________________________________________-->
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                                <!-- Name with initials-->
-                                                <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text885555555v-align: left;"> Name with Initials </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name with Initials"/>
-                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                                </div>
-
-                                                <!-- Full Name-->
-                                                <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter full name"/>
-                                                    <!--<label id="errorLastName" style="font-size:10px"> </label>-->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                                <!-- Employment ID-->
-                                                <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="eId" name="eId" placeholder="Enter Emp ID"/>
-                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                                </div>
-
-                                                <!--Email-->
-                                                <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
-                                                    <label id="errorEmail" style="font-size:10px"> </label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                                <!-- Date of birth-->
-                                                <!--
-                                                <label for="date_of_birth" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Date of Birth </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="date" class="form-control" id="dob" name="dob" placeholder="Enter DOB"/>
-                                                    <label id="errorFirstName" style="font-size:10px"> </label>
-                                                </div>
-                                                -->
-                                                <!--Current Address-->
-                                                <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Current Address </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" />
-                                                    <!--<label id="errorLastName" style="font-size:10px"> </label>-->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                                <!-- Gender-->
-                                                <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select class="form-control" name= "gender" id = "gender">
-                                                        <option value="">Select Gender</option>
-                                                        <option value="2">Male</option>
-                                                        <option value="3">Female</option>
-                                                    </select> 
-                                                </div>
-
-                                                <!--Marrige-->
-                                                <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select class="form-control" name = "marrrige" id = "marrrige">
-                                                        <option value="">Select State</option>
-                                                        <option value="2">Yes</option>
-                                                        <option value="3">No</option>
                                                     </select>
                                                 </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                                <!--mobile_numb-->
-                                                <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <input type="text" class="form-control" id="mobileNm" name="mobileNm" placeholder="Enter mobile Number"/>
-                                                    <label id="errormobileNumb" style="font-size:10px"> </label>
-                                                </div>
-
+                                                <label id="errorSubject" style="font-size: 10px"> </label>
 
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
-                                                </div>
 
+                                    <!--___________________________________________________________-->
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!-- Name with initials-->
+                                            <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text885555555v-align: left;"> Name with Initials </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name with Initials"/>
+                                                <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                            </div>
+
+                                            <!-- Full Name-->
+                                            <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter full name"/>
+                                                <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                             </div>
                                         </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!-- Employment ID-->
+                                            <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <input type="text" class="form-control" id="eId" name="eId" placeholder="Enter Emp ID"/>
+                                                <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                            </div>
+
+                                            <!--Email-->
+                                            <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
+                                                <label id="errorEmail" style="font-size:10px"> </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!-- Date of birth-->
+                                            <!--
+                                            <label for="date_of_birth" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Date of Birth </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <input type="date" class="form-control" id="dob" name="dob" placeholder="Enter DOB"/>
+                                                <label id="errorFirstName" style="font-size:10px"> </label>
+                                            </div>
+                                            -->
+                                            <!--Current Address-->
+                                            <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Current Address </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" />
+                                                <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!-- Gender-->
+                                            <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <select class="form-control" name= "gender" id = "gender">
+                                                    <option value="">Select Gender</option>
+                                                    <option value="2">Male</option>
+                                                    <option value="3">Female</option>
+                                                </select> 
+                                            </div>
+
+                                            <!--Marrige-->
+                                            <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <select class="form-control" name = "marrrige" id = "marrrige">
+                                                    <option value="">Select State</option>
+                                                    <option value="2">Yes</option>
+                                                    <option value="3">No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
+                                            <!--mobile_numb-->
+                                            <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <input type="text" class="form-control" id="mobileNm" name="mobileNm" placeholder="Enter mobile Number"/>
+                                                <label id="errormobileNumb" style="font-size:10px"> </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+
+                                        </div>
                                     </div>
 
                                 </div>
+
+                            </div>
 
                         </form>
                     </div>

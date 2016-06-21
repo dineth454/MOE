@@ -350,7 +350,8 @@ ob_start();
 
         </div>
 
-        <?php include '../interfaces/footer.php' ?>
+         <?php include '../interfaces/footer.php' ?>
+        
         <script src = "../assets/js/addEmployee.js"></script>
 
         <script src="../assets/js/jquery.js"></script>
