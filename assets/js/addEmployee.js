@@ -61,6 +61,34 @@ function validateForm() {
         }
     }
 
+    var nameWithInit = document.getElementById("name").value;
+    if (!validatenameWithInit(nameWithInit)) {
+        errors.push("errorFirstName");
+    }
+
+    var fullName = document.getElementById("fname").value;
+    if (!validatefullName(fullName)) {
+        errors.push("errorLastName");
+    }
+
+    var employmentID = document.getElementById("eId").value;
+    if (!validateemploymentID(employmentID)) {
+        errors.push("errorEmployID");
+    }
+
+    var address = document.getElementById("address").value;
+    if (!validateaddress(address)) {
+        errors.push("errorAddress");
+    }
+
+    if (!validateDropDown("gender", "errorGender")) {
+        errors.push("errorGender");
+    }
+
+    if (!validateDropDown("marrrige", "errorMarriage")) {
+        errors.push("errorMarriage");
+    }
+
     var mobileNumber = document.getElementById("mobileNm").value;
     if (!validateMobileNumber(mobileNumber)) {
         errors.push("errormobileNumbber");
@@ -80,12 +108,86 @@ function validateForm() {
     }
 }
 
+//method to validate nameWithInitials
+function validatenameWithInit(text) {
+    var pattern = /^[A-Za-z0-9]+$/;
+    if (text == "" || text == null) {
+        document.getElementById("name").focus();
+        document.getElementById("name").style.borderColor = "red";
+        document.getElementById("errorFirstName").innerHTML = "Required";
+        document.getElementById("errorFirstName").style.color = "red";
+        return false; 
+    } else if ((pattern.test(text)) == false) {
+        document.getElementById("name").focus();
+        document.getElementById("name").style.borderColor = "red";
+        document.getElementById("errorFirstName").innerHTML = "You can't enter numbers here";
+        document.getElementById("errorFirstName").style.color = "red";
+        return false;
+    } else {
+        document.getElementById("name").style.borderColor = "green";
+        document.getElementById("errorFirstName").innerHTML = "";
+        return true;
+    }
+}
+
+//method to validate fullName
+function validatefullName(text) {
+    var pattern = /^[A-Za-z0-9]+$/;
+    if (text == "" || text == null) {
+        document.getElementById("fname").focus();
+        document.getElementById("fname").style.borderColor = "red";
+        document.getElementById("errorLastName").innerHTML = "Required";
+        document.getElementById("errorLastName").style.color = "red";
+        return false; 
+    } else if ((pattern.test(text)) == false) {
+        document.getElementById("fname").focus();
+        document.getElementById("fname").style.borderColor = "red";
+        document.getElementById("errorLastName").innerHTML = "You can't enter numbers here";
+        document.getElementById("errorLastName").style.color = "red";
+        return false;
+    } else {
+        document.getElementById("fname").style.borderColor = "green";
+        document.getElementById("errorLastName").innerHTML = "";
+        return true;
+    }
+}
+
+//method to validate EmploymentID
+function validateemploymentID(text) {
+    if (text == "" || text == null) {
+        document.getElementById("eId").focus();
+        document.getElementById("eId").style.borderColor = "red";
+        document.getElementById("errorEmployID").innerHTML = "Required";
+        document.getElementById("errorEmployID").style.color = "red";
+        return false; 
+    } else {
+        document.getElementById("eId").style.borderColor = "green";
+        document.getElementById("errorEmployID").innerHTML = "";
+        return true;
+    }
+}
+
+//method to validate Address
+function validateaddress(text) {
+    if (text == "" || text == null) {
+        document.getElementById("address").focus();
+        document.getElementById("address").style.borderColor = "red";
+        document.getElementById("errorAddress").innerHTML = "Required";
+        document.getElementById("errorAddress").style.color = "red";
+        return false; 
+    } else {
+        document.getElementById("address").style.borderColor = "green";
+        document.getElementById("errorAddress").innerHTML = "";
+        return true;
+    }
+}
+
 //method to validate name field is empty or not
 function validateName(text, errorLbl) {
     if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
         document.getElementById(text).focus();
         document.getElementById(text).style.borderColor = "red";
-        document.getElementById(errorLbl).innerHTML = "required";
+        document.getElementById(errorLbl).innerHTML = "Required";
         document.getElementById(errorLbl).style.color = "red";
         return false;
     } else {
@@ -101,13 +203,13 @@ function validateNicNumber(text) {
     if (text == "" || text == null) {
         document.getElementById("nic").focus();
         document.getElementById("nic").style.borderColor = "red";
-        document.getElementById("errornicNum").innerHTML = "required";
+        document.getElementById("errornicNum").innerHTML = "Required";
         document.getElementById("errornicNum").style.color = "red";
-        return false;
+        return false; 
     } else if ((pattern.test(text)) == false || text.length < 10) {
         document.getElementById("nic").focus();
         document.getElementById("nic").style.borderColor = "red";
-        document.getElementById("errornicNum").innerHTML = "invalid type";
+        document.getElementById("errornicNum").innerHTML = "Please enter a valid NIC number";
         document.getElementById("errornicNum").style.color = "red";
         return false;
     } else {
@@ -122,7 +224,7 @@ function validateDropDown(text, errorLbl) {
     if (document.getElementById(text).value == "") {
         document.getElementById(text).focus();
         document.getElementById(text).style.borderColor = "red";
-        document.getElementById(errorLbl).innerHTML = "please select a value";
+        document.getElementById(errorLbl).innerHTML = "Required to select";
         document.getElementById(errorLbl).style.color = "red";
 
         return false;
@@ -139,13 +241,13 @@ function validateMobileNumber(text) {
     if (text == null || text == "") {
         document.getElementById("mobileNm").focus();
         document.getElementById("mobileNm").style.borderColor = "red";
-        document.getElementById("errormobileNumb").innerHTML = "required";
+        document.getElementById("errormobileNumb").innerHTML = "Required";
         document.getElementById("errormobileNumb").style.color = "red";
         return false;
     } else if ((pattern.test(text)) == false || text.length < 10) {
         document.getElementById("mobileNm").focus();
         document.getElementById("mobileNm").style.borderColor = "red";
-        document.getElementById("errormobileNumb").innerHTML = "invalid type";
+        document.getElementById("errormobileNumb").innerHTML = "Please enter a valid mobile number";
         document.getElementById("errormobileNumb").style.color = "red";
         return false;
     } else {
@@ -159,12 +261,15 @@ function validateMobileNumber(text) {
 function validateEmail(text) {
     var pattern = /^[a-z0-9._-]+@[a-z]+.[a-z.]{2,5}$/i;
     if (text == "" || text == null) {
-        document.getElementById("errorEmail").innerHTML = "";
-        return true;
+        document.getElementById("email").focus();
+        document.getElementById("email").style.borderColor = "red";
+        document.getElementById("errorEmail").innerHTML = "Required";
+        document.getElementById("errorEmail").style.color = "red";
+        return false;
     } else if ((pattern.test(text)) == false) {
         document.getElementById("email").focus();
         document.getElementById("email").style.borderColor = "red";
-        document.getElementById("errorEmail").innerHTML = "invalid email";
+        document.getElementById("errorEmail").innerHTML = "Please enter a valid email address";
         document.getElementById("errorEmail").style.color = "red";
         return false;
     } else {
@@ -223,7 +328,7 @@ function selectionForm(val) {
 
     } else {
 
-        alert('select a value');
+        alert('Required to select');
     }
 }
 

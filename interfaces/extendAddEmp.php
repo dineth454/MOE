@@ -37,15 +37,13 @@ ob_start();
 
             <!-- Finished NAvigation bar -->
 
-            <!-- Page Content -->
-            
-
+            <!-- Page Content -->            
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
-                <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+                <div class="container-fluid" >
 
+                    <div class="col-lg-9 col-lg-offset-1">
 
                         <?php
                         $roletypeID = $_SESSION["roleTypeID"];
@@ -156,8 +154,10 @@ ob_start();
                         ?>
 
                         <!-- New Part-->
+                    <div class="row">
                         <div class="col-lg-7">
-                            <h1 style="padding-bottom:18px;">Disabled Form States</h1>
+
+                            <h1 style="padding-bottom:32px;"><strong>Add New Employee</strong></h1>
 
                             <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateForm())"  novalidate>
 
@@ -252,21 +252,21 @@ ob_start();
                                     <div class="form-group">
                                         <label for="ini_name">Name With Initials</label>
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name with Initials"/>
-                                        <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                        <label id="errorFirstName" style="font-size:10px"> </label>
                                     </div>
 
                                     <!-- Full Name-->
                                     <div class="form-group">
                                         <label for="fullName">Full Name</label>
                                         <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Full Name"/>
-                                        <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                        <label id="errorLastName" style="font-size:10px"> </label>
                                     </div>
 
                                     <!-- Employment ID-->
                                     <div class="form-group">
                                         <label for="employ_ID">Employee ID</label>
                                         <input type="text" class="form-control" id="eId" name="eId" placeholder="Enter Employment ID"/>
-                                        <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                        <label id="errorEmployID" style="font-size:10px"> </label>
                                     </div>
 
                                     <!-- Email-->
@@ -280,7 +280,7 @@ ob_start();
                                     <div class="form-group">
                                         <label for="address">Current Address</label>
                                         <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" />
-                                        <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                        <label id="errorAddress" style="font-size:10px"> </label>
                                     </div>
 
                                     <!--Gender-->
@@ -291,7 +291,7 @@ ob_start();
                                             <option value="2">Male</option>
                                             <option value="3">Female</option>
                                         </select> 
-                                        <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                        <label id="errorGender" style="font-size:10px"> </label>
                                     </div>
 
                                     <!--Marriage-->
@@ -302,7 +302,7 @@ ob_start();
                                             <option value="2">Yes</option>
                                             <option value="3">No</option>
                                         </select>
-                                        <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                        <label id="errorMarriage" style="font-size:10px"> </label>
                                     </div>
 
                                     <!--Mobile Number-->
@@ -316,10 +316,16 @@ ob_start();
                                         <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
+                                </div>
                             </form>
                         </div>
-                        <form >
-                    </div>
+
+                        <div class="col-lg-5" style="position: fixed; top: 150px; left: 800px;"> 
+                      <img src="../images/addPerson.png" width="500" height="500">
+                      </div>
+                </div>
+            </div>
+                      
                 </div>
             </div>
 
