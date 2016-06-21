@@ -132,7 +132,7 @@ ob_start();
 
                                     if ($designationResult == 0) {
                                         echo '<script language="javascript">';
-                                        echo 'alert("Principal already existe.cannot add to System")';
+                                        echo 'alert("There Is a Principal Already In this institute")';
                                         echo '</script>';
                                     }
                                 } else {
