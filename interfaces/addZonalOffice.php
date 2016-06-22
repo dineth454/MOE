@@ -85,7 +85,7 @@ ob_start();
                             <h1>Add Zonal Office</h1>
                         </div>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())">
 
                             <div class="row">
                                 <div class="form-group col-lg-8 col-md-18 col-sm-8">
@@ -94,7 +94,7 @@ ob_start();
 
                                         <div  class="form-group"  id="provinceIDDiv" style="margin-bottom: 0px;">
 
-                                            <label for="province Office" class="control-label col-xs-6  required" style="text-align: left;"> province Office :  </label>
+                                            <label for="province Office" class="control-label col-xs-6 " style="text-align: left;"> province Office :  </label>
 
                                             <div   class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
                                                 <select required class="form-control " name="provinceID" id="provinceID">
@@ -151,11 +151,51 @@ ob_start();
         </div>
 
 
+        
+
+
         <!-- Bootstrap Core JavaScript -->
         <script src="../assets/js/jquery.js" ></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
+
+
+<script type="text/javascript">
+            function validateForm() {
+                var errors = [];
+
+                if (!validateProvince("provinceID", "errorProvince")) {
+                    errors.push("errorProvince");
+                    alert ("ddd");
+
+                }
+                if (!validateStudentNumber("students", "errorStudentNumber")) {
+                    errors.push("errorStudentNumber");
+
+                }
+                
+                if (errors.length > 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function validateProvince(text, errorLbl) {
+                if (document.getElementById(text).value == "") {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "please select a Province";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                } else {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                }
+            }
+        </script>
 
 
     </body>
