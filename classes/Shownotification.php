@@ -57,8 +57,6 @@ class Shownotification{
 
     function reply($reply,$reciever,$id){
         global $mysqli;
-        echo "string = ";
-        echo $id;
         $query = "UPDATE notification_all SET reply = '".$reply."' , reciever = '". $reciever."', dateReply = NOW() WHERE notID = '".$id."'  ";
         $result = $mysqli->query($query);
         if ($result != 1) {
