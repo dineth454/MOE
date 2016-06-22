@@ -455,12 +455,12 @@ ob_start();
         <?php include '../interfaces/footer.php' ?>
         
         <script src = "../assets/js/addEmployee.js"></script>
+        <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
         <script src="../assets/js/jquery.js"></script>
 
 
         <script src="../assets/js/bootstrap.min.js"></script>
-        <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
 
 

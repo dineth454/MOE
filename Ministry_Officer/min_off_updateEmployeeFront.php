@@ -24,8 +24,6 @@ ob_start();
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         
-        
-
          <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -40,6 +38,8 @@ ob_start();
 
         
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
 
 
     </head>
@@ -58,7 +58,7 @@ ob_start();
             <?php include 'sidebar_min_off.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
-        </nav>
+            </nav>
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 540px;">
 

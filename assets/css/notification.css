@@ -8,6 +8,7 @@
 #notification_li{
 	position: relative;
 }
+/*
 #notificationContainer {
 	background-color: #fff;
 	border: 1px solid rgba(100, 100, 100, .4);
@@ -20,7 +21,7 @@
 	max-height: 400px;
     overflow: auto;
     overflow-x: hidden;
-}
+}*/
 #notificationContainer:before {
 	content: '';
 	display: block;

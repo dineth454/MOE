@@ -37,7 +37,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse3"><i class="fa fa-book fa-2x" aria-hidden="true"></i> Subject <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse3" class="collapse">
                             <li>
-                                <a href="addNewSubject.php">Add Subject</a>
+                                <a href="addSubject.php">Add Subject</a>
                             </li>
                             <li>
                                 <a href="addCurrentSubjectFormFront.php">Add Current subject Of Teacher</a>
