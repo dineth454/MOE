@@ -1,42 +1,69 @@
-<DOCTYPE html>
+<?php
+ob_start();
+?>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-	
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Add vacancy</title>
+
+        
+
+        <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
+        <link href="../assets/css/home.css" rel="stylesheet">
+        <link href="../assets/css/smallbox.css" rel="stylesheet">
+        
+        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
+        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
+        <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
-    <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../assets/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="../assets/css/smallbox.css" rel="stylesheet">
+    <link href="../assets/css/footer.css" rel="stylesheet">
 
 
-</head>
+    </head>
 
-<body>
+    <body>
+        <div id="wrapper">
 
-	
-
-
-	<div id="wrapper">
-
-            <!-- Sidebar -->
-            <?php include 'sideBarAdmin.php' ?>
-            <!-- /#sidebar-wrapper -->
-
+            <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <!-- include Navigation BAr -->
-            <?php include 'navigationBar.php' ?>
+            <?php include '../interfaces/navigation_bar.php' ?>
+            <!--____________________________________________________________________________-->
+            <!-- Sidebar Menu Items-->
+             <!-- Sidebar -->
+            <?php include 'sideBarPrincipal.php' ?>
+            <!-- /#sidebar-wrapper -->
+            <!-- /.navbar-collapse -->
+            </nav>
 
-            <!-- Finished NAvigation bar -->
-            <!-- Page Content -->
-            <div id="page-content-wrapper" style="min-height: 540px;">
+            <div  id="page-content-wrapper" style="min-height: 540px;" >
 
-            	 <?php
-                            
-                            require '../classes/vacansies.php';
+                <div class="container-fluid">
+                    <div class="col-lg-12 col-lg-offset">
+
+
+                        <?php
+                          require '../classes/vacansies.php';
                             // get logged User details
                           
                             //$designationTypeID = $_SESSION["designationTypeID"];
@@ -71,18 +98,21 @@
                         }
                         
 
-                ?>
-            
+                        
+                        ?>
 
-            <div class="container-fluid">
-            	
-            	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())" novalidate>
+                        <div align="left" style="padding-bottom:10px; padding-left:18px;">
+                            <h1 class="topic_font">Add Vacancy</h1>
+                        </div>
+                <div class="row">
+                    <div class="col-lg-9 col-md-9">    
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())" novalidate>
 
-            		<div class="row">
+                    <div class="row">
                
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                        	<!-- subject-->
+                            <!-- subject-->
                             <label for="fullName" class="control-label col-xs-3 col-sm-3 col-md-3col-lg-3 required" style="display: inline-block; text-align: left;"> Subject </label>
                             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                 <select required class="form-control " name="subject" id="subject" >
@@ -100,33 +130,33 @@
                                         }
                                     ?>
 
-									<!--______________________________-->
+                                    <!--______________________________-->
                                 </select>
                                 <label id="errorSubject" style="font-size:10px"> </label>
                             </div>
-                        	
+                            
                         </div>
 
-						<div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                        	<!-- grade-->
+                            <!-- grade-->
                             <label for="grade" class="control-label col-xs-3 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Grade </label>
                             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                 <input type="text" class="form-control" id="grade" name="grade" placeholder="Enter Grade Eg:6"/>
                                 <label id="errorGrade" style="font-size:10px"> </label>
                             </div>
-                        	
+                            
                         </div> 
 
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                        	<!-- number of teachers-->
+                            <!-- number of teachers-->
                             <label for="fullName" class="control-label col-xs-3 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Number of teachers </label>
                             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                 <input type="text" class="form-control" id="num_of_teachers" name="num_of_teachers" placeholder="Enter the number of vacancies"/>
                                 <label id="errorNumb_of_students" style="font-size:10px"> </label>
                             </div>
-                        	
+                            
                         </div>
 
 
@@ -143,21 +173,39 @@
 
                     </div>
 
-            		
-            		
+                    
+                    
 
-            	</form>
+                </form>
+                </div>
+
+                <div class="col-lg-3">
+                    <img src="../images/addVacant.png" alt="education cover" style="width:180px;height:180px; padding-right:0px;">
+                </div>
+            </div>
+                    </div>
+
+
+
+                </div>
             </div>
 
-                
-
-    </div> 
-    <!-- /#wrapper -->
+            <!-- /#page-content-wrapper -->
 
 
-    <!--______________________________________________-->
+        </div>
+        <br><br>
 
-    <!--______________________________________________________________________________________________________________-->
+        <?php include '../interfaces/footer.php' ?>
+
+        <script src = "../assets/js/addEmployee.js"></script>
+
+        <script src="../assets/js/jquery.js"></script>
+
+
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src = "../assets/js/jquery-2.1.4.min.js"></script>
+         <!--______________________________________________________________________________________________________________-->
 
     <script type="text/javascript">
         
@@ -244,15 +292,18 @@
         
         <!--______________________end of validation______________________________________-->
 
+        
 
-   
 
-    <script src = "../assets/js/addSchool.js"></script>
-	<!--jQuery -->
-    <script src="../assets/js/jquery.js"></script>
- 
-    <script src="../assets/js/bootstrap.min.js"></script>
 
-</body>
-	
+
+        
+        
+
+
+
+
+
+    </body>
+
 </html>

@@ -1,6 +1,10 @@
 <style type="text/css">
     .footer_col{
         background: #CDCFD1;
+
+    position:;
+    bottom:0;
+    left:0; 
     }
 </style>
 <footer>
@@ -21,7 +25,7 @@
     </div>
 </footer>
 <!--jQuery -->
-        <script src="../assets/js/jquery.js"></script>-->
+       <!--  <script src="../assets/js/jquery.js"></script> -->
  
        <!-- <script src="../assets/js/bootstrap.min.js"></script>-->
         <script src="../assets/js/notification.js"></script>
