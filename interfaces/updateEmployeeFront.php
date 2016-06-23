@@ -45,8 +45,8 @@ ob_start();
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 540px;">
 
-                <div class="container-fluid">
-                    <div class="col-lg-9  col-lg-offset-1">
+                <div class="container-fluid" style="">
+                    <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
 
                         <?php
@@ -207,66 +207,44 @@ ob_start();
                             // echo $roletype;
                         }
                         ?>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h1 style="padding-bottom:40px;">Update Employee Basic Details</h1>
 
-                        <div align="center" style="padding-bottom:10px;">
-                            <h1>Update Employee Basic Details</h1>
-                        </div>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateEmpUpdateFront())" novalidate>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" >
+                                <div class="row">
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                            <div class="row">
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <!-- NIC number-->
+                                        <div class="form-group">
+                                            <label for="nic" style="display: inline-block;">NIC Number</label>
+                                            <input maxlength="10" type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC Number" autofocus/>
+                                            <label id="errornicNum" style="font-size:10px"></label>
+                                        </div>
 
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                            <!-- NIC number-->
-                                            <label  for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3" style="display: inline-block; text-align: left;">Enter NIC Number </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number"/>
-                                                <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                            </div>
-
+                                        <div class="form-group">
+                                            <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
                                 </div>
-
-                            </div>
-
-
-
                         </form>
-
                     </div>
-
-
+                    <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                        <img src="../images/addPerson.png" width="400" height="400">
+                    </div>
 
                 </div>
             </div>
             <!-- /#page-content-wrapper -->
-
-
-
-            <?php include 'footer.php' ?>
-
-            <script src="../assets/js/jquery.js"></script>
-
-
-            <script src="../assets/js/bootstrap.min.js"></script>
-            <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-
-
-
+            </div>
         </div>
-    </body>
+    </div>
 
+    <?php include 'footer.php' ?>
+    <script src = "../assets/js/addEmployee.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src = "../assets/js/jquery-2.1.4.min.js"></script>
+    </body>
 </html>

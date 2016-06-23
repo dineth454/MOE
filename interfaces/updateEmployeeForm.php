@@ -428,17 +428,16 @@
                                                 <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select class="form-control" name= "gender" value="" id = "gender">
-<?php if ($gender == 2) { ?>
+                                                            <?php if ($gender == 2) { ?>
 
                                                             <option value="">Select Gender</option>
                                                             <option selected="true" value="2">Male</option>
                                                             <option  value="3">Female</option>
-<?php } else { ?>
+                                                            <?php } else { ?>
                                                             <option value="2">Male</option>
                                                             <option selected="true" value="3">Female</option>
-<?php } ?>
+                                                            <?php } ?>
                                                     </select> 
-
                                                 </div>
 
                                                 <!--Marrige-->

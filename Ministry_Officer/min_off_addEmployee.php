@@ -58,7 +58,7 @@ ob_start();
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
-                <div class="container-fluid" style="box-shadow: 1px 2px 5px #000000">
+                <div class="container-fluid" style="box-shadow: 1px 1px 5px #000000">
 
                     <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
@@ -201,7 +201,7 @@ ob_start();
                         <div class="row">
                             <div class="col-lg-7">
 
-                                <h1 style="padding-bottom:32px;">Add New Employee</h1>
+                                <h1 style="padding-bottom:40px;">Add New Employee</h1>
 
                                 <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateForm())"  novalidate>
 
@@ -380,10 +380,7 @@ foreach ($result as $array) {
 <?php include '../interfaces/footer.php' ?>
 
         <script src = "../assets/js/addEmployee.js"></script>
-
         <script src="../assets/js/jquery.js"></script>
-
-
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
