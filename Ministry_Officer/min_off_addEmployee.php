@@ -356,7 +356,7 @@ foreach ($result as $array) {
                                                 <label id="errormobileNumb" style="font-size:10px"> </label>
                                             </div>
 
-                                            <div class="form-group">
+                                            <div class="form-group" style="float: right">
                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>

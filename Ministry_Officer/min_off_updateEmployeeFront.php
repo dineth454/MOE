@@ -237,7 +237,7 @@ ob_start();
                                             <label id="errornicNum" style="font-size:10px"></label>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group" style="float: right">
                                             <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
                                         </div>
                                     </div>

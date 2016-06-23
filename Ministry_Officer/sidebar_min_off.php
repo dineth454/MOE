@@ -12,9 +12,6 @@
                             <li>
                                 <a href="min_off_updateEmployeeFront.php">Update User</a>
                             </li>
-                            <li>
-                                <a href="deleteUserFront.php">Delete User</a>
-                            </li>
                         </ul>
                     </li>
                    
