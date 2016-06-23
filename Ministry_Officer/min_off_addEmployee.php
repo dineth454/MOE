@@ -58,7 +58,7 @@ ob_start();
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
-                <div class="container-fluid" style="box-shadow: 1px 1px 5px #000000">
+                <div class="container-fluid">
 
                     <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 

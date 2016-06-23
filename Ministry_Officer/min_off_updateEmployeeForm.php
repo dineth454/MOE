@@ -58,7 +58,7 @@ ob_start();
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
-                <div class="container-fluid" style="box-shadow: 1px 1px 5px #000000">
+                <div class="container-fluid">
 
                     <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
@@ -146,7 +146,7 @@ ob_start();
                         <div class="row">
                             <div class="col-lg-7">
 
-                                <h1 style="padding-bottom:40px;">Update Employee Basic Details</h1>
+                                <h1 style="padding-bottom:40px; padding-left: 10px;">Update Employee Basic Details</h1>
 
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateEmpUpdateForm())"  novalidate>
 
@@ -263,6 +263,7 @@ ob_start();
                                             </div>
                                             <?php } ?>
 
+                                        </div>
                                         <div class="col-lg-12">
 
                                             <!-- Select role-->
@@ -398,11 +399,5 @@ ob_start();
         <script src="../assets/js/jquery.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-
-
-
-
-
     </body>
-
 </html>
