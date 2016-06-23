@@ -121,16 +121,15 @@ ob_start();
                             $resultUpdated = $employee->updateEmployeeBasic($nicNumber, $role_subitted, $nameInitialsSubmitted, $nameFullUpdated, $eIDSubmitted, $emailUpdated, $addressUpdated, $genderUpdated, $merrageUpdated, $mobileUpdated);
                             if ($resultUpdated == 1) {
 
-                                echo '<script language="javascript">';
-                                echo 'alert("Updated SuccessFully.Thankyou")';
+                                echo '<script type="text/javascript">'; 
+                                echo 'alert("User is updated successfully!");'; 
+                                echo 'window.location.href = "min_off_updateEmployeeFront.php";';
                                 echo '</script>';
-                                //header("Location: min_off_updateEmployeeFront.php");
                             } else {
                                 echo '<script language="javascript">';
-                                echo 'alert("Error Occured While Updating.Thankyou")';
+                                echo 'alert("Error Occured While Updating")';
                                 echo '</script>';
                             }
-                            //header("Location: min_off_updateEmployeeFront.php");
                         }
 
                         ?>
