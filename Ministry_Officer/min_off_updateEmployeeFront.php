@@ -34,6 +34,8 @@ ob_start();
 
         
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
 
 
     </head>
@@ -53,7 +55,7 @@ ob_start();
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
             </nav>
-
+            
             <!-- Page Content -->
             <div id="page-content-wrapper" style="min-height: 540px;">
 

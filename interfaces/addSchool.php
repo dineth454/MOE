@@ -20,6 +20,11 @@ ob_start();
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
+        <link href="../assets/css/sb-admin.css" rel="stylesheet">
+
+        <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Custom CSS -->
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
@@ -33,17 +38,19 @@ ob_start();
 
         <div id="wrapper">
 
-            <!-- Sidebar -->
-            <?php include 'sideBarAdmin.php' ?>
-            <!-- /#sidebar-wrapper -->
-
-            <!-- include Navigation BAr -->
-            <?php include 'navigationBar.php' ?>
-
-            <!-- Finished NAvigation bar -->
-
+            <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- include Navigation BAr -->
+                <?php include '../interfaces/navigation_bar.php' ?>
+                <!--____________________________________________________________________________-->
+                <!-- Sidebar Menu Items-->
+                <!-- Sidebar -->
+                <?php include 'sidebar_min_off.php' ?>
+                <!-- /#sidebar-wrapper -->
+                <!-- /.navbar-collapse -->
+            </nav>
             <div  id="page-content-wrapper" style="min-height: 540px;">
-                <div class="row container-fluid" style="padding-left: 15px;">
+                <div class="row container-fluid" style="box-shadow: 1px 2px 5px #000000">
                     <div class="col-lg-7 " style="padding-left: 0px;">
 
                         <?php
@@ -53,7 +60,7 @@ ob_start();
                             // get logged User details
                           
                             $designationTypeID = $_SESSION["designationTypeID"];
-                            echo $designationTypeID;
+                            //echo $designationTypeID;
                             // $nic = $_POST['nic'];
                             $provinceId = $_POST['provinceID'];
                             $zonalId = $_POST['zonalID'];
@@ -93,15 +100,15 @@ ob_start();
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())" novalidate>
 
                             <div class="row" >
-                                <div class="form-group col-lg-8 col-md-18 col-sm-8">
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                     <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                         <div  class="form-group"  id="provinceIDDiv" style="margin-bottom: 0px;">
 
-                                            <label for="province Office" class="control-label col-xs-6  required" style="text-align: left;"> province Office :  </label>
+                                            <label for="province Office" class="control-label  col-lg-5 col-xs-5  required" style="text-align: left;"> province Office :  </label>
 
-                                            <div style="margin-bottom: -10px;"   class="col-md-6 col-lg-6" >
+                                            <div style="margin-bottom: -10px;"   class="col-md-7 col-lg-7" >
                                                 <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
                                                     <option value="" >Select Province Office</option>
                                                     <option value="1">centralProvince</option>
@@ -121,12 +128,12 @@ ob_start();
 
                                     </div>
 
-                                    <div  class="row">
+                                    <div  class="row" style="padding-bottom:10px;">
                                         <div   class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
                                             <div id="zonalOfficeHidden" class="form-group">
 
-                                                <label for="ZonalOffice" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Zonal Office :  </label>
-                                                <div style="margin-bottom: -20px;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <label for="ZonalOffice" class="control-label col-lg-5 col-xs-5  required" style="text-align: left; padding-left: 30px;"> Zonal Office :  </label>
+                                                <div style="margin-bottom: -20px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                                     <select required class="form-control" name="zonalID"  id="zonalID" > </select>
 
                                                     <label id="errorZonal" style="font-size:10px;"></label>
@@ -141,8 +148,8 @@ ob_start();
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- School Name-->
-                                            <label for="School" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> School Name/Address:  </label>
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                            <label for="School" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left: 30px;"> School Name/Address:  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="School" name="School"  placeholder="School Name"/>
                                                 <label id="errorSchoolName" style="font-size:10px"> </label>
 
@@ -156,9 +163,9 @@ ob_start();
 
                                         <div  class="form-group"  id="SchoolType" style="margin-bottom: 0px;">
 
-                                            <label for="SchoolType" class="control-label col-xs-6  required" style="text-align: left;"> SchoolType :  </label>
+                                            <label for="SchoolType" class="control-label col-xs-5 col-md-5 col-lg-5  required" style="text-align: left;"> SchoolType :  </label>
 
-                                            <div style="margin-bottom: -10px;"   class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+                                            <div style="margin-bottom: -10px;"   class="col-xs-7 col-sm-7 col-md-7 col-lg-7" >
                                                 <select required class="form-control " name="SchoolTypeSelect" id="SchoolTypeSelect">
                                                     <option value="">Select Type</option>
                                                     <option value="1">MIX</option>
@@ -185,8 +192,8 @@ ob_start();
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- No:OF:Students-->
-                                            <label for="NoOfStudents" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> No Of Students :  </label>
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                            <label for="NoOfStudents" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left: 30px;"> No Of Students :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="students" name="students"  placeholder="NOS"/>
                                                 <label id="errorStudentNumber" style="font-size:10px"> </label>
 
@@ -199,8 +206,8 @@ ob_start();
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- Latitude-->
-                                            <label for="Latitude" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Latitude :  </label>
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                            <label for="Latitude" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left: 30px;"> Latitude :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="latbox" name="lat"  placeholder="Latitude"/>
 
                                                 <label id="errorLat" style="font-size:10px"> </label>
@@ -214,8 +221,8 @@ ob_start();
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- Longitude-->
-                                            <label for="Longitude" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Longitude :  </label>
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                            <label for="Longitude" class="control-label col-xs-5 col-lg-5 col-md-5 required" style="text-align: left; padding-left: 30px;"> Longitude :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="lngbox" name="lng"  placeholder="Longitude"/>
 
                                                 <label id="errorLng" style="font-size:10px"> </label>
@@ -241,9 +248,9 @@ ob_start();
                     </div>
                     <div style="height: 530px">
                         <!-- map -->
-                        <div  >
-                            <div  class="form-group col-lg-4 col-md-4 col-sm-4" style="padding:0;">
-                                <div class="container-fluid" style="padding:0;">
+                        <div class="row" >
+                            <div  class="form-group col-lg-5 col-md-5 col-sm-5" style="padding:0;">
+                                <div class="container-fluid" style="padding-top:15px;">
                                     <div id="map-canvas" style="width:420px;height:530px;"></div>
 
                                 </div>
