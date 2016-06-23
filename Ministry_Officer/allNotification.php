@@ -18,7 +18,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Notifications</title>
+        <title>All Notifications</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -54,50 +54,14 @@
             <!-- Page Content -->
             </nav>
             <div id="page-content-wrapper" style="min-height: 540px;">
-                <?php 
-                    
-                    $id = intval($_GET['id']);
-                    
-                    if (isset($_POST['submit'])) {
-                        //require("../classes/Shownotification.php");
-                        $reply = $_POST['reply'];
-                        $reciever = $_SESSION["nic"];
-                        $not = new Shownotification();
-                        $not->reply($reply,$reciever,$id);
-                        
-                    }
-
-                 ?>
                 <form  method="post">
                 <div class="container-fluid" style="margin-left: 44px;margin-top: 90px;">
-                    <div class="row">
-                        <label>From :</label>
-                        <?php echo $not->name($id); echo "; ";?>
-                        <?php echo $not->school($id); ?>
+                    <?php 
+                        //require("../classes/Shownotification.php");
+                        //$notifi = new Shownotification();
+                        $not->viewallnotifications();
 
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <label>Message :</label>
-                        <div class="panel panel-default" style="width:750px;">
-                          <div class="panel-body">
-                            <?php echo $not->message($id); ?>
-                          </div>
-                        </div>
-
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <label>Reply :</label>
-                        <div class="panel panel-default" style="width:750px;">
-                            <div class="panel-body">
-                                <textarea name="reply" id="reply" rows="5" cols="40" style="border: 0px; margin: 0px; width: 719px; height: 191px;"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Reply">
-                    </div>
+                     ?>
 
                 </div>
                 </form>

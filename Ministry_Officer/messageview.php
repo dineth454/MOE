@@ -36,7 +36,7 @@
     <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         
     </head>
-
+<?php $id = intval($_GET['id']); ?>
     <body>
 
         <div id="wrapper">
@@ -54,20 +54,6 @@
             <!-- Page Content -->
             </nav>
             <div id="page-content-wrapper" style="min-height: 540px;">
-                <?php 
-                    
-                    $id = intval($_GET['id']);
-                    
-                    if (isset($_POST['submit'])) {
-                        //require("../classes/Shownotification.php");
-                        $reply = $_POST['reply'];
-                        $reciever = $_SESSION["nic"];
-                        $not = new Shownotification();
-                        $not->reply($reply,$reciever,$id);
-                        
-                    }
-
-                 ?>
                 <form  method="post">
                 <div class="container-fluid" style="margin-left: 44px;margin-top: 90px;">
                     <div class="row">
@@ -91,12 +77,12 @@
                         <label>Reply :</label>
                         <div class="panel panel-default" style="width:750px;">
                             <div class="panel-body">
-                                <textarea name="reply" id="reply" rows="5" cols="40" style="border: 0px; margin: 0px; width: 719px; height: 191px;"></textarea>
+                                <?php echo $not->viewreply($id); ?>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Reply">
+                        <input class="btn btn-primary" type="button" onClick="history.go(-1);" value="Back">
                     </div>
 
                 </div>
