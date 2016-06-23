@@ -108,6 +108,76 @@ function validateForm() {
     }
 }
 
+//Update Employee Front Validation
+function validateEmpUpdateFront() {
+    var errors = [];
+
+    var nicNumber = document.getElementById("nic").value;
+    if (!validateNicNumber(nicNumber)) {
+        errors.push("errorNicNumber");
+    }
+
+    if (errors.length > 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+//Update Employee Form Validation
+function validateEmpUpdateForm() {
+    var errors = [];
+
+    //validate Roletype
+    if (!validateDropDown("select_role", "errorRole")) {
+        errors.push("errorRole");
+    }
+
+    var nameWithInit = document.getElementById("name").value;
+    if (!validatenameWithInit(nameWithInit)) {
+        errors.push("errorFirstName");
+    }
+
+    var fullName = document.getElementById("fname").value;
+    if (!validatefullName(fullName)) {
+        errors.push("errorLastName");
+    }
+
+    var employmentID = document.getElementById("eId").value;
+    if (!validateemploymentID(employmentID)) {
+        errors.push("errorEmployID");
+    }
+
+    if (!validateDropDown("gender", "errorGender")) {
+        errors.push("errorGender");
+    }
+
+    if (!validateDropDown("marrrige", "errorMarriage")) {
+        errors.push("errorMarriage");
+    }
+
+    var address = document.getElementById("address").value;
+    if (!validateaddress(address)) {
+        errors.push("errorAddress");
+    }
+
+    var mobileNumber = document.getElementById("mobileNm").value;
+    if (!validateMobileNumber(mobileNumber)) {
+        errors.push("errormobileNumbber");
+    }
+
+    var email = document.getElementById("email").value;
+    if (!validateEmail(email)) {
+        errors.push("errorEmail");
+    }
+
+    if (errors.length > 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 //method to validate nameWithInitials
 function validatenameWithInit(text) {
     var pattern = /^[a-zA-Z_ ]*$/;
