@@ -68,6 +68,14 @@ ob_start();
                         require '../classes/employee.php';
                         $employee = new Employee();
 
+                        $display = "display: none;";
+
+                        // Initialize Variables
+                        $searchUserSubjectId = 0;
+                        $searchUserSchoolId = 0;
+                        $searchUserZonalId = 0;
+                        $searchUserProvinceId = 0;
+
                         $designationTypeID = $_SESSION['update']['designationType'];
                         $address = $_SESSION['update']['Address'];
                         $roleType = $_SESSION['update']['roleType'];
@@ -168,7 +176,9 @@ ob_start();
                                             </div>
 
                                             <!-- Province Office-->
-                                            <div class="form-group" id="provinceIDDiv">
+                                            <?php if($searchUserZonalId > 0) {
+                                                    echo $display = "";?>
+                                            <div class="form-group" style="<?php echo $display ?>" id="provinceIDDiv">
                                                 <label for="province Office">Province Office</label>
                                                     <?php if ($searchUserProvinceId == 1) { ?>
                                                                 <div style="display: inline-block; margin-left: 100px;"><label>Central Province</label></div>
@@ -185,13 +195,15 @@ ob_start();
                                                             }
                                                             ?>
                                             </div>
+                                            <?php } ?>
 
                                             <!-- Zonal Office-->
-                                            <div class="form-group"  id="zonalOfficeDiv">
+                                            <?php if($searchUserZonalId > 0) {
+                                                    echo $display = "";?>
+                                            <div class="form-group" style="<?php echo $display ?>" id="zonalOfficeDiv">
                                                 <label for="Zonal Office">Zonal Office</label>
                                                     <?php
                                                             $result = $employee->loadZonalOffices();
-
                                                             foreach ($result as $array) {
                                                                 if ($array['zonalID'] == $searchUserZonalId) {
                                                                     echo '<div style="display: inline-block; margin-left: 100px;"><label>' . $array['zonalName'] . '</label></div>';
@@ -199,9 +211,12 @@ ob_start();
                                                             }
                                                         ?>
                                             </div>
+                                            <?php } ?>
 
                                             <!-- School-->
-                                            <div class="form-group" id="schoolIdDiv">
+                                            <?php if($searchUserSchoolId > 0) {
+                                                    echo $display = "";?>
+                                            <div class="form-group" style="<?php echo $display ?>" id="schoolIdDiv">
                                                 <label for="School">School</label>
                                                     <?php
                                                             $result = $employee->loadSchools();
@@ -213,9 +228,12 @@ ob_start();
                                                             }
                                                             ?>
                                             </div>
+                                            <?php } ?>
 
                                             <!-- Appointment Subject-->
-                                            <div class="form-group" id="subjectHiddenDiv">
+                                            <?php if($searchUserSubjectId > 0) {
+                                                    echo $display = "";?>
+                                            <div class="form-group" style="<?php echo $display ?>" id="subjectHiddenDiv">
                                                 <label for="School">Appointment Subject</label>
                                                     <?php
                                                         $result = $employee->loadSubjects();
@@ -227,6 +245,7 @@ ob_start();
                                                     }
                                                     ?>
                                             </div>
+                                            <?php } ?>
 
                                             <!-- Select role-->
                                             <div class="form-group">
