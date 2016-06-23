@@ -153,99 +153,117 @@ ob_start();
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
+                                        <div class="row">
+
                                             <!-- NIC number-->
-                                            <div class="form-group" >
-                                                <label>NIC Number</label>
-                                                <div><label ><?php echo $nicNumber; ?></label></div>
+                                            <div class="form-group col-lg-12" >
+                                                <div class="col-lg-6"><label>NIC Number</label></div>
+                                                <div class= "col-lg-6" style="display: inline-block;"><label ><?php echo $nicNumber; ?></label></div>
                                             </div>
 
                                             <!-- Designation-->
-                                            <div class="form-group">
-                                                <label for="designation" style="display: inline-block;">Designation</label>
+                                            <div class="form-group col-lg-12">
+                                                <div class="col-lg-6"><label for="designation" style="display: inline-block;">Designation</label></div>
+                                                <div class="col-lg-6">
                                                     <?php if ($designationTypeID == 1) { ?>
-                                                            <div style="display: inline-block; margin-left: 100px;"><label>Ministry Officer</label></div>
+                                                            <div style="display: inline-block;"><label>Ministry Officer</label></div>
                                                         <?php } else if ($designationTypeID == 2) { ?>
-                                                            <div style="display: inline-block; margin-left: 100px;"><label>Province Officer</label></div>
+                                                            <div style="display: inline-block;"><label>Province Officer</label></div>
                                                         <?php } else if ($designationTypeID == 3) { ?>
-                                                            <div style="display: inline-block; margin-left: 100px;"><label>Zonal Officer</label></div>
+                                                            <div style="display: inline-block;"><label>Zonal Officer</label></div>
                                                         <?php } else if ($designationTypeID == 4) { ?>
-                                                            <div style="display: inline-block; margin-left: 100px;"><label>Principal</label></div>
+                                                            <div style="display: inline-block;"><label>Principal</label></div>
                                                         <?php } else { ?>
-                                                            <div style="display: inline-block; margin-left: 100px;"><label>Teacher</label></div>
+                                                            <div style="display: inline-block;"><label>Teacher</label></div>
                                                         <?php } ?>
+                                                </div>
                                             </div>
 
                                             <!-- Province Office-->
-                                            <?php if($searchUserZonalId > 0) {
+                                            <?php if($searchUserProvinceId > 0) {
                                                     echo $display = "";?>
-                                            <div class="form-group" style="<?php echo $display ?>" id="provinceIDDiv">
-                                                <label for="province Office">Province Office</label>
+                                            <div class="form-group col-lg-12" style="<?php echo $display ?>" id="provinceIDDiv">
+                                                <div class="col-lg-6"><label for="province Office">Province Office</label></div>
+                                                    <div class="col-lg-6">
+
                                                     <?php if ($searchUserProvinceId == 1) { ?>
-                                                                <div style="display: inline-block; margin-left: 100px;"><label>Central Province</label></div>
+                                                                <div style="display: inline-block;"><label>Central Province</label></div>
                                                             <?php } else if ($searchUserProvinceId == 2) { ?>
-                                                                <div style="display: inline-block; margin-left: 100px;"><label>Western Province</label></div>
+                                                                <div style="display: inline-block;"><label>Western Province</label></div>
                                                             <?php } else if ($searchUserProvinceId == 3) { ?>
-                                                                <div style="display: inline-block; margin-left: 100px;"><label>Southern Province</label></div>
+                                                                <div style="display: inline-block;"><label>Southern Province</label></div>
                                                             <?php } else if ($searchUserProvinceId == 4) { ?>
-                                                                <div style="display: inline-block; margin-left: 100px;"><label>Northern Province</label></div>
+                                                                <div style="display: inline-block;"><label>Northern Province</label></div>
                                                             <?php } else if ($searchUserProvinceId == 5) { ?>
-                                                                <div style="display: inline-block; margin-left: 100px;"><label>Eastern Province</label></div>
+                                                                <div style="display: inline-block;"><label>Eastern Province</label></div>
                                                             <?php } else {
                                                                 
                                                             }
                                                             ?>
+                                                    </div>
                                             </div>
                                             <?php } ?>
 
                                             <!-- Zonal Office-->
                                             <?php if($searchUserZonalId > 0) {
                                                     echo $display = "";?>
-                                            <div class="form-group" style="<?php echo $display ?>" id="zonalOfficeDiv">
-                                                <label for="Zonal Office">Zonal Office</label>
+                                            <div class="form-group col-lg-12" style="<?php echo $display ?>" id="zonalOfficeDiv">
+                                                <div class="col-lg-6"><label for="Zonal Office">Zonal Office</label></div>
+                                                    <div class="col-lg-6">
+
                                                     <?php
                                                             $result = $employee->loadZonalOffices();
                                                             foreach ($result as $array) {
                                                                 if ($array['zonalID'] == $searchUserZonalId) {
-                                                                    echo '<div style="display: inline-block; margin-left: 100px;"><label>' . $array['zonalName'] . '</label></div>';
+                                                                    echo '<div style="display: inline-block;"><label>' . $array['zonalName'] . '</label></div>';
                                                                 }
                                                             }
                                                         ?>
+                                                    </div>
                                             </div>
                                             <?php } ?>
 
                                             <!-- School-->
                                             <?php if($searchUserSchoolId > 0) {
                                                     echo $display = "";?>
-                                            <div class="form-group" style="<?php echo $display ?>" id="schoolIdDiv">
-                                                <label for="School">School</label>
+                                            <div class="form-group col-lg-12" style="<?php echo $display ?>" id="schoolIdDiv">
+                                                <div class="col-lg-6"><label for="School">School</label></div>
+                                                    <div class="col-lg-6">
+
                                                     <?php
                                                             $result = $employee->loadSchools();
 
                                                             foreach ($result as $array) {
                                                                 if ($array['schoolID'] == $searchUserSchoolId) {
-                                                                    echo '<div style="display: inline-block; margin-left: 100px;"><label>' . $array['schoolName'] . '</label></div>';
+                                                                    echo '<div style="display: inline-block;"><label>' . $array['schoolName'] . '</label></div>';
                                                                 }
                                                             }
                                                             ?>
+                                                    </div>
                                             </div>
                                             <?php } ?>
 
                                             <!-- Appointment Subject-->
                                             <?php if($searchUserSubjectId > 0) {
                                                     echo $display = "";?>
-                                            <div class="form-group" style="<?php echo $display ?>" id="subjectHiddenDiv">
-                                                <label for="School">Appointment Subject</label>
+                                            <div class="form-group col-lg-12" style="<?php echo $display ?>" id="subjectHiddenDiv">
+                                                <div class="col-lg-6"><label for="School">Appointment Subject</label></div>
+                                                    <div class="col-lg-6">
+
                                                     <?php
                                                         $result = $employee->loadSubjects();
 
                                                         foreach ($result as $array) {
                                                             if ($array['subjectID'] == $searchUserSubjectId) {
-                                                            echo '<div style="display: inline-block; margin-left: 100px;"><label>' . $array['subject'] . '</label></div>';
+                                                            echo '<div style="display: inline-block;"><label>' . $array['subject'] . '</label></div>';
                                                         }
                                                     }
                                                     ?>
+                                                    </div>
                                             </div>
                                             <?php } ?>
+
+                                        <div class="col-lg-12">
 
                                             <!-- Select role-->
                                             <div class="form-group">
@@ -356,6 +374,7 @@ ob_start();
                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </form>
                             </div>
