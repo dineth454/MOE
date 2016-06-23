@@ -19,17 +19,21 @@
         <meta name="author" content="">
 
         <title>Notifications</title>
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
-        <link href="../assets/css/home.css" rel="stylesheet">
-        <link href="../assets/css/smallbox.css" rel="stylesheet">
-        <link href="../assets/css/footer.css" rel="stylesheet">
-        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
-        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
-        <link href="../assets/css/plugins/morris.css" rel="stylesheet">
-        <link href="../assets/css/sb-admin.css" rel="stylesheet">
-        <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="../assets/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../assets/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="../assets/css/smallbox.css" rel="stylesheet">
+    <link href="../assets/css/footer.css" rel="stylesheet">
+    <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         
     </head>
 
@@ -42,12 +46,13 @@
 
             <!-- include Navigation BAr -->
             <?php include '../interfaces/navigation_bar.php' ?>
-            </nav>
+            
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->
             <?php include 'sidebar_min_off.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
+            </nav>
             <div id="page-content-wrapper" style="min-height: 540px;">
                 <?php 
                     
@@ -64,10 +69,11 @@
 
                  ?>
                 <form  method="post">
-                <div class="container-fluid">
+                <div class="container-fluid" style="margin-left: 44px;margin-top: 90px;">
                     <div class="row">
                         <label>From :</label>
-                        <label><?php echo $not->name($id); ?></label>
+                        <?php echo $not->name($id); echo "; ";?>
+                        <?php echo $not->school($id); ?>
 
                     </div>
                     <br/>
