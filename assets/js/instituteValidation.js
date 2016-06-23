@@ -1,4 +1,5 @@
 //==================== ADD ZONAL OFFICE ==========================//
+
 //method for onclick() in the form
 function addZonalOfficeValidation() {
     var errors = [];
@@ -51,3 +52,4 @@ function validateZonalOfficeName(text) {
         return true;
     }
 }
+
