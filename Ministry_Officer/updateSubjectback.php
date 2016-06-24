@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add Subject</title>
+        <title>Update Subject</title>
 
         
 
@@ -66,7 +66,7 @@ ob_start();
                     <div class="col-lg-9 col-lg-offset-1">
 
                     <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">Add New subject</h1>
+                            <h1 class="topic_font">Update Subject</h1>
                         </div>
 
                         <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateForm())"  novalidate>
@@ -75,29 +75,35 @@ ob_start();
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <?php 
                                         if (isset($_POST['submit'])) {
+                                            
+                                            $subcode = strtoupper($_POST["subcode"]);
+                                            $subname = $_POST["subname"];
+                                            $subid = $sub->getsubjectid($_SESSION["subjectcode"]);
 
-                                            $code = strtoupper($_POST['subcode']);
-                                            $rescode = $sub->selectsubjectcode($code);
+                                            $rescode = $sub->subjectcodeselect($subid,$subcode);
+                                            $resname = $sub->subjectnameselect($subid,$subname);
 
-                                            $name = $_POST['subname'];
-                                            $subcode = $sub->getsubid();
-                                            $res=$sub->selectsubjectname($name);
-                                            if ($res > 0) {
+
+                                            
+                                            if ($rescode > 0) {
+                                                echo '<script language="javascript">';
+                                                echo 'alert("Subject code alreadt exists!!")';
+                                                echo '</script>';
+                                                
+                                            }
+                                            elseif ($resname > 0) {
                                                 echo '<script language="javascript">';
                                                 echo 'alert("This Subject name alreadt exists!!")';
                                                 echo '</script>';
                                             }
-                                            elseif ($rescode > 0) {
-                                                echo '<script language="javascript">';
-                                                echo 'alert("This Subject code alreadt exists!!")';
-                                                echo '</script>';
-                                            }
-                                            else{
-                                                $sub->insertsubject($code,$name);
 
+                                            else{
+                                                $res=$sub->updatesubject($subid, $subcode, $subname);
                                                 echo '<script language="javascript">';
-                                                echo 'alert("This Subject Succesefully insert!!")';
+                                                echo 'alert("Subject Update Successfully!!")';
+                                                echo 'window.location.href = "ministryOfficerHome.php";';
                                                 echo '</script>';
+                                                //header("Location: ministryOfficerHome.php");
                                             }
 
                                         }
@@ -107,9 +113,9 @@ ob_start();
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- new subject code-->
-                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">New Subject code </label>
+                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">Subject code </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input maxlength="10" type="text" required class="form-control" id="subcode" name="subcode" placeholder="New Subject code"/>
+                                                <input maxlength="10" type="text" requied value= <?php echo $_SESSION["subjectcode"]; ?> class="form-control" id="subcode" name="subcode" placeholder="Enter Subject code"/>
                                                 <label id="errorsubcode" style="font-size:10px"> </label>
                                             </div>
 
@@ -119,18 +125,19 @@ ob_start();
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- new subject name-->
-                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">New Subject Name </label>
+                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">Subject name </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input maxlength="10" type="text" required class="form-control" id="subname" name="subname" placeholder="New Subject name" autofocus/>
-                                                <label id="errorsubname" style="font-size:10px"> </label>
+                                                <input maxlength="10" type="text" requied value= <?php echo $sub->getsubjectname($_SESSION["subjectcode"]); ?> class="form-control" id="subname" name="subname" placeholder="Enter Subject name"/>
+                                                <label id="errorsubcode" style="font-size:10px"> </label>
                                             </div>
 
                                         </div>
                                     </div>
+                                    
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary" style="width: 100px;">Add</button>
+                                                <button type="submit" name="submit" id="submit" class="btn btn-primary" style="width: 100px;">Update</button>
                                             </div>
 
                                         </div>
