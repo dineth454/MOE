@@ -58,7 +58,7 @@ ob_start();
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
-                <div class="container-fluid" style="box-shadow: 1px 1px 5px #000000">
+                <div class="container-fluid">
 
                     <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
@@ -67,6 +67,14 @@ ob_start();
 
                         require '../classes/employee.php';
                         $employee = new Employee();
+
+                        $display = "display: none;";
+
+                        // Initialize Variables
+                        $searchUserSubjectId = 0;
+                        $searchUserSchoolId = 0;
+                        $searchUserZonalId = 0;
+                        $searchUserProvinceId = 0;
 
                         $designationTypeID = $_SESSION['update']['designationType'];
                         $address = $_SESSION['update']['Address'];
@@ -138,7 +146,11 @@ ob_start();
                         <div class="row">
                             <div class="col-lg-7">
 
-                                <h1 style="padding-bottom:40px; padding-left:10px;">Update Employee Basic Details</h1>
+
+                                
+
+                                <h1 style="padding-bottom:40px; padding-left: 10px;">Update Employee Basic Details</h1>
+
 
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateEmpUpdateForm())"  novalidate>
 
@@ -172,9 +184,12 @@ ob_start();
                                             </div>
 
                                             <!-- Province Office-->
-                                            <div class="form-group col-lg-12" id="provinceIDDiv">
+                                            <?php if($searchUserProvinceId > 0) {
+                                                    echo $display = "";?>
+                                            <div class="form-group col-lg-12" style="<?php echo $display ?>" id="provinceIDDiv">
                                                 <div class="col-lg-6"><label for="province Office">Province Office</label></div>
                                                     <div class="col-lg-6">
+
                                                     <?php if ($searchUserProvinceId == 1) { ?>
                                                                 <div style="display: inline-block;"><label>Central Province</label></div>
                                                             <?php } else if ($searchUserProvinceId == 2) { ?>
@@ -191,14 +206,17 @@ ob_start();
                                                             ?>
                                                     </div>
                                             </div>
+                                            <?php } ?>
 
                                             <!-- Zonal Office-->
-                                            <div class="form-group col-lg-12"  id="zonalOfficeDiv">
+                                            <?php if($searchUserZonalId > 0) {
+                                                    echo $display = "";?>
+                                            <div class="form-group col-lg-12" style="<?php echo $display ?>" id="zonalOfficeDiv">
                                                 <div class="col-lg-6"><label for="Zonal Office">Zonal Office</label></div>
                                                     <div class="col-lg-6">
+
                                                     <?php
                                                             $result = $employee->loadZonalOffices();
-
                                                             foreach ($result as $array) {
                                                                 if ($array['zonalID'] == $searchUserZonalId) {
                                                                     echo '<div style="display: inline-block;"><label>' . $array['zonalName'] . '</label></div>';
@@ -207,11 +225,15 @@ ob_start();
                                                         ?>
                                                     </div>
                                             </div>
+                                            <?php } ?>
 
                                             <!-- School-->
-                                            <div class="form-group col-lg-12" id="schoolIdDiv">
+                                            <?php if($searchUserSchoolId > 0) {
+                                                    echo $display = "";?>
+                                            <div class="form-group col-lg-12" style="<?php echo $display ?>" id="schoolIdDiv">
                                                 <div class="col-lg-6"><label for="School">School</label></div>
                                                     <div class="col-lg-6">
+
                                                     <?php
                                                             $result = $employee->loadSchools();
 
@@ -223,11 +245,15 @@ ob_start();
                                                             ?>
                                                     </div>
                                             </div>
+                                            <?php } ?>
 
                                             <!-- Appointment Subject-->
-                                            <div class="form-group col-lg-12" id="subjectHiddenDiv">
+                                            <?php if($searchUserSubjectId > 0) {
+                                                    echo $display = "";?>
+                                            <div class="form-group col-lg-12" style="<?php echo $display ?>" id="subjectHiddenDiv">
                                                 <div class="col-lg-6"><label for="School">Appointment Subject</label></div>
                                                     <div class="col-lg-6">
+
                                                     <?php
                                                         $result = $employee->loadSubjects();
 
@@ -239,9 +265,10 @@ ob_start();
                                                     ?>
                                                     </div>
                                             </div>
+                                            <?php } ?>
+
                                         </div>
                                         <div class="col-lg-12">
-
 
                                             <!-- Select role-->
                                             <div class="form-group">
@@ -348,7 +375,7 @@ ob_start();
                                                 <label id="errormobileNumb" style="font-size:10px"> </label>
                                             </div>
 
-                                            <div class="form-group">
+                                            <div class="form-group" style="float: right">
                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
                                             </div>
                                         </div>
@@ -376,11 +403,5 @@ ob_start();
         <script src="../assets/js/jquery.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
-
-
-
-
-
     </body>
-
 </html>

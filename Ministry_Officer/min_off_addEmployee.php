@@ -30,7 +30,7 @@ ob_start();
         <link href="../assets/css/sb-admin.css" rel="stylesheet">
 
         <!-- Morris Charts CSS -->
-        <link href="css/plugins/morris.css" rel="stylesheet">
+        <link href="..assets/css/plugins/morris.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -58,7 +58,7 @@ ob_start();
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
-                <div class="container-fluid" style="box-shadow: 1px 1px 5px #000000">
+                <div class="container-fluid">
 
                     <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
@@ -356,7 +356,7 @@ foreach ($result as $array) {
                                                 <label id="errormobileNumb" style="font-size:10px"> </label>
                                             </div>
 
-                                            <div class="form-group">
+                                            <div class="form-group" style="float: right">
                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>

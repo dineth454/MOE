@@ -46,7 +46,7 @@ ob_end_flush();
                             </div>
                         </div>
                         <li class="message-footer">
-                            <a href="#">See All</a>
+                            <a href="allNotification.php">See All</a>
                         </li>
                     </ul>
                 </li>
