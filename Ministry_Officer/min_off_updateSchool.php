@@ -206,6 +206,8 @@ ob_start();
         </div>
         <br><br><br>
 
+        
+
         <?php include '../interfaces/footer.php' ?>
         <script src = "../assets/js/addEmployee.js"></script>
 
