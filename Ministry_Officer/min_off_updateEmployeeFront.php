@@ -14,7 +14,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>User | Update</title>
+        <title>Member | Update</title>
 
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
@@ -223,7 +223,7 @@ ob_start();
                         ?>
                         <div class="row">
                             <div class="col-lg-7">
-                                <h1 style="padding-bottom:40px;">Update Employee Basic Details</h1>
+                                <h1 style="padding-bottom:40px;">Update Member Details</h1>
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateEmpUpdateFront())" novalidate>
 

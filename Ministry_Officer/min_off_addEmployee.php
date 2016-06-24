@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Home</title>
+        <title>Members | Add</title>
 
 
 
@@ -201,7 +201,7 @@ ob_start();
                         <div class="row">
                             <div class="col-lg-7">
 
-                                <h1 style="padding-bottom:40px;">Add New Employee</h1>
+                                <h1 style="padding-bottom:40px;">Add New Member</h1>
 
                                 <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateForm())"  novalidate>
 
