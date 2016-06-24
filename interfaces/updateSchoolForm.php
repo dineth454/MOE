@@ -170,7 +170,8 @@
                                     <div id="map-canvas" style="width:420px;height:530px;"></div>
 
                                 </div>
-                                <label style="font-size:10px; color: #146BA7;">Right Click on the map & drag to the place you want & get lat and long</label>
+                                <label style="font-size:10px; color: #146BA7;">
+                                Right Click on the map & drag to the place you want & get lat and long</label>
                             </div>
                         </div>
 

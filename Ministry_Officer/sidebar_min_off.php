@@ -19,7 +19,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse2"><i class="fa fa-university fa-2x" aria-hidden="true"></i> Institutes <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse2" class="collapse">
                             <li>
-                                <a href="addZonalOffice.php">Add Zonal</a>
+                                <a href="min_off_addZonalOffice.php">Add Zonal</a>
                             </li>
                             <li>
                                 <a href="addSchool.php">Add School</a>
@@ -62,10 +62,7 @@
                             
                         </ul>
                     </li>
-
-        
-       
-       
+                    
                     <li>
                         <a href="mapview.php" class="ajax_load slide_font">Map View</a>
                     </li>

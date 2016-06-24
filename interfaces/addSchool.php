@@ -93,7 +93,7 @@ ob_start();
                         }
                         ?>
 
-                        <div align="center" style="padding-bottom:10px;">
+                        <div align="" style="padding-bottom:20px; padding-left:30px;">
                             <h1>Add School</h1>
                         </div>
 
@@ -102,13 +102,15 @@ ob_start();
                             <div class="row" >
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                    <div  class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <div class="row">
 
-                                        <div  class="form-group"  id="provinceIDDiv" style="margin-bottom: 0px;">
+                                    
 
-                                            <label for="province Office" class="control-label  col-lg-5 col-xs-5  required" style="text-align: left;"> province Office :  </label>
+                                        <div  class="form-group col-lg-12 col-md-12"  id="provinceIDDiv" style="margin-bottom:;">
 
-                                            <div style="margin-bottom: -10px;"   class="col-md-7 col-lg-7" >
+                                            <label for="province Office" class="control-label  col-lg-5 col-xs-5  required" style="text-align: left; padding-left:30px;"> province Office :  </label>
+
+                                            <div style="margin-bottom:;"   class="col-md-7 col-lg-7" >
                                                 <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
                                                     <option value="" >Select Province Office</option>
                                                     <option value="1">centralProvince</option>
@@ -126,14 +128,15 @@ ob_start();
                                         </div>
 
 
+                                    
                                     </div>
 
-                                    <div  class="row" style="padding-bottom:10px;">
+                                    <div  class="row" style="padding-bottom:;">
                                         <div   class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
                                             <div id="zonalOfficeHidden" class="form-group">
 
-                                                <label for="ZonalOffice" class="control-label col-lg-5 col-xs-5  required" style="text-align: left; padding-left: 30px;"> Zonal Office :  </label>
-                                                <div style="margin-bottom: -20px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                                                <label for="ZonalOffice" class="control-label col-lg-5 col-xs-5  required" style="text-align: left; padding-left:30px;"> Zonal Office :  </label>
+                                                <div style="margin-bottom:;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                                     <select required class="form-control" name="zonalID"  id="zonalID" > </select>
 
                                                     <label id="errorZonal" style="font-size:10px;"></label>
@@ -148,8 +151,8 @@ ob_start();
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- School Name-->
-                                            <label for="School" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left: 30px;"> School Name/Address:  </label>
-                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
+                                            <label for="School" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left:30px;"> School Name/Address:  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top:">
                                                 <input type="text" class="form-control" id="School" name="School"  placeholder="School Name"/>
                                                 <label id="errorSchoolName" style="font-size:10px"> </label>
 
@@ -159,13 +162,14 @@ ob_start();
                                         </div>
                                     </div>
 
+                                    <div class="row">
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                        <div  class="form-group"  id="SchoolType" style="margin-bottom: 0px;">
+                                        <div  class="form-group"  id="SchoolType" style="margin-bottom:;">
 
-                                            <label for="SchoolType" class="control-label col-xs-5 col-md-5 col-lg-5  required" style="text-align: left;"> SchoolType :  </label>
+                                            <label for="SchoolType" class="control-label col-xs-5 col-md-5 col-lg-5  required" style="text-align: left; padding-left:30px;"> SchoolType :  </label>
 
-                                            <div style="margin-bottom: -10px;"   class="col-xs-7 col-sm-7 col-md-7 col-lg-7" >
+                                            <div style="margin-bottom:;"   class="col-xs-7 col-sm-7 col-md-7 col-lg-7" >
                                                 <select required class="form-control " name="SchoolTypeSelect" id="SchoolTypeSelect">
                                                     <option value="">Select Type</option>
                                                     <option value="1">MIX</option>
@@ -188,12 +192,13 @@ ob_start();
 
 
                                     </div>
+                                    </div>
                                     <div class="row">
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- No:OF:Students-->
-                                            <label for="NoOfStudents" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left: 30px;"> No Of Students :  </label>
-                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
+                                            <label for="NoOfStudents" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left:30px;"> No Of Students :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top:">
                                                 <input type="text" class="form-control" id="students" name="students"  placeholder="NOS"/>
                                                 <label id="errorStudentNumber" style="font-size:10px"> </label>
 
@@ -206,8 +211,8 @@ ob_start();
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- Latitude-->
-                                            <label for="Latitude" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left: 30px;"> Latitude :  </label>
-                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
+                                            <label for="Latitude" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left:30px;"> Latitude :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top:">
                                                 <input type="text" class="form-control" id="latbox" name="lat"  placeholder="Latitude"/>
 
                                                 <label id="errorLat" style="font-size:10px"> </label>
@@ -221,8 +226,8 @@ ob_start();
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- Longitude-->
-                                            <label for="Longitude" class="control-label col-xs-5 col-lg-5 col-md-5 required" style="text-align: left; padding-left: 30px;"> Longitude :  </label>
-                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
+                                            <label for="Longitude" class="control-label col-xs-5 col-lg-5 col-md-5 required" style="text-align: left; padding-left:30px;"> Longitude :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top:">
                                                 <input type="text" class="form-control" id="lngbox" name="lng"  placeholder="Longitude"/>
 
                                                 <label id="errorLng" style="font-size:10px"> </label>
@@ -311,6 +316,7 @@ ob_start();
 
             /*___School name validation function___*/
             function validateSchoolName(text, errorLbl) {
+                var pattern = /^[a-zA-Z_ ]*$/;
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
                     document.getElementById(text).style.borderColor = "#F0568C";
@@ -321,6 +327,12 @@ ob_start();
                     document.getElementById(text).focus();
                     document.getElementById(text).style.borderColor = "#F0568C";
                     document.getElementById(errorLbl).innerHTML = "School name can't be a number";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }else if(!(pattern.test(document.getElementById(text).value))){
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Please don't enter both numbers and letters";
                     document.getElementById(errorLbl).style.color = "#F0568C";
                     return false;
                 } else {

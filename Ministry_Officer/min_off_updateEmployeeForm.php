@@ -146,7 +146,11 @@ ob_start();
                         <div class="row">
                             <div class="col-lg-7">
 
+
+                                
+
                                 <h1 style="padding-bottom:40px; padding-left: 10px;">Update Employee Basic Details</h1>
+
 
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateEmpUpdateForm())"  novalidate>
 
