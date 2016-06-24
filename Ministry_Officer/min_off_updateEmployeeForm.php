@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>User | Update</title>
+        <title>Member | Update</title>
 
 
 
@@ -146,7 +146,7 @@ ob_start();
                         <div class="row">
                             <div class="col-lg-7">
 
-                                <h1 style="padding-bottom:40px; padding-left: 10px;">Update Employee Basic Details</h1>
+                                <h1 style="padding-bottom:40px; padding-left: 10px;">Update Member Details</h1>
 
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateEmpUpdateForm())"  novalidate>
 
@@ -181,7 +181,7 @@ ob_start();
 
                                             <!-- Province Office-->
                                             <?php if($searchUserProvinceId > 0) {
-                                                    echo $display = "";?>
+                                                    $display = "";?>
                                             <div class="form-group col-lg-12" style="<?php echo $display ?>" id="provinceIDDiv">
                                                 <div class="col-lg-6"><label for="province Office">Province Office</label></div>
                                                     <div class="col-lg-6">
@@ -206,7 +206,7 @@ ob_start();
 
                                             <!-- Zonal Office-->
                                             <?php if($searchUserZonalId > 0) {
-                                                    echo $display = "";?>
+                                                    $display = "";?>
                                             <div class="form-group col-lg-12" style="<?php echo $display ?>" id="zonalOfficeDiv">
                                                 <div class="col-lg-6"><label for="Zonal Office">Zonal Office</label></div>
                                                     <div class="col-lg-6">
@@ -225,7 +225,7 @@ ob_start();
 
                                             <!-- School-->
                                             <?php if($searchUserSchoolId > 0) {
-                                                    echo $display = "";?>
+                                                    $display = "";?>
                                             <div class="form-group col-lg-12" style="<?php echo $display ?>" id="schoolIdDiv">
                                                 <div class="col-lg-6"><label for="School">School</label></div>
                                                     <div class="col-lg-6">
@@ -245,7 +245,7 @@ ob_start();
 
                                             <!-- Appointment Subject-->
                                             <?php if($searchUserSubjectId > 0) {
-                                                    echo $display = "";?>
+                                                    $display = "";?>
                                             <div class="form-group col-lg-12" style="<?php echo $display ?>" id="subjectHiddenDiv">
                                                 <div class="col-lg-6"><label for="School">Appointment Subject</label></div>
                                                     <div class="col-lg-6">

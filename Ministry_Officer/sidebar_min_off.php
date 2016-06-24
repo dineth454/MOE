@@ -4,13 +4,13 @@
                         <a href="ministryOfficerHome.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse1"><i class="fa fa-users fa-2x" ></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse1"><i class="fa fa-users fa-2x" ></i>Members<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse1" class="collapse">
                             <li>
-                                <a href="min_off_addEmployee.php">Add User</a>
+                                <a href="min_off_addEmployee.php">Add Members</a>
                             </li>
                             <li>
-                                <a href="min_off_updateEmployeeFront.php">Update User</a>
+                                <a href="min_off_updateEmployeeFront.php">Update Members</a>
                             </li>
                         </ul>
                     </li>
@@ -45,7 +45,11 @@
 
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse4"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
-                        
+                        <ul id="collapse4" class="collapse">
+                            <li>
+                                <a href="min_off_searchUser.php">Search Members</a>
+                            </li>
+                        </ul>
                     </li>
 
 
