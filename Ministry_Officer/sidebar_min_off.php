@@ -37,6 +37,9 @@
                                 <a href="addSubject.php">Add Subject</a>
                             </li>
                             <li>
+                                <a href="updateSubjectfront.php">Update Subject</a>
+                            </li>
+                            <li>
                                 <a href="addCurrentSubjectFormFront.php">Add Current subject Of Teacher</a>
                             </li>
                             
