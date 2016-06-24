@@ -74,7 +74,7 @@ if (mysqli_num_rows($result) == 1) {
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Search | Members</title>
+        <title>GTMS | Search</title>
 
 
 

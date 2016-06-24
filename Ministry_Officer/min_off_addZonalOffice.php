@@ -14,7 +14,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Institute | AddZonal</title>
+        <title>GTMS | Institute</title>
 
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">

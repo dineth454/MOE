@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Search | Members</title>
+        <title>GTMS | Search</title>
 
 
 
@@ -255,7 +255,7 @@ ob_start();
                                             <div class="form-group">
                                                 <label for="designation" style="display: inline-block;">Designation</label>
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
-                                                    <option value="">-- Select Designation --</option>
+                                                    <option value="">Select Designation</option>
                                                     <option value="1">Ministry Officer</option>
                                                     <option value="2">Province Officer</option>
                                                     <option value="3">Zonal Officer</option>
@@ -269,7 +269,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="provinceIDDiv">
                                                 <label for="province Office">Province Office</label>
                                                 <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                    <option value="" >-- Select Province Office --</option>
+                                                    <option value="" >Select Province Office</option>
                                                     <option value="1">Central Province</option>
                                                     <option value="2">Western Province</option>
                                                     <option value="3">Southern Province</option>
@@ -283,7 +283,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="zonalOfficeDiv">
                                                 <label for="Zonal Office">Zonal Office</label>
                                                 <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)">
-                                                    <option value="" >-- Select Zonal Office --</option>
+                                                    <option value="" >Select Zonal Office</option>
                                                 </select>
                                                 <label id="errorZonal" style="font-size: 10px"> </label>
                                             </div>
@@ -292,7 +292,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="schoolIdDiv">
                                                 <label for="School">School</label>
                                                 <select required class="form-control required" name="schoolId" id="abcd">
-                                                    <option value="" >-- Select School --</option>
+                                                    <option value="" >Select School</option>
                                                 </select>
                                                 <label id="errorSchool" style="font-size: 10px"> </label>
                                             </div>
@@ -340,7 +340,7 @@ ob_start();
                                             <div class="form-group">
                                                 <label for="designation" style="display: inline-block;">Designation</label>
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
-                                                    <option value="">-- Select Designation --</option>
+                                                    <option value="">Select Designation</option>
                                                     <option value="1">Ministry Officer</option>
                                                     <option value="2">Province Officer</option>
                                                     <option value="3">Zonal Officer</option>
@@ -368,7 +368,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="zonalOfficeDiv">
                                                 <label for="Zonal Office">Zonal Office</label>
                                                 <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)">
-                                                    <option value="" >-- Select Zonal Office --</option>
+                                                    <option value="" >Select Zonal Office</option>
                                                 </select>
                                                 <label id="errorZonal" style="font-size: 10px"> </label>
                                             </div>
@@ -377,7 +377,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="schoolIdDiv">
                                                 <label for="School">School</label>
                                                 <select required class="form-control required" name="schoolId" id="abcd">
-                                                    <option value="" >-- Select School --</option>
+                                                    <option value="" >Select School</option>
                                                 </select>
                                                 <label id="errorSchool" style="font-size: 10px"> </label>
                                             </div>

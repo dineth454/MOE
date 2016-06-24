@@ -455,7 +455,7 @@ ob_start();
 
         <!--______________________end of validation______________________________________-->
 
-
+        
         <!-- Bootstrap Core JavaScript -->
         <script src = "../assets/js/addSchool.js"></script>
         <script src="../assets/js/jquery.js" ></script>

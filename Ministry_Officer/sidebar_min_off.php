@@ -22,7 +22,7 @@
                                 <a href="min_off_addZonalOffice.php">Add Zonal</a>
                             </li>
                             <li>
-                                <a href="addSchool.php">Add School</a>
+                                <a href="min_off_addSchool.php">Add School</a>
                             </li>
                             <li>
                                 <a href="updateSchool.php">Update School</a>

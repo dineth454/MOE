@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Members | Add</title>
+        <title>GTMS | Members</title>
 
 
 
@@ -245,7 +245,7 @@ ob_start();
                                             <!-- Province Office-->
                                             <div class="form-group" style="display: none;" id="provinceIDDiv">
                                                 <label for="province Office">Province Office</label>
-                                                <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                <select class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
                                                     <option value="" >Select Province Office</option>
                                                     <option value="1">Central Province</option>
                                                     <option value="2">Western Province</option>
@@ -331,7 +331,7 @@ foreach ($result as $array) {
                                             <div class="form-group">
                                                 <label for="gender">Select Gender</label>
                                                 <select class="form-control" name= "gender" id = "gender">
-                                                    <option value="">-- Select Gender --</option>
+                                                    <option value="">Select Gender</option>
                                                     <option value="2">Male</option>
                                                     <option value="3">Female</option>
                                                 </select> 

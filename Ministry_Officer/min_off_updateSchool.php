@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Institute | UpdateSchool</title>
+        <title>GTMS | Institute</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
