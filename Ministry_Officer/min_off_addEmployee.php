@@ -219,7 +219,7 @@ ob_start();
                                             <div class="form-group">
                                                 <label for="selec_trole" style="display: inline-block;">User Role</label>
                                                 <select required class="form-control" id="select_role" name="select_role" >
-                                                    <option value="">-- Select Role --</option>
+                                                    <option value="">Select Role</option>
                                                     <option value="2">role2</option>
                                                     <option value="3">role3</option>
                                                     <option value="4">role4</option>
@@ -232,7 +232,7 @@ ob_start();
                                             <div class="form-group">
                                                 <label for="designation" style="display: inline-block;">Designation</label>
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
-                                                    <option value="">-- Select Designation --</option>
+                                                    <option value="">Select Designation</option>
                                                     <option value="1">Ministry Officer</option>
                                                     <option value="2">Province Officer</option>
                                                     <option value="3">Zonal Officer</option>
@@ -246,7 +246,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="provinceIDDiv">
                                                 <label for="province Office">Province Office</label>
                                                 <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                    <option value="" >-- Select Province Office --</option>
+                                                    <option value="" >Select Province Office</option>
                                                     <option value="1">Central Province</option>
                                                     <option value="2">Western Province</option>
                                                     <option value="3">Southern Province</option>
@@ -260,7 +260,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="zonalOfficeDiv">
                                                 <label for="Zonal Office">Zonal Office</label>
                                                 <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)">
-                                                    <option value="" >-- Select Zonal Office --</option>
+                                                    <option value="" >Select Zonal Office</option>
                                                 </select>
                                                 <label id="errorZonal" style="font-size: 10px"> </label>
                                             </div>
@@ -269,7 +269,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="schoolIdDiv">
                                                 <label for="School">School</label>
                                                 <select required class="form-control required" name="schoolId" id="abcd">
-                                                    <option value="" >-- Select School --</option>
+                                                    <option value="" >Select School</option>
                                                 </select>
                                                 <label id="errorSchool" style="font-size: 10px"> </label>
                                             </div>
@@ -278,7 +278,7 @@ ob_start();
                                             <div class="form-group" style="display: none;" id="subjectHiddenDiv">
                                                 <label for="School">Appointment Subject</label>
                                                 <select required class="form-control" name="subject" id="subject" >
-                                                    <option value="">--Select Subject--</option>
+                                                    <option value="">Select Subject</option>
 <?php
 $result = $employee->loadSubjects();
 
@@ -342,7 +342,7 @@ foreach ($result as $array) {
                                             <div class="form-group">
                                                 <label for="marriage">Marriage Status</label>
                                                 <select class="form-control" name = "marrrige" id = "marrrige">
-                                                    <option value="">-- Select State --</option>
+                                                    <option value="">Select State</option>
                                                     <option value="2">Yes</option>
                                                     <option value="3">No</option>
                                                 </select>
