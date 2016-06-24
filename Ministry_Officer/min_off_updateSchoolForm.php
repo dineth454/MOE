@@ -50,8 +50,8 @@
             </nav>
 
             <div  id="page-content-wrapper" style="min-height: 540px;">
-                <div class="row container-fluid" style="padding-left: 15px;">
-                    <div class="col-lg-7 " style="padding-left: 0px;">
+                <div class="row container-fluid">
+                    <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
                         <?php
                         // echo $_SESSION['designationType'];
@@ -88,114 +88,68 @@
                         }
                         ?>
 
-                        <div align="" style="padding-bottom:30px; padding-left:15px; paadding-top:50px;">
-                            <h1>Update School</h1>
-                        </div>
+                        <div class="row">
+                        <div class="col-lg-6">
+                            <h1 style="padding-bottom:40px;">Update School Details</h1>
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())" novalidate>
 
                             <div class="row" >
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                    
-
-                                    <div class="row">
-                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                            <!-- School Name-->
-                                            <label for="School" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left:;"> School Name/Address:  </label>
-                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
-                                                <input type="text" class="form-control" id="School" name="School" value="<?php echo $schoolName ;?>" placeholder="School Name"/>
-                                                <label id="errorSchoolName" style="font-size:10px"> </label>
-
-                                            </div>
-
-
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="School">School Name/Address</label>
+                                            <input type="text" class="form-control" id="School" name="School"  placeholder="Enter School Name or Address" value="<?php echo $schoolName ;?>"/>
+                                        <label id="errorSchoolName" style="font-size:10px"> </label>
                                     </div>
 
-                                    <div class="row">
-                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                            <!-- No:OF:Students-->
-                                            <label for="NoOfStudents" class="control-label col-xs-5 col-md-5 col-lg-5 required" style="text-align: left; padding-left:"> No Of Students :  </label>
-                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
-                                                <input type="text" class="form-control" id="students" name="students" value="<?php echo $noOfStudents; ?>" placeholder="NOS"/>
-                                                <label id="errorStudentNumber" style="font-size:10px"> </label>
-
-                                            </div>
-
-
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="NoOfStudents">Number Of Students</label>
+                                            <input type="text" class="form-control" id="students" name="students"  placeholder="Enter Number Of Students" value="<?php echo $noOfStudents; ?>"/>
+                                        <label id="errorStudentNumber" style="font-size:10px"> </label>
                                     </div>
-                                    <div class="row">
-                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                            <!-- Latitude-->
-                                            <label for="Latitude" class="control-label col-xs-5 col-md-5 col-lg-5  required" style="text-align: left; padding-left:"> Latitude :  </label>
-                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
-                                                <input type="text" class="form-control" id="latbox" name="lat" value="<?php echo $latitude;?>"  placeholder="Latitude"/>
-
-                                                <label id="errorLat" style="font-size:10px"> </label>
-
-                                            </div>
 
 
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="Latitude">Latitude</label>
+                                            <input type="text" class="form-control" id="latbox" name="lat"  placeholder="Select the location on the map" value="<?php echo $latitude;?>"/>
+                                        <label id="errorLat" style="font-size:10px"> </label>
                                     </div>
-                                    <div class="row">
-                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                            <!-- Longitude-->
-                                            <label for="Longitude" class="control-label col-xs-5 col-md-5 col-lg-5  required" style="text-align: left; padding-left:"> Longitude :  </label>
-                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
-                                                <input type="text" class="form-control" id="lngbox" name="lng" value="<?php echo $longtitude;?>" placeholder="Longitude"/>
-
-                                                <label id="errorLng" style="font-size:10px"> </label>
-
-                                            </div>
 
 
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="Longitude">Longitude</label>
+                                            <input type="text" class="form-control" id="lngbox" name="lng"  placeholder="Select the location on the map" value="<?php echo $longtitude;?>"/>
+                                        <label id="errorLng" style="font-size:10px"> </label>
                                     </div>
-                                    <div class="row">
-                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="col-xs-6 col-sm-3 col-md-6 col-lg-6"style="padding-left: ;">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
-                                            </div>
 
-                                        </div>
+
+                                    <div  class="form-group" style="float: right;">
+                                        <button type="submit" name="submit" id="submit" class="btn btn-primary">Done</button>
                                     </div>
+
                                 </div>
-
                             </div>
                         </form>
-
                     </div>
-                    <div style="height: 530px">
-                        <!-- map -->
-                        <div  >
-                            <div  class="form-group col-lg-4 col-md-4 col-sm-4" style="padding:0;">
-                                <div class="container-fluid" style="padding:0;">
-                                    <div id="map-canvas" style="width:420px;height:530px;"></div>
+                    </div>
 
-                                </div>
-                                <label style="font-size:10px; color: #146BA7;">
-                                Right Click on the map & drag to the place you want & get lat and long</label>
+                    <div class="col-lg-6" style="height: 530px; position: fixed; top: 120px; left: 780px;">
+                        <!-- map -->
+                        <div class="row" >
+                            <label style="padding-left: 15px; font-size:10px;">Right Click on the map and drag to the place you want then get latitude and langitude</label>
+                            <div class="container-fluid" style="padding-top:10px;">
+                                <div id="map-canvas" style="width:430px; height:480px; box-shadow: 0px 0px 15px #595959; "></div>
                             </div>
                         </div>
-
                         <!-- end map -->
-
                     </div>
 
                 </div>
-
+                </div>
             </div>
-
         </div>
-
-        <?php include '../interfaces/footer.php' ?>
 
         <!--______________________________________________________________________________________________________________-->
         <!-- Data validation-->
@@ -229,20 +183,27 @@
 
             /*___School name validation function___*/
             function validateSchoolName(text, errorLbl) {
+                var pattern = /^[a-zA-Z_ /-,.]*$/;
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(text).style.borderColor = "red";
                     document.getElementById(errorLbl).innerHTML = "Please enter school name";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    document.getElementById(errorLbl).style.color = "red";
                     return false;
                 } else if (!isNaN(document.getElementById(text).value)) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(text).style.borderColor = "red";
                     document.getElementById(errorLbl).innerHTML = "School name can't be a number";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    document.getElementById(errorLbl).style.color = "red";
+                    return false;
+                }else if(!(pattern.test(document.getElementById(text).value))){
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "red";
+                    document.getElementById(errorLbl).innerHTML = "Please don't enter both numbers and letters";
+                    document.getElementById(errorLbl).style.color = "red";
                     return false;
                 } else {
-                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(text).style.borderColor = "green";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
                 }
@@ -252,47 +213,41 @@
             function validateStudentNumber(text, errorLbl) {
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(text).style.borderColor = "red";
                     document.getElementById(errorLbl).innerHTML = "Please enter Number of students";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    document.getElementById(errorLbl).style.color = "red";
                     return false;
                 } else if (!isNaN(document.getElementById(text).value)) {
-                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(text).style.borderColor = "green";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
                 } else {
 
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(text).style.borderColor = "red";
                     document.getElementById(errorLbl).innerHTML = "Number of students can't be a letter";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    document.getElementById(errorLbl).style.color = "red";
                     return false;
                 }
             }
 
           
-
-          
-
-            
-
-
             /*___School destination latitude validation function___*/
             function validateLatitude(text, errorLbl) {
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(text).style.borderColor = "red";
                     document.getElementById(errorLbl).innerHTML = "Please Select the Latitude";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    document.getElementById(errorLbl).style.color = "red";
                     return false;
                 } else if (isNaN(document.getElementById(text).value)) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(text).style.borderColor = "red";
                     document.getElementById(errorLbl).innerHTML = "Invalid type";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    document.getElementById(errorLbl).style.color = "red";
                     return false;
                 } else {
-                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(text).style.borderColor = "green";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
                 }
@@ -302,18 +257,18 @@
             function validateLongtitude(text, errorLbl) {
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(text).style.borderColor = "red";
                     document.getElementById(errorLbl).innerHTML = "Please Select the Longitude";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    document.getElementById(errorLbl).style.color = "red";
                     return false;
                 } else if (isNaN(document.getElementById(text).value)) {
                     document.getElementById(text).focus();
-                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(text).style.borderColor = "red";
                     document.getElementById(errorLbl).innerHTML = "Invalid type";
-                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    document.getElementById(errorLbl).style.color = "red";
                     return false;
                 } else {
-                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(text).style.borderColor = "green";
                     document.getElementById(errorLbl).innerHTML = "";
                     return true;
                 }
@@ -322,7 +277,7 @@
 
         <!--______________________end of validation______________________________________-->
 
-
+        <?php include '../interfaces/footer.php' ?>
         <!-- Bootstrap Core JavaScript -->
         <script src = "../assets/js/addSchool.js"></script>
         <script src="../assets/js/jquery.js" ></script>
@@ -331,8 +286,5 @@
         <script src="../assets/js/googlemap.js"></script>
         <script src="../assets/js/addSchoolMarker.js"></script>
         
-
-
-
     </body>
 </html>

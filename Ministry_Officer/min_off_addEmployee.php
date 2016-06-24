@@ -357,7 +357,7 @@ foreach ($result as $array) {
                                             </div>
 
                                             <div class="form-group" style="float: right">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Done</button>
                                             </div>
                                         </div>
                                     </div>

@@ -25,7 +25,7 @@
                                 <a href="min_off_addSchool.php">Add School</a>
                             </li>
                             <li>
-                                <a href="updateSchool.php">Update School</a>
+                                <a href="min_off_updateSchool.php">Update School</a>
                             </li>
                         </ul>
                     </li>
