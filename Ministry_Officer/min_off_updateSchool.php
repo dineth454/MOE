@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Update School Front</title>
+        <title>Institute | UpdateSchool</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +53,7 @@ ob_start();
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
                 <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+                    <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
                         <?php
                         require("../classes/institute.php");
 
@@ -112,83 +112,51 @@ ob_start();
 
                         <div class="row">
                             <div class="col-lg-7">
-                                <div align="" style="padding-bottom:30px; padding-top:50px;">
-                                <h1 class="topic_font">Find School</h1>
-                                </div>
+                                <h1 style="padding-bottom:40px;">Find School</h1>
 
                         <form name="FindSchool" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateForm())"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                        <div class="row">
-                                            <div  class="form-group" style="" id="provinceIDDiv">
 
-                                                <label for="province Office" class="control-label col-xs-5 col-sm-5 col-md-5 col-lg-5 required" style="text-align: left; padding-left:;"> province Office :  </label>
+                                            <div  class="form-group" id="provinceIDDiv">
+                                                <label for="province Office" style="text-align: left; padding-left:;">province Office </label>
+                                                <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                    <option value="" >Select Province Office</option>
+                                                    <option value="1">Central Province</option>
+                                                    <option value="2">Western Province</option>
+                                                    <option value="3">Sothern Province</option>
+                                                    <option value="4">Northern Province</option>
+                                                    <option value="5">Estern Province</option>
+                                                </select>
+                                                <label id="errorProvince" style="font-size: 10px"> </label>
+                                            </div>  
 
-                                                <div   class="col-xs-7 col-sm-7 col-md-7 col-lg-7"  >
-                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                        <option value="" >Select ProvinceOffice</option>
-                                                        <option value="1">centralProvince</option>
-                                                        <option value="2">westernProvince</option>
-                                                        <option value="3">sothernProvince</option>
-                                                        <option value="4">NothernProvince</option>
-                                                        <option value="5">esternProvince</option>
-                                                    </select>
-                                                    <label id="errorProvince" style="font-size: 10px"> </label>
-                                                </div>
 
-                                                
+                                            <div class="form-group" id="zonalOfficeDiv">
+                                                <label for="Zonal Office" style=" text-align: left;">Zonal Office </label>
+                                                <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> 
+                                                    <option value="" >Select Zonal Office</option>
+                                                </select>
+                                                <label id="errorZonal" style="font-size: 10px"> </label>
                                             </div>
-                                        </div>    
 
 
-                                        </div>
-
-
-                                        <div  class="row">
-                                            <div  style="" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
-                                                <div id="zonalOfficeHidden" class="form-group">
-
-                                                    <label for="Zonal Office" class="control-label col-xs-5 col-sm-5 col-md-5 col-lg-5 required" style=" text-align: left;"> Zonal Office :  </label>
-                                                    <div  class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="padding-left:;">
-                                                        <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
-                                                        <label id="errorZonal" style="font-size: 10px"> </label>
-
-                                                    </div>
-                                                    
-
-                                                </div>
+                                            <div id="schoolIdDiv" class="form-group">
+                                                <label for="School" style="text-align: left;">School</label>
+                                                <select required class="form-control required" name="schoolId" id="abcd"  >
+                                                    <option value="" >Select School</option>
+                                                </select>
+                                                <label id="errorSchool" style="font-size: 10px"> </label>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div id="schoolIdDiv" class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="schoolHidden" class="form-group">
-                                                    <label for="School" class="control-label col-xs-5 col-sm-5 col-md-5 col-lg-5 required" style="text-align: left;"> School : </label>
-                                                    <div  class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="padding-left:;">
-                                                        <select required class="form-control required" name="schoolId" id="abcd"  ></select>
-                                                        <label id="errorSchool" style="font-size: 10px"> </label>
-                                                    </div>
-                                                    
-                                                </div>
+
+                                            <div class="form-group">
+                                                <button type="submit" name="submit" id="submit" class="btn btn-primary" style="float: right;">Find</button>
                                             </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <button type="submit" name="submit" id="submit" class="btn btn-primary" style="padding-right: 48px;padding-left: 40px;">Find</button>
-                                                </div>
-
-                                            </div>
-                                        </div>
                                     </div>
-
                                 </div>
-                            </div>
                         </form>
                         </div>
                         <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
