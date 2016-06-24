@@ -35,7 +35,7 @@ class Shownotification{
 
     function message($id){
         global $mysqli;
-        $sqlQuery = "SELECT description FROM notification WHERE notID = '".$id."'";
+        $sqlQuery = "SELECT description FROM notification_all WHERE notID = '".$id."'";
         $Result = $mysqli->query($sqlQuery);
         $fetch_result = mysqli_fetch_array($Result);
         $msg = $fetch_result['description'];
@@ -53,7 +53,7 @@ class Shownotification{
 
     function name($id){
         global $mysqli;
-        $sqlQuery = "SELECT sender FROM notification WHERE notID = '".$id."'";
+        $sqlQuery = "SELECT sender FROM notification_all WHERE notID = '".$id."'";
         $Result = $mysqli->query($sqlQuery);
         $row =mysqli_fetch_assoc($Result);
         $sender_nic = $row['sender'];
@@ -64,18 +64,10 @@ class Shownotification{
         return $sender;
     }
 
-    function getname($nic){
-        global $mysqli;
-        $query = "SELECT nameWithInitials FROM employee WHERE nic = '".$nic."'";
-        $Result1 = $mysqli->query($query);
-        $fetch_result1 = mysqli_fetch_array($Result1);
-        $name = $fetch_result1['nameWithInitials'];
-        return $name;
-    }
 
     function school($id){
         global $mysqli;
-        $sqlQuery = "SELECT sender FROM notification WHERE notID = '".$id."'";
+        $sqlQuery = "SELECT sender FROM notification_all WHERE notID = '".$id."'";
         $Result = $mysqli->query($sqlQuery);
         $row =mysqli_fetch_assoc($Result);
         $sender_nic = $row['sender'];
@@ -97,8 +89,11 @@ class Shownotification{
 
         }
         else{
+            $query1 = "DELETE FROM notification WHERE notID = '". $id."'";
+            $result1 = $mysqli->query($query1);
             echo '<script language="javascript">';
-            echo 'alert("Message send successfully!")';
+            echo 'alert("Message send successfully!");';
+            echo 'window.location.href="ministryOfficerHome.php";';
             echo '</script>';
             //header("Location: interface_0.1.php");
         }

@@ -15,6 +15,13 @@
         <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
+
+        <!-- Custom CSS -->
+        <link href="../assets/css/sb-admin.css" rel="stylesheet">
+
+        <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
         <!-- Custom CSS -->
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
@@ -30,14 +37,17 @@
 
         <div id="wrapper">
 
-            <!-- Sidebar -->
-            <?php include 'sideBarAdmin.php' ?>
-            <!-- /#sidebar-wrapper -->
-
-            <!-- include Navigation BAr -->
-            <?php include 'navigationBar.php' ?>
-
-            <!-- Finished NAvigation bar -->
+           <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- include Navigation BAr -->
+                <?php include '../interfaces/navigation_bar.php' ?>
+                <!--____________________________________________________________________________-->
+                <!-- Sidebar Menu Items-->
+                <!-- Sidebar -->
+                <?php include 'sidebar_min_off.php' ?>
+                <!-- /#sidebar-wrapper -->
+                <!-- /.navbar-collapse -->
+            </nav>
 
             <div  id="page-content-wrapper" style="min-height: 540px;">
                 <div class="row container-fluid" style="padding-left: 15px;">
@@ -78,14 +88,14 @@
                         }
                         ?>
 
-                        <div align="center" style="padding-bottom:10px;">
+                        <div align="" style="padding-bottom:30px; padding-left:15px; paadding-top:50px;">
                             <h1>Update School</h1>
                         </div>
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())" novalidate>
 
                             <div class="row" >
-                                <div class="form-group col-lg-8 col-md-18 col-sm-8">
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                     
 
@@ -93,8 +103,8 @@
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- School Name-->
-                                            <label for="School" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> School Name/Address:  </label>
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                            <label for="School" class="control-label col-xs-5 col-lg-5 col-md-5  required" style="text-align: left; padding-left:;"> School Name/Address:  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="School" name="School" value="<?php echo $schoolName ;?>" placeholder="School Name"/>
                                                 <label id="errorSchoolName" style="font-size:10px"> </label>
 
@@ -108,8 +118,8 @@
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- No:OF:Students-->
-                                            <label for="NoOfStudents" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> No Of Students :  </label>
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                            <label for="NoOfStudents" class="control-label col-xs-5 col-md-5 col-lg-5 required" style="text-align: left; padding-left:"> No Of Students :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="students" name="students" value="<?php echo $noOfStudents; ?>" placeholder="NOS"/>
                                                 <label id="errorStudentNumber" style="font-size:10px"> </label>
 
@@ -122,8 +132,8 @@
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- Latitude-->
-                                            <label for="Latitude" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Latitude :  </label>
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                            <label for="Latitude" class="control-label col-xs-5 col-md-5 col-lg-5  required" style="text-align: left; padding-left:"> Latitude :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="latbox" name="lat" value="<?php echo $latitude;?>"  placeholder="Latitude"/>
 
                                                 <label id="errorLat" style="font-size:10px"> </label>
@@ -137,8 +147,8 @@
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                             <!-- Longitude-->
-                                            <label for="Longitude" class="control-label col-xs-6  required" style="text-align: left; padding-left: 30px;"> Longitude :  </label>
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 0px">
+                                            <label for="Longitude" class="control-label col-xs-5 col-md-5 col-lg-5  required" style="text-align: left; padding-left:"> Longitude :  </label>
+                                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-top: 0px">
                                                 <input type="text" class="form-control" id="lngbox" name="lng" value="<?php echo $longtitude;?>" placeholder="Longitude"/>
 
                                                 <label id="errorLng" style="font-size:10px"> </label>
@@ -150,7 +160,7 @@
                                     </div>
                                     <div class="row">
                                         <div  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"style="padding-left: 68px;">
+                                            <div class="col-xs-6 col-sm-3 col-md-6 col-lg-6"style="padding-left: ;">
                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
                                             </div>
 
@@ -184,6 +194,8 @@
             </div>
 
         </div>
+
+        <?php include '../interfaces/footer.php' ?>
 
         <!--______________________________________________________________________________________________________________-->
         <!-- Data validation-->
