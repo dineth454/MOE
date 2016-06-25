@@ -109,7 +109,7 @@ ob_start();
                                             <!-- new subject code-->
                                             <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">New Subject code </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input maxlength="10" type="text" required class="form-control" id="subcode" name="subcode" placeholder="New Subject code"/>
+                                                <input maxlength="10" type="text" required class="form-control" id="subcode" name="subcode" placeholder="New Subject code" autofocus/>
                                                 <label id="errorsubcode" style="font-size:10px"> </label>
                                             </div>
 
@@ -121,7 +121,7 @@ ob_start();
                                             <!-- new subject name-->
                                             <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">New Subject Name </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input maxlength="10" type="text" required class="form-control" id="subname" name="subname" placeholder="New Subject name" autofocus/>
+                                                <input maxlength="10" type="text" required class="form-control" id="subname" name="subname" placeholder="New Subject name"/>
                                                 <label id="errorsubname" style="font-size:10px"> </label>
                                             </div>
 

@@ -101,9 +101,8 @@ ob_start();
                                                 $res=$sub->updatesubject($subid, $subcode, $subname);
                                                 echo '<script language="javascript">';
                                                 echo 'alert("Subject Update Successfully!!")';
-                                                echo 'window.location.href = "ministryOfficerHome.php";';
                                                 echo '</script>';
-                                                //header("Location: ministryOfficerHome.php");
+                                                header("Location: ministryOfficerHome.php");
                                             }
 
                                         }

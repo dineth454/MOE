@@ -135,6 +135,53 @@ class Shownotification{
 
     }
 
+    function getmessagedate($id){
+        global $mysqli;
+        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['date'];
+        return $res;
+    }
+
+    function getmessagereplydate($id){
+        global $mysqli;
+        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['dateReply'];
+        return $res;
+    }
+
+
+    function sendrequest($notid,$des,$sender){
+        global $mysqli;
+        $query = "INSERT INTO `notification`(`notID`,`type`, `action`, `description`, `sender`) VALUES ('$notid','Transer','notseen','$des','$sender')";
+        $result = $mysqli->query($query);
+
+        $query1 = "INSERT INTO `notification_all`(`notID`,`type`, `description`, `sender`, `date`) VALUES ('$notid','Transer','$des','$sender', NOW())";
+        $result1 = $mysqli->query($query1);
+    }
+
+    function gennotid(){
+        global $mysqli;
+        $query = "SELECT COUNT(*) AS count FROM notification_all";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['count'] +1;
+        $out = "not".$res ;
+
+
+        return $out;
+
+    }
+
+
+
+
+
+
+
 
 
 }

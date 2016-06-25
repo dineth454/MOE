@@ -56,8 +56,8 @@
             <div id="page-content-wrapper" style="min-height: 540px;">
                 <?php 
                     
-                    $id = intval($_GET['id']);
-                    
+                    $id = $_GET['id'];
+                    echo $id;
                     if (isset($_POST['submit'])) {
                         //require("../classes/Shownotification.php");
                         $reply = $_POST['reply'];

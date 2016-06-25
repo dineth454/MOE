@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2016 at 03:50 PM
+-- Generation Time: Jun 25, 2016 at 02:21 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -246,21 +246,13 @@ INSERT INTO `ministry_officer` (`ministryOfficerID`, `nic`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `notification` (
-`notID` int(5) NOT NULL,
+  `notID` varchar(5) NOT NULL,
   `type` varchar(20) NOT NULL,
   `action` varchar(10) NOT NULL,
   `description` longtext NOT NULL,
   `sender` varchar(15) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`notID`, `type`, `action`, `description`, `sender`, `date`) VALUES
-(1, 'Transer', 'notseen', 'I want a transer', '922843775V', '2016-06-20 12:48:21'),
-(2, 'Transer', 'notseen', 'i want transer quickly..', '922843775V', '2016-06-20 13:00:52');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -269,13 +261,13 @@ INSERT INTO `notification` (`notID`, `type`, `action`, `description`, `sender`, 
 --
 
 CREATE TABLE IF NOT EXISTS `notification_all` (
-  `notID` int(11) NOT NULL,
+  `notID` varchar(11) COLLATE utf8mb4_swedish_ci NOT NULL,
   `type` varchar(20) COLLATE utf8mb4_swedish_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_swedish_ci NOT NULL,
   `reply` longtext COLLATE utf8mb4_swedish_ci,
   `sender` varchar(15) COLLATE utf8mb4_swedish_ci NOT NULL,
   `reciever` varchar(15) COLLATE utf8mb4_swedish_ci DEFAULT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `dateReply` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
@@ -284,8 +276,7 @@ CREATE TABLE IF NOT EXISTS `notification_all` (
 --
 
 INSERT INTO `notification_all` (`notID`, `type`, `description`, `reply`, `sender`, `reciever`, `date`, `dateReply`) VALUES
-(1, 'Transer', 'I want a transer', NULL, '922843775V', NULL, '2016-06-20 12:48:21', NULL),
-(2, 'Transer', 'i want transer quickly..\r\n', NULL, '922843775V', NULL, '2016-06-20 13:00:52', NULL);
+('not1', 'Transer', 'test 2', 'ok test', '921003072V', '921003072V', '2016-06-25 12:17:48', '2016-06-25 12:18:31');
 
 -- --------------------------------------------------------
 
@@ -438,20 +429,27 @@ INSERT INTO `school_type` (`schoolTypeID`, `schoolType`) VALUES
 
 CREATE TABLE IF NOT EXISTS `subject` (
 `subjectID` int(11) NOT NULL,
+  `subjectCode` varchar(10) NOT NULL,
   `subject` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`subjectID`, `subject`) VALUES
-(1, 'Mathematics'),
-(2, 'Science'),
-(3, 'Buddhism'),
-(4, 'English'),
-(5, 'Drama'),
-(6, 'Physics');
+INSERT INTO `subject` (`subjectID`, `subjectCode`, `subject`) VALUES
+(1, 'S1', 'Math'),
+(2, 'S2', 'Science'),
+(3, 'S3', 'Buddhism'),
+(4, 'S4', 'English'),
+(5, 'S5', 'Drama'),
+(6, 'S6', 'Physics'),
+(7, 'S7', 'Health'),
+(8, 'S8', 'Sinhala'),
+(9, 'S9', 'Tamil'),
+(10, 'S10', 'Law'),
+(11, 'S11', 'Management'),
+(12, 'S12', 'ICT');
 
 -- --------------------------------------------------------
 
@@ -682,6 +680,12 @@ ALTER TABLE `notification`
  ADD PRIMARY KEY (`notID`);
 
 --
+-- Indexes for table `notification_all`
+--
+ALTER TABLE `notification_all`
+ ADD PRIMARY KEY (`notID`);
+
+--
 -- Indexes for table `principal`
 --
 ALTER TABLE `principal`
@@ -805,11 +809,6 @@ MODIFY `instituteTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 ALTER TABLE `ministry_officer`
 MODIFY `ministryOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT for table `notification`
---
-ALTER TABLE `notification`
-MODIFY `notID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `principal`
 --
 ALTER TABLE `principal`
@@ -843,7 +842,7 @@ MODIFY `schoolTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-MODIFY `subjectID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `subjectID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `teacher`
 --
