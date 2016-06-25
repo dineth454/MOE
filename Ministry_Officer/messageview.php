@@ -36,7 +36,7 @@
     <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         
     </head>
-<?php $id = intval($_GET['id']); ?>
+<?php $id = $_GET['id']; ?>
     <body>
 
         <div id="wrapper">
@@ -70,6 +70,8 @@
                             <?php echo $not->message($id); ?>
                           </div>
                         </div>
+                        <div style="margin-left: 600px; color:#6495ED;"><?php echo $not->getmessagedate($id); ?>
+                        </div>
 
                     </div>
                     <br/>
@@ -79,6 +81,8 @@
                             <div class="panel-body">
                                 <?php echo $not->viewreply($id); ?>
                             </div>
+                        </div>
+                        <div style="margin-left: 600px; color:#6495ED;"><?php echo $not->getmessagereplydate($id); ?>
                         </div>
                     </div>
                     <div class="row">

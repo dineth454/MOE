@@ -9,28 +9,40 @@ class Shownotification{
         global $mysqli;
         $sqlQuery = "SELECT * FROM notification ORDER BY notID DESC";
         $Result = $mysqli->query($sqlQuery);
-        
         $output="";
-        if (mysqli_num_rows($Result) > 0) {
-            while ($row = mysqli_fetch_assoc($Result)) {
-                $notid = $row["notID"];
-                $type = $row["type"];
-                $action = $row["action"];
-                $des = $row["description"];
-                $date = $row["date"];
-                
-                $output .=   "<div id= '". $notid."' class='notification' ".
-                            "   <div class='not-content-box col-md-10'>".
 
-                            "       You have a <strong>". $type ."</strong> request     ".
-                        //    "        NotID <strong>'". $notid ."' </strong> Type '". $type ."' , Action '". $action ."' ".
-                            "        <div class='col-md-offset-7 col-md-5' style='padding-right: 0px;'>".$date."</div>".
-                            "   </div>";
-                            //"</div>";
-                
-            }
-        }   
-        echo $output;                        
+        
+            if (mysqli_num_rows($Result) > 0) {
+                while ($row = mysqli_fetch_assoc($Result)) {
+                    $notid = $row["notID"];
+                    $type = $row["type"];
+                    $action = $row["action"];
+                    $des = $row["description"];
+                    $date = $row["date"];
+                    if (strcmp($action, 'tomoe') == 0) {
+                    $output .=   "<div id= '". $notid."' class='notification' ".
+                                "   <div class='not-content-box col-md-10'>".
+
+                                "       You have a <strong>". $type ."</strong> request     ".
+                            //    "        NotID <strong>'". $notid ."' </strong> Type '". $type ."' , Action '". $action ."' ".
+                                "        <div class='col-md-offset-7 col-md-5' style='padding-right: 0px;'>".$date."</div>".
+                                "   </div>";
+                                //"</div>";
+                    }
+                }
+            }   
+        echo $output;      
+        
+                          
+    }
+
+    function getnotcount(){
+        global $mysqli;
+        $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'tomoe'";
+        $Result = $mysqli->query($sqlQuery);
+        $fetch_result = mysqli_fetch_array($Result);
+        $notcount = $fetch_result['notcount'];
+        return $notcount;
     }
 
     function message($id){
@@ -134,6 +146,53 @@ class Shownotification{
 
 
     }
+
+    function getmessagedate($id){
+        global $mysqli;
+        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['date'];
+        return $res;
+    }
+
+    function getmessagereplydate($id){
+        global $mysqli;
+        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['dateReply'];
+        return $res;
+    }
+
+
+    function sendrequest($notid,$des,$sender){
+        global $mysqli;
+        $query = "INSERT INTO `notification`(`notID`,`type`, `action`, `description`, `sender`) VALUES ('$notid','Transer','tomoe','$des','$sender')";
+        $result = $mysqli->query($query);
+
+        $query1 = "INSERT INTO `notification_all`(`notID`,`type`, `description`, `sender`, `date`) VALUES ('$notid','Transer','$des','$sender', NOW())";
+        $result1 = $mysqli->query($query1);
+    }
+
+    function gennotid(){
+        global $mysqli;
+        $query = "SELECT COUNT(*) AS count FROM notification_all";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['count'] +1;
+        $out = "not".$res ;
+
+
+        return $out;
+
+    }
+
+
+
+
+
+
 
 
 
