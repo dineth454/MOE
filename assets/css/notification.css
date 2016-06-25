@@ -62,11 +62,12 @@
     background: #E90909 none repeat scroll 0% 0%;
     color: #FFF;
     font-weight: bold;
-    margin-left: -3px;
+    margin-left: 3px;
     border-radius: 5px;
     position: absolute;
-    margin-top: -4px;
+    margin-top: 9px;
     font-size: 11px;
+    z-index: 999;
 }
 .notification {
     padding: 5px;
