@@ -37,7 +37,7 @@
                                 <a href="min_off_addSubject.php">Add Subject</a>
                             </li>
                             <li>
-                                <a href="updateSubjectfront.php">Update Subject</a>
+                                <a href="min_off_updateSubjectFront.php">Update Subject</a>
                             </li>
                         </ul>
                     </li>
