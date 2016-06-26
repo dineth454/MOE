@@ -54,7 +54,7 @@ class Shownotification{
                     $output .=   "<div id= '". $notid."' class='notification_teacher' ".
                                 "   <div class='not-content-box col-md-10'>".
 
-                                "       You have a <strong>". $type ."</strong> request     ".
+                                "       You have a Message     ".
                             //    "        NotID <strong>'". $notid ."' </strong> Type '". $type ."' , Action '". $action ."' ".
                                 "        <div class='col-md-offset-7 col-md-5' style='padding-right: 0px;'>".$date."</div>".
                                 "   </div>";
@@ -252,7 +252,7 @@ class Shownotification{
         $query = "DELETE FROM notification WHERE notID = '".$id."'";
         $result = $mysqli->query($query);
 
-        
+
     }
 
 

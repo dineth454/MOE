@@ -65,8 +65,8 @@
                         $not = new Shownotification();
                         $id = $not->gennotid();
                         $not->sendrequest($id,$des,$sender);
-                        //header("Location: ministryOfficerHome.php");
-                        echo $id;
+                        header("Location: teacher_home.php");
+                        
                     }
 
                  ?>

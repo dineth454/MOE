@@ -452,7 +452,7 @@
 
 
 
-<?php include 'footer.php' ?>
+<?php include '../interfaces/footer.php' ?>
 
 
             <script src="../assets/js/jquery.js"></script>

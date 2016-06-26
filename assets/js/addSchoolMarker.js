@@ -13,6 +13,8 @@
   google.maps.event.addListener(map, "rightclick", function(event) {
   	if (no < 1) {
       addMarker(event.latLng,map);
+      document.getElementById('latbox').value = event.latLng.lat();
+      document.getElementById('lngbox').value = event.latLng.lng();
     }
     no=no+1;
 });

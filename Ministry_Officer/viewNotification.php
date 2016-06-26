@@ -91,7 +91,7 @@
                         <label>Reply :</label>
                         <div class="panel panel-default" style="width:750px;">
                             <div class="panel-body">
-                                <textarea name="reply" id="reply" rows="5" cols="40" style="border: 0px; margin: 0px; width: 719px; height: 191px;"></textarea>
+                                <textarea name="reply" id="reply" rows="5" cols="40" requied style="border: 0px; margin: 0px; width: 719px; height: 191px;"></textarea>
                             </div>
                         </div>
                     </div>
