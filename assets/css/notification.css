@@ -78,6 +78,15 @@
     cursor: pointer;
 }
 
+.notification_teacher {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+    min-height: 70px;
+    color: #1363B9;
+    cursor: pointer;
+}
+
 .notificationAll {
     padding: 5px;
     text-align: left;

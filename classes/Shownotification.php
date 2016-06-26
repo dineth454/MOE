@@ -51,7 +51,7 @@ class Shownotification{
                     $des = $row["description"];
                     $date = $row["date"];
                     if (strcmp($action, 'toteacher') == 0) {
-                    $output .=   "<div id= '". $notid."' class='notification' ".
+                    $output .=   "<div id= '". $notid."' class='notification_teacher' ".
                                 "   <div class='not-content-box col-md-10'>".
 
                                 "       You have a <strong>". $type ."</strong> request     ".
@@ -122,6 +122,19 @@ class Shownotification{
         return $sender;
     }
 
+    function nameMOE($id){
+        global $mysqli;
+        $sqlQuery = "SELECT reciever FROM notification_all WHERE notID = '".$id."'";
+        $Result = $mysqli->query($sqlQuery);
+        $row =mysqli_fetch_assoc($Result);
+        $sender_nic = $row['reciever'];
+        $query = "SELECT nameWithInitials FROM employee WHERE nic = '".$sender_nic."'";
+        $Result1 = $mysqli->query($query);
+        $fetch_result1 = mysqli_fetch_array($Result1);
+        $sender = $fetch_result1['nameWithInitials'];
+        return $sender;
+    }
+
 
     function school($id){
         global $mysqli;
@@ -147,7 +160,7 @@ class Shownotification{
 
         }
         else{
-            $query1 = "DELETE FROM notification WHERE notID = '". $id."'";
+            $query1 = "UPDATE notification SET action = 'toteacher' , date = NOW() WHERE notID = '". $id."'";
             $result1 = $mysqli->query($query1);
             echo '<script language="javascript">';
             echo 'alert("Message send successfully!");';
@@ -234,7 +247,13 @@ class Shownotification{
 
     }
 
+    function deletemsg($id){
+        global $mysqli;
+        $query = "DELETE FROM notification WHERE notID = '".$id."'";
+        $result = $mysqli->query($query);
 
+        
+    }
 
 
 
