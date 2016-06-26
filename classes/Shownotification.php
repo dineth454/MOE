@@ -155,18 +155,21 @@ class Shownotification{
         $result = $mysqli->query($query);
         if ($result != 1) {
             echo '<script language="javascript">';
-            echo 'alert("Sorry Message cannot send!")';
+            echo 'alertify.alert("Sorry Message cannot send!")';
             echo '</script>';
 
         }
         else{
             $query1 = "UPDATE notification SET action = 'toteacher' , date = NOW() WHERE notID = '". $id."'";
             $result1 = $mysqli->query($query1);
-            echo '<script language="javascript">';
-            echo 'alert("Message send successfully!");';
-            echo 'window.location.href="ministryOfficerHome.php";';
-            echo '</script>';
-            //header("Location: interface_0.1.php");
+            
+            echo '<script language="javascript">
+                alertify.confirm("Message Send successfully!", function (e) {
+                if (e) {
+                    window.location.href="ministryOfficerHome.php";
+                }
+                });
+            </script>';
         }
     }
 
@@ -232,6 +235,16 @@ class Shownotification{
 
         $query1 = "INSERT INTO `notification_all`(`notID`,`type`, `description`, `sender`, `date`) VALUES ('$notid','Transer','$des','$sender', NOW())";
         $result1 = $mysqli->query($query1);
+
+        echo '<script language="javascript">
+                alertify.confirm("Message Send successfully!", function (e) {
+                if (e) {
+                    window.location.href="teacher_home.php";
+                }
+                });
+            </script>';
+
+
     }
 
     function gennotid(){
@@ -251,7 +264,13 @@ class Shownotification{
         global $mysqli;
         $query = "DELETE FROM notification WHERE notID = '".$id."'";
         $result = $mysqli->query($query);
-
+        echo '<script language="javascript">
+                alertify.confirm("Message Delete!", function (e) {
+                if (e) {
+                    window.location.href="teacher_home.php";
+                }
+                });
+            </script>';
 
     }
 

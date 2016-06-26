@@ -34,7 +34,11 @@
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
     <link href="../assets/css/navbar_styles.css" rel="stylesheet">
-        
+    <!-- Alert start-->
+    <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+    <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+    <script src="../alertify/lib/alertify.min.js"></script>
+    <!-- Alert end-->
     </head>
 
     <body>
@@ -65,7 +69,7 @@
                         $not = new Shownotification();
                         $id = $not->gennotid();
                         $not->sendrequest($id,$des,$sender);
-                        header("Location: teacher_home.php");
+                        //header("Location: teacher_home.php");
                         
                     }
 
@@ -100,6 +104,8 @@
         <!-- /#wrapper -->
 
         <?php include '../interfaces/footer.php' ?>
+
+            
         
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 

@@ -34,9 +34,23 @@
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
     <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
+    <!-- Alert start-->
+    <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+    <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+    <script src="../alertify/lib/alertify.min.js"></script>
+    <!-- Alert end-->
         
     </head>
 <?php $id = $_GET['id']; ?>
+
+<script type="text/javascript">
+$(".submit").click(function () {
+    //alert(this.id);
+    alertify.alert("Message ya ya yo");
+});
+
+</script>
     <body>
 
         <div id="wrapper">
@@ -58,7 +72,7 @@
                     if (isset($_POST['submit'])) {
                         $not->deletemsg($id);
 
-                        header("Location: teacher_home.php");
+                        //header("Location: teacher_home.php");
                     }
 
                  ?>
@@ -113,6 +127,7 @@
 
             <!-- Bootstrap Core JavaScript -->
             <script src="../assets/js/bootstrap.min.js"></script>
+            
 
 
     </body>
