@@ -120,7 +120,11 @@ ob_start();
                                             </div>
 
                                         <div class="form-group" style="float: right">
-                                            <button type="submit" name="submit" id="submit" class="btn btn-primary">Done</button>
+                                            <button style="width: 80px;" type="submit" name="submit" id="submit" class="btn btn-primary">Done</button>
+                                        </div>
+
+                                        <div class="form-group" style="float: right; padding-right: 10px;">
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
                                         </div>
                                     </div>
                                 </div>

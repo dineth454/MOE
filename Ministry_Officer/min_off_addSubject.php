@@ -40,6 +40,10 @@ ob_start();
 
 
     </head>
+    <?php 
+        require("../classes/Subject.php");
+        $sub = new Subject();
+     ?>
 
     <body>
         <div id="wrapper">
@@ -61,54 +65,63 @@ ob_start();
                 <div class="container-fluid">
                     <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
                     <?php 
+                        if (isset($_POST['submit'])) {
 
-                        require("../classes/Subject.php");
-                        $sub = new Subject();
+                            $code = strtoupper($_POST['subcode']);
+                            $rescode = $sub->selectsubjectcode($code);
 
-                        if (isset($_POST['submit'])) {             
-                            $subcode = strtoupper($_POST["subcode"]);
-                            $res=$sub->searchsubcode($subcode);
-                            if ($res == 1) {
-                                $_SESSION["subjectcode"] = $subcode;
-                                header("Location: updateSubjectback.php");
-                            }else{
-                                                
+                            $name = $_POST['subname'];
+                            $subcode = $sub->getsubid();
+                            $res=$sub->selectsubjectname($name);
+                            if ($res > 0) {
                                 echo '<script language="javascript">';
-                                echo 'alert("This Subject code not valid!!")';
+                                echo 'alert("This Subject name alreadt exists!!")';
+                                echo '</script>';
+                            }
+                            elseif ($rescode > 0) {
+                                echo '<script language="javascript">';
+                                echo 'alert("This Subject code alreadt exists!!")';
+                                echo '</script>';
+                            }
+                            else{
+                                $sub->insertsubject($code,$name);
+
+                                echo '<script language="javascript">';
+                                echo 'alert("This Subject Succesefully insert!!")';
                                 echo '</script>';
                             }
 
                         }
-                    ?>
+                    ?>                 
 
                     <div class="row">
                     <div class="col-lg-7">
 
-                        <h1 style="padding-bottom:40px;">Update Subject</h1>
+                        <h1 style="padding-bottom:40px;">Add New Subject</h1>
 
-                        <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateUpdateSubjectFront())"  novalidate>
+                        <form name="addEmployeeForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateaddNewSubjectForm())"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                    <!-- select Subject code-->
-                                    <div class="form-group" id="subjectHiddenDiv">
-                                        <label for="School">Subject Code</label>
-                                        <select required class="form-control" name="subcode" id="subcode" autofocus>
-                                            <option value="">Select Subject Code</option>
-                                                <?php
-                                                $result = $sub->loadSubjects();
-                                                foreach ($result as $array) {
-                                                    echo '<option  value="' . $array['subjectID'] . '" >' . $array['subjectCode'] . '</option>';
-                                                }
-                                                ?>
-                                        </select>
-                                        <label id="errorsubcode" style="font-size: 10px"> </label>
+                                    <!-- new subject code-->
+                                    <div class="form-group"> 
+                                        <label>Subject Code</label>
+                                        <input maxlength="10" type="text" required class="form-control" id="subcode" name="subcode" placeholder="Enter New Subject Code" autofocus/>
+                                        <label id="errorsubcode" style="font-size:10px"> </label>
+                                    </div>
+
+
+                                    <!-- new subject name-->
+                                    <div class="form-group">
+                                        <label>Subject Name</label>
+                                        <input maxlength="10" type="text" required class="form-control" id="subname" name="subname" placeholder="Enter New Subject Name"/>
+                                        <label id="errorsubname" style="font-size:10px"> </label>
                                     </div>
 
 
                                     <div class="form-group" style="float: right">
-                                        <button type="submit" name="submit" id="submit" class="btn btn-primary" style="width: 80px;">Find</button>
+                                        <button type="submit" name="submit" id="submit" class="btn btn-primary" style="width: 80px;">Done</button>
                                     </div>
 
 
@@ -123,7 +136,7 @@ ob_start();
                             <img src="../images/addPerson.png" width="400" height="400">
                         </div>
                     </div>
-                </div>
+                    </div>
                 </div>
             </div>
 
@@ -137,5 +150,4 @@ ob_start();
         <script src="../assets/js/jquery.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
     </body>
-
 </html>
