@@ -237,8 +237,12 @@ ob_start();
                                             <label id="errornicNum" style="font-size:10px"></label>
                                         </div>
 
-                                        <div class="form-group" style="float: right">
-                                            <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
+                                        <div class="form-group" style="float: right;">
+                                            <button style="width: 80px;" type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
+                                        </div>
+
+                                        <div class="form-group" style="float: right; padding-right: 10px;">
+                                            <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
                                         </div>
                                     </div>
                                 </div>

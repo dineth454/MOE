@@ -107,7 +107,13 @@ class Subject{
 		return $result;
 	}
 
-	
+
+	function loadSubjects() {
+        global $mysqli;
+        $query = "select * from subject";
+        $result = $mysqli->query($query);
+        return $result;
+    }
 
 
 }
