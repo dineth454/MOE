@@ -26,3 +26,9 @@ $(".notificationAll").click(function () {
     //alert(this.id);
     window.location.assign("messageview.php?id=" + this.id);
 });
+
+//Notification teacher's link click function
+$(".notification_teacher").click(function () {
+    //alert(this.id);
+    window.location.assign("messageview.php?id=" + this.id);
+});

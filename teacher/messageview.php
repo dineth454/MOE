@@ -18,7 +18,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Request Transer</title>
+        <title>Notifications</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -36,61 +36,66 @@
     <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         
     </head>
-
+<?php $id = $_GET['id']; ?>
     <body>
 
         <div id="wrapper">
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
-
+                
             
 
             <!-- include Navigation BAr -->
-            <?php include '../interfaces/navigation_bar.php' ?>
+            <?php include 'navigation_bar_teacher.php' ?>
             
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->
-            <?php include 'sidebar_min_off.php' ?>
+            <?php include 'sidebar_teacher.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             </nav>
             <div id="page-content-wrapper" style="min-height: 540px;">
-
                 <?php 
-                    
-                    
                     if (isset($_POST['submit'])) {
-                        //require("../classes/Shownotification.php");
-                        $des = $_POST['description'];
-                        $sender = $_SESSION["nic"];
-                        $not = new Shownotification();
-                        $id = $not->gennotid();
-                        $not->sendrequest($id,$des,$sender);
-                        //header("Location: ministryOfficerHome.php");
-                        echo $id;
+                        $not->deletemsg($id);
+
+                        header("Location: teacher_home.php");
                     }
 
                  ?>
-
                 <form  method="post">
                 <div class="container-fluid" style="margin-left: 44px;margin-top: 90px;">
-
-                    <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">Transer Request</h1>
+                    <div class="row">
+                        <label>From :</label>
+                        <?php echo $not->nameMOE($id); ?>
                     </div>
-                    
+                    <br/>
                     <div class="row">
                         <label>Message :</label>
                         <div class="panel panel-default" style="width:750px;">
                           <div class="panel-body">
-                            <textarea name="description" id="description" rows="5" cols="40" style="border: 0px; margin: 0px; width: 719px; height: 191px;"></textarea>
+                            <?php echo $not->message($id); ?>
                           </div>
+                        </div>
+                        <div style="margin-left: 600px; color:#6495ED;"><?php echo $not->getmessagedate($id); ?>
                         </div>
 
                     </div>
+                    <br/>
                     <div class="row">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Send">
+                        <label>Reply :</label>
+                        <div class="panel panel-default" style="width:750px;">
+                            <div class="panel-body">
+                                <?php echo $not->viewreply($id); ?>
+                            </div>
+                        </div>
+                        <div style="margin-left: 600px; color:#6495ED;"><?php echo $not->getmessagereplydate($id); ?>
+                        </div>
                     </div>
-
+                    <div class="row">
+                        <input class="btn btn-primary" type="button" onClick="history.go(-1);" value="Back">
+                    
+                        <input class="btn btn-primary" type="submit" name="submit" value="Delete">
+                    </div>
                 </div>
                 </form>
             </div>

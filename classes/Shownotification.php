@@ -36,12 +36,58 @@ class Shownotification{
                           
     }
 
+    function notResualtTeacher($nic){
+        global $mysqli;
+        $sqlQuery = "SELECT * FROM notification WHERE sender = '".$nic."' ORDER BY notID DESC";
+        $Result = $mysqli->query($sqlQuery);
+        $output="";
+
+        
+            if (mysqli_num_rows($Result) > 0) {
+                while ($row = mysqli_fetch_assoc($Result)) {
+                    $notid = $row["notID"];
+                    $type = $row["type"];
+                    $action = $row["action"];
+                    $des = $row["description"];
+                    $date = $row["date"];
+                    if (strcmp($action, 'toteacher') == 0) {
+                    $output .=   "<div id= '". $notid."' class='notification_teacher' ".
+                                "   <div class='not-content-box col-md-10'>".
+
+                                "       You have a Message     ".
+                            //    "        NotID <strong>'". $notid ."' </strong> Type '". $type ."' , Action '". $action ."' ".
+                                "        <div class='col-md-offset-7 col-md-5' style='padding-right: 0px;'>".$date."</div>".
+                                "   </div>";
+                                //"</div>";
+                    }
+                }
+            }   
+        echo $output;      
+        
+                          
+    }
+
     function getnotcount(){
         global $mysqli;
         $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'tomoe'";
         $Result = $mysqli->query($sqlQuery);
         $fetch_result = mysqli_fetch_array($Result);
         $notcount = $fetch_result['notcount'];
+        if ($notcount == 0) {
+            $notcount = "";
+        }
+        return $notcount;
+    }
+
+    function getnotcountTeacher(){
+        global $mysqli;
+        $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'toteacher'";
+        $Result = $mysqli->query($sqlQuery);
+        $fetch_result = mysqli_fetch_array($Result);
+        $notcount = $fetch_result['notcount'];
+        if ($notcount == 0) {
+            $notcount = "";
+        }
         return $notcount;
     }
 
@@ -76,6 +122,19 @@ class Shownotification{
         return $sender;
     }
 
+    function nameMOE($id){
+        global $mysqli;
+        $sqlQuery = "SELECT reciever FROM notification_all WHERE notID = '".$id."'";
+        $Result = $mysqli->query($sqlQuery);
+        $row =mysqli_fetch_assoc($Result);
+        $sender_nic = $row['reciever'];
+        $query = "SELECT nameWithInitials FROM employee WHERE nic = '".$sender_nic."'";
+        $Result1 = $mysqli->query($query);
+        $fetch_result1 = mysqli_fetch_array($Result1);
+        $sender = $fetch_result1['nameWithInitials'];
+        return $sender;
+    }
+
 
     function school($id){
         global $mysqli;
@@ -101,7 +160,7 @@ class Shownotification{
 
         }
         else{
-            $query1 = "DELETE FROM notification WHERE notID = '". $id."'";
+            $query1 = "UPDATE notification SET action = 'toteacher' , date = NOW() WHERE notID = '". $id."'";
             $result1 = $mysqli->query($query1);
             echo '<script language="javascript">';
             echo 'alert("Message send successfully!");';
@@ -188,7 +247,13 @@ class Shownotification{
 
     }
 
+    function deletemsg($id){
+        global $mysqli;
+        $query = "DELETE FROM notification WHERE notID = '".$id."'";
+        $result = $mysqli->query($query);
 
+
+    }
 
 
 

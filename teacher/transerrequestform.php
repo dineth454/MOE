@@ -18,7 +18,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Notifications</title>
+        <title>Request Transer</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -45,58 +45,50 @@
             
 
             <!-- include Navigation BAr -->
-            <?php include '../interfaces/navigation_bar.php' ?>
+            <?php include 'navigation_bar_teacher.php' ?>
             
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->
-            <?php include 'sidebar_min_off.php' ?>
+            <?php include 'sidebar_teacher.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             </nav>
             <div id="page-content-wrapper" style="min-height: 540px;">
+
                 <?php 
                     
-                    $id = $_GET['id'];
-                    echo $id;
+                    
                     if (isset($_POST['submit'])) {
                         //require("../classes/Shownotification.php");
-                        $reply = $_POST['reply'];
-                        $reciever = $_SESSION["nic"];
+                        $des = $_POST['description'];
+                        $sender = $_SESSION["nic"];
                         $not = new Shownotification();
-                        $not->reply($reply,$reciever,$id);
+                        $id = $not->gennotid();
+                        $not->sendrequest($id,$des,$sender);
+                        header("Location: teacher_home.php");
                         
                     }
 
                  ?>
+
                 <form  method="post">
                 <div class="container-fluid" style="margin-left: 44px;margin-top: 90px;">
-                    <div class="row">
-                        <label>From :</label>
-                        <?php echo $not->name($id); echo "; ";?>
-                        <?php echo $not->school($id); ?>
 
+                    <div align="center" style="padding-bottom:10px;">
+                            <h1 class="topic_font">Transer Request</h1>
                     </div>
-                    <br/>
+                    
                     <div class="row">
                         <label>Message :</label>
                         <div class="panel panel-default" style="width:750px;">
                           <div class="panel-body">
-                            <?php echo $not->message($id); ?>
+                            <textarea name="description" id="description" rows="5" cols="40" style="border: 0px; margin: 0px; width: 719px; height: 191px;"></textarea>
                           </div>
                         </div>
 
                     </div>
-                    <br/>
                     <div class="row">
-                        <label>Reply :</label>
-                        <div class="panel panel-default" style="width:750px;">
-                            <div class="panel-body">
-                                <textarea name="reply" id="reply" rows="5" cols="40" requied style="border: 0px; margin: 0px; width: 719px; height: 191px;"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Reply">
+                        <input class="btn btn-primary" type="submit" name="submit" value="Send">
                     </div>
 
                 </div>
