@@ -51,7 +51,18 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?php include 'sidebar_min_off.php' ?>
+            <?include 'sideBarActivation.php';
+
+            //sideBar Activation
+            $navMembers = "background-color: #0A1A42;";
+            $textMembers = "color: white;";
+
+            $navUpdateMembers = "background-color: #091536;";
+            $textUpdateMembers = "color: white;";
+
+            $colMembers = "collapse in";
+
+            include 'sidebar_min_off.php'; ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
             </nav>

@@ -44,7 +44,18 @@
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?php include 'sidebar_min_off.php' ?>
+                <?include 'sideBarActivation.php';
+
+                //sideBar Activation
+                $navInstitute = "background-color: #0A1A42;";
+                $textInstitute = "color: white;";
+
+                $navUpdateSchoolInstitute = "background-color: #091536;";
+                $textUpdateSchoolInstitute = "color: white;";
+
+                $colInstitute = "collapse in";
+
+                include 'sidebar_min_off.php'; ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -75,8 +86,9 @@
                             $result =  $institute->updateInstitute($schoolID,$updatedSchoolName,$updatedNoOFStudents,$updatesLatitude,$updatedLangitude);
                             
                             if($result == 1){
-                                echo '<script language = "javascript">';
-                                echo 'alert("updated successfully")';
+                                echo '<script type="text/javascript">'; 
+                                echo 'alert("School details are updated successfully!");'; 
+                                echo 'window.location.href = "min_off_updateSchool.php";';
                                 echo '</script>';
                             }else{
                                 echo '<script language = "javascript">';

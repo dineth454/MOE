@@ -113,7 +113,13 @@ if (mysqli_num_rows($result) == 1) {
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?php include 'sidebar_min_off.php' ?>
+                <?include 'sideBarActivation.php';
+
+                //sideBar Activation
+                $navSearch = "background-color: #0A1A42;";
+                $textSearch = "color: white;";
+
+                include 'sidebar_min_off.php';?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>

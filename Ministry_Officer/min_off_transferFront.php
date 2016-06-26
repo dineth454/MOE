@@ -50,7 +50,15 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?php include 'sidebar_min_off.php' ?>
+            <?include 'sideBarActivation.php';
+
+            //sideBar Activation
+            $navTransfer = "background-color: #0A1A42;";
+            $textTransfer = "color: white;";
+
+            $colTransfer = "collapse in";
+
+            include 'sidebar_min_off.php'; ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
             </nav>
@@ -103,7 +111,7 @@ ob_start();
                                     //institute ID
                                     $_SESSION['transer']['instituteID'] = $result3['instituteID'];
                                     //redirect to this page
-                                    header("Location: transerForm.php");
+                                    header("Location: min_off_transferForm.php");
                                 } else {
                                     echo '<script language="javascript">';
                                     echo 'alert("This NIC Not Belongs To Teacher,Try Again.")';
