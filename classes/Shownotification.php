@@ -264,7 +264,13 @@ class Shownotification{
         global $mysqli;
         $query = "DELETE FROM notification WHERE notID = '".$id."'";
         $result = $mysqli->query($query);
-
+        echo '<script language="javascript">
+                alertify.confirm("Message Delete!", function (e) {
+                if (e) {
+                    window.location.href="teacher_home.php";
+                }
+                });
+            </script>';
 
     }
 

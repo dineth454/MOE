@@ -72,7 +72,7 @@ $(".submit").click(function () {
                     if (isset($_POST['submit'])) {
                         $not->deletemsg($id);
 
-                        header("Location: teacher_home.php");
+                        //header("Location: teacher_home.php");
                     }
 
                  ?>
