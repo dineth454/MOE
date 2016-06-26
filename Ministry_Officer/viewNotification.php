@@ -34,6 +34,12 @@
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
     <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
+    <!-- Alert start-->
+    <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+    <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+    <script src="../alertify/lib/alertify.min.js"></script>
+    <!-- Alert end-->
         
     </head>
 
@@ -57,7 +63,6 @@
                 <?php 
                     
                     $id = $_GET['id'];
-                    echo $id;
                     if (isset($_POST['submit'])) {
                         //require("../classes/Shownotification.php");
                         $reply = $_POST['reply'];

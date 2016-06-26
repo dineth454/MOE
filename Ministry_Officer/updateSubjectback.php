@@ -37,7 +37,11 @@ ob_start();
 
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
-
+    <!-- Alert start-->
+    <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+    <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+    <script src="../alertify/lib/alertify.min.js"></script>
+    <!-- Alert end-->
 
     </head>
     <?php 
@@ -87,22 +91,25 @@ ob_start();
                                             
                                             if ($rescode > 0) {
                                                 echo '<script language="javascript">';
-                                                echo 'alert("Subject code alreadt exists!!")';
+                                                echo 'alertify.alert("Subject code alreadt exists!!")';
                                                 echo '</script>';
                                                 
                                             }
                                             elseif ($resname > 0) {
                                                 echo '<script language="javascript">';
-                                                echo 'alert("This Subject name alreadt exists!!")';
+                                                echo 'alertify.alert("This Subject name alreadt exists!!")';
                                                 echo '</script>';
                                             }
 
                                             else{
                                                 $res=$sub->updatesubject($subid, $subcode, $subname);
-                                                echo '<script language="javascript">';
-                                                echo 'alert("Subject Update Successfully!!")';
-                                                echo '</script>';
-                                                header("Location: ministryOfficerHome.php");
+                                                echo '<script language="javascript">
+                                                        alertify.confirm("Update successfully!", function (e) {
+                                                        if (e) {
+                                                            window.location.href="ministryOfficerHome.php";
+                                                        }
+                                                        });
+                                                    </script>';
                                             }
 
                                         }
