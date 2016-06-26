@@ -64,18 +64,19 @@ class Login {
                 exit();
             } else if ($roleTypeID == 5) {
                 session_start();
+                $_SESSION["nic"] = $nic;
                 $_SESSION["roleTypeID"] = $roleTypeID;
                 $_SESSION["instituteID"] = $instituteID;
                 $_SESSION["designationTypeID"] = $designationTypeID;
                 $_SESSION["fullName"] = $fullName;
-                $_SESSION["nameWithInitls"] = $nameWithInitials;
+                $_SESSION["nameWithInitials"] = $nameWithInitials;
                 $_SESSION["employementID"] = $employementID;
                 $_SESSION["email"] = $email;
                 $_SESSION["currentAdderss"] = $currentAddress;
                 $_SESSION["gender"] = $gender;
                 $_SESSION["marrageState"] = $marregeState;
                 $_SESSION["mobile"] = $mobile;
-                header("Location: teacher.php");
+                header("Location: teacher/teacher_home.php");
                 exit();
             }
         } else {

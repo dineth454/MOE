@@ -45,7 +45,7 @@ ob_end_flush();
                             ?>
                             </div>
                         </div>
-                        <li class="message-footer">
+                        <li class="message-footer" style="background-color: #CDCFD1;">
                             <a href="allNotification.php">See All</a>
                         </li>
                     </ul>
