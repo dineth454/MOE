@@ -31,7 +31,11 @@ ob_start();
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
-
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
     </head>
 
     <body onload="initialize()">
@@ -45,7 +49,7 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?include 'sideBarActivation.php';
+                <?php include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navInstitute = "background-color: #0A1A42;";
@@ -89,17 +93,17 @@ ob_start();
 
                                 if ($insertSuccess == 1) {
                                     echo '<script language = "javascript">';
-                                    echo 'alert("School Added Succeccfully")';
+                                    echo 'alertify.alert("School Added Succeccfully")';
                                     echo '</script>';
                                 } else {
                                     echo '<script language = "javascript">';
-                                    echo 'alert("error Occurd while inserting data")';
+                                    echo 'alertify.alert("error Occurd while inserting data")';
                                     echo '</script>';
                                 }
                             }else{
                                 
                                 echo '<script language = "javascript">';
-                                echo 'alert("Permission Denied")';
+                                echo 'alertify.alert("Permission Denied")';
                                 echo '</script>';
                             }
                         }

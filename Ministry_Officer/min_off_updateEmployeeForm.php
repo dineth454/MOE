@@ -37,6 +37,11 @@ ob_start();
 
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
 
 
     </head>
@@ -51,7 +56,7 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?include 'sideBarActivation.php';
+                <?php include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navMembers = "background-color: #0A1A42;";
@@ -140,10 +145,13 @@ ob_start();
                             $resultUpdated = $employee->updateEmployeeBasic($nicNumber, $role_subitted, $nameInitialsSubmitted, $nameFullUpdated, $eIDSubmitted, $emailUpdated, $addressUpdated, $genderUpdated, $merrageUpdated, $mobileUpdated);
                             if ($resultUpdated == 1) {
 
-                                echo '<script type="text/javascript">'; 
-                                echo 'alert("User is updated successfully!");'; 
-                                echo 'window.location.href = "min_off_updateEmployeeFront.php";';
-                                echo '</script>';
+                                echo '<script language="javascript">
+                                        alertify.confirm("User is updated successfully!", function (e) {
+                                        if (e) {
+                                            window.location.href="min_off_updateEmployeeFront.php";
+                                        }
+                                        });
+                                    </script>';
                             } else {
                                 echo '<script language="javascript">';
                                 echo 'alert("Error Occured While Updating")';

@@ -35,6 +35,11 @@ ob_start();
         
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
 
 
 
@@ -51,7 +56,7 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?include 'sideBarActivation.php';
+            <?php include 'sideBarActivation.php';
 
             //sideBar Activation
             $navInstitute = "background-color: #0A1A42;";
@@ -89,11 +94,11 @@ ob_start();
 
                             if ($insertSuccess == 1) {
                                 echo '<script language="javascript">';
-                                echo 'alert("Zonal Added Successfully!")';
+                                echo 'alertify.alert("Zonal Added Successfully!")';
                                 echo '</script>';
                             } else {
                                 echo '<script language="javascript">';
-                                echo 'alert("error Occured While Adding data.check")';
+                                echo 'alertify.alert("error Occured While Adding data.check")';
                                 echo '</script>';
                             }
                         }

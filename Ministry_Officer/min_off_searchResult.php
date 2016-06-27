@@ -113,7 +113,7 @@ if (mysqli_num_rows($result) == 1) {
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?include 'sideBarActivation.php';
+                <?php include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navSearch = "background-color: #0A1A42;";

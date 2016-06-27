@@ -55,11 +55,12 @@ ob_start();
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- include Navigation BAr -->
+            <?php include 'sidebar_min_off.php' ?>
             <?php include '../interfaces/navigation_bar.php' ?>
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?php include 'sidebar_min_off.php' ?>
+            
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
         </nav>

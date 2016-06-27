@@ -34,6 +34,11 @@ ob_start();
         
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
 
 
 
@@ -50,7 +55,7 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?include 'sideBarActivation.php';
+            <?php include 'sideBarActivation.php';
 
             //sideBar Activation
             $navTransfer = "background-color: #0A1A42;";
@@ -94,7 +99,7 @@ ob_start();
 
                                 if (sizeof($result) == 0) {
                                     echo '<script language="javascript">';
-                                    echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
+                                    echo 'alertify.alert("Not Found This Nic,Try again!!!  Thank You.")';
                                     echo '</script>';
 
                                     //teacher kenekda kiyala check karanawa
@@ -114,13 +119,13 @@ ob_start();
                                     header("Location: min_off_transferForm.php");
                                 } else {
                                     echo '<script language="javascript">';
-                                    echo 'alert("This NIC Not Belongs To Teacher,Try Again.")';
+                                    echo 'alertify.alert("This NIC Not Belongs To Teacher,Try Again.")';
                                     echo '</script>';
                                 }
                             } else {
 
                                 echo '<script language="javascript">';
-                                echo 'alert("You Dont Have Permission to do this")';
+                                echo 'alertify.alert("You Dont Have Permission to do this")';
                                 echo '</script>';
                             }
                         }

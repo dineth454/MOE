@@ -28,7 +28,11 @@ ob_start();
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/fonts_styles.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
-
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
 
 
     </head>
@@ -43,7 +47,7 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?include 'sideBarActivation.php';
+                <?php include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navInstitute = "background-color: #0A1A42;";
@@ -110,12 +114,12 @@ ob_start();
                                     // echo 'yapa' ; 
                                 } else {
                                     echo '<script language = "javascript">';
-                                    echo 'alert("You Dont Have Permission to Do this Action")';
+                                    echo 'alertify.alert("You Dont Have Permission to Do this Action")';
                                     echo '</script>';
                                 }
                             } else {
                                 echo '<script language = "javascript">';
-                                echo 'alert("You Dont Have Permission to Do this Action")';
+                                echo 'alertify.alert("You Dont Have Permission to Do this Action")';
                                 echo '</script>';
                             }
                         }

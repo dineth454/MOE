@@ -29,7 +29,11 @@
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
-        
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
 
     </head>
 
@@ -44,7 +48,7 @@
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?include 'sideBarActivation.php';
+                <?php include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navInstitute = "background-color: #0A1A42;";
@@ -86,13 +90,16 @@
                             $result =  $institute->updateInstitute($schoolID,$updatedSchoolName,$updatedNoOFStudents,$updatesLatitude,$updatedLangitude);
                             
                             if($result == 1){
-                                echo '<script type="text/javascript">'; 
-                                echo 'alert("School details are updated successfully!");'; 
-                                echo 'window.location.href = "min_off_updateSchool.php";';
-                                echo '</script>';
+                                echo '<script language="javascript">
+                                        alertify.confirm("School details are updated successfully!", function (e) {
+                                        if (e) {
+                                            window.location.href="min_off_updateSchool.php";
+                                        }
+                                        });
+                                    </script>';
                             }else{
                                 echo '<script language = "javascript">';
-                                echo 'alert("Error Occured While Updating Data")';
+                                echo 'alertify.alert("Error Occured While Updating Data")';
                                 echo '</script>';
                                 
                             }

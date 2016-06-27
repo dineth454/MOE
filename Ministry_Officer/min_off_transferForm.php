@@ -34,6 +34,11 @@ ob_start();
         
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->   
 
 
 
@@ -50,7 +55,7 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?include 'sideBarActivation.php';
+            <?php include 'sideBarActivation.php';
 
             //sideBar Activation
             $navTransfer = "background-color: #0A1A42;";
@@ -137,18 +142,21 @@ ob_start();
                             if ($updateSuccess == 1) {
 
                                 if ($insertWorkingHistrySuccess == 1) {
-                                    echo '<script type="text/javascript">'; 
-                                    echo 'alert("Teacher is transfered successfully!");'; 
-                                    echo 'window.location.href = "min_off_transferFront.php";';
-                                    echo '</script>';
+                                    echo '<script language="javascript">
+                                            alertify.confirm("Teacher is transfered successfully!", function (e) {
+                                            if (e) {
+                                                window.location.href="min_off_transferFront.php";
+                                            }
+                                            });
+                                        </script>';
                                 } else {
                                     echo '<script language="javascript">';
-                                    echo 'alert("not insert into working history")';
+                                    echo 'alertify.alert("not insert into working history")';
                                     echo '</script>';
                                 }
                             } else {
                                 echo '<script language="javascript">';
-                                echo 'alert("error Occured While trnser")';
+                                echo 'alertify.alert("error Occured While trnser")';
                                 echo '</script>';
                             }
                         }

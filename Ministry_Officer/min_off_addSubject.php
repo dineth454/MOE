@@ -37,6 +37,11 @@ ob_start();
 
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
+    <!-- Alert start-->
+    <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+    <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+    <script src="../alertify/lib/alertify.min.js"></script>
+    <!-- Alert end-->
 
 
     </head>
@@ -55,7 +60,7 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?include 'sideBarActivation.php';
+            <?php include 'sideBarActivation.php';
 
             //sideBar Activation
             $navSubject = "background-color: #0A1A42;";
@@ -86,19 +91,19 @@ ob_start();
                             $res=$sub->selectsubjectname($name);
                             if ($res > 0) {
                                 echo '<script language="javascript">';
-                                echo 'alert("This Subject name alreadt exists!!")';
+                                echo 'alertify.alert("This Subject name alreadt exists!!")';
                                 echo '</script>';
                             }
                             elseif ($rescode > 0) {
                                 echo '<script language="javascript">';
-                                echo 'alert("This Subject code alreadt exists!!")';
+                                echo 'alertify.alert("This Subject code alreadt exists!!")';
                                 echo '</script>';
                             }
                             else{
                                 $sub->insertsubject($code,$name);
 
                                 echo '<script language="javascript">';
-                                echo 'alert("This Subject Succesefully insert!!")';
+                                echo 'alertify.alert("This Subject Succesefully insert!!")';
                                 echo '</script>';
                             }
 

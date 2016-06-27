@@ -60,7 +60,7 @@ class Login {
                 $_SESSION["mobile"] = $mobile;
                 
                 
-                header("Location: interfaces/interface_0.1.php"); /* Redirect browser */
+                header("Location: Ministry_Officer/ministryOfficerHome.php"); /* Redirect browser */
                 exit();
             } else if ($roleTypeID == 5) {
                 session_start();

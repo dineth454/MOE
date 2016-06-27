@@ -102,7 +102,7 @@ class Employee {
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
-                        echo 'alert("Employee successfully registered as a MinistryOfficer!!!  Thank You.")';
+                        echo 'alertify.alert("Employee successfully registered as a MinistryOfficer!!!  Thank You.")';
                         echo '</script>';
                     }
                 }
@@ -137,7 +137,7 @@ class Employee {
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
-                        echo 'alert("Employee successfully registered as a ProvinceOfficer!!!  Thank You.")';
+                        echo 'alertify.alert("Employee successfully registered as a ProvinceOfficer!!!  Thank You.")';
                         echo '</script>';
                     }
                 }
@@ -168,7 +168,7 @@ class Employee {
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
-                        echo 'alert("Employee successfully registered as a ZonalOfficer!!!  Thank You.")';
+                        echo 'alertify.alert("Employee successfully registered as a ZonalOfficer!!!  Thank You.")';
                         echo '</script>';
                     }
                 }
@@ -201,7 +201,7 @@ class Employee {
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
-                        echo 'alert("Employee successfully registered as a principal!!!  Thank You.")';
+                        echo 'alertify.alert("Employee successfully registered as a principal!!!  Thank You.")';
                         echo '</script>';
                     }
                 }
@@ -234,7 +234,7 @@ class Employee {
                         $result = $mysqli->query($query_for_insert_user_table);
 
                         echo '<script language="javascript">';
-                        echo 'alert("Employee successfully registered as a teacher!!!  Thank You.")';
+                        echo 'alertify.alert("Employee successfully registered as a teacher!!!  Thank You.")';
                         echo '</script>';
                         //  header("Location: framePage.php");
                     }
@@ -320,7 +320,7 @@ class Employee {
         //check loged User is System admin or not
         if ($searchUsernic == '921003072V') {
             echo '<script language="javascript">';
-            echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
+            echo 'alertify.alert("You Dont Have Permission to Do this action!!!  Thank You.")';
             echo '</script>';
         } else if ($roletypeID == 1 and $designationIdLoggedUser == 1) {
             return $result_employeeArray;
@@ -344,7 +344,7 @@ class Employee {
                     return $result_employeeArray;
                 } else {
                     echo '<script language="javascript">';
-                    echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
+                    echo 'alertify.alert("You Dont Have Permission to Do this action!!!  Thank You.")';
                     echo '</script>';
                 }
                 // Logged In as a Zonal Officer
@@ -359,7 +359,7 @@ class Employee {
                 } else {
 
                     echo '<script language="javascript">';
-                    echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
+                    echo 'alertify.alert("You Dont Have Permission to Do this action!!!  Thank You.")';
                     echo '</script>';
                 }
                 //logged in as a principal
@@ -369,13 +369,13 @@ class Employee {
                     return $result_employeeArray;
                 } else {
                     echo '<script language="javascript">';
-                    echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
+                    echo 'alertify.alert("You Dont Have Permission to Do this action!!!  Thank You.")';
                     echo '</script>';
                 }
             } else {
 
                 echo '<script language="javascript">';
-                echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
+                echo 'alertify.alert("You Dont Have Permission to Do this action!!!  Thank You.")';
                 echo '</script>';
             }
 
@@ -383,7 +383,7 @@ class Employee {
             //return $result_employeeArray;
         } else {
             echo '<script language="javascript">';
-            echo 'alert("You Dont Have Permission to Do this action!!!  Thank You.")';
+            echo 'alertify.alert("You Dont Have Permission to Do this action!!!  Thank You.")';
             echo '</script>';
         }
 

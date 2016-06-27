@@ -37,6 +37,11 @@ ob_start();
 
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
 
 
     </head>
@@ -51,7 +56,7 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?include 'sideBarActivation.php';
+                <?php include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navSearch = "background-color: #0A1A42;";
@@ -233,10 +238,13 @@ ob_start();
                                 echo '</table>';
                             }
                             else{
-                                echo '<script type="text/javascript">'; 
-                                echo 'alert("Please fill/select one or more details to search!!");'; 
-                                echo 'window.location.href = "min_off_searchUser.php";';
-                                echo '</script>';
+                                echo '<script language="javascript">
+                                        alertify.confirm("Please fill/select one or more details to search!!", function (e) {
+                                        if (e) {
+                                            window.location.href="min_off_searchUser.php";
+                                        }
+                                        });
+                                    </script>';
                             }?>
                         </div>
                         <?php } ?>
