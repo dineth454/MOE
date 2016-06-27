@@ -19,21 +19,21 @@
         <meta name="author" content="">
 
         <title>All Notifications</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../assets/css/sb-admin.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="../assets/css/sb-admin.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="../assets/css/plugins/morris.css" rel="stylesheet">
+        <!-- Morris Charts CSS -->
+        <link href="../assets/css/plugins/morris.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom Fonts -->
+        <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="../assets/css/smallbox.css" rel="stylesheet">
-    <link href="../assets/css/footer.css" rel="stylesheet">
-    <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <link href="../assets/css/smallbox.css" rel="stylesheet">
+        <link href="../assets/css/footer.css" rel="stylesheet">
+        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         
     </head>
 

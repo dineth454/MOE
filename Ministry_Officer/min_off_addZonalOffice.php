@@ -56,7 +56,9 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?php include 'sideBarActivation.php';
+
+            <?php
+            include 'sideBarActivation.php';
 
             //sideBar Activation
             $navInstitute = "background-color: #0A1A42;";

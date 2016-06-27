@@ -56,7 +56,9 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?php include 'sideBarActivation.php';
+
+                <?php
+                include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navMembers = "background-color: #0A1A42;";
@@ -289,30 +291,41 @@ ob_start();
                                                 <label for="selec_trole" style="display: inline-block;">User Role</label>
                                                 <select required class="form-control" id="select_role" name="select_role" >
                                                     <?php if ($roleType == 2) { ?>
-                                                            <option selected="true" value="2" >role2</option>
-                                                            <option value="3">role3</option>
-                                                            <option value="4">role4</option>
-                                                            <option value="5">role5</option>
+                                                            <option selected="true" value="2" >Ministry User</option>
+                                                            <option value="3">PZInstitute User</option>
+                                                            <option value="4">Extended Principal User</option>
+                                                            <option value="5">General Principal User</option>
+                                                            <option value="6">General User</option>
+
                                                         <?php } else if ($roleType == 3) { ?>
-                                                            <option  value="2">role2</option>
-                                                            <option selected="true" value="3">role3</option>
-                                                            <option value="4">role4</option>
-                                                            <option value="5">role5</option>
+                                                            <option value="2" >Ministry User</option>
+                                                            <option selected="true" value="3">PZInstitute User</option>
+                                                            <option value="4">Extended Principal User</option>
+                                                            <option value="5">General Principal User</option>
+                                                            <option value="6">General User</option>
+
                                                         <?php } else if ($roleType == 4) { ?>
-                                                            <option  value="2">role2</option>
-                                                            <option  value="3">role3</option>
-                                                            <option selected="true" value="4">role4</option>
-                                                            <option value="5">role5</option>
+                                                            <option value="2">Ministry User</option>
+                                                            <option value="3">PZInstitute User</option>
+                                                            <option selected="true" value="4">Extended Principal User</option>
+                                                            <option value="5">General Principal User</option>
+                                                            <option value="6">General User</option>
+
                                                         <?php } else if ($roleType == 5) { ?>
-                                                            <option  value="2">role2</option>
-                                                            <option  value="3">role3</option>
-                                                            <option  value="4">role4</option>
-                                                            <option selected="true" value="5" >role5</option>
-                                                            <?php
-                                                        } else {
+                                                            <option value="2">Ministry User</option>
+                                                            <option value="3">PZInstitute User</option>
+                                                            <option value="4">Extended Principal User</option>
+                                                            <option selected="true" value="5" >General Principal User</option>
+                                                            <option value="6">General User</option>
                                                             
-                                                        }
-                                                        ?>
+                                                        <?php } else { ?>
+                                                            <option value="2">Ministry User</option>
+                                                            <option value="3">PZInstitute User</option>
+                                                            <option value="4">Extended Principal User</option>
+                                                            <option value="5" >General Principal User</option>
+                                                            <option selected="true" value="6">General User</option>
+                                                        <?php } ?>
+                                                        
                                                 </select>
                                                 <label id="errorRole" style="font-size:10px;"></label>
                                             </div>

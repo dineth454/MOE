@@ -56,11 +56,18 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?php include 'sideBarActivation.php';
+
+                <?php
+                include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navSearch = "background-color: #0A1A42;";
                 $textSearch = "color: white;";
+
+                $navSearchMembers = "background-color: #091536;";
+                $textSearchMembers = "color: white;";
+
+                $colSearch = "collapse in";
 
                 include 'sidebar_min_off.php'; ?>
                 <!-- /#sidebar-wrapper -->

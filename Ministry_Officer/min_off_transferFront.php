@@ -55,11 +55,16 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?php include 'sideBarActivation.php';
+
+            <?php
+            include 'sideBarActivation.php';
 
             //sideBar Activation
             $navTransfer = "background-color: #0A1A42;";
             $textTransfer = "color: white;";
+
+            $navTransferTeach = "background-color: #091536;";
+            $textTransferTeach = "color: white;";
 
             $colTransfer = "collapse in";
 
