@@ -43,10 +43,10 @@
                     </li>
 
                     <li>
-                        <a href="min_off_searchUser.php" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse4" class="collapse">
-                            <li style="<?php echo $navSearch;?>">
-                                <a href="min_off_searchUser.php" style="<?php echo $textSearch;?>">Search Members</a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse4" class="<?php echo $colSearch;?>">
+                            <li style="<?php echo $navSearchMembers;?>">
+                                <a href="min_off_searchUser.php" style="<?php echo $textSearchMembers;?>">Search Members</a>
                             </li>
                         </ul>
                     </li>
@@ -55,8 +55,8 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse5" style="<?php echo $navTransfer;?> ; <?php echo $textTransfer;?>"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Transfer <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse5" class="<?php echo $colTransfer;?>">
-                            <li style="<?php echo $navTransfer;?>">
-                                <a href="min_off_transferFront.php" style="<?php echo $textTransfer;?>">Transfer Teacher</a>
+                            <li style="<?php echo $navTransferTeach;?>">
+                                <a href="min_off_transferFront.php" style="<?php echo $textTransferTeach;?>">Transfer Teacher</a>
                             </li>
                             
                             
@@ -65,18 +65,11 @@
 
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Reports <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse6" class="collapse">
-                            <li>
-                                <a href="#">View Reports</a>
-                            </li>
-                            
-                            
-                        </ul>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Reports <i></i></a>
                     </li>
                     
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> View Map <i></i></a>
                     </li>
 
                 </ul>

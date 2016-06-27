@@ -57,6 +57,9 @@ ob_start();
             $navTransfer = "background-color: #0A1A42;";
             $textTransfer = "color: white;";
 
+            $navTransferTeach = "background-color: #091536;";
+            $textTransferTeach = "color: white;";
+
             $colTransfer = "collapse in";
 
             include 'sidebar_min_off.php'; ?>

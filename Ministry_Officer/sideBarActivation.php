@@ -27,12 +27,17 @@
 
 	$navSearch = "";
 	$textSearch = "";
+	$navSearchMembers = "background-color: #050D21";
+	$textSearchMembersm = "";
 
 	$navTransfer = "";
 	$textTransfer = "";
+	$navTransferTeach = "background-color: #050D21";
+	$textTransferTeach = "";
 
 	$colMembers = "collapse";
 	$colInstitute = "collapse";
 	$colSubject = "collapse";
+	$colSearch = "collapse";
 	$colTransfer = "collapse";
 ?>

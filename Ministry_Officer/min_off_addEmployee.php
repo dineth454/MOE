@@ -232,10 +232,11 @@ ob_start();
                                                 <label for="selec_trole" style="display: inline-block;">User Role</label>
                                                 <select required class="form-control" id="select_role" name="select_role" >
                                                     <option value="">Select Role</option>
-                                                    <option value="2">role2</option>
-                                                    <option value="3">role3</option>
-                                                    <option value="4">role4</option>
-                                                    <option value="5">role5</option>
+                                                    <option value="2">Ministry User</option>
+                                                    <option value="3">PZInstitute User</option>
+                                                    <option value="4">Extended Principal User</option>
+                                                    <option value="5">General Principal User</option>
+                                                    <option value="6">General User</option>
                                                 </select>
                                                 <label id="errorRole" style="font-size:10px;"></label>
                                             </div>

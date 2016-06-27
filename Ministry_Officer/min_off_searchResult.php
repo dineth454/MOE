@@ -120,6 +120,11 @@ if (mysqli_num_rows($result) == 1) {
                 $navSearch = "background-color: #0A1A42;";
                 $textSearch = "color: white;";
 
+                $navSearchMembers = "background-color: #091536;";
+                $textSearchMembers = "color: white;";
+
+                $colSearch = "collapse in";
+
                 include 'sidebar_min_off.php';?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
