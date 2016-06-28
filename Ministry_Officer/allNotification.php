@@ -49,7 +49,10 @@
             
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->
-            <?php include 'sidebar_min_off.php' ?>
+            <?php
+            include 'sideBarActivation.php';
+            
+            include 'sidebar_min_off.php'; ?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             </nav>
