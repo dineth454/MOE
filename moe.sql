@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2016 at 02:21 PM
+-- Generation Time: Jun 29, 2016 at 01:15 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -112,13 +112,10 @@ CREATE TABLE IF NOT EXISTS `employee` (
 
 INSERT INTO `employee` (`nic`, `instituteID`, `province_OfficeID`, `zonalOffics_ID`, `SchoolID`, `roleType`, `designationTypeID`, `nameWithInitials`, `fullName`, `employeementID`, `email`, `currentAddress`, `gender`, `marrigeState`, `mobileNum`) VALUES
 ('921003072V', 1, NULL, NULL, NULL, 1, 1, 'ymkk yaparathne', 'kalinga yapa', '13001426', 'kkyapa@gmail.com', 'kandy', '2', '3', 719335699),
+('921371746V', 4, 3, NULL, NULL, 5, 2, 'DG Pasindu', 'Pasindu Deeyagahage', 'E0013', 'pasi@gmail.com', 'wellahena, wewahamanduwa', '2', '2', 713858989),
 ('922843775V', 9, 3, 12, 5, 5, 5, 'H G D Madusara', 'Dineth Madusara', 'E0002', 'dineth454@gmail.com', 'No 32, Siridammarathana Mw, Matara', '2', '2', 717504859),
 ('922843776V', 25, 3, 12, 5, 4, 4, 'A B Silva', 'Abc', 'E0005', 'absilva@gmail.com', 'vjdjhd', '2', '2', 711111111),
-('922843777V', 8, 1, 2, NULL, 4, 3, 'A C silva', 'acsilva', 'E0006', 'acsilva@gmail.com', 'sbcjbc', '3', '3', 712222222),
-('922843778V', 2, 1, NULL, NULL, 3, 2, 'A D silva', 'adsilva', 'E0007', 'adsilva@gmail.com', 'sdbah', '2', '2', 713333333),
-('922843779V', 1, NULL, NULL, NULL, 2, 1, 'A E silva', 'aesilva', 'E0008', 'aesilva@gmail.com', 'vjvshj', '2', '2', 714444444),
-('922843780V', 4, 3, NULL, NULL, 3, 2, 'sihi', 'dfgg', 'fdgf', 'dd@gmail.com', 'df', '2', '2', 715555555),
-('922843781V', 27, 3, 13, 6, 4, 4, 'vnsdkvn', 'vsvfbvs', 'E0012', 'sasf@gmail.com', 'dvvsv', '2', '2', 716666666);
+('922843890V', 1, NULL, NULL, NULL, 2, 1, 'dfcq', 'ecfef', 'e003', 'sd@gmail.com', 'xqsq', '3', '2', 717504859);
 
 -- --------------------------------------------------------
 
@@ -230,14 +227,14 @@ INSERT INTO `intitute_type` (`instituteTypeID`, `instituteType`) VALUES
 CREATE TABLE IF NOT EXISTS `ministry_officer` (
 `ministryOfficerID` int(11) NOT NULL,
   `nic` varchar(12) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `ministry_officer`
 --
 
 INSERT INTO `ministry_officer` (`ministryOfficerID`, `nic`) VALUES
-(10, '922843779V');
+(1, '922843890V');
 
 -- --------------------------------------------------------
 
@@ -289,15 +286,14 @@ CREATE TABLE IF NOT EXISTS `principal` (
   `nic` varchar(12) NOT NULL,
   `zonalOfficeID` int(11) NOT NULL,
   `provinceOfficerID` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `principal`
 --
 
 INSERT INTO `principal` (`principalID`, `nic`, `zonalOfficeID`, `provinceOfficerID`) VALUES
-(7, '922843776V', 12, 3),
-(8, '922843781V', 13, 3);
+(7, '922843776V', 12, 3);
 
 -- --------------------------------------------------------
 
@@ -333,15 +329,14 @@ INSERT INTO `province_office` (`provinceID`, `instituteID`, `province`, `numOfEm
 CREATE TABLE IF NOT EXISTS `province_officer` (
 `provinceOfficerID` int(11) NOT NULL,
   `nic` varchar(12) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `province_officer`
 --
 
 INSERT INTO `province_officer` (`provinceOfficerID`, `nic`) VALUES
-(4, '922843778V'),
-(5, '922843780V');
+(6, '921371746V');
 
 -- --------------------------------------------------------
 
@@ -352,18 +347,19 @@ INSERT INTO `province_officer` (`provinceOfficerID`, `nic`) VALUES
 CREATE TABLE IF NOT EXISTS `role_type` (
 `roleTypeID` int(11) NOT NULL,
   `roleType` varchar(45) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `role_type`
 --
 
 INSERT INTO `role_type` (`roleTypeID`, `roleType`) VALUES
-(1, 'sysAdmin'),
-(2, 'role2'),
-(3, 'role3'),
-(4, 'role4'),
-(5, 'role5');
+(1, 'Admin'),
+(2, 'Ministry User'),
+(3, 'PZInstitute User'),
+(4, 'Extended Principal User'),
+(5, 'General Principal User'),
+(6, 'General User');
 
 -- --------------------------------------------------------
 
@@ -513,13 +509,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`nic`, `password`, `roleTypeID`) VALUES
 ('921003072V', '1b7b3bb43ee47fb92f715b866a888ba3e8fd40de', 1),
+('921371746V', 'b5b7aa5864308f36ac3d17cfca7aadd187c5b7f8', 5),
 ('922843775V', '955974f9cddbaf493d8abe0b1e27f15236674141', 5),
 ('922843776V', 'b697ca6741cd1e1bc0fbaef1a8bb06980e6a38fb', 4),
-('922843777V', 'a4e9f06beab35ff04345deba8b11e3b2b8f13b36', 4),
-('922843778V', 'cda33bcad4fba068044d706dd1129754fdb65999', 3),
-('922843779V', 'ab682592dc16c3e0692b22b980ce22118bed89af', 2),
-('922843780V', 'af5a2f9cf1c84f128f0bd47220dc1de11a867c9f', 3),
-('922843781V', '66e29769920869928e543226e43506c933fb21a6', 4);
+('922843890V', '9aee414826e68617ba8c833686307c09381e1856', 2);
 
 -- --------------------------------------------------------
 
@@ -600,14 +593,7 @@ CREATE TABLE IF NOT EXISTS `zonal_officer` (
 `zonalOfficerID` int(11) NOT NULL,
   `nic` varchar(12) NOT NULL,
   `provinceOfficeID` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `zonal_officer`
---
-
-INSERT INTO `zonal_officer` (`zonalOfficerID`, `nic`, `provinceOfficeID`) VALUES
-(5, '922843777V', 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Indexes for dumped tables
@@ -807,12 +793,12 @@ MODIFY `instituteTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `ministry_officer`
 --
 ALTER TABLE `ministry_officer`
-MODIFY `ministryOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `ministryOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `principal`
 --
 ALTER TABLE `principal`
-MODIFY `principalID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `principalID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `province_office`
 --
@@ -822,12 +808,12 @@ MODIFY `provinceID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `province_officer`
 --
 ALTER TABLE `province_officer`
-MODIFY `provinceOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `provinceOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `role_type`
 --
 ALTER TABLE `role_type`
-MODIFY `roleTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `roleTypeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `school`
 --
@@ -862,7 +848,7 @@ MODIFY `zonalID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 -- AUTO_INCREMENT for table `zonal_officer`
 --
 ALTER TABLE `zonal_officer`
-MODIFY `zonalOfficerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `zonalOfficerID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
