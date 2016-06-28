@@ -34,6 +34,11 @@ ob_start();
 
             <!-- include Navigation BAr -->
             <?php include '../interfaces/navigationBar.php' ?>
+            <?php
+                require("../classes/employee.php");
+                $employee = new Employee();
+            ?>
+            
 
             <!-- Finished NAvigation bar -->
 
@@ -49,7 +54,7 @@ ob_start();
 
 
                         <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">Reports Generation</h1>
+                            <h1 class="topic_font">Report Generation</h1>
                         </div>
 
                         <form name="addEmployeeForm" action="pdf.php" method = "post" onsubmit=""  novalidate>
@@ -57,39 +62,9 @@ ob_start();
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <!-- NIC number-->
-                                            <label for="nic" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">NIC Number </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input maxlength="10" type="text" required class="form-control" id="nic" name="nic" placeholder="Enter NIC number" autofocus/>
-                                            </div>
-
-                                            <!-- Name-->
-                                            <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter full name"/>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
 
 
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <!-- Employement ID-->
-                                            <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" class="form-control" id="eId" name="eId" placeholder="Enter Emp ID"/>
-                                            </div> 
-
-                                            <!--Email-->
-                                            <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
-                                                    <label id="errorEmail" style="font-size:10px"> </label>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
                                     <div class="row">
@@ -99,10 +74,7 @@ ob_start();
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
                                                     <option value="">Select Designation</option>
-                                                    <option value="1">Ministry Officer</option>
-                                                    <option value="2">Provincial Officer</option>
-                                                    <option value="3">Zonal Officer</option>
-                                                    <option value="4">Principal</option>
+                                                   
                                                     <option value="5">Teacher</option>
                                                 </select>
                                             </div>
@@ -153,6 +125,30 @@ ob_start();
                                                 <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <select required class="form-control required" name="schoolId" id="abcd"  ></select>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div class="row">
+                                        <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div id="subjectHidden" class="form-group">
+                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
+                                                <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <select required class="form-control" name="subject" id="subject" >
+                                                        <option value="">--Select Subject--</option>
+                                                        <?php
+                                                        $result = $employee->loadSubjects();
+
+                                                        foreach ($result as $array) {
+
+                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                        }
+                                                        ?>
+
+                                                    </select>
+                                                </div>
+                                                <label id="errorSubject" style="font-size: 10px"> </label>
+
                                             </div>
                                         </div>
                                     </div>
