@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>View Profile Details</title>
+        <title>GTMS | Profile</title>
 <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -32,7 +32,7 @@
 
     <body>
 
-        <div id="wrapper" > 
+        <div id="wrapper"> 
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
 
             
@@ -44,7 +44,7 @@
             <!-- Sidebar -->
             <?php 
             include 'sideBarActivation.php';
-            include 'sidebar_min_off.php';?>
+            include 'sidebar_admin.php';?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             </nav>
@@ -168,7 +168,7 @@
 
                                             <div class="form-group col-lg-12">
                                                 <!-- NIC number-->
-                                                <div class="col-lg-6"><label> NIC Number </label></div>
+                                                <div class="col-lg-6"><label>NIC Number</label></div>
                                                 <div class="col-lg-6"><label><?php echo $nicNumber; ?></label></div>
                                             </div>
 
@@ -404,12 +404,10 @@
 
 
 </br></br>
-<?php include '../interfaces/footer.php' ?>
-
+            <?php include '../interfaces/footer.php' ?>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
             <script src="../assets/js/jquery.js"></script>
             <script src="../assets/js/bootstrap.min.js"></script>
-
 
         </div>
     </body>
