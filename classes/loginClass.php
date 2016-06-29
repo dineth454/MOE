@@ -22,9 +22,11 @@ class Login {
         $result3 = mysqli_query($conn, $query3);
 
 
+        $roleTypeID = "";
         if (mysqli_num_rows($result) == 1) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $roleTypeID = $row["roleTypeID"];
+                echo "aaaaa";
             }
 
             if (mysqli_num_rows($result3) == 1) {
@@ -43,42 +45,44 @@ class Login {
                 }
             }
 
-            if ($roleTypeID == 1 || $roleTypeID == 2 || $roleTypeID == 3 || $roleTypeID == 4) {
-                session_start();
-                $_SESSION["login_time"] = time();
-                $_SESSION["nic"] = $nic;
-                $_SESSION["roleTypeID"] = $roleTypeID;
-                $_SESSION["instituteID"] = $instituteID;
-                $_SESSION["designationTypeID"] = $designationTypeID;
-                $_SESSION["fullName"] = $fullName;
-                $_SESSION["nameWithInitials"] = $nameWithInitials;
-                $_SESSION["employementID"] = $employementID;
-                $_SESSION["email"] = $email;
-                $_SESSION["currentAdderss"] = $currentAddress;
-                $_SESSION["gender"] = $gender;
-                $_SESSION["marrageState"] = $marregeState;
-                $_SESSION["mobile"] = $mobile;
-                
-                
-                header("Location: Ministry_Officer/ministryOfficerHome.php"); /* Redirect browser */
-                exit();
-            } else if ($roleTypeID == 5) {
-                session_start();
-                $_SESSION["nic"] = $nic;
-                $_SESSION["roleTypeID"] = $roleTypeID;
-                $_SESSION["instituteID"] = $instituteID;
-                $_SESSION["designationTypeID"] = $designationTypeID;
-                $_SESSION["fullName"] = $fullName;
-                $_SESSION["nameWithInitials"] = $nameWithInitials;
-                $_SESSION["employementID"] = $employementID;
-                $_SESSION["email"] = $email;
-                $_SESSION["currentAdderss"] = $currentAddress;
-                $_SESSION["gender"] = $gender;
-                $_SESSION["marrageState"] = $marregeState;
-                $_SESSION["mobile"] = $mobile;
-                header("Location: teacher/viewProfile.php");
-                exit();
+            session_start();
+            $_SESSION["login_time"] = time();
+            $_SESSION["nic"] = $nic;
+            $_SESSION["roleTypeID"] = $roleTypeID;
+            $_SESSION["instituteID"] = $instituteID;
+            $_SESSION["designationTypeID"] = $designationTypeID;
+            $_SESSION["fullName"] = $fullName;
+            $_SESSION["nameWithInitials"] = $nameWithInitials;
+            $_SESSION["employementID"] = $employementID;
+            $_SESSION["email"] = $email;
+            $_SESSION["currentAdderss"] = $currentAddress;
+            $_SESSION["gender"] = $gender;
+            $_SESSION["marrageState"] = $marregeState;
+            $_SESSION["mobile"] = $mobile;
+
+            if ($roleTypeID == 1) {
+                header("Location: Admin/adminHome.php"); /* Redirect browser */
+
+            } else if ($roleTypeID == 2) {
+                header("Location: Ministry_Officer/ministryOfficerHome.php");
+                //exit();
+
+            } else if ($roleTypeID == 3) {
+                header("Location: PZInstitute_User/PZInstituteUserHome.php");
+                //exit();
+            }else if ($roleTypeID == 4) {
+                header("Location: Extended_principle_user/Extended_principle_home.php");
+                //exit();
+            }else if ($roleTypeID == 5) {
+                header("Location: Extended_principle_user/Extended_principle_home.php");
+                //exit();
+            } else if ($roleTypeID == 6) {
+                header("Location: teacher/teacher_home.php");
+                //exit();
+            }else{
+
             }
+
         } else {
             //if there is nic, password must not there. so it is a incorrect password
             if (mysqli_num_rows($result2) == 1) {
