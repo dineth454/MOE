@@ -76,7 +76,7 @@ class Login {
                 $_SESSION["gender"] = $gender;
                 $_SESSION["marrageState"] = $marregeState;
                 $_SESSION["mobile"] = $mobile;
-                header("Location: teacher/teacher_home.php");
+                header("Location: teacher/viewProfile.php");
                 exit();
             }
         } else {
