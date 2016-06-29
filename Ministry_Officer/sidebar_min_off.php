@@ -45,6 +45,7 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
 
+
                         <ul id="collapse4" class="<?php echo $colSearch;?>">
                             <li style="<?php echo $navSearchMembers;?>">
                                 <a href="min_off_searchUser.php" style="<?php echo $textSearchMembers;?>">Search Members</a>
@@ -67,13 +68,12 @@
 
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Reports <i></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i> Reports <i></i></a>
                     </li>
                     
                     <li>
                         <a href="mapview.php" data-toggle="collapse" data-target="#collapse7" style="<?php echo $navMap;?> ; <?php echo $textMap;?>"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
 
-                    </li>
 
                 </ul>
 </div>
