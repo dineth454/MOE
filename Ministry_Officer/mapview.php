@@ -54,7 +54,11 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?php include 'sidebar_min_off.php' ?>
+                <?php 
+                include 'sideBarActivation.php';
+                $navMap = "background-color: #0A1A42;";
+                $textMap = "color: white;";
+                include 'sidebar_min_off.php' ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>

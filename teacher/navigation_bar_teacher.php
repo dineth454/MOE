@@ -33,7 +33,7 @@ ob_end_flush();
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown" id="notification_li">
-                    <span id="notification_count" runat="server"><?php echo $not->getnotcountTeacher(); ?></span>
+                    <span id="notification_count" runat="server"><?php echo $not->getnotcountTeacher($_SESSION["nic"]); ?></span>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
                         <div id="notificationContainer">

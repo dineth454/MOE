@@ -336,6 +336,11 @@
                                                     <label style="color: blue;"><?php echo $nameWithInitials; ?></label>
                                                 </div>
 
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
                                                 <!-- Full Name-->
                                                 <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name </label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
@@ -356,6 +361,10 @@
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                     <label style="color: blue;"><?php echo $employmentID; ?></label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!--Email-->
                                                 <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
@@ -400,6 +409,11 @@
                                                             <?php } ?>
 
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!--Marrige-->
                                                 <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
@@ -435,7 +449,9 @@
 
                                             </div>
                                         </div>
-
+                                        <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                                                <img src="../images/addPerson.png" width="400" height="400">
+                                        </div>
                                         
 
                                     </div>
