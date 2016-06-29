@@ -4,6 +4,17 @@
                         <a href="teacher_home.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
                     </li>
                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
+
+
+                        <ul id="collapse4" class="<?php echo $colSearch;?>">
+                            <li style="<?php echo $navSearchMembers;?>">
+                                <a href="teacher_searchUser.php" style="<?php echo $textSearchMembers;?>">Search Members</a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Transfer <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse5" class="collapse">
                             <li>

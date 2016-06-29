@@ -174,7 +174,7 @@
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                    <!-- <input type="text" required class="form-control" value="<?php //echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true" /> -->
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                                    <label style="color: blue"> <?php echo $nicNumber; ?> </label>
+                                                    <label> <?php echo $nicNumber; ?> </label>
                                                 </div>
 
                                             </div>
@@ -186,22 +186,22 @@
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                   <?php if($designationTypeID == 1) { ?>
                                                     <?php if($nicNumber == '921003072V') {?>
-                                                    <label style="color: red;"> System Admin</label>
+                                                    <label > System Admin</label>
                                                     <?php } else {?>
-                                                    <label style="color: red;"> Ministry Officer</label>
+                                                    <label > Ministry Officer</label>
                                                     <label> <?php echo '(role'. $roleType . ')'; ?></label>
                                                     <?php }?>
                                                   <?php }else if($designationTypeID == 2) {?>
-                                                        <label style="color: red;"> Province Officer</label>
+                                                        <label > Province Officer</label>
                                                         <label> <?php echo '(role'. $roleType . ')'; ?></label>
                                                   <?php } else if($designationTypeID == 3) {?>
-                                                        <label style="color: red;"> Zonal Officer</label>
+                                                        <label > Zonal Officer</label>
                                                         <label> <?php echo '(role'. $roleType . ')'; ?></label>
                                                   <?php } else if( $designationTypeID == 4) {?>
-                                                        <label style="color: red;"> Principal</label>
+                                                        <label > Principal</label>
                                                         <label> <?php echo '(role'. $roleType . ')'; ?></label>
                                                   <?php } else {?>
-                                                        <label style="color: red;"> Teacher</label>
+                                                        <label > Teacher</label>
                                                         <label> <?php echo '(role'. $roleType . ')'; ?></label>
                                                   <?php } ?>
                                                 </div>
@@ -223,21 +223,21 @@
                                                             <?php if ($searchUserProvinceId == 1) { ?>
                                                                 <!--<option selected="true" value="1">centralProvince</option>-->
                                                                 
-                                                                <label style="color: blue;">centralProvince</label>
+                                                                <label >centralProvince</label>
                                                             <?php } else if ($searchUserProvinceId == 2) { ?>
                                                                 
-                                                                <label style="color: blue;">westernProvince</label>
+                                                                <label >westernProvince</label>
                                                                 
                                                             <?php } else if ($searchUserProvinceId == 3) { ?>
                                                                 
-                                                                <label style="color: blue;">sothernProvince</label>
+                                                                <label >sothernProvince</label>
                                                                 
                                                             <?php } else if ($searchUserProvinceId == 4) { ?>
-                                                                 <label style="color: blue;">NothernProvince</label>
+                                                                 <label >NothernProvince</label>
                                                               
                                                             <?php } else if ($searchUserProvinceId == 5) { ?>
                                                                  
-                                                                 <label style="color: blue;">esternProvince</label>
+                                                                 <label >esternProvince</label>
                                                                 
                                                             <?php } else {
                                                                 
@@ -265,7 +265,7 @@
 
                                                             foreach ($result as $array) {
                                                                 if ($array['zonalID'] == $searchUserZonalId) {
-                                                                    echo '<label style="color:blue;" selected = "true" value="' . $array['zonalID'] . '" >' . $array['zonalName'] . '</label>';
+                                                                    echo '<label selected = "true" value="' . $array['zonalID'] . '" >' . $array['zonalName'] . '</label>';
                                                                 }
                                                             }
                                                             ?>
@@ -286,7 +286,7 @@
 
                                                             foreach ($result as $array) {
                                                                 if ($array['schoolID'] == $searchUserSchoolId) {
-                                                                    echo '<label style="color:blue;" selected = "true" value="' . $array['schoolID'] . '" >' . $array['schoolName'] . '</label>';
+                                                                    echo '<label selected = "true" value="' . $array['schoolID'] . '" >' . $array['schoolName'] . '</label>';
                                                                 }
                                                             }
                                                             ?>
@@ -308,7 +308,7 @@
 
                                                             foreach ($result as $array) {
                                                                 if ($array['subjectID'] == $searchUserSubjectId) {
-                                                                    echo '<label style="color:blue;" selected = "true" value="' . $array['subjectID'] . '" >' . $array['subject'] . '</label>';
+                                                                    echo '<label selected = "true" value="' . $array['subjectID'] . '" >' . $array['subject'] . '</label>';
                                                                     
                                                                     
                                                                     
@@ -329,11 +329,11 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- Name with initials-->
-                                                <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials </label>
+                                                <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                    <!-- <input type="text" class="form-control" id="name" name="name" value="<?php echo $nameWithInitials; ?>" placeholder="Enter name with Initials"/>-->
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                                    <label style="color: blue;"><?php echo $nameWithInitials; ?></label>
+                                                    <label ><?php echo $nameWithInitials; ?></label>
                                                 </div>
 
                                             </div>
@@ -342,11 +342,11 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- Full Name-->
-                                                <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name </label>
+                                                <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <!--<input type="text" class="form-control" id="fname"  name="fname" value="<?php echo $fullName; ?>" placeholder="Enter full name"/>-->
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
-                                                    <label style="color: blue;"><?php echo $fullName; ?></label>
+                                                    <label><?php echo $fullName; ?></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -355,11 +355,11 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- Employment ID-->
-                                                <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID </label>
+                                                <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <!--<input type="text" class="form-control" id="eId" name="eId" value="<?php echo $employmentID; ?>" placeholder="Enter Emp ID"/>-->
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                                    <label style="color: blue;"><?php echo $employmentID; ?></label>
+                                                    <label ><?php echo $employmentID; ?></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -367,10 +367,10 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!--Email-->
-                                                <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email </label>
+                                                <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                    <!-- <input type="email" class="form-control" id="email" value="<?php echo $emailAddress; ?>" name="email" placeholder="Enter email" required/> -->
-                                                    <label style="color: blue;"><?php echo $emailAddress; ?></label>
+                                                    <label><?php echo $emailAddress; ?></label>
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                                 </div>
                                             </div>
@@ -381,10 +381,10 @@
 
 
                                                 <!--Email-->
-                                                <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required"  style="display: inline-block; text-align: left;"> Current Address </label>
+                                                <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required"  style="display: inline-block; text-align: left;"> Current Address :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <!-- <input type="text" class="form-control" id="address" value="<?php echo $address; ?>" name="address" placeholder="Enter address" />-->
-                                                    <label style="color: blue;"><?php echo $address; ?></label>
+                                                    <label ><?php echo $address; ?></label>
                                                     <!--<label id="errorLastName" style="font-size:10px"> </label>-->
                                                 </div>
                                             </div>
@@ -394,18 +394,18 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!-- Gender-->
-                                                <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender </label>
+                                                <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                      <?php if ($gender == 2) { ?>
                                                     
-                                                    <label style="color: blue;"> Male </label>
+                                                    <label> Male </label>
                                                             
                                                            
                                                             
                                                             
                                                             <?php } else { ?>
                                                            
-                                                    <label style="color: blue;"> Female </label>
+                                                    <label > Female </label>
                                                             <?php } ?>
 
                                                 </div>
@@ -416,19 +416,19 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!--Marrige-->
-                                                <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status </label>
+                                                <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     
                                                             <?php if ($marrigeState == 2) { ?>
                                                     
-                                                    <label style="color: blue;"> Yes </label>
+                                                    <label> Yes </label>
                                                             
                                                            
                                                             
                                                             
                                                             <?php } else { ?>
                                                            
-                                                    <label style="color: blue;"> No </label>
+                                                    <label> No </label>
                                                             <?php } ?>
                                                    
                                                 </div>
@@ -439,11 +439,11 @@
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                                 <!--mobile_numb-->
-                                                <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number </label>
+                                                <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number :</label>
                                                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                    <!--  <input type="text" class="form-control" id="mobileNm" value="<?php echo $mobileNumber; ?>" name="mobileNm" placeholder="Enter mobile Number"/>--
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                                    <label style="color: blue;"> <?php echo $mobileNumber; ?></label>
+                                                    <label> <?php echo $mobileNumber; ?></label>
                                                 </div>
 
 
