@@ -28,18 +28,7 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse3" style="<?php echo $navSubject;?> ; <?php echo $textSubject;?>"><i class="fa fa-book fa-2x" aria-hidden="true" ></i> Subject <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse3" class="<?php echo $colSubject;?>">
-                            <li style="<?php echo $navAddSubject;?>">
-                                <a href="min_off_addSubject.php" style="<?php echo $textAddSubject;?>">Add Subject</a>
-                            </li>
-                            <li style="<?php echo $navUpdateSubject;?>">
-                                <a href="min_off_updateSubjectFront.php" style="<?php echo $textUpdateSubject;?>">Update Subject</a>
-                            </li>
-                        </ul>
-                    </li>
-
+                    
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
 
@@ -53,24 +42,13 @@
                     </li>
 
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse5" style="<?php echo $navTransfer;?> ; <?php echo $textTransfer;?>"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Transfer <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse5" class="<?php echo $colTransfer;?>">
-                            <li style="<?php echo $navTransferTeach;?>">
-                                <a href="min_off_transferFront.php" style="<?php echo $textTransferTeach;?>">Transfer Teacher</a>
-                            </li>
-                            
-                            
-                        </ul>
-                    </li>
+                    
 
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i> Reports <i></i></a>
-                    </li>
+                   
                     
                     <li>
-                        <a href="mapview.php" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
+                        <a href="../interfaces/mapview.php" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
 
                     </li>
 
