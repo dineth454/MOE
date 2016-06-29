@@ -221,7 +221,7 @@ if (mysqli_num_rows($result) == 1) {
                                 <!-- back button-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                      <form>
-                                        <input class="btn btn-primary" type="button" value="Back" onclick="window.location.href='min_off_searchUser.php'"/>
+                                        <input class="btn btn-primary" type="button" value="Back" onclick="window.location.href='teacher_searchUser.php'"/>
                                     </form> 
                                 </div>
                             </div>

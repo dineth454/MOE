@@ -112,10 +112,12 @@ background-size: cover;
                                         <i class="fa fa-university fa-5x" aria-hidden="true"></i>
                                     </div> -->
                                     </div>
+                                    <a href="mapview.php">
                                     <div class="col-lg-9 text-right">
                                         <div class="huge"><i><?php echo $schools; ?></i></div>
                                         <div>Schools</div>
                                     </div>
+                                    </a>
                                 </div>
                             <!-- </div> -->
                             
@@ -137,10 +139,12 @@ background-size: cover;
                                     <div class="col-lg-3">
                                         <!-- <i class="fa fa-user fa-5x" aria-hidden="true"></i> -->
                                     </div>
+                                    <a href="min_off_searchUser.php">
                                     <div class="col-lg-9 text-right">
                                         <div class="huge"><i><?php echo $teachers; ?></i></div>
                                         <div>Teachers</div>
                                     </div>
+                                    </a>
                                 </div>
                             <!-- </div> -->
                             
@@ -159,10 +163,12 @@ background-size: cover;
                                     <div class="col-lg-3">
                                         <!-- <i class="fa fa-users fa-5x" aria-hidden="true"></i> -->
                                     </div>
+                                    <a href="min_off_addEmployee.php">
                                     <div class="col-lg-9 text-right">
                                         <div class="huge"><i><?php echo $users; ?></i></div>
                                         <div>Users</div>
                                     </div>
+                                    </a>
                                 </div>
                     </div>
                     

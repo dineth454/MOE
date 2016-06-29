@@ -7,9 +7,9 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
 
 
-                        <ul id="collapse4" class="<?php echo $colSearch;?>">
-                            <li style="<?php echo $navSearchMembers;?>">
-                                <a href="teacher_searchUser.php" style="<?php echo $textSearchMembers;?>">Search Members</a>
+                        <ul id="collapse4" class="collapse">
+                            <li>
+                                <a href="teacher_searchUser.php">Search Members</a>
 
                             </li>
                         </ul>
@@ -24,7 +24,7 @@
                     </li>
                     
                     <li>
-                        <a href="mapview.php" class="ajax_load slide_font">Map View</a>
+                        <a href="mapview.php" data-toggle="collapse" data-target="#collapse7" style="<?php echo $navMap;?> ; <?php echo $textMap;?>"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
                     </li>
 
                 </ul>

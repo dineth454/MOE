@@ -28,7 +28,7 @@ ob_end_flush();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="teacher_home.php">GTMS</a>
+                <a class="navbar-brand" href="teacher_home.php"><img src="../images/glogo.png" height="30" width="150"></a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
