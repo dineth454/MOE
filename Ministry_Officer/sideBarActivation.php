@@ -35,6 +35,9 @@
 	$navTransferTeach = "background-color: #050D21";
 	$textTransferTeach = "";
 
+	$navMap = "";
+	$textMap = "";
+	
 	$colMembers = "collapse";
 	$colInstitute = "collapse";
 	$colSubject = "collapse";

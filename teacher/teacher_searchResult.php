@@ -109,24 +109,16 @@ if (mysqli_num_rows($result) == 1) {
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- include Navigation BAr -->
-                <?php include '../interfaces/navigation_bar.php' ?>
+                <?php include 'navigation_bar_teacher.php' ?>
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
 
                 <?php
-                include 'sideBarActivation.php';
+                //include 'sideBarActivation.php';
 
-                //sideBar Activation
-                $navSearch = "background-color: #0A1A42;";
-                $textSearch = "color: white;";
 
-                $navSearchMembers = "background-color: #091536;";
-                $textSearchMembers = "color: white;";
-
-                $colSearch = "collapse in";
-
-                include 'sidebar_admin.php';?>
+                include 'sidebar_teacher.php';?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -229,7 +221,7 @@ if (mysqli_num_rows($result) == 1) {
                                 <!-- back button-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                      <form>
-                                        <input class="btn btn-primary" type="button" value="Back" onclick="window.location.href='admin_searchUser.php'"/>
+                                        <input class="btn btn-primary" type="button" value="Back" onclick="window.location.href='teacher_searchUser.php'"/>
                                     </form> 
                                 </div>
                             </div>
@@ -237,7 +229,7 @@ if (mysqli_num_rows($result) == 1) {
                         </div>    
                         </div>
                             <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/search.png" width="400" height="400">
+                                <img src="../images/addPerson.png" width="400" height="400">
                             </div>
                         </div>
                     </div>

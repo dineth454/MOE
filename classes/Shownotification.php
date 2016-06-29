@@ -79,9 +79,9 @@ class Shownotification{
         return $notcount;
     }
 
-    function getnotcountTeacher(){
+    function getnotcountTeacher($id){
         global $mysqli;
-        $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'toteacher'";
+        $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'toteacher' AND sender = '".$id."'";
         $Result = $mysqli->query($sqlQuery);
         $fetch_result = mysqli_fetch_array($Result);
         $notcount = $fetch_result['notcount'];

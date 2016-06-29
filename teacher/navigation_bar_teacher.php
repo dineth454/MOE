@@ -28,12 +28,12 @@ ob_end_flush();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="teacher_home.php">GTMS</a>
+                <a class="navbar-brand" href="teacher_home.php"><img src="../images/glogo.png" height="30" width="150"></a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown" id="notification_li">
-                    <span id="notification_count" runat="server"><?php echo $not->getnotcountTeacher(); ?></span>
+                    <span id="notification_count" runat="server"><?php echo $not->getnotcountTeacher($_SESSION["nic"]); ?></span>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
                         <div id="notificationContainer">

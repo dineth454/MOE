@@ -31,6 +31,14 @@
               parseFloat(markers[i].getAttribute("lng")));
           var html = "<b>" + name + "</b> <br/>" + "<i>"+type +"</i><br/>"+ students +' students'+"<br/>"+teachers +' teachers' ;
           var icon = customIcons[type] || {};
+          /*
+          var icon = {
+                    url: "https://cdn1.iconfinder.com/data/icons/engineers7/102/Untitled-28-512.png", // url
+                    scaledSize: new google.maps.Size(40, 50), // scaled size
+                    origin: new google.maps.Point(0,0), // origin
+                    anchor: new google.maps.Point(0, 0) // anchor
+                };
+          */
           var marker = new google.maps.Marker({
             map: map,
             position: point,

@@ -54,7 +54,11 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?php include 'sidebar_min_off.php' ?>
+                <?php 
+                include 'sideBarActivation.php';
+                $navMap = "background-color: #0A1A42;";
+                $textMap = "color: white;";
+                include 'sidebar_min_off.php' ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -71,7 +75,9 @@ ob_start();
 
             </div>
             <!-- /#page-content-wrapper -->
-
+            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                <img src="../images/map.png" width="430" height="430" style="opacity: 0.8;">
+            </div>
         </div>
         <!-- /#wrapper -->
 

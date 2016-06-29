@@ -147,7 +147,7 @@ ob_start();
                                // header("Location: updateEmployeeFront.php");
                             }else{
                                 echo '<script language="javascript">';
-                                echo 'alert("Error Occured While Deleting.Thankyou")';
+                                echo 'alertify.alert("Error occured while deleting..")';
                                 echo '</script>';
                             }
                             
@@ -375,7 +375,7 @@ ob_start();
                             </div>
 
                             <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/addPerson.png" width="400" height="400">
+                                <img src="../images/deletePerson.png" width="400" height="400">
                             </div>
                         </div>
                     </div>

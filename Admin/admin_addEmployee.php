@@ -149,7 +149,7 @@ ob_start();
 
                                     if ($designationResult == 0) {
                                         echo '<script language="javascript">';
-                                        echo 'alertify.alert("There Is a Principal Already In this institute")';
+                                        echo 'alertify.alert("There is a Principal already exist in this school")';
                                         echo '</script>';
                                     } else {
                                         $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
@@ -165,7 +165,7 @@ ob_start();
 
                                     if ($designationResult == 0) {
                                         echo '<script language="javascript">';
-                                        echo 'alertify.alert("There Is a Principal Already In this institute")';
+                                        echo 'alertify.alert("There is a Principal already exist in this school")';
                                         echo '</script>';
                                     }
                                 } else {
@@ -194,12 +194,12 @@ ob_start();
                                             $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                                         } else {
                                             echo '<script language="javascript">';
-                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
+                                            echo 'alertify.alert("You dont have permission to add this member!")';
                                             echo '</script>';
                                         }
                                     } else {
                                         echo '<script language="javascript">';
-                                        echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
+                                        echo 'alertify.alert("You dont have permission to add this member!")';
                                         echo '</script>';
                                     }
                                 }
@@ -209,7 +209,7 @@ ob_start();
                             } else {
 
                                 echo '<script language="javascript">';
-                                echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.3")';
+                                echo 'alertify.alert("You dont have permission to add this member!")';
                                 echo '</script>';
                             }
                         }
@@ -380,7 +380,7 @@ foreach ($result as $array) {
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
                                             </div>
                                         </div>
                                     </div>

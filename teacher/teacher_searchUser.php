@@ -52,24 +52,16 @@ ob_start();
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- include Navigation BAr -->
-                <?php include '../interfaces/navigation_bar.php' ?>
+                <?php include 'navigation_bar_teacher.php' ?>
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
 
                 <?php
-                include 'sideBarActivation.php';
+                //include 'sideBarActivation.php';
 
-                //sideBar Activation
-                $navSearch = "background-color: #0A1A42;";
-                $textSearch = "color: white;";
 
-                $navSearchMembers = "background-color: #091536;";
-                $textSearchMembers = "color: white;";
-
-                $colSearch = "collapse in";
-
-                include 'sidebar_admin.php'; ?>
+                include 'sidebar_teacher.php'; ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -235,7 +227,7 @@ ob_start();
                                         echo "<td>{$row['fullName']}</td>";
                                         echo "<td>{$row['employeementID']}</td>";
                                         echo "<td>{$row['email']}</td>";
-                                        echo "<td align='center'><a href='admin_searchResult.php?rslt_ID=".$rslt_ID."'>more</a></td>";
+                                        echo "<td align='center'><a href='teacher_searchResult.php?rslt_ID=".$rslt_ID."'>more</a></td>";
                                         echo '</tr>';
                                     }
                                 }else{
@@ -248,7 +240,7 @@ ob_start();
                                 echo '<script language="javascript">
                                         alertify.confirm("Please fill/select one or more details to search!!", function (e) {
                                         if (e) {
-                                            window.location.href="admin_searchUser.php";
+                                            window.location.href="teacher_searchUser.php";
                                         }
                                         });
                                     </script>';
@@ -425,11 +417,7 @@ ob_start();
                                             </div>
 
                                             <div class="form-group" style="float: right">
-                                                <button type="submit" style="width: 80px;" name="submit" id="submit" class="btn btn-primary">Find</button>
-                                            </div>
-
-                                            <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
+                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
                                             </div>
                                         </div>
                                     </div>
@@ -440,7 +428,7 @@ ob_start();
                                     if (isset($_POST['submit'])) { ?>
 
                                         <div class="form-group">
-                                            <button class="btn btn-primary" href="admin_searchUser.php">Back</button>
+                                            <button class="btn btn-primary" href="teacher_searchUser.php">Back</button>
                                         </div>
 
                                     <?php }else{ ?>
@@ -459,13 +447,13 @@ ob_start();
                             if (isset($_POST['submit'])) { ?>
 
                             <div class="col-lg-5" style="display: none;"> 
-                                <img src="../images/search.png" width="400" height="400">
+                                <img src="../images/addPerson.png" width="400" height="400">
                             </div>
 
                             <?php }else{ ?>
 
                             <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/search.png" width="400" height="400">
+                                <img src="../images/addPerson.png" width="400" height="400">
                             </div>
 
                             <?php } ?>

@@ -28,7 +28,7 @@ ob_end_flush();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="ministryOfficerHome.php"><img src="../images/gg.png" height="30" width="150"></a>
+                <a class="navbar-brand"><img src="../images/glogo.png" height="30" width="150"></a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -55,7 +55,7 @@ ob_end_flush();
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION["fullName"] ?>  <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="../interfaces/viewProfile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="viewProfile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <!-- <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>

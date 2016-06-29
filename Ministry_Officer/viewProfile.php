@@ -27,29 +27,31 @@
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
 
+
     </head>
 
     <body>
 
         <div id="wrapper" > 
-
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
 
             
 
             <!-- include Navigation BAr -->
-            <?php include 'navigation_bar_teacher.php' ?>
+            <?php include '../interfaces/navigation_bar.php' ?>
             
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->
-            <?php include 'sidebar_teacher.php' ?>
+            <?php 
+            include 'sideBarActivation.php';
+            include 'sidebar_min_off.php';?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             </nav>
             <div id="page-content-wrapper" style="min-height: 540px;">
 
-                <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+                <div class="container-fluid";>
+                    <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
 
                         <?php
@@ -155,111 +157,90 @@
                         }
                         ?>
 
-                        <div align="center" style="padding-bottom:10px;">
-                            <h1>My Profile</h1>
-                        </div>
-                        <!-- Check System admin or not -->
-                        
-                        
-                        <div style="">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h1 style="padding-bottom:40px; padding-left: 28px;"><strong>My Profile</strong></h1>
+
+                        <!-- Check System admin or not -->   
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                                 <div class="row">
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
+                                            <div class="form-group col-lg-12">
                                                 <!-- NIC number-->
-                                                <label for="firstName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> NIC Number </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                   <!-- <input type="text" required class="form-control" value="<?php //echo $nicNumber; ?>" id="nic" name="nic" placeholder="Enter NIC number" disabled="true" /> -->
-                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                                    <label> <?php echo $nicNumber; ?> </label>
-                                                </div>
-
+                                                <div class="col-lg-6"><label> NIC Number </label></div>
+                                                <div class="col-lg-6"><label><?php echo $nicNumber; ?></label></div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <!-- Select role-->
-                                                <label for="selec_trole" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;">  Designation </label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+
+
+                                            <div class="form-group col-lg-12">
+                                                <!-- Designation-->
+                                                <div class="col-lg-6"><label>Designation</label></div>
+                                                <div class="col-lg-6">
                                                   <?php if($designationTypeID == 1) { ?>
                                                     <?php if($nicNumber == '921003072V') {?>
-                                                    <label > System Admin</label>
+                                                    <label>System Admin</label>
                                                     <?php } else {?>
-                                                    <label > Ministry Officer</label>
-                                                    <label> <?php echo '(role'. $roleType . ')'; ?></label>
+                                                    <label>Ministry Officer</label>
+                                                    <label><?php echo '(role'. $roleType . ')'; ?></label>
                                                     <?php }?>
                                                   <?php }else if($designationTypeID == 2) {?>
-                                                        <label > Province Officer</label>
-                                                        <label> <?php echo '(role'. $roleType . ')'; ?></label>
+                                                        <label>Province Officer</label>
+                                                        <label><?php echo '(role'. $roleType . ')'; ?></label>
                                                   <?php } else if($designationTypeID == 3) {?>
-                                                        <label > Zonal Officer</label>
-                                                        <label> <?php echo '(role'. $roleType . ')'; ?></label>
+                                                        <label>Zonal Officer</label>
+                                                        <label><?php echo '(role'. $roleType . ')'; ?></label>
                                                   <?php } else if( $designationTypeID == 4) {?>
-                                                        <label > Principal</label>
-                                                        <label> <?php echo '(role'. $roleType . ')'; ?></label>
+                                                        <label>Principal</label>
+                                                        <label><?php echo '(role'. $roleType . ')'; ?></label>
                                                   <?php } else {?>
-                                                        <label > Teacher</label>
-                                                        <label> <?php echo '(role'. $roleType . ')'; ?></label>
+                                                        <label>Teacher</label>
+                                                        <label><?php echo '(role'. $roleType . ')'; ?></label>
                                                   <?php } ?>
                                                 </div>
-
                                             </div>
-                                        </div>
+
                                         
                                         <?php if($searchUserProvinceId > 0) {?>
                                         
-                                            <div class="row">
-                                            <div  id="provinceIDDiv" class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="provinceHiddenForm" class="form-group">
-                                                    <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> province Office :  </label>
-
-                                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-
-                                                        
-
+                                            <div  id="provinceIDDiv" class="form-group col-lg-12">
+                                                <div id="provinceHiddenForm" class="col-lg-6">
+                                                    <label>Province Office</label></div>
+                                                    <div class="col-lg-6">
                                                             <?php if ($searchUserProvinceId == 1) { ?>
                                                                 <!--<option selected="true" value="1">centralProvince</option>-->
                                                                 
-                                                                <label >centralProvince</label>
+                                                                <label>Central Province</label>
                                                             <?php } else if ($searchUserProvinceId == 2) { ?>
                                                                 
-                                                                <label >westernProvince</label>
+                                                                <label>Western Province</label>
                                                                 
                                                             <?php } else if ($searchUserProvinceId == 3) { ?>
                                                                 
-                                                                <label >sothernProvince</label>
+                                                                <label>Southern Province</label>
                                                                 
                                                             <?php } else if ($searchUserProvinceId == 4) { ?>
-                                                                 <label >NothernProvince</label>
+                                                                 <label>Northern Province</label>
                                                               
                                                             <?php } else if ($searchUserProvinceId == 5) { ?>
                                                                  
-                                                                 <label >esternProvince</label>
+                                                                 <label>Eastern Province</label>
                                                                 
                                                             <?php } else {
                                                                 
                                                             }
                                                             ?>
-
-                                                        </select>
-
                                                     </div>
-                                                </div>
                                             </div>
-                                        </div>
                                         
                                         <?php } ?>
                                         
                                         <?php if($searchUserZonalId > 0) { ?>
                                             
-                                        <div class="row">
-                                            <div id="zonalOfficeDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="zonalOfficeHidden" class="form-group">
-                                                    <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Zonal Office :  </label>
-                                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                            <div id="zonalOfficeDiv"  class="form-group col-lg-12">
+                                                <div id="zonalOfficeHidden" class="col-lg-6">
+                                                    <label>Zonal Office</label></div>
+                                                    <div class="col-lg-6">
                                                         <?php
                                                             $result = $employee->loadZonalOffices();
 
@@ -270,17 +251,16 @@
                                                             }
                                                             ?>
                                                     </div>
-                                                </div>
                                             </div>
-                                        </div>
+
                                         <?php } ?>
                                         
                                         <?php if($searchUserSchoolId > 0) {?>
-                                        <div class="row">
-                                            <div  id="schoolIdDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="schoolHidden" class="form-group">
-                                                    <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> School : </label>
-                                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+
+                                            <div  id="schoolIdDiv"  class="form-group col-lg-12">
+                                                <div id="schoolHidden" class="col-lg-6">
+                                                    <label>School</label></div>
+                                                    <div class="col-lg-6">
                                                           <?php
                                                             $result = $employee->loadSchools();
 
@@ -291,17 +271,15 @@
                                                             }
                                                             ?>
                                                     </div>
-                                                </div>
                                             </div>
-                                        </div>
+
                                         <?php } ?>
                                         
                                         <?php if($searchUserSubjectId > 0) {?>
-                                        <div class="row">
-                                            <div id="subjectHiddenDiv"  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="subjectHidden" class="form-group">
-                                                    <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Appoinment Subject :</label>
-                                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                            <div id="subjectHiddenDiv"  class="form-group col-lg-12">
+                                                <div id="subjectHidden" class="col-lg-6">
+                                                    <label>Appoinment Subject</label></div>
+                                                    <div class="col-lg-6">
                                                        
                                                             <?php
                                                             $result = $employee->loadSubjects();
@@ -316,148 +294,106 @@
                                                             }
                                                             ?>
                                                     </div>
-                                                </div>
+                                                
                                             </div>
-                                        </div>
+
                                         
                                         <?php  } ?>
                                         
-                                        
-                                        
-   
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
+                                            <div class="form-group col-lg-12">
                                                 <!-- Name with initials-->
-                                                <label for="ini_name" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Name with Initials :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                   <!-- <input type="text" class="form-control" id="name" name="name" value="<?php echo $nameWithInitials; ?>" placeholder="Enter name with Initials"/>-->
-                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
-                                                    <label ><?php echo $nameWithInitials; ?></label>
+                                                <div class="col-lg-6"><label>Name with Initials</label></div>
+                                                <div class="col-lg-6">
+                                                    <label><?php echo $nameWithInitials; ?></label>
                                                 </div>
-
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
+
+                                            <div class="form-group col-lg-12">
                                                 <!-- Full Name-->
-                                                <label for="fullName" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Full Name :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <!--<input type="text" class="form-control" id="fname"  name="fname" value="<?php echo $fullName; ?>" placeholder="Enter full name"/>-->
-                                                    <!--<label id="errorLastName" style="font-size:10px"> </label>-->
-                                                    <label><?php echo $fullName; ?></label>
+                                                <div class="col-lg-6"><label>Full Name</label></div>
+                                                <div class="col-lg-6">
+                                                    <label ><?php echo $fullName; ?></label>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
+                                            <div class="form-group col-lg-12">
+                                                <!--Email-->
+                                                <div class="col-lg-6"><label>Email</label></div>
+                                                <div class="col-lg-6">
+                                                    <label ><?php echo $emailAddress; ?></label>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group col-lg-12">
                                                 <!-- Employment ID-->
-                                                <label for="employ_ID" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Employment ID :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <!--<input type="text" class="form-control" id="eId" name="eId" value="<?php echo $employmentID; ?>" placeholder="Enter Emp ID"/>-->
-                                                    <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
+                                                <div class="col-lg-6"><label>Employment ID</label></div>
+                                                <div class="col-lg-6">
                                                     <label ><?php echo $employmentID; ?></label>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
+
+                                            <div class="form-group col-lg-12">
                                                 <!--Email-->
-                                                <label for="email" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Email :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                   <!-- <input type="email" class="form-control" id="email" value="<?php echo $emailAddress; ?>" name="email" placeholder="Enter email" required/> -->
-                                                    <label><?php echo $emailAddress; ?></label>
-                                                    <!--<label id="errorLastName" style="font-size:10px"> </label>-->
+                                                <div class="col-lg-6"><label>Current Address</label></div>
+                                                <div class="col-lg-6">
+                                                    <label> <?php echo $address; ?></label>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
+
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
-
-                                                <!--Email-->
-                                                <label for="address" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required"  style="display: inline-block; text-align: left;"> Current Address :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <!-- <input type="text" class="form-control" id="address" value="<?php echo $address; ?>" name="address" placeholder="Enter address" />-->
-                                                    <label ><?php echo $address; ?></label>
-                                                    <!--<label id="errorLastName" style="font-size:10px"> </label>-->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
                                                 <!-- Gender-->
-                                                <label for="gender" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Gender :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="col-lg-6"><label>Gender</label></div>
+                                                <div class="col-lg-6">
                                                      <?php if ($gender == 2) { ?>
                                                     
-                                                    <label> Male </label>
-                                                            
-                                                           
-                                                            
-                                                            
+                                                    <label>Male</label>
                                                             <?php } else { ?>
                                                            
-                                                    <label > Female </label>
+                                                    <label>Female</label>
                                                             <?php } ?>
-
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
+                                            <div class="form-group col-lg-12">
                                                 <!--Marrige-->
-                                                <label for="marriage" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Marriage Status :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    
+                                                <div class="col-lg-6"><label>Marriage Status</label></div>
+                                                <div class="col-lg-6">
                                                             <?php if ($marrigeState == 2) { ?>
-                                                    
-                                                    <label> Yes </label>
-                                                            
-                                                           
-                                                            
-                                                            
-                                                            <?php } else { ?>
-                                                           
-                                                    <label> No </label>
-                                                            <?php } ?>
-                                                   
+                                                    <label>Yes</label>
+
+                                                            <?php } else { ?>   
+                                                    <label>No</label>
+                                                            <?php } ?>  
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
+                                            <div class="form-group col-lg-12">
                                                 <!--mobile_numb-->
-                                                <label for="mobile_numb" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Mobile Number :</label>
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="col-lg-6"><label>Mobile Number</label></div>
+                                                <div class="col-lg-6">
                                                    <!--  <input type="text" class="form-control" id="mobileNm" value="<?php echo $mobileNumber; ?>" name="mobileNm" placeholder="Enter mobile Number"/>--
                                                     <!--<label id="errorFirstName" style="font-size:10px"> </label>-->
                                                     <label> <?php echo $mobileNumber; ?></label>
                                                 </div>
-
-
                                             </div>
-                                        </div>
+
                                         <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                                <img src="../images/addPerson.png" width="400" height="400">
+                                                <img src="../images/personDetails.png" width="400" height="400">
                                         </div>
                                         
-
                                     </div>
-
                                 </div>
                             </form>
+                            </div>
+                        </div>
                         </div>
                    </div>
                 </div>
@@ -467,15 +403,12 @@
 <?php #session_destroy();   ?>
 
 
-
+</br></br>
 <?php include '../interfaces/footer.php' ?>
 
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
             <script src="../assets/js/jquery.js"></script>
-
-
             <script src="../assets/js/bootstrap.min.js"></script>
-            
 
 
         </div>
