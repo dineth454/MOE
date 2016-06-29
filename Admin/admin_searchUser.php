@@ -478,6 +478,7 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
         </div>
+</br></br>
 
 <?php include '../interfaces/footer.php' ?>
 

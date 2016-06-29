@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8"/>
-    <title>Login</title>
+    <title>GTMS | Login</title>
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
