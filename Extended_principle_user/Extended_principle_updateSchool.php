@@ -12,37 +12,65 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Update School Front</title>
+        <title>GTMS | Institute</title>
 
+        <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="../assets/css/sb-admin.css" rel="stylesheet">
+
+        <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
-        <link href="../assets/css/smallbox.css" rel="stylesheet">
+        <!-- <link href="../assets/css/smallbox.css" rel="stylesheet"> -->
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/fonts_styles.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
+
 
     </head>
 
     <body>
         <div id="wrapper">
 
-            <!-- Sidebar -->
-            <?php include 'Extended_principle_sidebar.php' ?>
-            <!-- /#sidebar-wrapper -->
+           <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- include Navigation BAr -->
+                <?php include '../interfaces/navigation_bar.php' ?>
+                <!--____________________________________________________________________________-->
+                <!-- Sidebar Menu Items-->
+                <!-- Sidebar -->
 
-            <!-- include Navigation BAr -->
-            <?php include 'navigationBar.php' ?>
+                <?php
+                include 'Extended_principle_sidebar_activation.php';
 
-            <!-- Finished NAvigation bar -->
+                //sideBar Activation
+                $navInstitute = "background-color: #0A1A42;";
+                $textInstitute = "color: white;";
+
+                $navUpdateSchoolInstitute = "background-color: #091536;";
+                $textUpdateSchoolInstitute = "color: white;";
+
+                $colInstitute = "collapse in";
+
+                include 'Extended_principle_sidebar.php'; ?>
+                <!-- /#sidebar-wrapper -->
+                <!-- /.navbar-collapse -->
+            </nav>
 
             <!-- Page Content -->
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
                 <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+                    <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
                         <?php
                         require("../classes/institute.php");
 
@@ -72,7 +100,7 @@ ob_start();
                                 $_SESSION['updateSchool']['lat'] = $latitude;
                                 $_SESSION['updateSchool']['lng'] = $langitude;
                                 // echo 'kalinga';
-                                header("Location: updateSchoolForm.php");
+                                header("Location: Extended_principle_updateSchoolForm.php");
                                 // echo 'yapa' ; 
                                 //Principal kenekda kiyala balanawa
                             } elseif ($designationIdLoggedUser == 4) {
@@ -84,98 +112,80 @@ ob_start();
                                     $_SESSION['updateSchool']['lat'] = $latitude;
                                     $_SESSION['updateSchool']['lng'] = $langitude;
                                     // echo 'kalinga';
-                                    header("Location: updateSchoolForm.php");
+                                    header("Location: Extended_principle_updateSchoolForm.php");
                                     // echo 'yapa' ; 
                                 } else {
                                     echo '<script language = "javascript">';
-                                    echo 'alert("You Dont Have Permission to Do this Action")';
+                                    echo 'alertify.alert("You Dont Have Permission to Do this Action")';
                                     echo '</script>';
                                 }
                             } else {
                                 echo '<script language = "javascript">';
-                                echo 'alert("You Dont Have Permission to Do this Action")';
+                                echo 'alertify.alert("You Dont Have Permission to Do this Action")';
                                 echo '</script>';
                             }
                         }
                         ?>
 
-
-                        <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">Find School</h1>
-                        </div>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h1 style="padding-bottom:40px;">Find School</h1>
 
                         <form name="FindSchool" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateForm())"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                            <div  class="form-group" style="" id="provinceIDDiv">
 
-                                                <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left; padding-left: 0px;"> province Office :  </label>
-
-                                                <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
-                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                        <option value="" >Select ProvinceOffice</option>
-                                                        <option value="1">centralProvince</option>
-                                                        <option value="2">westernProvince</option>
-                                                        <option value="3">sothernProvince</option>
-                                                        <option value="4">NothernProvince</option>
-                                                        <option value="5">esternProvince</option>
-                                                    </select>
-                                                </div>
-
+                                            <div  class="form-group" id="provinceIDDiv">
+                                                <label for="province Office" style="text-align: left; padding-left:;">province Office </label>
+                                                <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                    <option value="" >Select Province Office</option>
+                                                    <option value="1">Central Province</option>
+                                                    <option value="2">Western Province</option>
+                                                    <option value="3">Sothern Province</option>
+                                                    <option value="4">Northern Province</option>
+                                                    <option value="5">Estern Province</option>
+                                                </select>
                                                 <label id="errorProvince" style="font-size: 10px"> </label>
+                                            </div>  
+
+
+                                            <div class="form-group" id="zonalOfficeDiv">
+                                                <label for="Zonal Office" style=" text-align: left;">Zonal Office </label>
+                                                <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> 
+                                                    <option value="" >Select Zonal Office</option>
+                                                </select>
+                                                <label id="errorZonal" style="font-size: 10px"> </label>
                                             </div>
 
 
-                                        </div>
-
-
-                                        <div  class="row">
-                                            <div  style="" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
-                                                <div id="zonalOfficeHidden" class="form-group">
-
-                                                    <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
-                                                    <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3" style="padding-left: 22px;">
-                                                        <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
-
-                                                    </div>
-                                                    <label id="errorZonal" style="font-size: 10px"> </label>
-
-                                                </div>
+                                            <div id="schoolIdDiv" class="form-group">
+                                                <label for="School" style="text-align: left;">School</label>
+                                                <select required class="form-control required" name="schoolId" id="abcd"  >
+                                                    <option value="" >Select School</option>
+                                                </select>
+                                                <label id="errorSchool" style="font-size: 10px"> </label>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div id="schoolIdDiv" style=" "class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div id="schoolHidden" class="form-group">
-                                                    <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> School : </label>
-                                                    <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3" style="padding-left: 22px;">
-                                                        <select required class="form-control required" name="schoolId" id="abcd"  ></select>
-                                                    </div>
-                                                    <label id="errorSchool" style="font-size: 10px"> </label>
-                                                </div>
+
+                                            <div class="form-group" style="float: right;">
+                                                <button style="width: 80px;" type="submit" name="submit" id="submit" class="btn btn-primary" style="float: right;">Find</button>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <button type="submit" name="submit" id="submit" class="btn btn-primary" style="padding-right: 48px;padding-left: 40px;">Find</button>
-                                                </div>
-
+                                            <div class="form-group" style="float: right; padding-right: 10px;">
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
                                             </div>
-                                        </div>
                                     </div>
-
                                 </div>
-                            </div>
                         </form>
+                        </div>
+                        <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                                <img src="../images/addPerson.png" width="400" height="400">
+                        </div>
                     </div>
 
-
+                    </div>
 
                 </div>
             </div>
@@ -183,8 +193,11 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
         </div>
+        <br><br><br>
 
-        <?php include 'footer.php' ?>
+        
+
+        <?php include '../interfaces/footer.php' ?>
         <script src = "../assets/js/addEmployee.js"></script>
 
         <script src="../assets/js/jquery.js"></script>
