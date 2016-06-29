@@ -44,15 +44,13 @@
 
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
-<<<<<<< HEAD
-                        <ul id="collapse4" class="collapse">
-                            <li style="<?php echo $navSearch;?>">
-                                <a href="min_off_searchUser.php" style="<?php echo $textSearch;?>">Search Members</a>
-=======
+
+                       
+
                         <ul id="collapse4" class="<?php echo $colSearch;?>">
                             <li style="<?php echo $navSearchMembers;?>">
                                 <a href="min_off_searchUser.php" style="<?php echo $textSearchMembers;?>">Search Members</a>
->>>>>>> f7de1e6bdef65945e298e463439a2df283f18376
+
                             </li>
                         </ul>
                     </li>
@@ -71,11 +69,11 @@
 
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Reports <i></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i> Reports <i></i></a>
                     </li>
                     
                     <li>
-                        <a href="mapview.php" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
+                        <a href="mapview.php" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
 
                     </li>
 

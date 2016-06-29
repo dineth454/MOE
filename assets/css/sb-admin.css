@@ -19,12 +19,16 @@ body {
 
 #wrapper {
     padding-left: 0;
+    
+   /* background-repeat: repeat-y;*/
+
 }
 
 #page-wrapper {
     width: 100%;
     padding: 0;
     background-color: #fff;
+    background-image: url('../images/brackground.jpg');
 }
 
 .huge {
