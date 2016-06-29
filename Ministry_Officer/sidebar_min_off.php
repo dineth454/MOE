@@ -45,7 +45,6 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
 
-                       
 
                         <ul id="collapse4" class="<?php echo $colSearch;?>">
                             <li style="<?php echo $navSearchMembers;?>">
