@@ -75,7 +75,9 @@ ob_start();
 
             </div>
             <!-- /#page-content-wrapper -->
-
+            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                <img src="../images/map.png" width="430" height="430" style="opacity: 0.8;">
+            </div>
         </div>
         <!-- /#wrapper -->
 
