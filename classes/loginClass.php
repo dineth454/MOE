@@ -43,7 +43,7 @@ class Login {
                 }
             }
 
-            if ($roleTypeID == 1 || $roleTypeID == 2 || $roleTypeID == 3 || $roleTypeID == 4) {
+            if ($roleTypeID == 1) {
                 session_start();
                 $_SESSION["login_time"] = time();
                 $_SESSION["nic"] = $nic;
@@ -60,9 +60,9 @@ class Login {
                 $_SESSION["mobile"] = $mobile;
                 
                 
-                header("Location: Ministry_Officer/ministryOfficerHome.php"); /* Redirect browser */
+                header("Location: Admin/adminHome.php"); /* Redirect browser */
                 exit();
-            } else if ($roleTypeID == 5) {
+            } else if ($roleTypeID == 2) {
                 session_start();
                 $_SESSION["nic"] = $nic;
                 $_SESSION["roleTypeID"] = $roleTypeID;
@@ -76,7 +76,7 @@ class Login {
                 $_SESSION["gender"] = $gender;
                 $_SESSION["marrageState"] = $marregeState;
                 $_SESSION["mobile"] = $mobile;
-                header("Location: teacher/viewProfile.php");
+                header("Location: Ministry_Officer/ministryOfficerHome.php");
                 exit();
             }
         } else {
