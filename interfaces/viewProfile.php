@@ -1,4 +1,6 @@
-    
+<?php
+ob_start();
+?>    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +12,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>View Profile Details</title>
+        <title>GTMS | Profile</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">

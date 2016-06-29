@@ -58,7 +58,7 @@ ob_start();
                 <!-- Sidebar -->
 
                 <?php
-                include 'sideBarActivation.php';
+                include 'Extended_principle_sidebar_activation.php';
 
                 //sideBar Activation
                 $navMembers = "background-color: #0A1A42;";
@@ -69,7 +69,7 @@ ob_start();
 
                 $colMembers = "collapse in";
 
-                include 'sidebar_admin.php'; ?>
+                include 'Extended_principle_sidebar.php'; ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -149,7 +149,7 @@ ob_start();
 
                                     if ($designationResult == 0) {
                                         echo '<script language="javascript">';
-                                        echo 'alertify.alert("There is a Principal already exist in this school")';
+                                        echo 'alertify.alert("There Is a Principal Already In this institute")';
                                         echo '</script>';
                                     } else {
                                         $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
@@ -165,7 +165,7 @@ ob_start();
 
                                     if ($designationResult == 0) {
                                         echo '<script language="javascript">';
-                                        echo 'alertify.alert("There is a Principal already exist in this school")';
+                                        echo 'alertify.alert("There Is a Principal Already In this institute")';
                                         echo '</script>';
                                     }
                                 } else {
@@ -194,12 +194,12 @@ ob_start();
                                             $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                                         } else {
                                             echo '<script language="javascript">';
-                                            echo 'alertify.alert("You dont have permission to add this member!")';
+                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
                                             echo '</script>';
                                         }
                                     } else {
                                         echo '<script language="javascript">';
-                                        echo 'alertify.alert("You dont have permission to add this member!")';
+                                        echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
                                         echo '</script>';
                                     }
                                 }
@@ -209,7 +209,7 @@ ob_start();
                             } else {
 
                                 echo '<script language="javascript">';
-                                echo 'alertify.alert("You dont have permission to add this member!")';
+                                echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.3")';
                                 echo '</script>';
                             }
                         }
@@ -380,7 +380,7 @@ foreach ($result as $array) {
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
                                             </div>
                                         </div>
                                     </div>

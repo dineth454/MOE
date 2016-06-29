@@ -101,7 +101,7 @@ ob_start();
 
                             if (sizeof($result) == 0) {
                                 echo '<script language="javascript">';
-                                echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
+                                echo 'alertify.alert("This NIC is not found! Please check again..")';
                                 echo '</script>';
                                 // echo $result1['provinceID'];
                                 // echo 'kalingaMAuau';
@@ -254,14 +254,14 @@ ob_start();
                                         </div>
 
                                         <div class="form-group" style="float: right; padding-right: 10px;">
-                                            <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
+                                            <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
                                         </div>
                                     </div>
                                 </div>
                         </form>
                     </div>
                     <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                        <img src="../images/addPerson.png" width="400" height="400">
+                        <img src="../images/updatePerson.png" width="400" height="400">
                     </div>
 
                 </div>

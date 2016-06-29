@@ -1,3 +1,4 @@
+
 <?php
 ob_start();
 //session_start();
@@ -52,17 +53,17 @@ ob_start();
              <!-- Sidebar -->
 
             <?php
-            include 'sideBarActivation.php';
+            include 'Extended_principle_sidebar_activation.php';
             //sideBar Activation
             $navMembers = "background-color: #0A1A42;";
             $textMembers = "color: white;";
 
-            $navDeleteMembers = "background-color: #091536;";
-            $textDeleteMembers = "color: white;";
+            $navUpdateMembers = "background-color: #091536;";
+            $textUpdateMembers = "color: white;";
 
             $colMembers = "collapse in";
 
-            include 'sidebar_admin.php'; ?>
+            include 'Extended_principle_sidebar.php'; ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
             </nav>
@@ -79,11 +80,13 @@ ob_start();
                         $designationIdLoggedUser = $_SESSION["designationTypeID"];
                         $LoggedUsernic = $_SESSION["nic"];
 
+
                         require("../classes/employee.php");
                         $employee = new Employee();
                         // submit button action
                         if (isset($_POST['submit'])) {
                             global $LoggedUsernic;
+
                             $searchUsernic = "";
 
                             $searchUsernic = $_POST['nic'];
@@ -98,136 +101,131 @@ ob_start();
 
                             if (sizeof($result) == 0) {
                                 echo '<script language="javascript">';
-                                echo 'alertify.alert("This NIC is not found! Please check again..")';
+                                echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
                                 echo '</script>';
                                 // echo $result1['provinceID'];
                                 // echo 'kalingaMAuau';
-                            } elseif ($searchUsernic == '921003072V' || $searchUsernic == '921003072v') {
-                                echo '<script language="javascript">';
-                                echo 'alertify.alert("You dont have permission to add this member!")';
-                                echo '</script>';
-
                             } else {
 
                                 //search karana user ministry Officer keneknam 
-                                if ($result['designationTypeID'] == 1 && $roletypeID != 1) {
+                                if ($result['designationTypeID'] == 1) {
 
 
-                                    $_SESSION['delete']['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['delete']['nicNumber'] = $result['nic'];
-                                    $_SESSION['delete']['Address'] = $result['currentAddress'];
-                                    $_SESSION['delete']['roleType'] = $result['roleType'];
-                                    $_SESSION['delete']['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['delete']['fullName'] = $result['fullName'];
-                                    $_SESSION['delete']['employementID'] = $result['employeementID'];
-                                    $_SESSION['delete']['emailAddress'] = $result['email'];
-                                    $_SESSION['delete']['gender'] = $result['gender'];
-                                    $_SESSION['delete']['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['delete']['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
-                                    header("Location: admin_deleteEmployeeForm.php");
+                                    header("Location: Extended_principle_updateEmployeeForm.php");
                                     // search karana user province Officer kenek nam
                                 } else if ($result['designationTypeID'] == 2) {
 
-                                    $_SESSION['delete']['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['delete']['nicNumber'] = $result['nic'];
-                                    $_SESSION['delete']['Address'] = $result['currentAddress'];
-                                    $_SESSION['delete']['roleType'] = $result['roleType'];
-                                    $_SESSION['delete']['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['delete']['fullName'] = $result['fullName'];
-                                    $_SESSION['delete']['employementID'] = $result['employeementID'];
-                                    $_SESSION['delete']['emailAddress'] = $result['email'];
-                                    $_SESSION['delete']['gender'] = $result['gender'];
-                                    $_SESSION['delete']['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['delete']['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     ///////////////////////////////////////////////////////////////////////////////////////
 
-                                    $_SESSION['delete']['proviceIDSearchUser'] = $result1['provinceID'];
+                                    $_SESSION['update']['proviceIDSearchUser'] = $result1['provinceID'];
 
-                                    header("Location: admin_deleteEmployeeForm.php");
+                                    header("Location: Extended_principle_updateEmployeeForm.php");
 
                                     //search karana kena zonal officer kenek nam
                                 } else if ($result['designationTypeID'] == 3) {
-                                    $_SESSION['delete']['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['delete']['nicNumber'] = $result['nic'];
-                                    $_SESSION['delete']['Address'] = $result['currentAddress'];
-                                    $_SESSION['delete']['roleType'] = $result['roleType'];
-                                    $_SESSION['delete']['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['delete']['fullName'] = $result['fullName'];
-                                    $_SESSION['delete']['employementID'] = $result['employeementID'];
-                                    $_SESSION['delete']['emailAddress'] = $result['email'];
-                                    $_SESSION['delete']['gender'] = $result['gender'];
-                                    $_SESSION['delete']['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['delete']['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     ///////////////////////////////////////////////////////////////////////////////////////
                                     // provinceOfficeId eka 
-                                    $_SESSION['delete']['proviceIDSearchUser'] = $result2['provinceOfficeID'];
+                                    $_SESSION['update']['proviceIDSearchUser'] = $result2['provinceOfficeID'];
                                     // zonal officeID
-                                    $_SESSION['delete']['zonalIdSearchUser'] = $result2['zonalID'];
+                                    $_SESSION['update']['zonalIdSearchUser'] = $result2['zonalID'];
 
 
                                     //redirect to this page
-                                    header("Location: admin_deleteEmployeeForm.php");
+                                    header("Location: Extended_principle_updateEmployeeForm.php");
 
                                     // search karana kenak principal kenek nam
                                 } else if ($result['designationTypeID'] == 4) {
-                                    $_SESSION['delete']['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['delete']['nicNumber'] = $result['nic'];
-                                    $_SESSION['delete']['Address'] = $result['currentAddress'];
-                                    $_SESSION['delete']['roleType'] = $result['roleType'];
-                                    $_SESSION['delete']['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['delete']['fullName'] = $result['fullName'];
-                                    $_SESSION['delete']['employementID'] = $result['employeementID'];
-                                    $_SESSION['delete']['emailAddress'] = $result['email'];
-                                    $_SESSION['delete']['gender'] = $result['gender'];
-                                    $_SESSION['delete']['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['delete']['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     ///////////////////////////////////////////////////////////////////////////////////////
                                     // provinceOfficeId eka 
-                                    $_SESSION['delete']['proviceIDSearchUser'] = $result3['provinceOfficeID'];
+                                    $_SESSION['update']['proviceIDSearchUser'] = $result3['provinceOfficeID'];
                                     // zonal officeID
-                                    $_SESSION['delete']['zonalIdSearchUser'] = $result3['zonalOfficeID'];
+                                    $_SESSION['update']['zonalIdSearchUser'] = $result3['zonalOfficeID'];
 
                                     //schoolId
-                                    $_SESSION['delete']['schoolIdSearchUser'] = $result3['schoolID'];
+                                    $_SESSION['update']['schoolIdSearchUser'] = $result3['schoolID'];
                                     //redirect to this page
-                                    header("Location: admin_deleteEmployeeForm.php");
+                                    header("Location: Extended_principle_updateEmployeeForm.php");
 
                                     //search karana kena teacher kenek nam
                                 } else {
 
-                                    $_SESSION['delete']['designationType'] = $result['designationTypeID'];
+                                    $_SESSION['update']['designationType'] = $result['designationTypeID'];
 
-                                    $_SESSION['delete']['nicNumber'] = $result['nic'];
-                                    $_SESSION['delete']['Address'] = $result['currentAddress'];
-                                    $_SESSION['delete']['roleType'] = $result['roleType'];
-                                    $_SESSION['delete']['nameWithInitials'] = $result['nameWithInitials'];
-                                    $_SESSION['delete']['fullName'] = $result['fullName'];
-                                    $_SESSION['delete']['employementID'] = $result['employeementID'];
-                                    $_SESSION['delete']['emailAddress'] = $result['email'];
-                                    $_SESSION['delete']['gender'] = $result['gender'];
-                                    $_SESSION['delete']['marrigeState'] = $result['marrigeState'];
-                                    $_SESSION['delete']['mobileNumber'] = $result['mobileNum'];
+                                    $_SESSION['update']['nicNumber'] = $result['nic'];
+                                    $_SESSION['update']['Address'] = $result['currentAddress'];
+                                    $_SESSION['update']['roleType'] = $result['roleType'];
+                                    $_SESSION['update']['nameWithInitials'] = $result['nameWithInitials'];
+                                    $_SESSION['update']['fullName'] = $result['fullName'];
+                                    $_SESSION['update']['employementID'] = $result['employeementID'];
+                                    $_SESSION['update']['emailAddress'] = $result['email'];
+                                    $_SESSION['update']['gender'] = $result['gender'];
+                                    $_SESSION['update']['marrigeState'] = $result['marrigeState'];
+                                    $_SESSION['update']['mobileNumber'] = $result['mobileNum'];
 
                                     ///////////////////////////////////////////////////////////////////////////////////////
                                     // provinceOfficeId eka 
-                                    $_SESSION['delete']['proviceIDSearchUser'] = $result3['provinceOfficeID'];
+                                    $_SESSION['update']['proviceIDSearchUser'] = $result3['provinceOfficeID'];
                                     // zonal officeID
-                                    $_SESSION['delete']['zonalIdSearchUser'] = $result3['zonalOfficeID'];
+                                    $_SESSION['update']['zonalIdSearchUser'] = $result3['zonalOfficeID'];
 
                                     //schoolId
-                                    $_SESSION['delete']['schoolIdSearchUser'] = $result3['schoolID'];
+                                    $_SESSION['update']['schoolIdSearchUser'] = $result3['schoolID'];
                                     //subjectId
-                                    $_SESSION['delete']['subjectIdSearchUser'] = $result4['appoinmentSubject'];
+                                    $_SESSION['update']['subjectIdSearchUser'] = $result4['appoinmentSubject'];
                                     //redirect to this page
-                                    header("Location: admin_deleteEmployeeForm.php");
+                                    header("Location: Extended_principle_updateEmployeeForm.php");
                                 }
                             }
 
@@ -237,7 +235,7 @@ ob_start();
                         ?>
                         <div class="row">
                             <div class="col-lg-7">
-                                <h1 style="padding-bottom:40px;">Remove Member</h1>
+                                <h1 style="padding-bottom:40px;">Update Member Details</h1>
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit="return(validateEmpUpdateFront())" novalidate>
 
@@ -256,14 +254,14 @@ ob_start();
                                         </div>
 
                                         <div class="form-group" style="float: right; padding-right: 10px;">
-                                            <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
+                                            <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
                                         </div>
                                     </div>
                                 </div>
                         </form>
                     </div>
                     <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                        <img src="../images/deletePerson.png" width="400" height="400">
+                        <img src="../images/addPerson.png" width="400" height="400">
                     </div>
 
                 </div>
@@ -272,6 +270,8 @@ ob_start();
             </div>
         </div>
             <!-- /#page-content-wrapper -->
+
+            <br>
 
 
 

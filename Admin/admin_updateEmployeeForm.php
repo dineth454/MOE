@@ -156,7 +156,7 @@ ob_start();
                                     </script>';
                             } else {
                                 echo '<script language="javascript">';
-                                echo 'alert("Error Occured While Updating")';
+                                echo 'alertify.alert("Error occured while updating..")';
                                 echo '</script>';
                             }
                         }
@@ -407,7 +407,7 @@ ob_start();
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
                                             </div>
                                         </div>
                                         
@@ -416,7 +416,7 @@ ob_start();
                             </div>
 
                             <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/addPerson.png" width="400" height="400">
+                                <img src="../images/updatePerson.png" width="400" height="400">
                             </div>
                         </div>
                     </div>
