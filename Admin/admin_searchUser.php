@@ -425,7 +425,11 @@ ob_start();
                                             </div>
 
                                             <div class="form-group" style="float: right">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Find</button>
+                                                <button type="submit" style="width: 80px;" name="submit" id="submit" class="btn btn-primary">Find</button>
+                                            </div>
+
+                                            <div class="form-group" style="float: right; padding-right: 10px;">
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
                                             </div>
                                         </div>
                                     </div>
@@ -455,13 +459,13 @@ ob_start();
                             if (isset($_POST['submit'])) { ?>
 
                             <div class="col-lg-5" style="display: none;"> 
-                                <img src="../images/addPerson.png" width="400" height="400">
+                                <img src="../images/search.png" width="400" height="400">
                             </div>
 
                             <?php }else{ ?>
 
                             <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/addPerson.png" width="400" height="400">
+                                <img src="../images/search.png" width="400" height="400">
                             </div>
 
                             <?php } ?>

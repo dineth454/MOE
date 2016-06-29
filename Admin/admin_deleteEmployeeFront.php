@@ -98,14 +98,15 @@ ob_start();
 
                             if (sizeof($result) == 0) {
                                 echo '<script language="javascript">';
-                                echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
+                                echo 'alertify.alert("This NIC is not found! Please check again..")';
                                 echo '</script>';
                                 // echo $result1['provinceID'];
                                 // echo 'kalingaMAuau';
                             } elseif ($searchUsernic == '921003072V' || $searchUsernic == '921003072v') {
                                 echo '<script language="javascript">';
-                                echo 'alert("Access Denied")';
+                                echo 'alertify.alert("You dont have permission to add this member!")';
                                 echo '</script>';
+
                             } else {
 
                                 //search karana user ministry Officer keneknam 
@@ -262,7 +263,7 @@ ob_start();
                         </form>
                     </div>
                     <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                        <img src="../images/addPerson.png" width="400" height="400">
+                        <img src="../images/deletePerson.png" width="400" height="400">
                     </div>
 
                 </div>

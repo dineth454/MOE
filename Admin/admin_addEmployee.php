@@ -209,7 +209,7 @@ ob_start();
                             } else {
 
                                 echo '<script language="javascript">';
-                                echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.3")';
+                                echo 'alertify.alert("You dont have permission to add this member!")';
                                 echo '</script>';
                             }
                         }
@@ -380,7 +380,7 @@ foreach ($result as $array) {
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
                                             </div>
                                         </div>
                                     </div>
