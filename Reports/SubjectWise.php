@@ -57,7 +57,7 @@ ob_start();
                             <h1 class="topic_font">Report Generation</h1>
                         </div>
 
-                        <form name="addEmployeeForm" action="pdf.php" method = "post" onsubmit=""  novalidate>
+                        <form name="addEmployeeForm" action="pdf.php" method = "post" onsubmit="return validateSubjectwiseReportForm();"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -77,6 +77,7 @@ ob_start();
                                                    
                                                     <option value="5">Teacher</option>
                                                 </select>
+                                                 <label id="errorDesignation" style="font-size: 10px"> </label>
                                             </div>
                                         </div>
                                     </div>
@@ -175,7 +176,8 @@ ob_start();
         </div>
 
         <?php include '../interfaces/footer.php' ?>
-        <script src = "../assets/js/addEmployee.js"></script>
+        <script src = "../assets/js/ValidatesubjectWiseReportForm.js"></script>
+        <script src="../assets/js/addEmployee.js"></script>
         <script src="../assets/js/jquery.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>

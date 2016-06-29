@@ -2,11 +2,11 @@
 <?php
 	require_once('tcpdf_include.php');
 
-    
-
      //import employee class and related funcyions
     require("../classes/employee.php");
     $employee = new Employee();
+
+
 
      if (isset($_POST['submit'])) {
 
@@ -107,23 +107,40 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
     require_once(dirname(__FILE__).'/lang/eng.php');
     $pdf->setLanguageArray($l);
 }
+
+
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+// set default monospaced font
+$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+// set margins
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 $pdf->SetFont('helvetica', '', 9);
 $pdf->AddPage();
+     
+            
 
        if($subject != ''){
-             $html = '<h1>GTMS</h1>';
-             $html .= '<table width="600px" border="1px">';
-            $html .= '<tr>';
-            $html .= '<th>NIC</th>'  ; 
+            //$html = '<h1>GTMS</h1>';
+
+            $html .= '<table cellspacing="15" cellpadding="1" border="0">';
+            $html .= '<tr style="background-color:#4d94ff;text-align:center">';
+            $html .= '<th >NIC</th>'  ; 
             $html .= '<th>Name</th> ' ;
             $html .= '<th>Employment ID</th> ' ;
             $html .= '<th>Email</th> ' ;
             $html .= '<th>Subject</th> ' ;
 
        }else{
-             $html = '<h1>GTMS</h1>';
-            $html .= '<table width="600px" border="1px">';
-            $html .= '<tr>';
+            // $html = '<h1>GTMS</h1>';
+            $html .= '<table width="600px" cellspacing="15" cellpadding="1" border="0">';
+            $html .= '<tr style="background-color:#4d94ff;text-align:center" >';
             $html .= '<th>NIC</th>'  ; 
             $html .= '<th>Name</th> ' ;
             $html .= '<th>Employment ID</th> ' ;
@@ -142,7 +159,7 @@ $pdf->AddPage();
         while ($row = mysqli_fetch_array($result)) {
                                         
             $rslt_ID = $row['nic'];
-			$html .= '<tr>';
+			$html .= '<tr style="text-align:center;">';
             if($subject != ''){
                 $html .= '<td>' .$row['nic'].'</td>';
                 $html .= '<td>' .$row['fullName'].'</td>';
@@ -164,6 +181,8 @@ $pdf->AddPage();
     }
                                 
     $html .= '</table>';
+   /* $html .=  '</body>';
+    $html .=   '</html>' ; */
     $pdf->writeHTML($html, true, 0, true, 0);
     $pdf->lastPage();
     ob_end_clean();
