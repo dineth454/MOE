@@ -10,7 +10,7 @@
                                 <a href="Extended_principle_addEmployee.php" style="<?php echo $textAddMembers;?>">Add Members</a>
                             </li>
                             <li style="<?php echo $navUpdateMembers;?>">
-                                <a href="min_off_updateEmployeeFront.php" style="<?php echo $textUpdateMembers;?>">Update Members</a>
+                                <a href="Extended_principle_updateEmployeeFront.php" style="<?php echo $textUpdateMembers;?>">Update Members</a>
                             </li>
                         </ul>
                     </li>
@@ -20,11 +20,21 @@
                         <ul id="collapse2" class="<?php echo $colInstitute;?>">
                             
                             <li style="<?php echo $navAddSchoolInstitute;?>">
-                                <a href="min_off_addSchool.php" style="<?php echo $textAddSchoolInstitute;?>">Add School</a>
+                                <a href="Extended_principle_addSchool.php" style="<?php echo $textAddSchoolInstitute;?>">Add School</a>
                             </li>
                             <li style="<?php echo $navUpdateSchoolInstitute;?>">
-                                <a href="min_off_updateSchool.php" style="<?php echo $textUpdateSchoolInstitute;?>">Update School</a>
+                                <a href="Extended_principle_updateSchool.php" style="<?php echo $textUpdateSchoolInstitute;?>">Update School</a>
                             </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse3" style="<?php echo $navSubject;?> ; <?php echo $textSubject;?>"><i class="fa fa-book fa-2x" aria-hidden="true" ></i> Subject <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse3" class="<?php echo $colSubject;?>">
+                            <li style="<?php echo $navAddSubject;?>">
+                                <a href="Extended_principle_addCurrentSubjectFormFront.php" style="<?php echo $textAddSubject;?>">Assign Subject</a>
+                            </li>
+                            
                         </ul>
                     </li>
 
@@ -48,7 +58,7 @@
                    
                     
                     <li>
-                        <a href="../interfaces/mapview.php" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
+                        <a href="Extended_principle_mapview.php" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
 
                     </li>
 

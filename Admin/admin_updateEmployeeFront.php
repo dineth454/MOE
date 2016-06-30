@@ -272,7 +272,7 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
 
-
+</br></br>
             <?php include '../interfaces/footer.php' ?>
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
             <script src = "../assets/js/addEmployee.js"></script>
