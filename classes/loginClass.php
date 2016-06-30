@@ -77,7 +77,7 @@ class Login {
                 header("Location: Extended_principle_user/Extended_principle_home.php");
                 //exit();
             } else if ($roleTypeID == 6) {
-                header("Location: teacher/teacher_home.php");
+                header("Location: teacher/viewProfile.php");
                 //exit();
             }else{
 
