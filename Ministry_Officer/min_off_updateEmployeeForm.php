@@ -156,7 +156,7 @@ ob_start();
                                     </script>';
                             } else {
                                 echo '<script language="javascript">';
-                                echo 'alert("Error Occured While Updating")';
+                                echo 'alertify.alert("Error Occured While Updating")';
                                 echo '</script>';
                             }
                         }

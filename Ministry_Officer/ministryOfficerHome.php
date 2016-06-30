@@ -195,7 +195,7 @@ background-size: cover;
     <script src="../assets/js/plugins/morris/raphael.min.js"></script>
     <script src="../assets/js/plugins/morris/morris.min.js"></script>
     <script src="../assets/js/plugins/morris/morris-data.js"></script>
-
+    <script src="../assets/js/notification.js"></script>
 
 
 </body>
