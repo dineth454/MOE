@@ -28,6 +28,35 @@ if (isset($_POST["submit"])) {
     <script src="assets/js/jquery.validate.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery-ui.js"></script>
+
+    <!--============== additional ======================== -->
+    <link href="assets/css/simple-sidebar.css" rel="stylesheet">
+        <link href="assets/css/home.css" rel="stylesheet">
+        <link href="assets/css/smallbox.css" rel="stylesheet">
+
+        <link href="assets/css/fonts_styles.css" rel="stylesheet">
+        <link href="assets/css/navbar_styles.css" rel="stylesheet">
+
+        <!-- Bootstrap Core CSS -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="assets/css/sb-admin.css" rel="stylesheet">
+
+        <!-- Morris Charts CSS -->
+        <link href="assets/css/plugins/morris.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <link href="assets/css/smallbox.css" rel="stylesheet">
+        <link href="assets/css/footer.css" rel="stylesheet">
+        <!-- Alert start-->
+        <link rel="stylesheet" href="alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="alertify/themes/alertify.default.css" />
+        <script src="alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
+
   <script>
   $(function() {
     $( "#dialog-message" ).dialog({
@@ -42,10 +71,19 @@ if (isset($_POST["submit"])) {
   </script>
 
 
-    <body>
-        <div class="container">
-            <div class="card card-container">
-                <h3>LOGIN</h3>
+    <body background="images/4to.png">
+         <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- include Navigation BAr -->
+                <?php include 'loginHeader.php' ?>
+        </nav>
+
+
+        <div class="container" style="position: fixed; top: 100px; left: 410px;">
+
+            <div align="center" class="card card-container">
+                <h5>Welcome!</h5>
+                
 
                 <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                 <p id="profile-name" class="profile-name-card"></p>
@@ -70,5 +108,8 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
 
+<?php include 'interfaces/footer.php' ?>
+
     </body>
-</html> 
+</html>
+ 
