@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <?php
-	 require("../classes/home.php");
+     require("../classes/home.php");
     
     $home = new Home();
 
@@ -53,11 +53,21 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<style>
+body {
+    background-image: url("../images/background4.jpg");
+    background-repeat-x: no-repeat;
+background-repeat-y: no-repeat;
+background-size: cover;
+}
+</style>
+
 </head>
 
 <body>
 
-    <div id="wrapper">
+    <div id="row">
+        <div class="col-lg-2">
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
@@ -78,165 +88,94 @@
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
         </nav>
-        <!--___________________________________________________________________________________________________________________-->
+        </div>
 
-        <div id="page-wrapper">
 
-            <div class="container-fluid">
+        <div class="col-lg-10">
+            
+            <div class="col-lg-9">
+                <br>
+                <!-- <marquee direction="left">GTMS    Government Teacher Management System</marquee> -->
+            </div>
+            <div class="col-lg-3">
 
-                <!-- Page Heading -->
-               <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
-                    </div>
-                </div> -->
-                <!-- /.row -->
-
+                <br>
+                
                 <div class="row">
                     <div class="col-lg-12">
-                        <img src="../images/cover.jpg" alt="education cover" style="width:1080px;height:250px; pading-bottom:10px;">
-                    </div>
-                </div>
-                <!-- /.row -->
-                <br><br><br><br><br>
-
-                <div class="row" >
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary ">
-                            <div class="panel-heading" style="background-color:#0A1A42">
+                       
+                        <!-- <div class="panel panel-primary ">
+                            <div class="panel-heading" style="background-color:#0A1A42"> --> 
                                 <div class="row">
-                                    <div class="col-xs-3">
-                                        <div class="col-xs-3">
+                                    <div class="col-lg-3">
+                                        <!-- <div class="col-lg-3">
                                         <i class="fa fa-university fa-5x" aria-hidden="true"></i>
+                                    </div> -->
                                     </div>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
+                                    <div class="col-lg-9 text-right">
                                         <div class="huge"><i><?php echo $schools; ?></i></div>
                                         <div>Schools</div>
                                     </div>
                                 </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
+                            <!-- </div> -->
+                            
+                        <!-- </div> -->
+                     
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading" style="background-color:#0A1A42">
+                    
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                       
+                        <!-- <div class="panel panel-primary ">
+                            <div class="panel-heading" style="background-color:#0A1A42"> --> 
                                 <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                                    <div class="col-lg-3">
+                                        <!-- <i class="fa fa-user fa-5x" aria-hidden="true"></i> -->
                                     </div>
-                                    <div class="col-xs-9 text-right">
+                                    <div class="col-lg-9 text-right">
                                         <div class="huge"><i><?php echo $teachers; ?></i></div>
                                         <div>Teachers</div>
                                     </div>
                                 </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
+                            <!-- </div> -->
+                            
+                        <!-- </div> -->
+                     
+                  
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading" style="background-color:#0A1A42">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+                    
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                                    <div class="col-lg-3">
+                                        <!-- <i class="fa fa-users fa-5x" aria-hidden="true"></i> -->
                                     </div>
-                                    <div class="col-xs-9 text-right">
+                                    <div class="col-lg-9 text-right">
                                         <div class="huge"><i><?php echo $users; ?></i></div>
                                         <div>Users</div>
                                     </div>
                                 </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading" style="background-color:#0A1A42">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    
                 </div>
-                <!-- /.row -->
-                <br><br><br><br>
-                
-                <!-- /.row -->
 
-               <!-- <div class="row">
-                    
-                    
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- /.row -->
-
-
-
-
+               
             </div>
-            <!-- /.container-fluid -->
-
         </div>
-        <!-- /#page-wrapper -->
- 
-
     </div>
-    <!-- /#wrapper -->
-    <?php include '../interfaces/footer.php' ?>
+       
+        <!--___________________________________________________________________________________________________________________-->
 
+        
    
 
 

@@ -29,7 +29,7 @@ ob_start();
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <?php include 'sideBarAdmin.php' ?>
+            <?php include 'Extended_principle_sidebar.php' ?>
             <!-- /#sidebar-wrapper -->
 
             <!-- include Navigation BAr -->

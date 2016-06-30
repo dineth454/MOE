@@ -120,7 +120,7 @@ ob_start();
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
                                     <div class="form-group"  id="provinceIDDiv">
-                                        <label for="province Office">province Office</label>
+                                        <label for="province Office">Province Office</label>
                                             <select class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
                                                 <option value="">Select Province Office</option>
                                                 <option value="1">Central Province</option>
@@ -259,7 +259,7 @@ ob_start();
 
             /*___School name validation function___*/
             function validateSchoolName(text, errorLbl) {
-                var pattern = /^[a-zA-Z_ /-,.]*$/;
+                var pattern = /^[a-zA-Z_ -,.]*$/;
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
                     document.getElementById(text).style.borderColor = "red";

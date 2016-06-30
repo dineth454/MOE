@@ -151,7 +151,7 @@ ob_start();
                         </form>
                     </div>
                         <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                            <img src="../images/addPerson.png" width="400" height="400">
+                            <img src="../images/addSubject.png" width="400" height="400">
                         </div>
                     </div>
                     </div>
@@ -161,7 +161,7 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
         </div>
-
+</br></br>
         <?php include '../interfaces/footer.php' ?>
         <script src = "../assets/js/addNewSubjectValidation.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>

@@ -398,7 +398,7 @@ ob_start();
                                             <!--Mobile Number-->
                                             <div class="form-group">
                                                 <label for="mobile_numb">Mobile Number</label>
-                                                <input type="text" class="form-control" id="mobileNm" name="mobileNm" value="<?php echo $mobileNumber; ?>" placeholder="Enter Mobile Number"/>
+                                                <input type="text" class="form-control" id="mobileNm" name="mobileNm" value="0<?php echo $mobileNumber; ?>" placeholder="Enter Mobile Number"/>
                                                 <label id="errormobileNumb" style="font-size:10px"> </label>
                                             </div>
 

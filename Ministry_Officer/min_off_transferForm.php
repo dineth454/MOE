@@ -228,7 +228,7 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
 
-
+</br></br>
             <?php include '../interfaces/footer.php' ?>
             <script src = "../assets/js/addEmployee.js"></script>
             <script src="../assets/js/validateTranserForm.js"></script>
