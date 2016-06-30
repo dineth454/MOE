@@ -68,7 +68,14 @@
 
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i> Reports <i></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse6" style="<?php echo $navReport;?> ; <?php echo $textReport;?>"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i> Reports <i></i></a>
+                        <ul id="collapse6" class="<?php echo $colReport;?>">
+                            <li style="<?php echo $navviewReport;?>">
+                                <a href="SubjectWise.php" style="<?php echo $textviewReport;?>">View Reports</a>
+                            </li>
+                            
+                            
+                        </ul>
                     </li>
                     
                     <li>

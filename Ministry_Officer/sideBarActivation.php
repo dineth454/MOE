@@ -35,6 +35,11 @@
 	$navTransferTeach = "background-color: #050D21";
 	$textTransferTeach = "";
 
+	$navReport = "";
+	$textReport = "";
+	$navviewReport = "background-color: #050D21";
+	$textviewReport = "";
+
 	$navMap = "";
 	$textMap = "";
 	
@@ -43,4 +48,5 @@
 	$colSubject = "collapse";
 	$colSearch = "collapse";
 	$colTransfer = "collapse";
+	$colReport = "collapse";
 ?>
