@@ -122,7 +122,7 @@ ob_start();
                                     <div class="form-group"  id="provinceIDDiv">
                                         <label for="province Office">province Office</label>
                                             <select class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                <option value="" >Select Province Office</option>
+                                                <option value="">Select Province Office</option>
                                                 <option value="1">Central Province</option>
                                                 <option value="2">Western Province</option>
                                                 <option value="3">Southern Province</option>
