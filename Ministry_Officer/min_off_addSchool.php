@@ -259,7 +259,7 @@ ob_start();
 
             /*___School name validation function___*/
             function validateSchoolName(text, errorLbl) {
-                var pattern = /^[a-zA-Z_ /-,.]*$/;
+                var pattern = /^[a-zA-Z_ -,.]*$/;
                 if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
                     document.getElementById(text).focus();
                     document.getElementById(text).style.borderColor = "red";
