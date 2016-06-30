@@ -58,7 +58,7 @@
                    
                     
                     <li>
-                        <a href="../interfaces/mapview.php" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
+                        <a href="Extended_principle_mapview.php" data-toggle="collapse" data-target="#collapse7"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
 
                     </li>
 

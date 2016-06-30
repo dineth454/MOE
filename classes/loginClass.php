@@ -44,6 +44,7 @@ class Login {
                 }
             }
 
+
             session_start();
             $_SESSION["login_time"] = time();
             $_SESSION["nic"] = $nic;
@@ -79,6 +80,7 @@ class Login {
                 header("Location: teacher/teacher_home.php");
                 //exit();
             }else{
+
 
             }
 
