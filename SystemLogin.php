@@ -108,7 +108,6 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
 
-<?php include 'interfaces/footer.php' ?>
 
     </body>
 </html>
