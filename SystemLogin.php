@@ -71,7 +71,11 @@ if (isset($_POST["submit"])) {
   </script>
 
 
-    <body background="images/4to.png">
+    <body style="background: url(images/one.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
          <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- include Navigation BAr -->
@@ -79,7 +83,7 @@ if (isset($_POST["submit"])) {
         </nav>
 
 
-        <div class="container" style="position: fixed; top: 100px; left: 410px;">
+        <div class="container" style="position: fixed; top: 110px; left: 440px;">
 
             <div align="center" class="card card-container">
                 <h5>Welcome!</h5>
