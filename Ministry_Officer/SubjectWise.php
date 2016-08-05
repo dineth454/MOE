@@ -71,131 +71,98 @@ ob_start();
             <!-- Page Content -->
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
-
                 <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+                    <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
+                    <div class="row">
+                            <div class="col-lg-7">
 
-                        
-
-
-                        <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">Report Generation</h1>
-                        </div>
+                        <h1 style="padding-bottom:40px;">Report Generation</h1>
 
                         <form name="addEmployeeForm" action="pdf.php" method = "post" onsubmit="return validateSubjectwiseReportForm();"  novalidate>
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
 
-                                   
-
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <!-- Designation-->
-                                            <label for="designation" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Designation </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
-                                                    <option value="">Select Designation</option>
-                                                   
-                                                    <option value="5">Teacher</option>
-                                                </select>
-                                                 <label id="errorDesignation" style="font-size: 10px"> </label>
-                                            </div>
-                                        </div>
+                                    <!-- Designation-->
+                                    <div class="form-group">
+                                    <label for="designation" style="display: inline-block;">Designation</label>
+                                    <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
+                                        <option value="">Select Designation</option>
+                                        <option value="5">Teacher</option>
+                                    </select>
+                                    <label id="errorDesignation" style="font-size: 10px"> </label>
                                     </div>
 
-
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12" style="display: none;" id="provinceIDDiv">
-
-                                            <div id="provinceOfficeHidden" class="form-group" >
-                                                <label for="province Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> province Office :  </label>
-
-                                                <div   class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
-                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                        <option value="" >Select ProvinceOffice</option>
-                                                        <option value="1">centralProvince</option>
-                                                        <option value="2">westernProvince</option>
-                                                        <option value="3">sothernProvince</option>
-                                                        <option value="4">NothernProvince</option>
-                                                        <option value="5">esternProvince</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <!-- Province Office-->
+                                    <div class="form-group" style="display: none;" id="provinceIDDiv">
+                                        <label for="province Office">Province Office</label>
+                                            <select class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                <option value="" >Select Province Office</option>
+                                                <option value="1">Central Province</option>
+                                                <option value="2">Western Province</option>
+                                                <option value="3">Southern Province</option>
+                                                <option value="4">Nothern Province</option>
+                                                <option value="5">Eastern Province</option>
+                                            </select>
+                                        <label id="errorProvince" style="font-size: 10px"> </label>
                                     </div>
 
-
-                                    <div  class="row">
-                                        <div  style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12" id="zonalOfficeDiv">
-                                            <div id="zonalOfficeHidden" class="form-group">
-
-                                                <label for="Zonal Office" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Zonal Office :  </label>
-
-                                                <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                        <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)"> </select>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <!-- Zonal Office-->
+                                    <div class="form-group" style="display: none;" id="zonalOfficeDiv">
+                                        <label for="Zonal Office">Zonal Office</label>
+                                            <select required class="form-control" name="zonalID"  id="abc" onchange="loadSchool(this.value)">
+                                                <option value="" >Select Zonal Office</option>
+                                            </select>
+                                        <label id="errorZonal" style="font-size: 10px"> </label>
                                     </div>
 
-
-                                    <div class="row">
-                                        <div id="schoolIdDiv" style="display: none; "class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div id="schoolHidden" class="form-group">
-                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="text-align: left;"> School : </label>
-
-                                                <div  class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select required class="form-control required" name="schoolId" id="abcd"  ></select>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <!-- School-->
+                                    <div class="form-group" style="display: none;" id="schoolIdDiv">
+                                        <label for="School">School</label>
+                                            <select required class="form-control required" name="schoolId" id="abcd">
+                                                <option value="" >Select School</option>
+                                            </select>
+                                        <label id="errorSchool" style="font-size: 10px"> </label>
                                     </div>
 
-                                     <div class="row">
-                                        <div id="subjectHiddenDiv" style="display: none;" class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div id="subjectHidden" class="form-group">
-                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Appoinment Subject :</label>
-                                                <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select required class="form-control" name="subject" id="subject" >
-                                                        <option value="">--Select Subject--</option>
-                                                        <?php
-                                                        $result = $employee->loadSubjects();
+                                    <!-- Appointment Subject-->
+                                    <div class="form-group" style="display: none;" id="subjectHiddenDiv">
+                                        <label for="School">Appointment Subject</label>
+                                            <select required class="form-control" name="subject" id="subject" >
+                                                <option value="">Select Subject</option>
+                                                    <?php
+                                                    $result = $employee->loadSubjects();
 
-                                                        foreach ($result as $array) {
-
-                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-                                                        }
-                                                        ?>
-
-                                                    </select>
-                                                </div>
+                                                    foreach ($result as $array) {
+                                                        echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                    }
+                                                    ?>
+                                            </select>
                                                 <label id="errorSubject" style="font-size: 10px"> </label>
-
-                                            </div>
-                                        </div>
                                     </div>
                                     
+                                    <div class="form-group" style="float: right">
+                                        <button style="width: 90px;" type="submit" name="submit" id="submit" class="btn btn-primary">Generate</button>
+                                    </div>
 
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Generate Report</button>
-                                            </div>
-                                        </div>
+                                    <div class="form-group" style="float: right; padding-right: 10px;">
+                                        <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                    </div>
 
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-
-
-                        </div>
+                    <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                        <img src="../images/addPerson.png" width="400" height="400">
                     </div>
                 </div>
+                </div>
+                </div>
             </div>
+
+
         </div>
 </br></br>
         <?php include '../interfaces/footer.php' ?>
