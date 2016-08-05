@@ -85,7 +85,7 @@ if (isset($_POST["submit"])) {
 
         <div class="container" style="position: fixed; top: 110px; left: 440px;">
 
-            <div align="center" class="card card-container">
+            <div align="center" class="card card-container" style="background-color:#eeeeee;">
                 <h5>Welcome!</h5>
                 
 

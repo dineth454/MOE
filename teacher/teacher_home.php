@@ -51,6 +51,11 @@
             </nav>
             <div id="page-content-wrapper" style="min-height: 540px;">
 
+                <?php
+                    require("../classes/vacansies.php");
+                    $vacancy = new Vacancy();
+                ?>
+
 
                 
             </div>
