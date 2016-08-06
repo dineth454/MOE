@@ -131,7 +131,7 @@ $pdf->AddPage();
 
             $html .= '<table cellspacing="15" cellpadding="1" border="0">';
             $html .= '<tr style="background-color:#4d94ff;text-align:center">';
-            $html .= '<th >NIC</th>'  ; 
+            $html .= '<th>NIC</th>'  ; 
             $html .= '<th>Name</th> ' ;
             $html .= '<th>Employment ID</th> ' ;
             $html .= '<th>Email</th> ' ;

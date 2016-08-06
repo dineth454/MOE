@@ -1,4 +1,4 @@
-    
+x`    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -182,20 +182,20 @@
                                                     <label>System Admin</label>
                                                     <?php } else {?>
                                                     <label>Ministry Officer</label>
-                                                    <label><?php echo '(role'. $roleType . ')'; ?></label>
+                                                    
                                                     <?php }?>
                                                   <?php }else if($designationTypeID == 2) {?>
                                                         <label>Province Officer</label>
-                                                        <label><?php echo '(role'. $roleType . ')'; ?></label>
+                                                        
                                                   <?php } else if($designationTypeID == 3) {?>
                                                         <label>Zonal Officer</label>
-                                                        <label><?php echo '(role'. $roleType . ')'; ?></label>
+                                                        
                                                   <?php } else if( $designationTypeID == 4) {?>
                                                         <label>Principal</label>
-                                                        <label><?php echo '(role'. $roleType . ')'; ?></label>
+                                                        
                                                   <?php } else {?>
                                                         <label>Teacher</label>
-                                                        <label><?php echo '(role'. $roleType . ')'; ?></label>
+                                                        
                                                   <?php } ?>
                                                 </div>
                                             </div>
