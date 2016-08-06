@@ -37,6 +37,12 @@ ob_start();
 
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
+    
+    <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
 
 
     </head>
@@ -68,6 +74,7 @@ ob_start();
 
                         <?php
                           require '../classes/vacansies.php';
+                          //require '../classes/Shownotification.php';
                             // get logged User details
                           
                             //$designationTypeID = $_SESSION["designationTypeID"];
@@ -96,11 +103,20 @@ ob_start();
                             //echo $subject;
 
                            $insertSuccess = $vacancy->addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers, $id, $sender);
-
-                            //$insertSuccess = $vacancy->addVacancy();
-                            echo '<script language="javascript">';
-                            echo 'alert("Vacanci Added SuccessFully.Thankyou")';
-                            echo '</script>';
+                           
+                           if($insertSuccess == 1){
+                               //$insertSuccess = $vacancy->addVacancy();
+                                echo '<script language="javascript">';
+                                echo 'alertify.alert("Vacanci Added SuccessFully.Thankyou")';
+                                echo '</script>';
+                               
+                           }else{
+                               
+                               echo '<script language="javascript">';
+                                echo 'alertify.alert("an Error Occured While Inserting Data")';
+                                echo '</script>';
+                           }
+                            
                              
                         
                            
