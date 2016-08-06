@@ -111,6 +111,9 @@
                 </div>
                 </form>
             </div>
+            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                    <img src="../images/personDetails.png" width="400" height="400">
+                </div>
             <!-- /#page-content-wrapper -->
 
         </div> 

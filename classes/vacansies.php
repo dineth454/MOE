@@ -37,13 +37,26 @@ class Vacancy {
         return $resultZonalID;
 	}
 
-	function addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers) {
+	function addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers, $id, $sender) {
         global $con;
 
         $query_for_add_vacancy = "insert into  Vacancies (Subject_ID,Grade,Num_of_teachers,ProvinceID,ZonalID) values ($subject,$grade,$num_of_teachers,$provinceId,$zonalId)";
 
         $result = mysqli_query($con, $query_for_add_vacancy);
         //echo "helooo";
+        $sqlQuery_vac = "SELECT * FROM Vacancies";
+        $Result_vac = mysqli_query($con, $sqlQuery_vac);
+        while ($row = mysqli_fetch_assoc($Result_vac)) {
+                    $vacid = $row["Vacancy_ID"];
+        }
+
+
+
+        $query1 = "INSERT INTO `notification`(`notID`,`type`, `action`, `description`, `sender`) VALUES ('$id','Vacancy','tomoe','$vacid','$sender')";
+        $result1 = mysqli_query($con, $query1);
+
+        $query2 = "INSERT INTO `notification_all`(`notID`,`type`, `description`, `sender`, `date`) VALUES ('$id','Vacancy','$vacid','$sender', NOW())";
+        $result2 = mysqli_query($con, $query2);
 
     }
 
