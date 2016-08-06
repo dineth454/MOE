@@ -161,7 +161,7 @@
                             <div class="col-lg-7">
                                 <h1 style="padding-left: 28px;"><strong>My Profile</strong></h1>
                                 <a href="changePass.php"><div style="padding-bottom:40px; padding-left: 28px;" class="form-group" style="float: right">
-                                    <span><img src="../images/editPass.png" width="20" height="20"> Change Password</span>
+                                    <span><img src="../images/editPass.jpg" width="20" height="20"> Change Password</span>
                                 </div></a>
 
                         <!-- Check System admin or not -->   
