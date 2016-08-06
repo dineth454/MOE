@@ -33,7 +33,7 @@ ob_end_flush();
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown" id="notification_li">
-                    <span id="notification_count" runat="server"><?php echo $not->getnotcount(); ?></span>
+                    <span id="notification_count" runat="server"><?php echo $not->getnotcount($_SESSION["designationTypeID"]); ?></span>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
                         <div id="notificationContainer">
@@ -41,7 +41,7 @@ ob_end_flush();
                             <div id="notificationsBody" class="notifications" runat="server">
 
                             <?php 
-                               $not->notResualt();
+                               $not->notResualt($_SESSION["designationTypeID"]);
                             ?>
                             </div>
                         </div>

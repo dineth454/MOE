@@ -22,6 +22,11 @@ $(".notification").click(function () {
     window.location.assign("viewNotification.php?id=" + this.id);
 });
 
+$(".notification_vacancy").click(function () {
+    //alert(this.id);
+    window.location.assign("viewVacancyNotification.php?id=" + this.id);
+});
+
 $(".notificationAll").click(function () {
     //alert(this.id);
     window.location.assign("messageview.php?id=" + this.id);
