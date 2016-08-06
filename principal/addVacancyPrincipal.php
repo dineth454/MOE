@@ -72,6 +72,9 @@ ob_start();
 
                             $nic = "922843776V";
                             
+                            $sender = $_SESSION["nic"];
+                            $not = new Shownotification();
+                            
                             $provinceId = $vacancy->getProvinceIDFromNIC($nic);
                             $zonalId = $vacancy->getZonalIDFromNIC($nic);
                             
@@ -85,10 +88,10 @@ ob_start();
                             $subject = $_POST['subject'];
                             $grade = $_POST['grade'];
                             $num_of_teachers = $_POST['num_of_teachers'];
-
+                            $id = $not->gennotid();
                             //echo $subject;
 
-                           $insertSuccess = $vacancy->addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers);
+                           $insertSuccess = $vacancy->addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers, $id, $sender);
 
                             //$insertSuccess = $vacancy->addVacancy();
 

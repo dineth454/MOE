@@ -12,32 +12,33 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>GTMS | Members</title>
+        <title>Add vacancy</title>
 
-
+        
 
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
         <link href="../assets/css/home.css" rel="stylesheet">
         <link href="../assets/css/smallbox.css" rel="stylesheet">
-
+        
         <link href="../assets/css/fonts_styles.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
 
         <!-- Bootstrap Core CSS -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom CSS -->
-        <link href="../assets/css/sb-admin.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../assets/css/sb-admin.css" rel="stylesheet">
 
-        <!-- Morris Charts CSS -->
-        <link href="..assets/css/plugins/morris.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
 
-        <!-- Custom Fonts -->
-        <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom Fonts -->
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-        <link href="../assets/css/smallbox.css" rel="stylesheet">
-        <link href="../assets/css/footer.css" rel="stylesheet">
-        <!-- Alert start-->
+    <link href="../assets/css/smallbox.css" rel="stylesheet">
+    <link href="../assets/css/footer.css" rel="stylesheet">
+    
+    <!-- Alert start-->
         <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
         <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
         <script src="../alertify/lib/alertify.min.js"></script>
@@ -50,153 +51,277 @@ ob_start();
         <div id="wrapper">
 
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <!-- include Navigation BAr -->
-                <?php include '../interfaces/navigation_bar.php' ?>
-                <!--____________________________________________________________________________-->
-                <!-- Sidebar Menu Items-->
-                <!-- Sidebar -->
-
-                <?php
-                include 'Extended_principle_sidebar_activation.php';
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- include Navigation BAr -->
+            <?php include '../interfaces/navigation_bar.php' ?>
+            <!--____________________________________________________________________________-->
+            <!-- Sidebar Menu Items-->
+             <!-- Sidebar -->
+            <?php include 'Extended_principle_sidebar_activation.php';
 
                 
 
-                include 'Extended_principle_sidebar.php'; ?>
-                <!-- /#sidebar-wrapper -->
-                <!-- /.navbar-collapse -->
+                include 'Extended_principle_sidebar.php';  ?>
+            <!-- /#sidebar-wrapper -->
+            <!-- /.navbar-collapse -->
             </nav>
 
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
                 <div class="container-fluid">
-
                     <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
-                        <?php 
 
-                        require("../classes/employee.php");
-                        $employee = new Employee();
-                        $designationIdLoggedUser = $_SESSION["designationTypeID"];
-                        $LoggedUsernic = $_SESSION['nic'];
-                        $sender = $_SESSION["nic"];
-                        $not = new Shownotification();
-                        
 
+                        <?php
+                          require '../classes/vacansies.php';
+                          //require '../classes/Shownotification.php';
+                            // get logged User details
+                          
+                            //$designationTypeID = $_SESSION["designationTypeID"];
+                            //$nic = $_SESSION["nic"];
+                            $vacancy = new Vacancy();
+
+                            //$nic = "922843776V";
+                            
+                            $sender = $_SESSION["nic"];
+                            $not = new Shownotification();
+                            
+                            $provinceId = $vacancy->getProvinceIDFromNIC($sender);
+                            $zonalId = $vacancy->getZonalIDFromNIC($sender);
+                            
+                            
+
+                        // echo $_SESSION['designationType'];
                         if (isset($_POST['submit'])) {
-                            //principal kenekda balanawa
-                            if ($designationIdLoggedUser == 4) {
+                           
+                            //echo $provinceId;
 
-                                $instituteId = $employee->getInstituteIDLoggedUser($LoggedUsernic);
-                                $subjetcID = $_POST['subject'];
-                                $noOfVacancies = $_POST['vacansies'];
-                                $id = $not->gennotid();
+                            $subject = $_POST['subject'];
+                            $grade = $_POST['grade'];
+                            $num_of_teachers = $_POST['num_of_teachers'];
+                            $id = $not->gennotid();
+                            //echo $subject;
 
-                                $insertVacancies = $employee->insertVacancies($instituteId, $subjetcID, $noOfVacancies, $id, $sender);
-
-                                if ($insertVacancies == 1) {
-                                    echo '<script language="javascript">';
-                                    echo 'alert("Vacanci Added SuccessFully.Thankyou")';
-                                    echo '</script>';
-                                } else {
-                                    echo '<script language="javascript">';
-                                    echo 'alert("Error Occurd While Inserting data")';
-                                    echo '</script>';
-                                }
-                            } else {
+                           $insertSuccess = $vacancy->addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers, $id, $sender);
+                           
+                           if($insertSuccess == 1){
+                               //$insertSuccess = $vacancy->addVacancy();
                                 echo '<script language="javascript">';
-                                echo 'alert("You are Not allowed to do this Action")';
+                                echo 'alertify.alert("Vacanci Added SuccessFully.Thankyou")';
                                 echo '</script>';
-                            }
+                               
+                           }else{
+                               
+                               echo '<script language="javascript">';
+                                echo 'alertify.alert("an Error Occured While Inserting Data")';
+                                echo '</script>';
+                           }
+                            
+                             
+                        
+                           
                         }
-                         ?>
                         
 
-                        <!-- New Part-->
-                        <div class="row">
-                            <div class="col-lg-7">
+                        
+                        ?>
 
-                                <h1 style="padding-bottom:40px;">Add Teacher Vacancy</h1>
+                       
+                <div class="row">
+                    <div class="col-lg-7">  
 
-                                <form action="" method = "post"  onsubmit="return validateVacanciesForm()" novalidate>
+                     <h1 style="padding-bottom:40px;">Add Vacancy</h1>  
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())" novalidate>
 
-                            <div class="row">
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+               
+                        
 
+                            <!-- subject-->
+                            <label for="subject"> Subject </label>
+                            <div>
+                                <select required class="form-control " name="subject" id="subject" >
 
-                                    <div class="row">
-                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div  class="form-group">
-                                                <label for="School" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style=" text-align: left;"> Select Subject :</label>
-                                                <div id="subjectDiv" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                    <select required class="form-control" name="subject" id="subject" style="width: 170px;">
-                                                        <option value="">-Select Subject-</option>
-                                                        <?php
-                                                        $result = $employee->loadSubjects();
-
-                                                        foreach ($result as $array) {
-
-                                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-                                                        }
-                                                        ?>
-
-                                                    </select>
-                                                </div>
-                                                <label id="errorSubject" style="font-size: 10px"> </label>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
-                                            <!-- Vacancies-->
-                                            <label for="Vacansies" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> No Of Vacancies </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <input type="text" class="form-control" requried id="vacansies" name="vacansies" placeholder="Vacancies" style="width: 170px;"/>
+                                    <option value="">Select Subject</option>
+                                               
+                                    <!--_____load subjects____-->
+                                     <?php
                                                 
-                                            </div>
-                                            <label id="errorVacancies" style="font-size:10px"> </label>
-                                        </div>
-                                    </div>
+                                        $result = $vacancy->loadSubjects();
 
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
-                                            </div>
+                                        foreach ($result as $array) {
 
-                                        </div>
-                                    </div>
+                                            echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                        }
+                                    ?>
 
-                                </div>
-
+                                    <!--______________________________-->
+                                </select>
+                                <label id="errorSubject" style="font-size:10px"> </label>
                             </div>
+                            
+                        
+
+                      
 
 
 
-                        </form>
+                            <!-- grade-->
+                            <label for="grade"> Grade </label>
+                            <div>
+                                <input type="text" class="form-control" id="grade" name="grade" placeholder="Enter Grade Eg:6"/>
+                                <label id="errorGrade" style="font-size:10px"> </label>
                             </div>
+                            
+                        
 
-                            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/addPerson.png" width="400" height="400">
+                        
+
+                            <!-- number of teachers-->
+                            <label for="fullName"> Number of teachers </label>
+                            <div>
+                                <input type="text" class="form-control" id="num_of_teachers" name="num_of_teachers" placeholder="Enter the number of vacancies"/>
+                                <label id="errorNumb_of_students" style="font-size:10px"> </label>
                             </div>
+                            
+                        
+
+
+
+                                    <div class="form-group" style="float: right">
+                                                <button style="width: 80px;" type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                                            </div>                      
+                       
                         </div>
                     </div>
+
+                    
+                    
+
+                </form>
+                </div>
+
+                <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                    <img src="../images/personDetails.png" width="400" height="400">
+                </div>
+            </div>
+                    </div>
+
+
 
                 </div>
             </div>
 
             <!-- /#page-content-wrapper -->
 
-        </div>
 
-<?php include '../interfaces/footer.php' ?>
+        </div>
+        <br><br>
+
+        <?php include '../interfaces/footer.php' ?>
 
         <script src = "../assets/js/addEmployee.js"></script>
-        <script src = "../assets/js/jquery-2.1.4.min.js"></script>
+
         <script src="../assets/js/jquery.js"></script>
+
+
         <script src="../assets/js/bootstrap.min.js"></script>
+        <script src = "../assets/js/jquery-2.1.4.min.js"></script>
+         <!--______________________________________________________________________________________________________________-->
+
+    <script type="text/javascript">
+        
+        function validateForm() {
+                var errors = [];
+
+                if (!validateSubject("subject", "errorSubject")) {
+                    errors.push("errorSubject");
+                }
+
+                if (!validateGrade("grade", "errorGrade")){
+                    errors.push("errorGrade");
+                }
+
+                if (!validateNumberOfStudents("num_of_teachers","errorNumb_of_students")){
+                    errors.push("errorNumb_of_students");
+                }
+
+                if (errors.length > 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+        }
+    
+
+
+         function validateSubject(text, errorLbl) {
+                if (document.getElementById(text).value == "") {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "please select a Subject";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                } else {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                }
+            }
+
+        function validateGrade(text, errorLbl) {
+                if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Please enter a Grade";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                } else if (!isNaN(document.getElementById(text).value)) {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                } else {
+
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Please don't add letter as a grade";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }
+            }
+
+        function validateNumberOfStudents(text, errorLbl) {
+                if (document.getElementById(text).value == "" || document.getElementById(text).value == null) {
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Please enter a Grade";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                } else if (!isNaN(document.getElementById(text).value)) {
+                    document.getElementById(text).style.borderColor = "#46BB24";
+                    document.getElementById(errorLbl).innerHTML = "";
+                    return true;
+                } else {
+
+                    document.getElementById(text).focus();
+                    document.getElementById(text).style.borderColor = "#F0568C";
+                    document.getElementById(errorLbl).innerHTML = "Please enter a number";
+                    document.getElementById(errorLbl).style.color = "#F0568C";
+                    return false;
+                }
+            }
+    </script>
+        
+        <!--______________________end of validation______________________________________-->
+
+        
+
+
+
+
+        
+        
 
 
 

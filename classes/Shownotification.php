@@ -309,15 +309,15 @@ class Shownotification{
 
     function getsubject($id){
         global $mysqli;
-        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
-        $result = $mysqli->query($query);
-        $fetch_result = mysqli_fetch_array($result);
-        $des = $fetch_result['description'];
+        $sqlquery = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $sqlresult = $mysqli->query($sqlquery);
+        $sqlfetch_result = mysqli_fetch_array($sqlresult);
+        $des = $sqlfetch_result['description'];
 
-        $query = "SELECT SubjectId FROM vacancies WHERE vacancyID = '".$des."'";
+        $query = "SELECT Subject_ID FROM vacancies WHERE Vacancy_ID = '".$des."'";
         $result = $mysqli->query($query);
         $fetch_result = mysqli_fetch_array($result);
-        $res = $fetch_result['SubjectId'];
+        $res = $fetch_result['Subject_ID'];
         $query1 = "SELECT subject FROM subject WHERE subjectID = '".$res."'";
         $result1 = $mysqli->query($query1);
         $fetch_result1 = mysqli_fetch_array($result1);
@@ -332,10 +332,10 @@ class Shownotification{
         $fetch_result = mysqli_fetch_array($result);
         $des = $fetch_result['description'];
 
-        $query = "SELECT SubjectId FROM vacancies WHERE vacancyID = '".$des."'";
+        $query = "SELECT Subject_ID FROM vacancies WHERE Vacancy_ID = '".$des."'";
         $result = $mysqli->query($query);
         $fetch_result = mysqli_fetch_array($result);
-        $res = $fetch_result['SubjectId'];
+        $res = $fetch_result['Subject_ID'];
         $query1 = "SELECT subjectCode FROM subject WHERE subjectID = '".$res."'";
         $result1 = $mysqli->query($query1);
         $fetch_result1 = mysqli_fetch_array($result1);
@@ -350,10 +350,10 @@ class Shownotification{
         $fetch_result = mysqli_fetch_array($result);
         $des = $fetch_result['description'];
 
-        $query = "SELECT noOfVacansies FROM vacancies WHERE vacancyID = '".$des."'";
-        $result = $mysqli->query($query);
-        $fetch_result = mysqli_fetch_array($result);
-        $res = $fetch_result['noOfVacansies'];
+        $query1 = "SELECT Num_of_teachers FROM vacancies WHERE Vacancy_ID = '".$des."'";
+        $result1 = $mysqli->query($query1);
+        $fetch_result1 = mysqli_fetch_array($result1);
+        $res = $fetch_result1['Num_of_teachers'];
         return $res;
     }
 

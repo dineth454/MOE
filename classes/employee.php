@@ -658,6 +658,11 @@ class Employee {
 
         $query = "insert into Vacancies(InstituteID,SubjectId,noOfVacansies) values ('$instituteId','$subjetcID','$noOfVacancies')";
         $result = $mysqli->query($query);
+        
+        if($result != 1){
+            
+            $insertOk = 0;
+        }
 
         $sqlQuery_vac = "SELECT * FROM Vacancies";
         $Result_vac = $mysqli->query($sqlQuery_vac);
@@ -673,7 +678,7 @@ class Employee {
         $query2 = "INSERT INTO `notification_all`(`notID`,`type`, `description`, `sender`, `date`) VALUES ('$id','Vacancy','$vacid','$sender', NOW())";
         $result2 = $mysqli->query($query2);
 
-        if ($result != 1 AND $result1 != 1) {
+        if ($result1 != 1 AND $result2 != 1) {
             $insertOk = 0;
         }
 
