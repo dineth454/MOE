@@ -692,4 +692,30 @@ class Employee {
         }
     }
 
+
+    //find password according to logged User Nic
+    function getPass($loggedUserNic) {
+        global $mysqli;
+        $query = "select password from user where nic = '" . $loggedUserNic . "'";
+        $result_Of_Logged_User = $mysqli->query($query);
+        $result_LoggedUser_Array = mysqli_fetch_array($result_Of_Logged_User);
+        return $result_LoggedUser_Array;
+    }
+
+
+    function updatePass($loggedUserNic, $newPass) {
+        global $mysqli;
+        $updateOk = 1;
+
+
+        $query = "update user set password = '" . $newPass . "' where nic = '". $loggedUserNic ."'";
+        $result = $mysqli->query($query);
+
+        if ($result != 1) {
+            $updateOk = 0;
+        }
+
+        return $updateOk;
+    }
+
 }
