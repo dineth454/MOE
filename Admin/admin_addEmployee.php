@@ -69,7 +69,8 @@ ob_start();
 
                 $colMembers = "collapse in";
 
-                include 'sidebar_admin.php'; ?>
+                include 'sidebar_admin.php';
+                ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -167,6 +168,39 @@ ob_start();
                                         echo '<script language="javascript">';
                                         echo 'alertify.alert("There is a Principal already exist in this school")';
                                         echo '</script>';
+                                    } else {
+                                        // log wela inne ministry officer kenek nam
+                                        if ($designationIdLoggedUser == 1) {
+                                            $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+
+                                            //log wela inne province officer kenek nam
+                                        } else if ($designationIdLoggedUser == 2) {
+
+                                            //zonal officer kenek nam add karanne
+                                            if ($provinceIdLoggedUser == $provinceID) {
+                                                $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                            }
+                                            // logged wela inne zonal officer kenek nam
+                                        } else if ($designationIdLoggedUser == 3) {
+                                            //principal kenek nam add karanne 
+                                            if ($zonalIdLoggedUser == $zoneID) {
+                                                $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                            }
+                                            //logged wela inne principal kenek nam
+                                        } else if ($designationIdLoggedUser == 4) {
+                                            //add karanne teacher kenek nam
+                                            if ($schoolIDLoggedUser == $schoolId) {
+                                                $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                            } else {
+                                                echo '<script language="javascript">';
+                                                echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
+                                                echo '</script>';
+                                            }
+                                        } else {
+                                            echo '<script language="javascript">';
+                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
+                                            echo '</script>';
+                                        }
                                     }
                                 } else {
 
@@ -298,14 +332,14 @@ ob_start();
                                                 <label for="School">Appointment Subject</label>
                                                 <select required class="form-control" name="subject" id="subject" >
                                                     <option value="">Select Subject</option>
-<?php
-$result = $employee->loadSubjects();
+                                                    <?php
+                                                    $result = $employee->loadSubjects();
 
-foreach ($result as $array) {
+                                                    foreach ($result as $array) {
 
-    echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
-}
-?>
+                                                        echo '<option  value="' . $array['subjectID'] . '" >' . $array['subject'] . '</option>';
+                                                    }
+                                                    ?>
 
                                                 </select>
                                                 <label id="errorSubject" style="font-size: 10px"> </label>
@@ -380,7 +414,7 @@ foreach ($result as $array) {
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href = 'adminHome.php'"/>
                                             </div>
                                         </div>
                                     </div>
@@ -400,7 +434,7 @@ foreach ($result as $array) {
 
         </div>
 
-<?php include '../interfaces/footer.php' ?>
+        <?php include '../interfaces/footer.php' ?>
 
         <script src = "../assets/js/addEmployee.js"></script>
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>

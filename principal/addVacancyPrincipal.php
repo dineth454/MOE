@@ -59,7 +59,7 @@ ob_start();
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
                 <div class="container-fluid">
-                    <div class="col-lg-12 col-lg-offset">
+                    <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
 
                         <?php
@@ -101,20 +101,21 @@ ob_start();
                         
                         ?>
 
-                        <div align="left" style="padding-bottom:10px; padding-left:18px;">
-                            <h1 class="topic_font">Add Vacancy</h1>
-                        </div>
+                       
                 <div class="row">
-                    <div class="col-lg-9 col-md-9">    
+                    <div class="col-lg-7">  
+
+                     <h1 style="padding-bottom:40px;">Add Vacancy</h1>  
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" onsubmit ="return(validateForm())" novalidate>
 
                     <div class="row">
-               
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
+               
+                        
 
                             <!-- subject-->
-                            <label for="fullName" class="control-label col-xs-3 col-sm-3 col-md-3col-lg-3 required" style="display: inline-block; text-align: left;"> Subject </label>
-                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <label for="subject"> Subject </label>
+                            <div>
                                 <select required class="form-control " name="subject" id="subject" >
 
                                     <option value="">Select Subject</option>
@@ -135,42 +136,39 @@ ob_start();
                                 <label id="errorSubject" style="font-size:10px"> </label>
                             </div>
                             
-                        </div>
+                        
 
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                      
+
+
 
                             <!-- grade-->
-                            <label for="grade" class="control-label col-xs-3 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Grade </label>
-                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <label for="grade"> Grade </label>
+                            <div>
                                 <input type="text" class="form-control" id="grade" name="grade" placeholder="Enter Grade Eg:6"/>
                                 <label id="errorGrade" style="font-size:10px"> </label>
                             </div>
                             
-                        </div> 
+                        
 
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        
 
                             <!-- number of teachers-->
-                            <label for="fullName" class="control-label col-xs-3 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Number of teachers </label>
-                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <label for="fullName"> Number of teachers </label>
+                            <div>
                                 <input type="text" class="form-control" id="num_of_teachers" name="num_of_teachers" placeholder="Enter the number of vacancies"/>
                                 <label id="errorNumb_of_students" style="font-size:10px"> </label>
                             </div>
                             
-                        </div>
+                        
 
 
 
-                        <div class="row">
-                                        <div  class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"style="padding-left: 68px;">
-                                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
-                                            </div>
-
-                                        </div>
-                                    </div>                        
+                                    <div class="form-group" style="float: right">
+                                                <button style="width: 80px;" type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                                            </div>                      
                        
-
+                        </div>
                     </div>
 
                     
@@ -179,9 +177,9 @@ ob_start();
                 </form>
                 </div>
 
-                <div class="col-lg-3">
-                    <img src="../images/addVacant.png" alt="education cover" style="width:180px;height:180px; padding-right:0px;">
-                </div>
+                <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                                <img src="../images/personDetails.png" width="400" height="400">
+                            </div>
             </div>
                     </div>
 
