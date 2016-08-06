@@ -72,18 +72,20 @@ ob_start();
 
                         <?php
                         $LoggedUsernic = $_SESSION["nic"];
+                        $LoggedUserEmail = $_SESSION["email"];
+                        $LoggedUserName = $_SESSION["nameWithInitials"];
 
                         require("../classes/employee.php");
                         $employee = new Employee();
 
                         $result1 = $employee->getPass($LoggedUsernic);
                         $passOfLoggedUser = $result1['password'];
-                        //echo $passOfLoggedUser;
 
 
                         if (isset($_POST['submit'])) {
 
                             $currentPass = sha1($_POST['cPass']);
+                            $nonEncNewPass = $_POST['nPass'];
                             $newPass = sha1($_POST['nPass']);
                             $confirmNewPass = sha1($_POST['cnPass']);
 
@@ -92,6 +94,30 @@ ob_start();
 
                                     $isUpdateOk = $employee->updatePass($LoggedUsernic, $newPass);
                                     if($isUpdateOk == 1){
+                                        require '../PHPMailer/PHPMailerAutoload.php';
+
+                                        $mail = new PHPMailer(); // create a new object
+                                        $mail->IsSMTP(); // enable SMTP
+                                        //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+                                        $mail->SMTPAuth = true; // authentication enabled
+                                        $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for Gmail
+                                        $mail->Host = "smtp.gmail.com";
+                                        $mail->Port = 587; // or 587
+                                        $mail->IsHTML(true);
+                                        $mail->Username = "moe.gtms@gmail.com";
+                                        $mail->Password = "gtmsapesystemeka";
+                                        $mail->SetFrom("moe.gtms@gmail.com");
+                                        $mail->Subject = "New Password";
+
+                                        $mail->Body = "hi <strong>".$LoggedUserName.",</strong><br/><br/>Your new password is here. please collect it and log to the GTMS system.<br/><strong>Password - ".$nonEncNewPass."</strong><br/><br/><br/>Thank You!" ;
+                                        $mail->AddAddress($LoggedUserEmail);
+
+                                        if(!$mail->Send()) {
+                                            echo "Mailer Error: " . $mail->ErrorInfo;
+                                        } else {
+                                            //echo "Message has been sent";
+                                        }
+
                                         echo '<script language="javascript">';
                                         echo 'alertify.alert("Password is changed successfully")';
                                         echo '</script>';
@@ -156,7 +182,7 @@ ob_start();
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='viewProfile.php'"/>
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +190,7 @@ ob_start();
                             </div>
 
                             <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/addPerson.png" width="400" height="400">
+                                <img src="../images/editPass.jpg" width="400" height="400">
                             </div>
                         </div>
                     </div>
