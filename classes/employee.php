@@ -652,14 +652,28 @@ class Employee {
         return $insertOK;
     }
 
-    function insertVacancies($instituteId, $subjetcID, $noOfVacancies) {
+    function insertVacancies($instituteId, $subjetcID, $noOfVacancies, $id, $sender) {
         global $mysqli;
         $insertOk = 1;
 
         $query = "insert into Vacancies(InstituteID,SubjectId,noOfVacansies) values ('$instituteId','$subjetcID','$noOfVacancies')";
         $result = $mysqli->query($query);
 
-        if ($result != 1) {
+        $sqlQuery_vac = "SELECT * FROM Vacancies";
+        $Result_vac = $mysqli->query($sqlQuery_vac);
+        while ($row = mysqli_fetch_assoc($Result_vac)) {
+                    $vacid = $row["vacancyID"];
+        }
+
+
+
+        $query1 = "INSERT INTO `notification`(`notID`,`type`, `action`, `description`, `sender`) VALUES ('$id','Vacancy','tomoe','$vacid','$sender')";
+        $result1 = $mysqli->query($query1);
+
+        $query2 = "INSERT INTO `notification_all`(`notID`,`type`, `description`, `sender`, `date`) VALUES ('$id','Vacancy','$vacid','$sender', NOW())";
+        $result2 = $mysqli->query($query2);
+
+        if ($result != 1 AND $result1 != 1) {
             $insertOk = 0;
         }
 

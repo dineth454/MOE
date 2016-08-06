@@ -5,7 +5,7 @@ $mysqli = new mysqli("localhost", "gtms", "gtms", "moe");
 
 class Shownotification{
 
-    function notResualt(){
+    function notResualt($desID){
         global $mysqli;
         $sqlQuery = "SELECT * FROM notification ORDER BY notID DESC";
         $Result = $mysqli->query($sqlQuery);
@@ -19,7 +19,7 @@ class Shownotification{
                     $action = $row["action"];
                     $des = $row["description"];
                     $date = $row["date"];
-                    if (strcmp($action, 'tomoe') == 0) {
+                    if (strcmp($action, 'tomoe') == 0 and strcmp($type, 'Transer') == 0 and $desID == 1) {
                     $output .=   "<div id= '". $notid."' class='notification' ".
                                 "   <div class='not-content-box col-md-10'>".
 
@@ -29,6 +29,17 @@ class Shownotification{
                                 "   </div>";
                                 //"</div>";
                     }
+                    if (strcmp($action, 'tomoe') == 0 and strcmp($type, 'Vacancy') == 0 and $desID == 1) {
+                    $output .=   "<div id= '". $notid."' class='notification_vacancy' ".
+                                "   <div class='not-content-box col-md-10'>".
+
+                                "       You have a <strong>". $type ."</strong> request     ".
+                            //    "        NotID <strong>'". $notid ."' </strong> Type '". $type ."' , Action '". $action ."' ".
+                                "        <div class='col-md-offset-7 col-md-5' style='padding-right: 0px;'>".$date."</div>".
+                                "   </div>";
+                                //"</div>";
+                    }
+
                 }
             }   
         echo $output;      
@@ -67,14 +78,18 @@ class Shownotification{
                           
     }
 
-    function getnotcount(){
+    function getnotcount($desID){
         global $mysqli;
-        $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'tomoe'";
-        $Result = $mysqli->query($sqlQuery);
-        $fetch_result = mysqli_fetch_array($Result);
-        $notcount = $fetch_result['notcount'];
-        if ($notcount == 0) {
-            $notcount = "";
+        $notcount = "";
+        if ($desID == 1) {          
+        
+            $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'tomoe'";
+            $Result = $mysqli->query($sqlQuery);
+            $fetch_result = mysqli_fetch_array($Result);
+            $notcount = $fetch_result['notcount'];
+            if ($notcount == 0) {
+                $notcount = "";
+            }
         }
         return $notcount;
     }
@@ -192,8 +207,18 @@ class Shownotification{
                 $Result1 = $mysqli->query($query);
                 $fetch_result1 = mysqli_fetch_array($Result1);
                 $name = $fetch_result1['nameWithInitials'];
-                
-                $output .=   "<div id= '". $notid."' class='notificationAll' ".
+                if (strcmp($type, 'Transer') == 0) {
+                    $output .=   "<div id= '". $notid."' class='notificationAll' ".
+                                "   <div class='not-content-box col-md-10'>".
+
+                                "       ".$name." <strong>". $type ."</strong> request letter    ".
+                            //    "        NotID <strong>'". $notid ."' </strong> Type '". $type ."' , Action '". $action ."' ".
+                                "        <div class='col-md-offset-7 col-md-5' style='padding-right: 0px;'>".$date."</div>".
+                                "   </div>";
+                                //"</div>";
+                }
+                if (strcmp($type, 'Vacancy') == 0) {
+                    $output .=   "<div id= '". $notid."' class='notification_vacancy' ".
                             "   <div class='not-content-box col-md-10'>".
 
                             "       ".$name." <strong>". $type ."</strong> request letter    ".
@@ -201,9 +226,12 @@ class Shownotification{
                             "        <div class='col-md-offset-7 col-md-5' style='padding-right: 0px;'>".$date."</div>".
                             "   </div>";
                             //"</div>";
+                }
+                }
+
                 
             }
-        }   
+         
         echo $output;                
 
 
@@ -243,8 +271,6 @@ class Shownotification{
                 }
                 });
             </script>';
-
-
     }
 
     function gennotid(){
@@ -274,6 +300,62 @@ class Shownotification{
 
     }
 
+    function deletenotificati($id){
+        global $mysqli;
+        $query = "DELETE FROM notification WHERE notID = '".$id."'";
+        $result = $mysqli->query($query);
+        header("Location: ministryOfficerHome.php");
+    }
+
+    function getsubject($id){
+        global $mysqli;
+        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $des = $fetch_result['description'];
+
+        $query = "SELECT SubjectId FROM vacancies WHERE vacancyID = '".$des."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['SubjectId'];
+        $query1 = "SELECT subject FROM subject WHERE subjectID = '".$res."'";
+        $result1 = $mysqli->query($query1);
+        $fetch_result1 = mysqli_fetch_array($result1);
+        $res1 = $fetch_result1['subject'];
+        return $res1;
+    }
+
+    function getsubjectcode($id){
+        global $mysqli;
+        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $des = $fetch_result['description'];
+
+        $query = "SELECT SubjectId FROM vacancies WHERE vacancyID = '".$des."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['SubjectId'];
+        $query1 = "SELECT subjectCode FROM subject WHERE subjectID = '".$res."'";
+        $result1 = $mysqli->query($query1);
+        $fetch_result1 = mysqli_fetch_array($result1);
+        $res1 = $fetch_result1['subjectCode'];
+        return $res1;
+    }
+
+    function getvacancy($id){
+        global $mysqli;
+        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $des = $fetch_result['description'];
+
+        $query = "SELECT noOfVacansies FROM vacancies WHERE vacancyID = '".$des."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $res = $fetch_result['noOfVacansies'];
+        return $res;
+    }
 
 
 
