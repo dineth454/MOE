@@ -182,7 +182,7 @@ ob_start();
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='adminHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='viewProfile.php'"/>
                                             </div>
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@ ob_start();
                             </div>
 
                             <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/editPass.png" width="400" height="400">
+                                <img src="../images/editPass.jpg" width="400" height="400">
                             </div>
                         </div>
                     </div>
