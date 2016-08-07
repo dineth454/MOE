@@ -89,7 +89,7 @@
                     <br/>
                     <div class="row">
                         <label>Subject Name :</label>
-                        <?php echo $not->getsubject($id); ?>
+                        <?php echo $not->getsubject($id); ?> (Grade <?php echo $not->getgrade($id); ?>)
 
                     </div>
                     <br/>
@@ -105,7 +105,7 @@
 
                     </div>
                     <div class="row">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Accept">
+                        <input class="btn btn-primary" style="margin-top: 110px;" type="submit" name="submit" value="Accept">
                     </div>
 
                 </div>

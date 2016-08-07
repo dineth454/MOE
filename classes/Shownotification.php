@@ -357,6 +357,19 @@ class Shownotification{
         return $res;
     }
 
+    function getgrade($id){
+        global $mysqli;
+        $query = "SELECT * FROM notification_all WHERE notid = '".$id."'";
+        $result = $mysqli->query($query);
+        $fetch_result = mysqli_fetch_array($result);
+        $des = $fetch_result['description'];
+
+        $query1 = "SELECT Grade FROM vacancies WHERE Vacancy_ID = '".$des."'";
+        $result1 = $mysqli->query($query1);
+        $fetch_result1 = mysqli_fetch_array($result1);
+        $res = $fetch_result1['Grade'];
+        return $res;
+    }
 
 
 

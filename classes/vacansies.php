@@ -115,6 +115,60 @@ class Vacancy {
 
       //echo "\r\n";
       } */
+
+    function viewVacancy($id){
+        global $mysqli;
+        
+        if ($id != "") {
+            $query = "SELECT * FROM vacancies WHERE ProvinceID = '". $id."'";
+            $result = $mysqli->query($query);
+            $output="";
+
+        
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $vacid = $row["Vacancy_ID"];
+                    $subid = $row["Subject_ID"];
+                    $Grade = $row["Grade"];
+                    $numteachers = $row["Num_of_teachers"];
+                    $school = $row["schoolId"];
+
+                    $sqlquery = "SELECT Subject FROM Subject WHERE subjectID = '".$subid."'";
+                    $sqlresult = $mysqli->query($sqlquery);
+                    $sqlfetch_result = mysqli_fetch_array($sqlresult);
+                    $subjectName = $sqlfetch_result['Subject'];
+
+                    $query1 = "SELECT schoolName FROM school WHERE schoolID = '".$school."'";
+                    $result1 = $mysqli->query($query1);
+                    $fetch_result1 = mysqli_fetch_array($result1);
+                    $schoolName = $fetch_result1['schoolName'];
+
+                    $output .=   "<div id= '". $vacid."' class='notification' >".
+                                "   <div class='not-content-box col-md-10'>".
+
+                                "       ".$schoolName.".<br/> <strong>". $subjectName ."</strong> Grade ".$Grade."     ".
+                            //    "        NotID <strong>'". $notid ."' </strong> Type '". $type ."' , Action '". $action ."' ".
+                                "        Num of vacancies ".$numteachers."</div>".
+                                "   </div>";
+                                //"</div>";
+                    
+                }
+            }else{
+            $output = "No resualt";
+            }
+
+
+
+        }else{
+            $output = "No resualt";
+        }
+        
+        return $output;
+    }
+
+
+
+
 }
 
 ?>

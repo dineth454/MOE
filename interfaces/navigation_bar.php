@@ -37,7 +37,7 @@ ob_end_flush();
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
                         <div id="notificationContainer">
-                            <div id="notificationTitle">Notifications</div>
+                            <div id="notificationTitle">Notifications <a href="allNotification.php" style="float: right; margin-right: 25px;">See All</a></div>
                             <div id="notificationsBody" class="notifications" runat="server">
 
                             <?php 
@@ -45,9 +45,6 @@ ob_end_flush();
                             ?>
                             </div>
                         </div>
-                        <li class="message-footer" style="background-color: #CDCFD1;">
-                            <a href="allNotification.php">See All</a>
-                        </li>
                     </ul>
                 </li>
 
