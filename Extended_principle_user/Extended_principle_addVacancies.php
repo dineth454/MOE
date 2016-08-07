@@ -85,7 +85,7 @@ ob_start();
                             
                             $sender = $_SESSION["nic"];
                             $not = new Shownotification();
-                            
+                            $schoolId = $vacancy->getSchoolIDOfLoggedUser($sender);
                             $provinceId = $vacancy->getProvinceIDFromNIC($sender);
                             $zonalId = $vacancy->getZonalIDFromNIC($sender);
                             
@@ -102,7 +102,7 @@ ob_start();
                             $id = $not->gennotid();
                             //echo $subject;
 
-                           $insertSuccess = $vacancy->addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers, $id, $sender);
+                           $insertSuccess = $vacancy->addVacancy($provinceId, $zonalId,$schoolId,$subject, $grade, $num_of_teachers, $id, $sender);
                            
                            if($insertSuccess == 1){
                                //$insertSuccess = $vacancy->addVacancy();

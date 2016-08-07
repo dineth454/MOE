@@ -10,7 +10,12 @@
                                 <a href="teacher_searchUser.php">Search Members</a>
 
                             </li>
+                            <li>
+                                <a href="viewVacancy.php">Search Vacancy</a>
+
+                            </li>
                         </ul>
+
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Transfer <i class="fa fa-fw fa-caret-down"></i></a>

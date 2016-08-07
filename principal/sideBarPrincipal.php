@@ -1,44 +1,27 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="ministryOfficerHome.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
+                        <a href="homePrincipal.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
                     </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse1"><i class="fa fa-users fa-2x" ></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse1" class="collapse">
-                            <li>
-                                <a href="min_off_addEmployee.php">Add User</a>
-                            </li>
-                            <li>
-                                <a href="min_off_updateEmployeeFront.php">Update User</a>
-                            </li>
-                            <li>
-                                <a href="deleteUserFront.php">Delete User</a>
-                            </li>
-                        </ul>
-                    </li>
+                    
                    
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse2"><i class="fa fa-university fa-2x" aria-hidden="true"></i> Institutes <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse2"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse2" class="collapse">
                             <li>
-                                <a href="addZonalOffice.php">Add Zonal</a>
+                                <a href="addVacancyPrincipal.php">Add Vacancies</a>
                             </li>
                             <li>
-                                <a href="addSchool.php">Add School</a>
+                                <a href="addSchool.php">View Vacancies</a>
                             </li>
-                            <li>
-                                <a href="updateSchool.php">Update School</a>
-                            </li>
+                            
                         </ul>
                     </li>
 
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse3"><i class="fa fa-book fa-2x" aria-hidden="true"></i> Subject <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse3" class="collapse">
-                            <li>
-                                <a href="addNewSubject.php">Add Subject</a>
-                            </li>
+                            
                             <li>
                                 <a href="addCurrentSubjectFormFront.php">Add Current subject Of Teacher</a>
                             </li>
@@ -52,22 +35,11 @@
                     </li>
 
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> Transfer <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse5" class="collapse">
-                            <li>
-                                <a href="transerFront.php">Transfer Teacher</a>
-                            </li>
-                            
-                            
-                        </ul>
-                    </li>
-
         
        
        
                     <li>
-                        <a href="mapview.php" class="ajax_load slide_font">Map View</a>
+                        <a href="mapviewPrincipal.php" class="ajax_load slide_font"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
                     </li>
 
                 </ul>
