@@ -5,6 +5,25 @@ $db = new DBCon();
 $con = $db->connection();
 
 class Vacancy {
+    
+     function getSchoolIDOfLoggedUser($loggedUsernic) {
+        global $mysqli;
+        // select Institute Id of logged User
+        $query_for_get_instituteId = "select instituteID from employee where nic = '" . $loggedUsernic . "'";
+        $result_InstituteID = $mysqli->query($query_for_get_instituteId);
+        $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
+        $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
+
+        //get School Id Of Logged User
+        $query_for_get_schoolID_of_logged_user = "select schoolID from school where instituteID =' " . $InstituteIDLoggedUser . " ' ";
+        $result_School = $mysqli->query($query_for_get_schoolID_of_logged_user);
+        $result_school_arry = mysqli_fetch_array($result_School);
+        // $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
+        //return $result_school_arry;
+        
+        $schoolId = $result_school_arry['schoolID'];
+        return $schoolId;
+    }
 
     function getProvinceIDFromNIC($nic) {
         global $con;
@@ -33,12 +52,12 @@ class Vacancy {
         return $resultZonalID;
     }
 
-    function addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers, $id, $sender) {
+    function addVacancy($provinceId, $zonalId,$schoolId, $subject, $grade, $num_of_teachers, $id, $sender) {
         global $mysqli;
         $insertOk = 1;
         $vacid = "";
 
-        $query_for_add_vacancy = "insert into  vacancies (Subject_ID,Grade,Num_of_teachers,ProvinceID,ZonalID) values ($subject,$grade,$num_of_teachers,$provinceId,$zonalId)";
+        $query_for_add_vacancy = "insert into  vacancies (Subject_ID,Grade,Num_of_teachers,ProvinceID,ZonalID,schoolId) values ($subject,$grade,$num_of_teachers,$provinceId,$zonalId,$schoolId)";
 
         $result = $mysqli->query($query_for_add_vacancy);
 

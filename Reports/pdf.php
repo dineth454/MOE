@@ -181,6 +181,10 @@ $pdf->AddPage();
     }
                                 
     $html .= '</table>';
+    
+ 
+
+
    /* $html .=  '</body>';
     $html .=   '</html>' ; */
     $pdf->writeHTML($html, true, 0, true, 0);
