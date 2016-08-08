@@ -270,7 +270,7 @@ ob_start();
                                             <!-- Select role-->
                                             <div class="form-group">
                                                 <label for="selec_trole" style="display: inline-block;">User Role</label>
-                                                <select required class="form-control" id="select_role" name="select_role" >
+                                                <select required class="form-control" id="select_role" name="select_role"  onchange="myFunction()">
                                                     <option value="">Select Role</option>
                                                     <option value="2">Ministry User</option>
                                                     <option value="3">PZInstitute User</option>
@@ -282,18 +282,22 @@ ob_start();
                                             </div>
 
                                             <!-- Designation-->
-                                            <div class="form-group">
+                                            <div class="form-group" id="designationDiv" style="display: none;">
                                                 <label for="designation" style="display: inline-block;">Designation</label>
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
                                                     <option value="">Select Designation</option>
-                                                    <option value="1">Ministry Officer</option>
-                                                    <option value="2">Province Officer</option>
-                                                    <option value="3">Zonal Officer</option>
-                                                    <option value="4">Principal</option>
-                                                    <option value="5">Teacher</option>
+                                                    
+                                                    
+                                                    <option  value="1">Ministry Officer</option>
+                                                    <option   value="2">Province Officer</option>
+                                                    <option  value="3">Zonal Officer</option>
+                                                    <option  value="4">Principal</option>
+                                                    <option  value="5">Teacher</option>
                                                 </select>
                                                 <label id="errorDesignation" style="font-size: 10px"> </label>
                                             </div>
+                                            
+
 
                                             <!-- Province Office-->
                                             <div class="form-group" style="display: none;" id="provinceIDDiv">
@@ -440,10 +444,8 @@ ob_start();
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
         <script src="../assets/js/jquery.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
-
-
-
-
+        
+       
 
     </body>
 

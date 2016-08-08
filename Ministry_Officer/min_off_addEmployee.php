@@ -270,7 +270,7 @@ ob_start();
                                             <!-- Select role-->
                                             <div class="form-group">
                                                 <label for="selec_trole" style="display: inline-block;">User Role</label>
-                                                <select required class="form-control" id="select_role" name="select_role" >
+                                                <select required class="form-control" id="select_role" name="select_role" onchange="myFunction()>
                                                     <option value="">Select Role</option>
                                                     <option value="2">Ministry User</option>
                                                     <option value="3">PZInstitute User</option>
@@ -282,7 +282,7 @@ ob_start();
                                             </div>
 
                                             <!-- Designation-->
-                                            <div class="form-group">
+                                            <div class="form-group" id="designationDiv" style="display: none;">
                                                 <label for="designation" style="display: inline-block;">Designation</label>
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
                                                     <option value="">Select Designation</option>
