@@ -143,7 +143,7 @@ class Vacancy {
                     $fetch_result1 = mysqli_fetch_array($result1);
                     $schoolName = $fetch_result1['schoolName'];
 
-                    $output .=   "<div id= '". $vacid."' class='notification' >".
+                    $output .=   "<div id= '". $vacid."' class='vacancy' >".
                                 "   <div class='not-content-box col-md-10'>".
 
                                 "       ".$schoolName.".<br/> <strong>". $subjectName ."</strong> Grade ".$Grade."     ".

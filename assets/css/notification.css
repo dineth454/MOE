@@ -109,7 +109,23 @@
     cursor: pointer;
 }
 
-.notification:hover {
+.vacancy {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+    min-height: 70px;
+    color: #1363B9;
+    cursor: pointer;
+}
+.notification_vacancy {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+    min-height: 70px;
+    color: #1363B9;
+    cursor: pointer;
+}
+.notification_vacancy:hover {
     background: #DDD;
 }
 .notifications .col-md-3 {
