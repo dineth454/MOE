@@ -58,7 +58,7 @@ ob_start();
                 include 'sideBarActivation.php';
                 $navMap = "background-color: #0A1A42;";
                 $textMap = "color: white;";
-                include 'sidebar_min_off.php' ?>
+                include 'sidebar_PZInstituteUser.php' ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>

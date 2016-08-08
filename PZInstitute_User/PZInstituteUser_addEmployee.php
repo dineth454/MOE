@@ -69,7 +69,7 @@ ob_start();
 
                 $colMembers = "collapse in";
 
-                include 'sidebar_min_off.php';
+                include 'sidebar_PZInstituteUser.php';
                 ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
@@ -414,7 +414,7 @@ ob_start();
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href = 'ministryOfficerHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href = 'PZInstituteUserHome.php'"/>
                                             </div>
                                         </div>
                                     </div>
