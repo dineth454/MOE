@@ -282,7 +282,7 @@ ob_start();
                                             </div>
 
                                             <!-- Designation-->
-                                            <div class="form-group">
+                                            <div class="form-group" id="designationDiv" style="display: none;">
                                                 <label for="designation" style="display: inline-block;">Designation</label>
                                                 <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
                                                     <option value="">Select Designation</option>
