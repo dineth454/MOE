@@ -57,7 +57,7 @@ ob_start();
             <div  id="page-content-wrapper" style="min-height: 540px;" >
 
                 <div class="container-fluid">
-                    <div class="col-lg-9 col-lg-offset-1">
+                    <div class="col-lg-6 col-lg-offset-1">
                         <?php 
 
                         require("../classes/vacansies.php");
@@ -88,8 +88,8 @@ ob_start();
                                             <!-- Designation-->
                                             <label for="designation" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Province </label>
                                             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
-                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
-                                                        <option value="" >Select ProvinceOffice</option>
+                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)" style="width: 176px;">
+                                                        <option value="" >Select Province</option>
                                                         <option value="1">centralProvince</option>
                                                         <option value="2">westernProvince</option>
                                                         <option value="3">sothernProvince</option>
@@ -123,7 +123,9 @@ ob_start();
 
                         </form>
                     </div>
-
+                    <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                        <img src="../images/personDetails.png" width="400" height="400">
+                    </div>
 
 
                 </div>
