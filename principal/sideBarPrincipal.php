@@ -23,7 +23,7 @@
                         <ul id="collapse3" class="collapse">
                             
                             <li>
-                                <a href="addCurrentSubjectFormFront.php">Add Current subject Of Teacher</a>
+                                <a href="addCurrentSubjectFormFront_Principal.php">Add Current subject Of Teacher</a>
                             </li>
                             
                         </ul>
@@ -31,7 +31,13 @@
 
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse4"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
-                        
+                        <ul id="collapse4" class="collapse">
+                            
+                            <li>
+                                <a href="searchUserPrincipal.php">Search Members</a>
+                            </li>
+                            
+                        </ul>
                     </li>
 
 
