@@ -146,7 +146,7 @@ class Vacancy {
                     $output .=   "<div id= '". $vacid."' class='vacancy' >".
                                 "   <div class='not-content-box col-md-10'>".
 
-                                "       ".$schoolName.".<br/> <strong>". $subjectName ."</strong> Grade ".$Grade."     ".
+                                "       ".$schoolName.".<br/> <strong>". $subjectName ."</strong> Grade ".$Grade."  <br/>   ".
                             //    "        NotID <strong>'". $notid ."' </strong> Type '". $type ."' , Action '". $action ."' ".
                                 "        Num of vacancies ".$numteachers."</div>".
                                 "   </div>";

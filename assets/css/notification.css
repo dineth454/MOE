@@ -112,10 +112,10 @@
 .vacancy {
     padding: 5px;
     text-align: left;
-    border-bottom: 1px solid #DDD;
+    border-bottom: 3px solid #FFF;
     min-height: 70px;
     color: #1363B9;
-    cursor: pointer;
+    background-color: #F8F8FF;
 }
 .notification_vacancy {
     padding: 5px;

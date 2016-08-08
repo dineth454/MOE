@@ -70,13 +70,13 @@ ob_start();
                             //$nic = $_SESSION["nic"];
                             $vacancy = new Vacancy();
 
-                            $nic = "922843776V";
+                            //$nic = "922843776V";
                             
                             $sender = $_SESSION["nic"];
                             $not = new Shownotification();
                             
-                            $provinceId = $vacancy->getProvinceIDFromNIC($nic);
-                            $zonalId = $vacancy->getZonalIDFromNIC($nic);
+                            $provinceId = $vacancy->getProvinceIDFromNIC($sender);
+                            $zonalId = $vacancy->getZonalIDFromNIC($sender);
                             
                             
 
