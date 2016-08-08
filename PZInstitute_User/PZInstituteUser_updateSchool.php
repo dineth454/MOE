@@ -76,18 +76,18 @@ ob_start();
                         $LoggedUsernic = $_SESSION["nic"];
                         $designationIdLoggedUser = $_SESSION['designationTypeID'];
 
-                        require("../classes/employee.php");
-                        $employee = new Employee();
+                        require("../classes/institute.php");
+                        $institute = new Institute();
 
-                        $resultOne = $employee->getProvinceIdOfLoggedUser($LoggedUsernic);
+
+                        $resultOne = $institute->getProvinceIdOfLoggedUser($LoggedUsernic);
                         $provinceIdLoggedUser = $resultOne['provinceID'];
 
-                        $resultTwo = $employee->getZonalIDLoggedUser($LoggedUsernic);
+                        $resultTwo = $institute->getZonalIDLoggedUser($LoggedUsernic);
                         $zonalIdLoggedUser = $resultTwo['zonalID'];
 
 
-                        require("../classes/institute.php");
-                        $institute = new Institute();
+                        
 
                         
                         if (isset($_POST['submit'])) {

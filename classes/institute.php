@@ -122,6 +122,46 @@ class Institute {
         return $InstituteIDLoggedUser;
     }
 
+
+//================== wena karanna deyak nathuwata employee class eken import karapu functions =================//
+     function getProvinceIdOfLoggedUser($LoggedUsernic) {
+        global $con;
+        // select Institute Id of logged User
+        $query_for_get_instituteId = "select instituteID from employee where nic = '" . $LoggedUsernic . "'";
+        $result_InstituteID = $con->query($query_for_get_instituteId);
+        $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
+        $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
+
+
+        // province Id of logged User
+
+        $query_for_find_provinceID = "select provinceID from province_office where instituteID = '" . $InstituteIDLoggedUser . "'";
+        $result_loggedUserProvinceID = $con->query($query_for_find_provinceID);
+        $result_loggedUserProvinceIdArray = mysqli_fetch_array($result_loggedUserProvinceID);
+        // $provinceID_LoggedUser = $result_loggedUserProvinceIdArray['provinceID'];
+
+        return $result_loggedUserProvinceIdArray;
+    }
+
+    function getZonalIDLoggedUser($loggedUsernic) {
+
+        global $con;
+        // select Institute Id of logged User
+        $query_for_get_instituteId = "select instituteID from employee where nic = '" . $loggedUsernic . "'";
+        $result_InstituteID = $con->query($query_for_get_instituteId);
+        $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
+        $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
+
+        //get zonal Office Id Of Logged User
+        $query_for_get_zonal_id_of_logged_user = "select zonalID from zonal_office where instituteID =' " . $InstituteIDLoggedUser . " ' ";
+        $result_zonalOffice = $con->query($query_for_get_zonal_id_of_logged_user);
+        $result_zonal_arry = mysqli_fetch_array($result_zonalOffice);
+        // $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
+        return $result_zonal_arry;
+    }
+
+    //==========================================================================================================//
+
 }
 
 ?>
