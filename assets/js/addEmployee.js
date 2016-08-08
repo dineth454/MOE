@@ -456,32 +456,45 @@ function myFunction() {
     //select Ministry Officer Role
     if (x == 2) {
         //$("#designation").val("1");
+        $('#designationDiv').slideDown("slow");
         $("#designation option[value='2']").hide();
         $("#designation option[value='3']").hide();
         $("#designation option[value='4']").hide();
         $("#designation option[value='5']").hide();
     } else if (x == 3) {
+        $('#designationDiv').slideDown("slow");
         $("#designation option[value='1']").hide();
         $("#designation option[value='4']").hide();
         $("#designation option[value='5']").hide();
 
     } else if (x == 4) {
+        $('#designationDiv').slideDown("slow");
         $("#designation option[value='1']").hide();
         $("#designation option[value='2']").hide();
         $("#designation option[value='3']").hide();
         $("#designation option[value='5']").hide();
 
     } else if (x == 5) {
+        $('#designationDiv').slideDown("slow");
         $("#designation option[value='1']").hide();
         $("#designation option[value='2']").hide();
         $("#designation option[value='3']").hide();
         $("#designation option[value='5']").hide();
 
-    } else {
+    } else if(x == 6){
+        $('#designationDiv').slideDown("slow");
         $("#designation option[value='1']").hide();
         $("#designation option[value='2']").hide();
         $("#designation option[value='3']").hide();
         $("#designation option[value='4']").hide();
+    }else{
+        $("#designation option[value='1']").hide();
+        $("#designation option[value='2']").hide();
+        $("#designation option[value='3']").hide();
+        $("#designation option[value='4']").hide();
+        $("#designation option[value='5']").hide();
     }
 }
+
+
 		
