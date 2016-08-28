@@ -457,6 +457,7 @@ function myFunction() {
     if (x == 2) {
         //$("#designation").val("1");
         $('#designationDiv').slideDown("slow");
+        $("#designation option[value='1']").show();
         $("#designation option[value='2']").hide();
         $("#designation option[value='3']").hide();
         $("#designation option[value='4']").hide();
@@ -464,6 +465,8 @@ function myFunction() {
     } else if (x == 3) {
         $('#designationDiv').slideDown("slow");
         $("#designation option[value='1']").hide();
+        $("#designation option[value='2']").show();
+        $("#designation option[value='3']").show();
         $("#designation option[value='4']").hide();
         $("#designation option[value='5']").hide();
 
@@ -472,6 +475,7 @@ function myFunction() {
         $("#designation option[value='1']").hide();
         $("#designation option[value='2']").hide();
         $("#designation option[value='3']").hide();
+        $("#designation option[value='4']").show();
         $("#designation option[value='5']").hide();
 
     } else if (x == 5) {
@@ -479,6 +483,7 @@ function myFunction() {
         $("#designation option[value='1']").hide();
         $("#designation option[value='2']").hide();
         $("#designation option[value='3']").hide();
+        $("#designation option[value='4']").show();
         $("#designation option[value='5']").hide();
 
     } else if(x == 6){
@@ -487,6 +492,7 @@ function myFunction() {
         $("#designation option[value='2']").hide();
         $("#designation option[value='3']").hide();
         $("#designation option[value='4']").hide();
+        $("#designation option[value='5']").show();
     }else{
         $("#designation option[value='1']").hide();
         $("#designation option[value='2']").hide();
@@ -495,6 +501,7 @@ function myFunction() {
         $("#designation option[value='5']").hide();
     }
 }
+
 
 
 		

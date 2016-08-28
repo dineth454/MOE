@@ -43,7 +43,7 @@ ob_start();
             
 
             <!-- include Navigation BAr -->
-            <?php include 'navigation_bar_teacher.php' ?>
+             <?php include '../interfaces/navigation_bar.php' ?>
             
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->

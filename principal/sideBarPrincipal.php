@@ -6,13 +6,13 @@
                     
                    
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse2"  style="<?php echo $navMembers;?> ; <?php echo $textMembers;?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse2" class="collapse <?php echo $colMembers;?>">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse2"  style="<?php?> ; <?php?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse2" class="collapse <?php?>">
                             <li>
-                                <a href="addVacancyPrincipal.php" style="<?php echo $textAddMembers;?>">Add Vacancies</a>
+                                <a href="addVacancyPrincipal.php" style="<?php?>">Add Vacancies</a>
                             </li>
                             <li>
-                                <a href="viewVacancy.php" style="<?php echo $textUpdateMembers;?>">View Vacancies</a>
+                                <a href="viewVacancy.php" style="<?php?>">View Vacancies</a>
                             </li>
                             
                         </ul>
