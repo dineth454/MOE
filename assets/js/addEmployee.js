@@ -20,7 +20,7 @@ function validateForm() {
     var validateDropdownID = document.getElementById("designation").value;
 
     if (validateDropdownID == 1) {
-       // alert(validateDropdownID);
+        // alert(validateDropdownID);
     } else if (validateDropdownID == 2) {
 
         if (!validateDropDown("provinceID", "errorProvince")) {
@@ -186,7 +186,7 @@ function validatenameWithInit(text) {
         document.getElementById("name").style.borderColor = "red";
         document.getElementById("errorFirstName").innerHTML = "Required";
         document.getElementById("errorFirstName").style.color = "red";
-        return false; 
+        return false;
     } else if (!(pattern.test(text))) {
         document.getElementById("name").focus();
         document.getElementById("name").style.borderColor = "red";
@@ -208,7 +208,7 @@ function validatefullName(text) {
         document.getElementById("fname").style.borderColor = "red";
         document.getElementById("errorLastName").innerHTML = "Required";
         document.getElementById("errorLastName").style.color = "red";
-        return false; 
+        return false;
     } else if (!(pattern.test(text))) {
         document.getElementById("fname").focus();
         document.getElementById("fname").style.borderColor = "red";
@@ -229,7 +229,7 @@ function validateemploymentID(text) {
         document.getElementById("eId").style.borderColor = "red";
         document.getElementById("errorEmployID").innerHTML = "Required";
         document.getElementById("errorEmployID").style.color = "red";
-        return false; 
+        return false;
     } else {
         document.getElementById("eId").style.borderColor = "green";
         document.getElementById("errorEmployID").innerHTML = "";
@@ -244,7 +244,7 @@ function validateaddress(text) {
         document.getElementById("address").style.borderColor = "red";
         document.getElementById("errorAddress").innerHTML = "Required";
         document.getElementById("errorAddress").style.color = "red";
-        return false; 
+        return false;
     } else {
         document.getElementById("address").style.borderColor = "green";
         document.getElementById("errorAddress").innerHTML = "";
@@ -275,7 +275,7 @@ function validateNicNumber(text) {
         document.getElementById("nic").style.borderColor = "red";
         document.getElementById("errornicNum").innerHTML = "Required";
         document.getElementById("errornicNum").style.color = "red";
-        return false; 
+        return false;
     } else if ((pattern.test(text)) == false || text.length < 10) {
         document.getElementById("nic").focus();
         document.getElementById("nic").style.borderColor = "red";
@@ -314,7 +314,7 @@ function validateMobileNumber(text) {
         document.getElementById("errormobileNumb").innerHTML = "Required";
         document.getElementById("errormobileNumb").style.color = "red";
         return false;
-    } else if (!(pattern.test(text))){
+    } else if (!(pattern.test(text))) {
         document.getElementById("mobileNm").focus();
         document.getElementById("mobileNm").style.borderColor = "red";
         document.getElementById("errormobileNumb").innerHTML = "Please enter a valid mobile number";
@@ -419,7 +419,7 @@ function showUser(str) {
     }
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            
+
             document.getElementById("abc").innerHTML = xmlhttp.responseText;
         }
     }
@@ -449,4 +449,52 @@ function loadSchool(str) {
     xmlhttp.send();
 
 }
+
+function myFunction() {
+    var x = document.getElementById("select_role").value;
+
+    //select Ministry Officer Role
+    if (x == 2) {
+        //$("#designation").val("1");
+        $('#designationDiv').slideDown("slow");
+        $("#designation option[value='2']").hide();
+        $("#designation option[value='3']").hide();
+        $("#designation option[value='4']").hide();
+        $("#designation option[value='5']").hide();
+    } else if (x == 3) {
+        $('#designationDiv').slideDown("slow");
+        $("#designation option[value='1']").hide();
+        $("#designation option[value='4']").hide();
+        $("#designation option[value='5']").hide();
+
+    } else if (x == 4) {
+        $('#designationDiv').slideDown("slow");
+        $("#designation option[value='1']").hide();
+        $("#designation option[value='2']").hide();
+        $("#designation option[value='3']").hide();
+        $("#designation option[value='5']").hide();
+
+    } else if (x == 5) {
+        $('#designationDiv').slideDown("slow");
+        $("#designation option[value='1']").hide();
+        $("#designation option[value='2']").hide();
+        $("#designation option[value='3']").hide();
+        $("#designation option[value='5']").hide();
+
+    } else if(x == 6){
+        $('#designationDiv').slideDown("slow");
+        $("#designation option[value='1']").hide();
+        $("#designation option[value='2']").hide();
+        $("#designation option[value='3']").hide();
+        $("#designation option[value='4']").hide();
+    }else{
+        $("#designation option[value='1']").hide();
+        $("#designation option[value='2']").hide();
+        $("#designation option[value='3']").hide();
+        $("#designation option[value='4']").hide();
+        $("#designation option[value='5']").hide();
+    }
+}
+
+
 		

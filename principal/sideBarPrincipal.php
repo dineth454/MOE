@@ -1,18 +1,18 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="homePrincipal.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
+                    <li style="<?php echo $navHome;?>">
+                        <a href="homePrincipal.php" style="<?php echo $textHome;?>"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
                     </li>
                     
                    
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse2"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse2" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse2"  style="<?php echo $navMembers;?> ; <?php echo $textMembers;?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse2" class="collapse <?php echo $colMembers;?>">
                             <li>
-                                <a href="addVacancyPrincipal.php">Add Vacancies</a>
+                                <a href="addVacancyPrincipal.php" style="<?php echo $textAddMembers;?>">Add Vacancies</a>
                             </li>
                             <li>
-                                <a href="addSchool.php">View Vacancies</a>
+                                <a href="addSchool.php" style="<?php echo $textUpdateMembers;?>">View Vacancies</a>
                             </li>
                             
                         </ul>
