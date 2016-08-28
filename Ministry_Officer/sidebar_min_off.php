@@ -78,12 +78,12 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse7"  style="<?php echo $navMembers;?> ; <?php echo $textMembers;?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse7" class="collapse <?php echo $colMembers;?>">
+                   <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse7"  style="<?php?> ; <?php?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse7" class="collapse <?php?>">
                             
                             <li>
-                                <a href="viewVacancy.php" style="">View Vacancies</a>
+                                <a href="viewVacancy.php" style="<?php?>">View Vacancies</a>
                             </li>
                             
                         </ul>
