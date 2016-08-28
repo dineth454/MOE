@@ -128,11 +128,6 @@ function validateEmpUpdateFront() {
 function validateEmpUpdateForm() {
     var errors = [];
 
-    //validate Roletype
-    if (!validateDropDown("select_role", "errorRole")) {
-        errors.push("errorRole");
-    }
-
     var nameWithInit = document.getElementById("name").value;
     if (!validatenameWithInit(nameWithInit)) {
         errors.push("errorFirstName");
