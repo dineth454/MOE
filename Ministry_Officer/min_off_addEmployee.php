@@ -306,6 +306,7 @@ ob_start();
                                                 <label id="errorDesignation" style="font-size: 10px"> </label>
                                             </div>
 
+
                                             <!-- Province Office-->
                                             <div class="form-group" style="display: none;" id="provinceIDDiv">
                                                 <label for="province Office">Province Office</label>
