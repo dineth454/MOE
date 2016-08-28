@@ -78,7 +78,7 @@ background-size: cover;
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
             <?php 
-            //include 'sideBarActivation.php';
+            include 'sideBarActivation.php';
 
             //sideBar Activation
             $navHome = "background-color: #0A1A42;";
