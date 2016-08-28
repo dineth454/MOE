@@ -13,8 +13,6 @@
 <html lang="en">
 
 <head>
-
-
 <style type="text/css">
     
     .panel-heading {

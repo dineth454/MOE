@@ -12,7 +12,7 @@
                                 <a href="addVacancyPrincipal.php" style="<?php echo $textAddMembers;?>">Add Vacancies</a>
                             </li>
                             <li>
-                                <a href="addSchool.php" style="<?php echo $textUpdateMembers;?>">View Vacancies</a>
+                                <a href="viewVacancy.php" style="<?php echo $textUpdateMembers;?>">View Vacancies</a>
                             </li>
                             
                         </ul>
