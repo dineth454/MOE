@@ -19,6 +19,7 @@
     
     .panel-heading {
      background-color: #ffffff;
+     
 }
 </style>
 
