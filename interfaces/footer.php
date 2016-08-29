@@ -6,6 +6,8 @@
     bottom:0;
     left:0; 
     }
+
+    
 </style>
 <footer>
     <div class="footer footer_col">
