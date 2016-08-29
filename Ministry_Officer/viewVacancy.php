@@ -120,7 +120,7 @@ ob_start();
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             
-                                                <?php echo $vacancy-> viewVacancy($provinceID) ; ?>
+                                                <?php echo $vacancy-> viewVacancy($provinceID); ?>
 
                                         </div>
                                     </div>
@@ -140,6 +140,7 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
         </div>
+        <br>
         <br>
 
         <?php include '../interfaces/footer.php' ?>
