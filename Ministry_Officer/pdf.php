@@ -138,7 +138,7 @@ $pdf->AddPage();
             $html .= '<th>Subject</th> ' ;
 
        }else{
-            // $html = '<h1>GTMS</h1>';
+            // $html = '<h1>'.$count.'</h1>';
             $html .= '<table width="600px" cellspacing="15" cellpadding="1" border="0">';
             $html .= '<tr style="background-color:#4d94ff;text-align:center" >';
             $html .= '<th>NIC</th>'  ; 
@@ -156,8 +156,9 @@ $pdf->AddPage();
 
 
     if (mysqli_num_rows($result) > 0) {
+        $count = 0;
         while ($row = mysqli_fetch_array($result)) {
-                                        
+                  $count = $count + 1 ;                            
             $rslt_ID = $row['nic'];
 			$html .= '<tr style="text-align:center;">';
             if($subject != ''){
@@ -177,7 +178,12 @@ $pdf->AddPage();
 		   
 		                                    
 		    $html .= '</tr>';
+                    
+                    
         }
+        $html .= '<tr style="text-align:center;">';
+                    $html .= '<h3> Total Number Of Teachers: ' .$count.'</h1>';
+                    $html .= '</tr>';
     }
                                 
     $html .= '</table>';
