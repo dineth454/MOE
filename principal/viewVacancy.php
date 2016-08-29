@@ -47,7 +47,19 @@ ob_start();
             
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->
-            <?php include 'sideBarPrincipal.php' ?>
+            <?php 
+
+            include 'sideBarActivation.php';
+
+            $navVacancy = "background-color: #0A1A42;";
+            $textVacancy = "color: white;";
+
+            $navViewVacancy = "background-color: #091536;";
+            $textViewVacancy = "color: white;";
+
+            $colVacancy = "collapse in";
+
+            include 'sideBarPrincipal.php'; ?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             </nav>

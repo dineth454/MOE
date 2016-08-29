@@ -40,4 +40,12 @@
 	$colSubject = "collapse";
 	$colSearch = "collapse";
 	$colTransfer = "collapse";
+	$colVacancy = "collapse";
+
+	$navVacancy = "";
+	$textVacancy = "";
+	$navAddVacancy = "background-color: #050D21";
+	$textAddVacancy = "";
+	$navViewVacancy = "background-color: #050D21";
+	$textViewVacancy = "";
 ?>

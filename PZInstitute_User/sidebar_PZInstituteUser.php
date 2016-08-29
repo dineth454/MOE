@@ -39,6 +39,17 @@
                         </ul>
                     </li>
 
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"  style="<?php echo $navVacancy?> ; <?php echo $textVacancy;?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse5" class="collapse <?php echo $colVacancy?>">
+                           
+                            <li style="<?php echo $navViewVacancy?>">
+                                <a href="viewVacancy.php" style="<?php echo $textViewVacancy?>">View Vacancies</a>
+                            </li>
+                            
+                        </ul>
+                    </li>   
+
                     
                     <li>
                         <a href="mapview.php" data-toggle="collapse" data-target="#collapse7" style="<?php echo $navMap;?> ; <?php echo $textMap;?>"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
