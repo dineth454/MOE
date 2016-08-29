@@ -24,6 +24,8 @@
 	$textAddSubject = "";
 	$navUpdateSubject = "background-color: #050D21";
 	$textUpdateSubject = "";
+	$navAddCurrentSubject = "background-color: #050D21";
+	$textAddCurrentSubject ="";
 
 	$navSearch = "";
 	$textSearch = "";

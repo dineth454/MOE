@@ -33,6 +33,17 @@ ob_start();
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <!--<link href="../assets/css/fonts_styles.css" rel="stylesheet">-->
 
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
+
 
     </head>
 
@@ -51,11 +62,13 @@ ob_start();
             <?php
             //include 'Extended_principle_sidebar_activation.php';
             //sideBar Activation
+            include 'sideBarActivation.php';
+
             $navSubject = "background-color: #0A1A42;";
             $textSubject = "color: white;";
 
-            $navAddSubject = "background-color: #091536;";
-            $textAddSubject = "color: white;";
+            $navAddCurrentSubject = "background-color: #091536;";
+            $textAddCurrentSubject = "color: white;";
 
             $colSubject = "collapse in";
 

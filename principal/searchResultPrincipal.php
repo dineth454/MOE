@@ -100,6 +100,17 @@ if (mysqli_num_rows($result) == 1) {
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
 
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
+
 
     </head>
 
@@ -115,7 +126,7 @@ if (mysqli_num_rows($result) == 1) {
                 <!-- Sidebar -->
 
                 <?php
-                //include 'sideBarActivation.php';
+                include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navSearch = "background-color: #0A1A42;";

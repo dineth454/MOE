@@ -44,6 +44,16 @@ ob_start();
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
 
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
 
     </head>
 
@@ -62,13 +72,13 @@ ob_start();
                 include 'sideBarActivation.php';
 
                 //sideBar Activation
-                $navMembers = "background-color: #0A1A42;";
-                $textMembers = "color: white;";
+                $navVacancy = "background-color: #0A1A42;";
+                $textVacancy = "color: white;";
 
-                $navAddMembers = "background-color: #091536;";
-                $textAddMembers = "color: white;";
+                $navAddVacancy = "background-color: #091536;";
+                $textAddVacancy = "color: white;";
 
-                $colMembers = "collapse in";
+                $colVacancy = "collapse in";
 
                 include 'sideBarPrincipal.php';  ?>
             <!-- /#sidebar-wrapper -->
