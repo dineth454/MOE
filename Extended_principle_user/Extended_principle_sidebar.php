@@ -51,17 +51,17 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"  style="<?php echo $navMembers;?> ; <?php echo $textMembers;?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse5" class="collapse <?php echo $colMembers;?>">
-                            <li>
-                                <a href="Extended_principle_addVacancies.php" style="<?php echo $textAddMembers;?>">Add Vacancies</a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"  style="<?php echo $navVacancy?> ; <?php echo $textVacancy;?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse5" class="collapse <?php echo $colVacancy?>">
+                            <li style="<?php echo $navAddVacancy?>">
+                                <a href="addVacancyPrincipal.php" style="<?php echo $textAddVacancy?>">Add Vacancies</a>
                             </li>
-                            <li>
-                                <a href="viewVacancy.php" style="<?php echo $textUpdateMembers;?>">View Vacancies</a>
+                            <li style="<?php echo $navViewVacancy?>">
+                                <a href="viewVacancy.php" style="<?php echo $textViewVacancy?>">View Vacancies</a>
                             </li>
                             
                         </ul>
-                    </li>                                  
+                    </li>                            
 
 
                     <li>

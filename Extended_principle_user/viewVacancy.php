@@ -60,7 +60,15 @@ ob_start();
             <!-- Sidebar -->
             <?php
             include 'Extended_principle_sidebar_activation.php';
-             //$colvacant = "collapse in";
+
+            $navVacancy = "background-color: #0A1A42;";
+            $textVacancy = "color: white;";
+
+            $navViewVacancy = "background-color: #091536;";
+            $textViewVacancy = "color: white;";
+
+            $colVacancy = "collapse in";
+             
              include 'Extended_principle_sidebar.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
