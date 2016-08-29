@@ -43,6 +43,16 @@ ob_start();
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
 
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
 
     </head>
 
@@ -270,7 +280,7 @@ ob_start();
                                             <!-- Select role-->
                                             <div class="form-group">
                                                 <label for="selec_trole" style="display: inline-block;">User Role</label>
-                                                <select required class="form-control" id="select_role" name="select_role" onchange="myFunction()>
+                                                <select required class="form-control" id="select_role" name="select_role" onchange="myFunction()">
                                                     <option value="">Select Role</option>
                                                     <option value="2">Ministry User</option>
                                                     <option value="3">PZInstitute User</option>

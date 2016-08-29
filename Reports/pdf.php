@@ -124,7 +124,9 @@ $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 $pdf->SetFont('helvetica', '', 9);
 $pdf->AddPage();
      
-            
+
+           
+            echo 'kalinga';
 
        if($subject != ''){
             //$html = '<h1>GTMS</h1>';
@@ -138,13 +140,14 @@ $pdf->AddPage();
             $html .= '<th>Subject</th> ' ;
 
        }else{
-            // $html = '<h1>GTMS</h1>';
+            // $html .= '<h1>kalinga</h1>';
             $html .= '<table width="600px" cellspacing="15" cellpadding="1" border="0">';
             $html .= '<tr style="background-color:#4d94ff;text-align:center" >';
             $html .= '<th>NIC</th>'  ; 
             $html .= '<th>Name</th> ' ;
             $html .= '<th>Employment ID</th> ' ;
             $html .= '<th>Email</th> ' ;
+            // $html .= '<th>kalinga</th>';
     
 
        }                         
@@ -156,8 +159,9 @@ $pdf->AddPage();
 
 
     if (mysqli_num_rows($result) > 0) {
+        $count = 0;
         while ($row = mysqli_fetch_array($result)) {
-                                        
+                      $count = $count + 1 ;                  
             $rslt_ID = $row['nic'];
 			$html .= '<tr style="text-align:center;">';
             if($subject != ''){
@@ -178,11 +182,13 @@ $pdf->AddPage();
 		                                    
 		    $html .= '</tr>';
         }
+        
+        
     }
                                 
     $html .= '</table>';
     
- 
+  $html .= '<h1>' .$count.'</h1>';
 
 
    /* $html .=  '</body>';

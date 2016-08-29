@@ -45,6 +45,12 @@ ob_start();
         background-attachment: fixed;
         background-size: 1150px 350px;
         }
+
+        .footer-nav {
+            text-align: end;
+            padding-right: 100px;
+            list-style: none;
+}
         </style>
 
 

@@ -31,7 +31,16 @@
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <link href="../assets/css/fonts_styles.css" rel="stylesheet">
 
+        <style>
 
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
     </head>
 
     <body>

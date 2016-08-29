@@ -45,7 +45,7 @@
 
                         <ul id="collapse4" class="<?php echo $colSearch;?>">
                             <li style="<?php echo $navSearchMembers;?>">
-                                <a href="min_off_searchUser.php" style="<?php echo $textSearchMembers;?>">Search Members</a>
+                                <a href="Extended_principle_searchUserPrincipal.php" style="<?php echo $textSearchMembers;?>">Search Members</a>
 
                             </li>
                         </ul>
@@ -54,7 +54,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse5"  style="<?php echo $navVacancy?> ; <?php echo $textVacancy;?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i>Vacancy <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse5" class="collapse <?php echo $colVacancy?>">
                             <li style="<?php echo $navAddVacancy?>">
-                                <a href="addVacancyPrincipal.php" style="<?php echo $textAddVacancy?>">Add Vacancies</a>
+                                <a href="Extended_principle_addVacancies.php" style="<?php echo $textAddVacancy?>">Add Vacancies</a>
                             </li>
                             <li style="<?php echo $navViewVacancy?>">
                                 <a href="viewVacancy.php" style="<?php echo $textViewVacancy?>">View Vacancies</a>
