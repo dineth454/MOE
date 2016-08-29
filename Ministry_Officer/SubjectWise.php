@@ -98,7 +98,7 @@ ob_start();
                                     <!-- Designation-->
                                     <div class="form-group">
                                     <label for="designation" style="display: inline-block;">Designation</label>
-                                    <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
+                                    <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)" autofocus>
                                         <option value="">Select Designation</option>
                                         <option value="5">Teacher</option>
                                     </select>

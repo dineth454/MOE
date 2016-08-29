@@ -131,7 +131,7 @@
 
                                     <div class="form-group">
                                         <label for="School">School Name/Address</label>
-                                            <input type="text" class="form-control" id="School" name="School"  placeholder="Enter School Name or Address" value="<?php echo $schoolName ;?>"/>
+                                            <input type="text" class="form-control" id="School" name="School"  placeholder="Enter School Name or Address" value="<?php echo $schoolName ;?>" autofocus/>
                                         <label id="errorSchoolName" style="font-size:10px"> </label>
                                     </div>
 

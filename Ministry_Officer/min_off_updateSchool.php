@@ -150,7 +150,7 @@ ob_start();
 
                                             <div  class="form-group" id="provinceIDDiv">
                                                 <label for="province Office" style="text-align: left; padding-left:;">province Office </label>
-                                                <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                                <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)" autofocus>
                                                     <option value="" >Select Province Office</option>
                                                     <option value="1">Central Province</option>
                                                     <option value="2">Western Province</option>
