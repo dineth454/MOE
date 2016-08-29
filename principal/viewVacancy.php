@@ -33,6 +33,17 @@ ob_start();
         <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
+
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
     </head>
 
     <body>
@@ -147,6 +158,7 @@ ob_start();
 
         </div>
 
+        <br>
         <?php include '../interfaces/footer.php' ?>
         <script src = "../assets/js/addEmployee.js"></script>
 

@@ -19,22 +19,22 @@
                     </li>
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse3"><i class="fa fa-book fa-2x" aria-hidden="true"></i> Subject <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse3" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse3" style="<?php echo $navSubject;?> ; <?php echo $textSubject;?>"><i class="fa fa-book fa-2x" aria-hidden="true"></i> Subject <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse3" class="collapse <?php echo $colSubject?>">
                             
-                            <li>
-                                <a href="addCurrentSubjectFormFront_Principal.php">Add Current subject Of Teacher</a>
+                            <li style="<?php echo $navAddCurrentSubject?>">
+                                <a href="addCurrentSubjectFormFront_Principal.php" style="<?php echo $textAddCurrentSubject?>">Add Current subject Of Teacher</a>
                             </li>
                             
                         </ul>
                     </li>
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse4"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="collapse4" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="collapse4" class="collapse <?php echo $colSearch;?>">
                             
-                            <li>
-                                <a href="searchUserPrincipal.php">Search Members</a>
+                            <li style="<?php echo $navSearchMembers;?>">
+                                <a href="searchUserPrincipal.php" style="<?php echo $textSearchMembers;?>">Search Members</a>
                             </li>
                             
                         </ul>
@@ -45,7 +45,7 @@
        
        
                     <li>
-                        <a href="mapviewPrincipal.php" class="ajax_load slide_font"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
+                        <a href="mapviewPrincipal.php" class="ajax_load slide_font" style="<?php echo $navMap;?> ; <?php echo $textMap;?>"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
                     </li>
 
                 </ul>

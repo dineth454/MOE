@@ -51,11 +51,13 @@ ob_start();
             <?php
             //include 'Extended_principle_sidebar_activation.php';
             //sideBar Activation
+            include 'sideBarActivation.php';
+
             $navSubject = "background-color: #0A1A42;";
             $textSubject = "color: white;";
 
-            $navAddSubject = "background-color: #091536;";
-            $textAddSubject = "color: white;";
+            $navAddCurrentSubject = "background-color: #091536;";
+            $textAddCurrentSubject = "color: white;";
 
             $colSubject = "collapse in";
 

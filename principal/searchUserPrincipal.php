@@ -58,7 +58,7 @@ ob_start();
                 <!-- Sidebar -->
 
                 <?php
-                //include 'sideBarActivation.php';
+                include 'sideBarActivation.php';
 
                 //sideBar Activation
                 $navSearch = "background-color: #0A1A42;";

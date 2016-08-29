@@ -55,7 +55,7 @@ ob_start();
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
                 <?php 
-                //include 'sideBarActivation.php';
+                include 'sideBarActivation.php';
                 $navMap = "background-color: #0A1A42;";
                 $textMap = "color: white;";
                 include 'sidebarPrincipal.php' ?>
