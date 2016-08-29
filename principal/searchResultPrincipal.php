@@ -137,7 +137,7 @@ if (mysqli_num_rows($result) == 1) {
 
                 $colSearch = "collapse in";
 
-                include 'sidebar_admin.php';?>
+                include 'sideBarPrincipal.php';?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -240,7 +240,7 @@ if (mysqli_num_rows($result) == 1) {
                                 <!-- back button-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                      <form>
-                                        <input class="btn btn-primary" type="button" value="Back" onclick="window.location.href='admin_searchUser.php'"/>
+                                        <input class="btn btn-primary" type="button" value="Back" onclick="window.location.href='searchUserPrincipal.php'"/>
                                     </form> 
                                 </div>
                             </div>

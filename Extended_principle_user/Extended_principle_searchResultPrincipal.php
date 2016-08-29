@@ -126,7 +126,7 @@ if (mysqli_num_rows($result) == 1) {
                 <!-- Sidebar -->
 
                 <?php
-                include 'sideBarActivation.php';
+                include 'Extended_principle_sidebar_activation.php';
 
                 //sideBar Activation
                 $navSearch = "background-color: #0A1A42;";
@@ -137,7 +137,7 @@ if (mysqli_num_rows($result) == 1) {
 
                 $colSearch = "collapse in";
 
-                include 'sidebar_admin.php';?>
+                include 'Extended_principle_sidebar.php';?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -240,7 +240,7 @@ if (mysqli_num_rows($result) == 1) {
                                 <!-- back button-->
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                      <form>
-                                        <input class="btn btn-primary" type="button" value="Back" onclick="window.location.href='admin_searchUser.php'"/>
+                                        <input class="btn btn-primary" type="button" value="Back" onclick="window.location.href='Extended_principle_searchUserPrincipal.php'"/>
                                     </form> 
                                 </div>
                             </div>

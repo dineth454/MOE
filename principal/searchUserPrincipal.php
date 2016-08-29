@@ -80,7 +80,7 @@ ob_start();
 
                 $colSearch = "collapse in";
 
-                include 'sidebar_PZInstituteUser.php'; ?>
+                include 'sideBarPrincipal.php'; ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
             </nav>
@@ -246,7 +246,7 @@ ob_start();
                                         echo "<td>{$row['fullName']}</td>";
                                         echo "<td>{$row['employeementID']}</td>";
                                         echo "<td>{$row['email']}</td>";
-                                        echo "<td align='center'><a href='PZInstituteUser_searchResult.php?rslt_ID=".$rslt_ID."'>more</a></td>";
+                                        echo "<td align='center'><a href='searchResultPrincipal.php?rslt_ID=".$rslt_ID."'>more</a></td>";
                                         echo '</tr>';
                                     }
                                 }else{
@@ -259,7 +259,7 @@ ob_start();
                                 echo '<script language="javascript">
                                         alertify.confirm("Please fill/select one or more details to search!!", function (e) {
                                         if (e) {
-                                            window.location.href="PZInstituteUser_searchUser.php";
+                                            window.location.href="searchUserPrincipal.php";
                                         }
                                         });
                                     </script>';
@@ -440,7 +440,7 @@ ob_start();
                                             </div>
 
                                             <div class="form-group" style="float: right; padding-right: 10px;">
-                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
+                                                <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='homePrincipal.php'"/>
                                             </div>
                                         </div>
                                     </div>
@@ -451,7 +451,7 @@ ob_start();
                                     if (isset($_POST['submit'])) { ?>
 
                                         <div class="form-group">
-                                            <button class="btn btn-primary" href="PZInstituteUser_searchUser.php">Back</button>
+                                            <button class="btn btn-primary" href="admin_searchUser.php">Back</button>
                                         </div>
 
                                     <?php }else{ ?>
@@ -490,6 +490,7 @@ ob_start();
 
         </div>
 </br></br>
+
 <?php include '../interfaces/footer.php' ?>
 
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>

@@ -43,6 +43,17 @@ ob_start();
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
 
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
+
 
     </head>
 
@@ -295,6 +306,7 @@ ob_start();
                                                 <label id="errorDesignation" style="font-size: 10px"> </label>
                                             </div>
 
+
                                             <!-- Province Office-->
                                             <div class="form-group" style="display: none;" id="provinceIDDiv">
                                                 <label for="province Office">Province Office</label>
@@ -440,10 +452,6 @@ ob_start();
         <script src = "../assets/js/jquery-2.1.4.min.js"></script>
         <script src="../assets/js/jquery.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
-
-
-
-
 
     </body>
 

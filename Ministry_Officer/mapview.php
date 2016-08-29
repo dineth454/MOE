@@ -37,6 +37,17 @@ ob_start();
         <link href="../assets/css/smallbox.css" rel="stylesheet">
         <link href="../assets/css/footer.css" rel="stylesheet">
 
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
         
         
@@ -67,7 +78,7 @@ ob_start();
             <div id="page-content-wrapper" style="min-height: 550px;">
 
                 <div class="container-fluid" >
-                    <div id="map-canvas" style="width:500px;height:730px;"></div>
+                    <div id="map-canvas" style="width:500px;height:730px; box-shadow: 0px 0px 15px #595959;"></div>
 
 
 

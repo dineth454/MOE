@@ -41,6 +41,8 @@
         background-size: 1150px 350px;
         }
         </style>
+
+
     </head>
 
     <body>
@@ -56,7 +58,7 @@
              <!-- Sidebar -->
 
             <?php
-            include 'Extended_principle_sidebar_activation.php';
+            //include 'Extended_principle_sidebar_activation.php';
             //sideBar Activation
             $navMembers = "background-color: #0A1A42;";
             $textMembers = "color: white;";
@@ -66,7 +68,7 @@
 
             $colMembers = "collapse in";
 
-            include 'Extended_principle_sidebar.php'; ?>
+            include 'sideBarPrincipal.php'; ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
             </nav>

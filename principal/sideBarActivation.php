@@ -24,6 +24,8 @@
 	$textAddSubject = "";
 	$navUpdateSubject = "background-color: #050D21";
 	$textUpdateSubject = "";
+	$navAddCurrentSubject = "background-color: #050D21";
+	$textAddCurrentSubject ="";
 
 	$navSearch = "";
 	$textSearch = "";
@@ -35,11 +37,20 @@
 	$navTransferTeach = "background-color: #050D21";
 	$textTransferTeach = "";
 
+	$navReport = "";
+	$textReport = "";
+	$navviewReport = "background-color: #050D21";
+	$textviewReport = "";
+
+	$navMap = "";
+	$textMap = "";
+	
 	$colMembers = "collapse";
 	$colInstitute = "collapse";
 	$colSubject = "collapse";
 	$colSearch = "collapse";
 	$colTransfer = "collapse";
+	$colReport = "collapse";
 	$colVacancy = "collapse";
 
 	$navVacancy = "";

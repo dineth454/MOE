@@ -33,6 +33,17 @@ ob_start();
         
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
 </head>
 
     <body>
@@ -87,7 +98,7 @@ ob_start();
                                     <!-- Designation-->
                                     <div class="form-group">
                                     <label for="designation" style="display: inline-block;">Designation</label>
-                                    <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)">
+                                    <select required class="form-control" id="designation" name = "designation" onchange="selectionForm(this.value)" autofocus>
                                         <option value="">Select Designation</option>
                                         <option value="5">Teacher</option>
                                     </select>

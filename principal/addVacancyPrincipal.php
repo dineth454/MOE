@@ -37,7 +37,23 @@ ob_start();
 
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
+    
+    <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+        <!-- Alert end-->
 
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
 
     </head>
 
@@ -51,7 +67,20 @@ ob_start();
             <!--____________________________________________________________________________-->
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
-            <?php include 'sideBarPrincipal.php' ?>
+            <?php //include 'Extended_principle_sidebar_activation.php';
+
+                include 'sideBarActivation.php';
+
+                //sideBar Activation
+                $navVacancy = "background-color: #0A1A42;";
+                $textVacancy = "color: white;";
+
+                $navAddVacancy = "background-color: #091536;";
+                $textAddVacancy = "color: white;";
+
+                $colVacancy = "collapse in";
+
+                include 'sideBarPrincipal.php';  ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
             </nav>
@@ -64,6 +93,7 @@ ob_start();
 
                         <?php
                           require '../classes/vacansies.php';
+                          //require '../classes/Shownotification.php';
                             // get logged User details
                           
                             //$designationTypeID = $_SESSION["designationTypeID"];
@@ -74,7 +104,7 @@ ob_start();
                             
                             $sender = $_SESSION["nic"];
                             $not = new Shownotification();
-                            
+                            $schoolId = $vacancy->getSchoolIDOfLoggedUser($sender);
                             $provinceId = $vacancy->getProvinceIDFromNIC($sender);
                             $zonalId = $vacancy->getZonalIDFromNIC($sender);
                             
@@ -91,10 +121,21 @@ ob_start();
                             $id = $not->gennotid();
                             //echo $subject;
 
-                           $insertSuccess = $vacancy->addVacancy($provinceId, $zonalId, $subject, $grade, $num_of_teachers, $id, $sender);
-
-                            //$insertSuccess = $vacancy->addVacancy();
-
+                           $insertSuccess = $vacancy->addVacancy($provinceId, $zonalId,$schoolId,$subject, $grade, $num_of_teachers, $id, $sender);
+                           
+                           if($insertSuccess == 1){
+                               //$insertSuccess = $vacancy->addVacancy();
+                                echo '<script language="javascript">';
+                                echo 'alertify.alert("Vacanci Added SuccessFully.Thankyou")';
+                                echo '</script>';
+                               
+                           }else{
+                               
+                               echo '<script language="javascript">';
+                                echo 'alertify.alert("an Error Occured While Inserting Data")';
+                                echo '</script>';
+                           }
+                            
                              
                         
                            
@@ -181,8 +222,8 @@ ob_start();
                 </div>
 
                 <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
-                                <img src="../images/personDetails.png" width="400" height="400">
-                            </div>
+                    <img src="../images/personDetails.png" width="400" height="400">
+                </div>
             </div>
                     </div>
 

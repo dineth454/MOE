@@ -32,7 +32,7 @@ ob_start();
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <!--<link href="../assets/css/fonts_styles.css" rel="stylesheet">-->
-        
+
         <style>
 
         body {
@@ -43,7 +43,8 @@ ob_start();
         background-size: 1150px 350px;
         }
         </style>
-        
+
+
     </head>
 
     <body>
@@ -59,17 +60,19 @@ ob_start();
              <!-- Sidebar -->
 
             <?php
-            include 'Extended_principle_sidebar_activation.php';
+            //include 'Extended_principle_sidebar_activation.php';
             //sideBar Activation
+            include 'sideBarActivation.php';
+
             $navSubject = "background-color: #0A1A42;";
             $textSubject = "color: white;";
 
-            $navAddSubject = "background-color: #091536;";
-            $textAddSubject = "color: white;";
+            $navAddCurrentSubject = "background-color: #091536;";
+            $textAddCurrentSubject = "color: white;";
 
             $colSubject = "collapse in";
 
-            include 'Extended_principle_sidebar.php'; ?>
+            include 'sideBarPrincipal.php'; ?>
             <!-- /#sidebar-wrapper -->
             <!-- /.navbar-collapse -->
             </nav>
@@ -118,7 +121,7 @@ ob_start();
                                 //subjectId
                                 $_SESSION['subject']['subjectIdSearchUser'] = $result4['appoinmentSubject'];
                                 //redirect to this page
-                                header("Location: Extended_principle_addCurrentSubjectForm.php");
+                                header("Location: addCurrentSubjectForm_Principal.php");
                             } else {
                                 echo '<script language="javascript">';
                                 echo 'alert("This NIC Not Belongs To Teacher,Try Again.")';

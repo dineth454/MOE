@@ -36,6 +36,17 @@ ob_start();
         <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
+
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
     </head>
 
     <body onload="initialize()">
@@ -121,7 +132,7 @@ ob_start();
 
                                     <div class="form-group"  id="provinceIDDiv">
                                         <label for="province Office">Province Office</label>
-                                            <select class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)">
+                                            <select class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)" autofocus>
                                                 <option value="">Select Province Office</option>
                                                 <option value="1">Central Province</option>
                                                 <option value="2">Western Province</option>

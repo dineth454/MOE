@@ -19,6 +19,7 @@
     
     .panel-heading {
      background-color: #ffffff;
+     
 }
 </style>
 
@@ -55,10 +56,10 @@
 
 <style>
 body {
-    background-image: url("../images/background4.jpg");
-    background-repeat-x: no-repeat;
-background-repeat-y: no-repeat;
-background-size: cover;
+    background-image: url("../images/back3.jpg");
+    background-repeat: no-repeat;
+    background-position: 220px 50px;
+    background-size: 1150px 700px;
 }
 </style>
 
@@ -78,7 +79,7 @@ background-size: cover;
             <!-- Sidebar Menu Items-->
              <!-- Sidebar -->
             <?php 
-            //include 'sideBarActivation.php';
+            include 'sideBarActivation.php';
 
             //sideBar Activation
             $navHome = "background-color: #0A1A42;";
