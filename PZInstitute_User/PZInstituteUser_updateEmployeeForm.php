@@ -145,7 +145,7 @@ ob_start();
                         if (isset($_POST['submit'])) {
                             echo '</br>';
 
-                            $role_subitted = $_POST['select_role'];
+                            $role_subitted = $roleType;
                             $nameInitialsSubmitted = $_POST['name'];
                             $nameFullUpdated = $_POST['fname'];
                             $eIDSubmitted = $_POST['eId'];
@@ -190,6 +190,24 @@ ob_start();
                                             <div class="form-group col-lg-12" >
                                                 <div class="col-lg-6"><label>NIC Number</label></div>
                                                 <div class= "col-lg-6" style="display: inline-block;"><label ><?php echo $nicNumber; ?></label></div>
+                                            </div>
+
+                                            <!--User Role-->
+                                            <div class="form-group col-lg-12">
+                                                <div class="col-lg-6"><label for="select_role" style="display: inline-block;">User Role</label></div>
+                                                <div class="col-lg-6">
+                                                    <?php if ($roleType == 2) { ?>
+                                                            <div style="display: inline-block;"><label>Ministry User</label></div>
+                                                        <?php } else if ($roleType == 3) { ?>
+                                                            <div style="display: inline-block;"><label>PZInstitute User</label></div>
+                                                        <?php } else if ($roleType == 4) { ?>
+                                                            <div style="display: inline-block;"><label>Extended Principal User</label></div>
+                                                        <?php } else if ($roleType == 5) { ?>
+                                                            <div style="display: inline-block;"><label>General Principal User</label></div>
+                                                        <?php } else { ?>
+                                                            <div style="display: inline-block;"><label>General User</label></div>
+                                                        <?php } ?>
+                                                </div>
                                             </div>
 
                                             <!-- Designation-->
@@ -297,49 +315,6 @@ ob_start();
                                         </div>
                                         <div class="col-lg-12">
 
-                                            <!-- Select role-->
-                                            <div class="form-group">
-                                                <label for="selec_trole" style="display: inline-block;">User Role</label>
-                                                <select required class="form-control" id="select_role" name="select_role" >
-                                                    <?php if ($roleType == 2) { ?>
-                                                            <option selected="true" value="2" >Ministry User</option>
-                                                            <option value="3">PZInstitute User</option>
-                                                            <option value="4">Extended Principal User</option>
-                                                            <option value="5">General Principal User</option>
-                                                            <option value="6">General User</option>
-
-                                                        <?php } else if ($roleType == 3) { ?>
-                                                            <option value="2" >Ministry User</option>
-                                                            <option selected="true" value="3">PZInstitute User</option>
-                                                            <option value="4">Extended Principal User</option>
-                                                            <option value="5">General Principal User</option>
-                                                            <option value="6">General User</option>
-
-                                                        <?php } else if ($roleType == 4) { ?>
-                                                            <option value="2">Ministry User</option>
-                                                            <option value="3">PZInstitute User</option>
-                                                            <option selected="true" value="4">Extended Principal User</option>
-                                                            <option value="5">General Principal User</option>
-                                                            <option value="6">General User</option>
-
-                                                        <?php } else if ($roleType == 5) { ?>
-                                                            <option value="2">Ministry User</option>
-                                                            <option value="3">PZInstitute User</option>
-                                                            <option value="4">Extended Principal User</option>
-                                                            <option selected="true" value="5" >General Principal User</option>
-                                                            <option value="6">General User</option>
-                                                            
-                                                        <?php } else { ?>
-                                                            <option value="2">Ministry User</option>
-                                                            <option value="3">PZInstitute User</option>
-                                                            <option value="4">Extended Principal User</option>
-                                                            <option value="5" >General Principal User</option>
-                                                            <option selected="true" value="6">General User</option>
-                                                        <?php } ?>
-                                                        
-                                                </select>
-                                                <label id="errorRole" style="font-size:10px;"></label>
-                                            </div>
 
                                             <!-- Name With Initials-->
                                             <div class="form-group">

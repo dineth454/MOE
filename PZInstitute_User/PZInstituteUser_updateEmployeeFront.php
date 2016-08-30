@@ -36,6 +36,11 @@ ob_start();
         <link href="../assets/css/footer.css" rel="stylesheet">
         <link href="../assets/css/navbar_styles.css" rel="stylesheet">
 
+        <!-- Alert start-->
+        <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
+        <script src="../alertify/lib/alertify.min.js"></script>
+
         <style>
 
         body {
@@ -110,10 +115,9 @@ ob_start();
 
                             if (sizeof($result) == 0) {
                                 echo '<script language="javascript">';
-                                echo 'alert("Not Found This Nic,Try again!!!  Thank You.")';
+                                echo 'alertify.alert("NIC Not Found, Try Again!!")';
                                 echo '</script>';
-                                // echo $result1['provinceID'];
-                                // echo 'kalingaMAuau';
+
                             } else {
 
                                 //search karana user ministry Officer keneknam 

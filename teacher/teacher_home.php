@@ -30,12 +30,14 @@
         <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
+
+
         <style>
         body {
-            background-image: url("../images/back3.jpg");
-            background-repeat: no-repeat;
-            background-position: 220px 50px;
-            background-size: 1150px 700px;
+        background-image: url("../images/back3.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 50px;
+        background-size: 1150px 700px;
         }
         </style>
         
@@ -71,6 +73,11 @@
 
         </div> 
         <!-- /#wrapper -->
+<<<<<<< HEAD
+=======
+
+        	
+>>>>>>> b585d458c7d3840e70d93b68f595efd42e3bd2d8
         
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
