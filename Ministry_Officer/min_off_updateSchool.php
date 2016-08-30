@@ -157,6 +157,10 @@ ob_start();
                                                     <option value="3">Sothern Province</option>
                                                     <option value="4">Northern Province</option>
                                                     <option value="5">Estern Province</option>
+                                                    <option value="6">North Central Provience</option>
+                                                    <option value="7">North Western Province</option>
+                                                    <option value="8">Sabaragamuwa Province</option>
+                                                    <option value="9">Uva Province</option>
                                                 </select>
                                                 <label id="errorProvince" style="font-size: 10px"> </label>
                                             </div>  
