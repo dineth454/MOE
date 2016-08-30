@@ -40,47 +40,51 @@
     <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
     <script src="../alertify/lib/alertify.min.js"></script>
     <!-- Alert end-->
+
     <style>
-    body {
+
+        body {
         background-image: url("../images/back4.jpg");
         background-repeat: no-repeat;
-        background-position: 220px 50px;
-        background-size: 1150px 700px;
-    }
-    </style>
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
+
         
     </head>
-<?php $id = $_GET['id']; ?>
 
-<script type="text/javascript">
-$(".submit").click(function () {
-    //alert(this.id);
-    alertify.alert("Message ya ya yo");
-});
-
-</script>
     <body>
 
         <div id="wrapper">
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
-                
-            
-
+            <!-- Brand and toggle get grouped for better mobile display -->
             <!-- include Navigation BAr -->
-            <?php include 'navigation_bar_teacher.php' ?>
-            
-            <!-- Finished NAvigation bar -->
-            <!-- Sidebar -->
-            <?php include 'sidebar_teacher.php' ?>
+            <?php include '../interfaces/navigation_bar.php' ?>
+            <!--____________________________________________________________________________-->
+            <!-- Sidebar Menu Items-->
+             <!-- Sidebar -->
+            <?php 
+            include 'sideBarActivation.php';
+
+            //sideBar Activation
+            $navHome = "background-color: #0A1A42;";
+            $textHome = "color: white;";
+
+            include 'sidebar_admin.php'; ?>
             <!-- /#sidebar-wrapper -->
-            <!-- Page Content -->
-            </nav>
+            <!-- /.navbar-collapse -->
+        </nav>
             <div id="page-content-wrapper" style="min-height: 540px;">
                 <?php 
+                    
+                    $id = $_GET['id'];
                     if (isset($_POST['submit'])) {
-                        $not->deletemsg($id);
-
-                        //header("Location: teacher_home.php");
+                        
+                        $not = new Shownotification();
+                        $not->deletenotificati($id);
+                        
                     }
 
                  ?>
@@ -88,39 +92,41 @@ $(".submit").click(function () {
                 <div class="container-fluid" style="margin-left: 44px;margin-top: 90px;">
                     <div class="row">
                         <label>From :</label>
-                        <?php echo $not->nameMOE($id); ?>
+                        <?php echo $not->name($id); echo "; ";?>
                     </div>
                     <br/>
                     <div class="row">
-                        <label>Message :</label>
-                        <div class="panel panel-default" style="width:750px;">
-                          <div class="panel-body">
-                            <?php echo $not->message($id); ?>
-                          </div>
-                        </div>
-                        <div style="margin-left: 600px; color:#6495ED;"><?php echo $not->getmessagedate($id); ?>
-                        </div>
+                        <label>School :</label>
+                        <?php echo $not->school($id); ?>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <label>Subject Name :</label>
+                        <?php echo $not->getsubject($id); ?> (Grade <?php echo $not->getgrade($id); ?>)
 
                     </div>
                     <br/>
                     <div class="row">
-                        <label>Reply :</label>
-                        <div class="panel panel-default" style="width:750px;">
-                            <div class="panel-body">
-                                <?php echo $not->viewreply($id); ?>
-                            </div>
-                        </div>
-                        <div style="margin-left: 600px; color:#6495ED;"><?php echo $not->getmessagereplydate($id); ?>
-                        </div>
+                        <label>Subject Code :</label>
+                        <?php echo $not->getsubjectcode($id); ?>
+
                     </div>
+                    <br/>
                     <div class="row">
-                        <input class="btn btn-primary" type="button" onClick="history.go(-1);" value="Back">
-                    
-                        <input class="btn btn-primary" type="submit" name="submit" value="Delete">
+                        <label>Number of Vacancies :</label>
+                        <?php echo $not->getvacancy($id); ?>
+
                     </div>
+                <!--    <div class="row">
+                        <input class="btn btn-primary"  style="margin-top: 110px;" type="submit" name="submit" value="Accept">
+                    </div> -->
+
                 </div>
                 </form>
             </div>
+            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                    <img src="../images/personDetails.png" width="400" height="400">
+                </div>
             <!-- /#page-content-wrapper -->
 
         </div> 
@@ -135,7 +141,6 @@ $(".submit").click(function () {
 
             <!-- Bootstrap Core JavaScript -->
             <script src="../assets/js/bootstrap.min.js"></script>
-            
 
 
     </body>

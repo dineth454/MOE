@@ -54,7 +54,6 @@ ob_start();
         }
         </style>
 
-
     </head>
 
     <body>

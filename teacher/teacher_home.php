@@ -31,6 +31,7 @@
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
 
+
         <style>
         body {
         background-image: url("../images/back3.jpg");
@@ -72,8 +73,11 @@
 
         </div> 
         <!-- /#wrapper -->
+<<<<<<< HEAD
+=======
 
         	
+>>>>>>> b585d458c7d3840e70d93b68f595efd42e3bd2d8
         
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
@@ -82,6 +86,7 @@
 
             <!-- Bootstrap Core JavaScript -->
             <script src="../assets/js/bootstrap.min.js"></script>
+            <script src="../assets/js/notification.js"></script>
 
 
     </body>
