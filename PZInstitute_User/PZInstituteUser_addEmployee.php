@@ -190,12 +190,20 @@ ob_start();
                                             //zonal officer kenek nam add karanne
                                             if ($provinceIdLoggedUser == $provinceID) {
                                                 $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                            }else {
+                                                echo '<script language="javascript">';
+                                                echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You")';
+                                                echo '</script>';
                                             }
                                             // logged wela inne zonal officer kenek nam
                                         } else if ($designationIdLoggedUser == 3) {
                                             //principal kenek nam add karanne 
                                             if ($zonalIdLoggedUser == $zoneID) {
                                                 $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                            }else {
+                                                echo '<script language="javascript">';
+                                                echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You")';
+                                                echo '</script>';
                                             }
                                             //logged wela inne principal kenek nam
                                         } else if ($designationIdLoggedUser == 4) {
@@ -204,12 +212,12 @@ ob_start();
                                                 $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                                             } else {
                                                 echo '<script language="javascript">';
-                                                echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
+                                                echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You")';
                                                 echo '</script>';
                                             }
                                         } else {
                                             echo '<script language="javascript">';
-                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
+                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You")';
                                             echo '</script>';
                                         }
                                     }
@@ -225,12 +233,20 @@ ob_start();
                                         //zonal officer kenek nam add karanne
                                         if ($provinceIdLoggedUser == $provinceID) {
                                             $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                        }else {
+                                            echo '<script language="javascript">';
+                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You")';
+                                            echo '</script>';
                                         }
                                         // logged wela inne zonal officer kenek nam
                                     } else if ($designationIdLoggedUser == 3) {
                                         //principal kenek nam add karanne 
                                         if ($zonalIdLoggedUser == $zoneID) {
                                             $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
+                                        }else {
+                                            echo '<script language="javascript">';
+                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You")';
+                                            echo '</script>';
                                         }
                                         //logged wela inne principal kenek nam
                                     } else if ($designationIdLoggedUser == 4) {
@@ -239,12 +255,12 @@ ob_start();
                                             $result = $employee->addEmployee($nic, $roleType, $designation, $nameInitials, $fName, $empID, $email, $currentAddress, $gender, $marrigeState, $mobileNum, $provinceID, $zoneID, $schoolId, $subjectID);
                                         } else {
                                             echo '<script language="javascript">';
-                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.1")';
+                                            echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You")';
                                             echo '</script>';
                                         }
                                     } else {
                                         echo '<script language="javascript">';
-                                        echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You.2")';
+                                        echo 'alertify.alert("You Dont Have Permission to Add this employee!!!  Thank You")';
                                         echo '</script>';
                                     }
                                 }
