@@ -14,25 +14,42 @@ ob_start();
 
         <title>Map View</title>
 
+        
+        <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
+        <link href="../assets/css/home.css" rel="stylesheet">
+        <link href="../assets/css/smallbox.css" rel="stylesheet">
+
+        <link href="../assets/css/fonts_styles.css" rel="stylesheet">
+        <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
         <!-- Bootstrap Core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../assets/css/sb-admin.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="../assets/css/sb-admin.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="../assets/css/plugins/morris.css" rel="stylesheet">
+        <!-- Morris Charts CSS -->
+        <link href="..assets/css/plugins/morris.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom Fonts -->
+        <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="../assets/css/smallbox.css" rel="stylesheet">
-    <link href="../assets/css/footer.css" rel="stylesheet">
-    <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+        <link href="../assets/css/smallbox.css" rel="stylesheet">
+        <link href="../assets/css/footer.css" rel="stylesheet">
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
         
         
+        <style>
 
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
     </head>
 
     <body onload="load()">
@@ -40,15 +57,19 @@ ob_start();
         <div id="wrapper">
 
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
-                
+                <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- include Navigation BAr -->
-                <?php include 'navigation_bar_teacher.php' ?>
-                
-                <!-- Finished NAvigation bar -->
+                <?php include '../interfaces/navigation_bar.php' ?>
+                <!--____________________________________________________________________________-->
+                <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?php include 'sidebar_teacher.php' ?>
+                <?php 
+                //include 'sideBarActivation.php';
+               // $navMap = "background-color: #0A1A42;";
+                //$textMap = "color: white;";
+                include 'sidebar_teacher.php' ?>
                 <!-- /#sidebar-wrapper -->
-                <!-- Page Content -->
+                <!-- /.navbar-collapse -->
             </nav>
             
             <!-- Page Content -->
@@ -63,7 +84,9 @@ ob_start();
 
             </div>
             <!-- /#page-content-wrapper -->
-
+            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                <img src="../images/map.png" width="430" height="430" style="opacity: 0.8;">
+            </div>
         </div>
         <!-- /#wrapper -->
 
