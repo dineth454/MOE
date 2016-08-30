@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>View Profile Details</title>
+        <title>GTMS | Profile</title>
 <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 

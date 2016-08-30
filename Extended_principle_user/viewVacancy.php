@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Home</title>
+        <title>GTMS | Vacancy</title>
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -76,12 +76,11 @@ ob_start();
 
 
 
-            <div  id="page-content-wrapper" style="min-height: 540px;" >
-
+           <div  id="page-content-wrapper" style="min-height: 540px;" >
                 <div class="container-fluid">
-                    <div class="col-lg-6 col-lg-offset-1">
-                        <?php 
+                    <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
+                        <?php 
                         require("../classes/vacansies.php");
                         $vacancy = new Vacancy();
                         $provinceID = "n";
@@ -89,73 +88,58 @@ ob_start();
 
                             $provinceID = $_POST['provinceID'];
                         }
-
-                        
-
-
-
                         ?>
                         
-                        <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">View vacancies</h1>
-                        </div>
+                        <div class="row">
+                        <div class="col-lg-7">
+                            <h1 style="padding-bottom:40px;">View Vacancy</h1>
 
                         <form name="addEmployeeForm" method = "post" onsubmit="return(validateForm())"  novalidate>
-
-                            <div class="row">
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
+
                                             <!-- Designation-->
-                                            <label for="designation" class="control-label col-xs-6 col-sm-3 col-md-3 col-lg-3 required" style="display: inline-block; text-align: left;"> Province </label>
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"  >
-                                                    <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)" style="width: 176px;">
-                                                        <option value="" >Select Province</option>
-                                                        <option value="1">centralProvince</option>
-                                                        <option value="2">westernProvince</option>
-                                                        <option value="3">sothernProvince</option>
-                                                        <option value="4">NothernProvince</option>
-                                                        <option value="5">esternProvince</option>
-                                                    </select>
-                                                    
+                                            <div class="form-group">
+                                            <label for="designation" style="display: inline-block; text-align: left;"> Province </label>
+                                            <select required class="form-control " name="provinceID" id="provinceID" onchange="showUser(this.value)" autofocus>
+                                                <option value="" >Select Province</option>
+                                                <option value="1">Central Province</option>
+                                                <option value="2">Western Province</option>
+                                                <option value="3">Southern Province</option>
+                                                <option value="4">Nothern Province</option>
+                                                <option value="5">Eastern Province</option>
+                                            </select>       
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+
+
+                                            <div class="form-group" style="float: right">
                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
                                             </div>
 
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             
-                                                <?php echo $vacancy-> viewVacancy($provinceID) ; ?>
+                                                <?php echo $vacancy-> viewVacancy($provinceID); ?>
 
                                         </div>
                                     </div>
 
-
+                                    </div>
                                 </div>
-
-                            </div>
-
                         </form>
-                    </div>
-                    <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                        </div>
+                        <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
                         <img src="../images/personDetails.png" width="400" height="400">
+                        </div>
                     </div>
-
-
+                    </div>
                 </div>
             </div>
 
             <!-- /#page-content-wrapper -->
 
         </div>
+        <br>
         <br>
 
         <?php include '../interfaces/footer.php' ?>

@@ -287,7 +287,7 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
             <br>
-
+            <br>
 
 
             <?php include '../interfaces/footer.php' ?>

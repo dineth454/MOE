@@ -18,12 +18,9 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse2" style="<?php echo $navInstitute;?> ; <?php echo $textInstitute;?>"><i class="fa fa-university fa-2x" aria-hidden="true"></i> Institutes <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="collapse2" class="<?php echo $colInstitute;?>">
-                            
-                            <li style="<?php echo $navAddSchoolInstitute;?>">
-                                <a href="Extended_principle_addSchool.php" style="<?php echo $textAddSchoolInstitute;?>">Add School</a>
-                            </li>
+
                             <li style="<?php echo $navUpdateSchoolInstitute;?>">
-                                <a href="Extended_principle_updateSchool.php" style="<?php echo $textUpdateSchoolInstitute;?>">Update School</a>
+                                <a href="Extended_principle_updateSchoolForm.php" style="<?php echo $textUpdateSchoolInstitute;?>">Update School</a>
                             </li>
                         </ul>
                     </li>
