@@ -65,7 +65,19 @@
             
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->
-            <?php include 'sidebar_teacher.php' ?>
+            <?php 
+            include 'sideBarActivation.php';
+
+            //sideBar Activation
+            $navTransfer = "background-color: #0A1A42;";
+            $textTransfer = "color: white;";
+
+            $navTransferTeach = "background-color: #091536;";
+            $textTransferTeach = "color: white;";
+
+            $colTransfer = "collapse in";
+            
+            include 'sidebar_teacher.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             </nav>

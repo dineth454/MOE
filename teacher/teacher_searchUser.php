@@ -69,7 +69,16 @@ ob_start();
 
                 <?php
                 //include 'sideBarActivation.php';
+                include 'sideBarActivation.php';
 
+                //sideBar Activation
+                $navSearch = "background-color: #0A1A42;";
+                $textSearch = "color: white;";
+
+                $navSearchMembers = "background-color: #091536;";
+                $textSearchMembers = "color: white;";
+
+                $colSearch = "collapse in";
 
                 include 'sidebar_teacher.php'; ?>
                 <!-- /#sidebar-wrapper -->

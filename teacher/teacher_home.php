@@ -52,10 +52,17 @@
 
             <!-- include Navigation BAr -->
             <?php include 'navigation_bar_teacher.php' ?>
-            
+
             <!-- Finished NAvigation bar -->
             <!-- Sidebar -->
-            <?php include 'sidebar_teacher.php' ?>
+
+            <?php include 'sideBarActivation.php';
+
+            //sideBar Activation
+            $navHome = "background-color: #0A1A42;";
+            $textHome = "color: white;";
+            
+             include 'sidebar_teacher.php' ?>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             </nav>

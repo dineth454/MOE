@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Map View</title>
+        <title>GTMS | MapView</title>
 
         
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
@@ -76,7 +76,7 @@ ob_start();
             <div id="page-content-wrapper" style="min-height: 550px;">
 
                 <div class="container-fluid" >
-                    <div id="map-canvas" style="width:500px;height:730px;"></div>
+                    <div id="map-canvas" style="width:500px;height:730px; box-shadow: 0px 0px 15px #595959;"></div>
 
 
 
