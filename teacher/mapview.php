@@ -30,7 +30,14 @@ ob_start();
     <link href="../assets/css/footer.css" rel="stylesheet">
     <link href="../assets/css/navbar_styles.css" rel="stylesheet">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhSKzfElSK1IBSQgF1kGr2Iv6-JqeVUUA"></script>
-        
+        <style>
+        body {
+            background-image: url("../images/back4.jpg");
+            background-repeat: no-repeat;
+            background-position: 220px 50px;
+            background-size: 1150px 700px;
+        }
+        </style>
         
 
     </head>

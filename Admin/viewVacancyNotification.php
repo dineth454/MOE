@@ -18,7 +18,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Request Transer</title>
+        <title>Notifications</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -34,86 +34,105 @@
     <link href="../assets/css/smallbox.css" rel="stylesheet">
     <link href="../assets/css/footer.css" rel="stylesheet">
     <link href="../assets/css/navbar_styles.css" rel="stylesheet">
+
     <!-- Alert start-->
     <link rel="stylesheet" href="../alertify/themes/alertify.core.css" />
     <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
     <script src="../alertify/lib/alertify.min.js"></script>
     <!-- Alert end-->
+
     <style>
-    body {
+
+        body {
         background-image: url("../images/back4.jpg");
         background-repeat: no-repeat;
-        background-position: 220px 50px;
-        background-size: 1150px 700px;
-    }
-    </style>
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
+
+        
     </head>
 
     <body>
 
         <div id="wrapper">
             <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#020816;" role="navigation">
-
-            
-
+            <!-- Brand and toggle get grouped for better mobile display -->
             <!-- include Navigation BAr -->
-            <?php include 'navigation_bar_teacher.php' ?>
-            
-            <!-- Finished NAvigation bar -->
-            <!-- Sidebar -->
-            <?php include 'sidebar_teacher.php' ?>
-            <!-- /#sidebar-wrapper -->
-            <!-- Page Content -->
-            </nav>
-            <div id="page-content-wrapper" style="min-height: 540px;">
+            <?php include '../interfaces/navigation_bar.php' ?>
+            <!--____________________________________________________________________________-->
+            <!-- Sidebar Menu Items-->
+             <!-- Sidebar -->
+            <?php 
+            include 'sideBarActivation.php';
 
+            //sideBar Activation
+            $navHome = "background-color: #0A1A42;";
+            $textHome = "color: white;";
+
+            include 'sidebar_admin.php'; ?>
+            <!-- /#sidebar-wrapper -->
+            <!-- /.navbar-collapse -->
+        </nav>
+            <div id="page-content-wrapper" style="min-height: 540px;">
                 <?php 
                     
-                    
+                    $id = $_GET['id'];
                     if (isset($_POST['submit'])) {
-                        //require("../classes/Shownotification.php");
-                        $des = $_POST['description'];
-                        $sender = $_SESSION["nic"];
+                        
                         $not = new Shownotification();
-                        $id = $not->gennotid();
-                        $not->sendrequest($id,$des,$sender);
-                        //header("Location: teacher_home.php");
+                        $not->deletenotificati($id);
                         
                     }
 
                  ?>
-
                 <form  method="post">
                 <div class="container-fluid" style="margin-left: 44px;margin-top: 90px;">
-
-                    <div align="center" style="padding-bottom:10px;">
-                            <h1 class="topic_font">Transer Request</h1>
-                    </div>
-                    
                     <div class="row">
-                        <label>Message :</label>
-                        <div class="panel panel-default" style="width:750px;">
-                          <div class="panel-body">
-                            <textarea name="description" id="description" rows="5" cols="40" style="border: 0px; margin: 0px; width: 719px; height: 191px;"></textarea>
-                          </div>
-                        </div>
+                        <label>From :</label>
+                        <?php echo $not->name($id); echo "; ";?>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <label>School :</label>
+                        <?php echo $not->school($id); ?>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <label>Subject Name :</label>
+                        <?php echo $not->getsubject($id); ?> (Grade <?php echo $not->getgrade($id); ?>)
 
                     </div>
+                    <br/>
                     <div class="row">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Send">
+                        <label>Subject Code :</label>
+                        <?php echo $not->getsubjectcode($id); ?>
+
                     </div>
+                    <br/>
+                    <div class="row">
+                        <label>Number of Vacancies :</label>
+                        <?php echo $not->getvacancy($id); ?>
+
+                    </div>
+                <!--    <div class="row">
+                        <input class="btn btn-primary"  style="margin-top: 110px;" type="submit" name="submit" value="Accept">
+                    </div> -->
 
                 </div>
                 </form>
             </div>
+            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+                    <img src="../images/personDetails.png" width="400" height="400">
+                </div>
             <!-- /#page-content-wrapper -->
 
         </div> 
         <!-- /#wrapper -->
 
         <?php include '../interfaces/footer.php' ?>
-
-            
         
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 
