@@ -30,6 +30,15 @@
         <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
+
+        <style>
+        body {
+        background-image: url("../images/back3.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 50px;
+        background-size: 1150px 700px;
+        }
+        </style>
         
     </head>
 
@@ -64,7 +73,7 @@
         </div> 
         <!-- /#wrapper -->
 
-        	<?php include '../interfaces/footer.php' ?>
+        	
         
             <script src = "../assets/js/jquery-2.1.4.min.js"></script>
 

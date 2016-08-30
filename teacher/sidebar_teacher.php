@@ -1,5 +1,9 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+
+                    <li style="<?php echo $navHome;?>">
+                        <a href="teacher_home.php" style="<?php echo $textHome;?>"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
+                    </li>
                     
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#collapse4" style="<?php echo $navSearch;?> ; <?php echo $textSearch;?>"><i class="fa fa-search fa-2x" aria-hidden="true"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
@@ -27,7 +31,7 @@
                     </li>
                     
                     <li>
-                        <a href="mapview.php" data-toggle="collapse" data-target="#collapse7" style="<?php echo $navMap;?> ; <?php echo $textMap;?>"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
+                        <a href="mapview.php" data-toggle="collapse" data-target="#collapse7" style="<?php echo $navMap;?> ; <?php echo $textMap;?>"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> View Map <i class="fa fa-fw"></i></a>
                     </li>
 
                 </ul>
