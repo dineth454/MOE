@@ -687,6 +687,8 @@ class Employee {
 
     function checkDesignation($schoolId) {
         global $mysqli;
+        $tCount = 0;
+        $pCount = 0;
         $queryForgetInstituteID = "select instituteID from school where schoolID = '" . $schoolId . "'";
         $result = $mysqli->query($queryForgetInstituteID);
         $resultArray = mysqli_fetch_array($result);
@@ -700,13 +702,22 @@ class Employee {
             foreach ($result1 as $resultArray1){
                 //var_dump($resultArray1);
                $varx =   $resultArray1['designationTypeID'];
+
                 if($varx == 4){
-                    
-                    return 0;
+                    $pCount = $pCount + 1;
+                   // return 0;
                 }else{
-                    return 1;
+                    //return 1;
+                    $tCount = $tCount + 1;
                 }
                 
+            }
+
+            if($pCount > 0){
+
+                return 0;
+            }else{
+                return 1;
             }
         }
     }
