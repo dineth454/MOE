@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add Current Subject Form</title>
+        <title>GTMS | Subject</title>
 
 
           <!-- Bootstrap Core CSS -->

@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Map View</title>
+        <title>GTMS | MapView</title>
 
         
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet">
@@ -70,10 +70,9 @@ ob_start();
                 <!--____________________________________________________________________________-->
                 <!-- Sidebar Menu Items-->
                 <!-- Sidebar -->
-                <?php 
-                //include 'sideBarActivation.php';
-               // $navMap = "background-color: #0A1A42;";
-                //$textMap = "color: white;";
+                <?php include 'sideBarActivation.php';
+                $navMap = "background-color: #0A1A42;";
+                $textMap = "color: white;";
                 include 'sidebar_teacher.php' ?>
                 <!-- /#sidebar-wrapper -->
                 <!-- /.navbar-collapse -->
@@ -83,7 +82,7 @@ ob_start();
             <div id="page-content-wrapper" style="min-height: 550px;">
 
                 <div class="container-fluid" >
-                    <div id="map-canvas" style="width:500px;height:730px;"></div>
+                    <div id="map-canvas" style="width:500px;height:730px; box-shadow: 0px 0px 15px #595959;"></div>
 
 
 
@@ -91,7 +90,7 @@ ob_start();
 
             </div>
             <!-- /#page-content-wrapper -->
-            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px;"> 
+            <div class="col-lg-5" style="position: fixed; top: 150px; left: 850px; "> 
                 <img src="../images/map.png" width="430" height="430" style="opacity: 0.8;">
             </div>
         </div>

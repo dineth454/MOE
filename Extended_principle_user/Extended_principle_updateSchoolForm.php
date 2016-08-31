@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Update School</title>
+        <title>GTMS | Institute</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -34,6 +34,17 @@
         <link rel="stylesheet" href="../alertify/themes/alertify.default.css" />
         <script src="../alertify/lib/alertify.min.js"></script>
         <!-- Alert end-->
+
+        <style>
+
+        body {
+        background-image: url("../images/back4.jpg");
+        background-repeat: no-repeat;
+        background-position: 220px 330px;
+        background-attachment: fixed;
+        background-size: 1150px 350px;
+        }
+        </style>
 
     </head>
 
@@ -71,31 +82,40 @@
                     <div class="col-lg-9 col-lg-offset-1" style="padding-top: 50px;">
 
                         <?php
-                        // echo $_SESSION['designationType'];
-                        
-                        
-                        //Update School Details
-                        $schoolID =  $_SESSION['updateSchool']['schoolID'];
-                        $schoolName = $_SESSION['updateSchool']['schoolName'];
-                        $noOfStudents = $_SESSION['updateSchool']['numOfStudents'];
-                        $latitude =  $_SESSION['updateSchool']['lat'];
-                        $longtitude = $_SESSION['updateSchool']['lng'];
+                        require("../classes/institute.php");
+                        $institute = new Institute();
+
+                        // logged User Details
+                        $LoggedUsernic = $_SESSION['nic'];
+                        $designationIdLoggedUser = $_SESSION['designationTypeID'];
+
+                        $resultSchoolID = $institute->getSchoolIDLoggedUser($LoggedUsernic);
+                        $schoolID = $resultSchoolID['schoolID'];
+                            // echo $schoolID;
+
+                        $resultFindschool = $institute->findSchool($schoolID);
+
+                        $schoolName = $resultFindschool['schoolName'];
+                        $noOfStudents = $resultFindschool['numOfStudents'];
+                        $latitude = $resultFindschool['lat'];
+                        $longtitude = $resultFindschool['lng'];
+                        //$instituteIdSearchSchool = $resultFindschool['instituteID'];
+                        //$instituteIDLoggedUser = $institute->getInstituteIDLoggedUser($LoggedUsernic);
+
                         if (isset($_POST['submit'])) {
-                            require '../classes/institute.php';
                             
                             $updatedSchoolName=$_POST['School'];
                             $updatedNoOFStudents = $_POST['students'];
                             $updatesLatitude = $_POST['lat'];
                             $updatedLangitude = $_POST['lng'];
-                            
-                            $institute = new Institute();
+
                             $result =  $institute->updateInstitute($schoolID,$updatedSchoolName,$updatedNoOFStudents,$updatesLatitude,$updatedLangitude);
                             
                             if($result == 1){
                                 echo '<script language="javascript">
                                         alertify.confirm("School details are updated successfully!", function (e) {
                                         if (e) {
-                                            window.location.href="Extended_principle_updateSchool.php";
+                                            window.location.href="Extended_principle_home.php";
                                         }
                                         });
                                     </script>';
@@ -151,7 +171,7 @@
                                     </div>
 
                                     <div class="form-group" style="float: right; padding-right: 10px;">
-                                        <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='ministryOfficerHome.php'"/>
+                                        <input class="btn btn-primary" style="width: 80px;" type="button" value="Cancel" onclick="window.location.href='Extended_principle_home.php'"/>
                                     </div>
 
                                 </div>

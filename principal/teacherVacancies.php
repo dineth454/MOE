@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Vacancies Teacher Form</title>
+        <title>GTMS | Vacancy</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">

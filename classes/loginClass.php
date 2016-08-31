@@ -74,10 +74,10 @@ class Login {
                 header("Location: Extended_principle_user/Extended_principle_home.php");
                 //exit();
             }else if ($roleTypeID == 5) {
-                header("Location: Extended_principle_user/Extended_principle_home.php");
+                header("Location: principal/homePrincipal.php");
                 //exit();
             } else if ($roleTypeID == 6) {
-                header("Location: teacher/viewProfile.php");
+                header("Location: teacher/teacher_home.php");
                 //exit();
             }else{
 

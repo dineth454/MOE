@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add Current Subject Form Front</title>
+        <title>GTMS | Subject</title>
 
 
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -171,7 +171,7 @@ ob_start();
             <!-- /#page-content-wrapper -->
 
             <br>
-
+            <br>
 
 
 

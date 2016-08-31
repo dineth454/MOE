@@ -12,7 +12,7 @@ ob_start();
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add vacancy</title>
+        <title>GTMS | Vacancy</title>
 
         
 

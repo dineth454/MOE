@@ -162,6 +162,23 @@ class Institute {
 
     //==========================================================================================================//
 
+    function getSchoolIDLoggedUser($loggedUsernic) {
+
+        global $con;
+        // select Institute Id of logged User
+        $query_for_get_instituteId = "select instituteID from employee where nic = '" . $loggedUsernic . "'";
+        $result_InstituteID = $con->query($query_for_get_instituteId);
+        $result_InstituteIdArray = mysqli_fetch_array($result_InstituteID);
+        $InstituteIDLoggedUser = $result_InstituteIdArray['instituteID'];
+
+        //get zonal Office Id Of Logged User
+        $query_for_get_zonal_id_of_logged_user = "select schoolID from school where instituteID =' " . $InstituteIDLoggedUser . " ' ";
+        $result_zonalOffice = $con->query($query_for_get_zonal_id_of_logged_user);
+        $result_zonal_arry = mysqli_fetch_array($result_zonalOffice);
+        // $zonalId_LoggedUser = $result_zonal_arry ['zonalID'];
+        return $result_zonal_arry;
+    }
+
 }
 
 ?>
